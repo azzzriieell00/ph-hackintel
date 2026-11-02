@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-02T15:35:57Z",
+ "generated_at": "2026-11-02T15:47:27Z",
  "generator": "PH HackIntel pipeline 1.0",
  "offline_run": false,
  "llm_enabled": false,
@@ -10,7 +10,7 @@
    "type": "rss",
    "url": "https://news.google.com/rss/search?q=hackathon+Philippines+when:14d&hl=en-PH&gl=PH&ceid=PH:en",
    "errors": [
-    "https://news.google.com/rss/search?q=hackathon+Philippines+when:14d&hl=en-PH&gl=PH&ceid=PH:en: feed unreachable"
+    "https://news.google.com/rss/search?q=hackathon+Philippines+when:14d&hl=en-PH&gl=PH&ceid=PH:en: robots.txt disallows this URL for our bot"
    ],
    "found": 0,
    "ok": false,
@@ -23,33 +23,7 @@
    "type": "rss",
    "url": "https://news.google.com/rss/search?q=%22capture+the+flag%22+OR+HackForGov+Philippines+when:30d&hl=en-PH&gl=PH&ceid=PH:en",
    "errors": [
-    "https://news.google.com/rss/search?q=%22capture+the+flag%22+OR+HackForGov+Philippines+when:30d&hl=en-PH&gl=PH&ceid=PH:en: feed unreachable"
-   ],
-   "found": 0,
-   "ok": false,
-   "needs_llm": 0,
-   "leads": 0
-  },
-  {
-   "id": "dict-home",
-   "name": "DICT website",
-   "type": "listing",
-   "url": "https://dict.gov.ph/",
-   "errors": [
-    "https://dict.gov.ph/: HTTP 403"
-   ],
-   "found": 0,
-   "ok": false,
-   "needs_llm": 0,
-   "leads": 0
-  },
-  {
-   "id": "pia-home",
-   "name": "Philippine Information Agency",
-   "type": "listing",
-   "url": "https://pia.gov.ph/",
-   "errors": [
-    "https://pia.gov.ph/: HTTP 403"
+    "https://news.google.com/rss/search?q=%22capture+the+flag%22+OR+HackForGov+Philippines+when:30d&hl=en-PH&gl=PH&ceid=PH:en: robots.txt disallows this URL for our bot"
    ],
    "found": 0,
    "ok": false,
@@ -101,9 +75,9 @@
    "source_id": "manual",
    "first_seen": "2026-11-02T14:50:41Z",
    "last_verified": null,
-   "link_failures": 2,
-   "link_status": "no response",
-   "last_seen": "2026-11-02T15:35:57Z",
+   "link_failures": 3,
+   "link_status": "SSLError: HTTPSConnectionPool(host='www.spaceappschallenge.org', port=443): Max retries exceeded with url: /2026/ (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)')))",
+   "last_seen": "2026-11-02T15:47:27Z",
    "lat": null,
    "lon": null,
    "precision": "NONE",

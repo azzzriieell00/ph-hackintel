@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-02T15:23:56Z",
+ "generated_at": "2026-11-02T15:35:57Z",
  "generator": "PH HackIntel pipeline 1.0",
  "offline_run": false,
  "llm_enabled": false,
@@ -101,9 +101,9 @@
    "source_id": "manual",
    "first_seen": "2026-11-02T14:50:41Z",
    "last_verified": null,
-   "link_failures": 1,
+   "link_failures": 2,
    "link_status": "no response",
-   "last_seen": "2026-11-02T15:23:56Z",
+   "last_seen": "2026-11-02T15:35:57Z",
    "lat": null,
    "lon": null,
    "precision": "NONE",

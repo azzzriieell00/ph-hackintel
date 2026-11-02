@@ -36,7 +36,8 @@ NOMINATIM_ENABLED = os.environ.get("HACKINTEL_NOMINATIM", "1") == "1"
 LINK_OK_WINDOW_H = 72        # a link check must have passed within this many hours
 MANUAL_OK_WINDOW_D = 7       # a manual verification counts for this many days
 MAX_LINK_FAILURES = 3        # consecutive failed checks before an event is hidden
-KEEP_CLOSED_DAYS = 30        # closed events stay in the archive this long
+KEEP_CLOSED_DAYS = 30        # (legacy) not used for finished events; see PAST_WINDOW_D
+PAST_WINDOW_D = 62           # finished events stay on the map (as past pins) for about two months
 NEW_WINDOW_H = 72            # "NEW" badge for events first seen within this window
 
 KEYWORDS = ["hackathon", "hack-a-thon", "hackfest", "buildathon", "codefest", "code fest", "ideathon",

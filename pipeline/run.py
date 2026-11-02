@@ -15,7 +15,7 @@ import yaml
 
 from . import config, extract, geo
 from .fetch import Http
-from .store import (iso, load_json, make_id, merge, now_utc, parse_iso, publish_decision, write_json)
+from .store import (is_finished, iso, load_json, make_id, merge, now_utc, parse_iso, phase, publish_decision, write_json)
 
 PH_NAMES = {"ph", "phl", "philippines", "republic of the philippines", "pilipinas"}
 BLOCKED: set[str] = set()
@@ -223,7 +223,7 @@ def main(argv=None) -> int:
         dl = parse_iso(ev.get("deadline"))
         if url and is_blocked(url):
             ev["link_status"] = "not checked automatically: platform does not allow it"
-        elif url and not args.offline and dl and dl > now - timedelta(days=1):
+        elif url and not args.offline and not is_finished(ev, now):
             ok, status = http.check_link(url)
             ev["link_status"] = status
             if ok is True:
@@ -235,6 +235,7 @@ def main(argv=None) -> int:
         fs = parse_iso(ev.get("first_seen"))
         ev["is_new"] = bool(fs and now - fs <= timedelta(hours=config.NEW_WINDOW_H)) and ev.get("extraction") != "manual"
         ev["category"] = extract.classify(ev)
+        ev["phase"] = phase(ev, now)
         ok, why = publish_decision(ev, now)
         ev.pop("description", None)
         if ok:
@@ -245,12 +246,15 @@ def main(argv=None) -> int:
             held.append(ev)
             review.append({"name": ev.get("name"), "id": eid, "url": url, "reason": why})
             # Real competitions without a pin (online, venue not confirmed) still show up under Signals.
-            if "kept as a signal" in why and url and parse_iso(ev.get("deadline")) and parse_iso(ev["deadline"]) > now:
+            if "kept as a signal" in why and url and not is_finished(ev, now):
                 no_pin_leads.append({"title": f"[{ev['category'].upper()}] {ev['name']}", "url": url,
                                      "source": (ev.get("sources") or [{}])[0].get("label", ""),
                                      "published": None, "note": why.split(" (kept")[0]})
 
-    published.sort(key=lambda e: e.get("deadline") or "")
+    # upcoming first (soonest deadline), then finished events (most recent first)
+    upcoming = sorted((e for e in published if e["phase"] != "finished"), key=lambda e: e.get("deadline") or e.get("start") or "")
+    past = sorted((e for e in published if e["phase"] == "finished"), key=lambda e: e.get("end") or e.get("start") or "", reverse=True)
+    published = upcoming + past
 
     # Leads: unverified headlines and links on platforms we must not fetch. Kept 21 days.
     leads = {l["url"]: l for l in prev_doc.get("leads", []) if l.get("url")}

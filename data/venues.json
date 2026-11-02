@@ -468,6 +468,118 @@
    "lon": 120.9675,
    "precision": "CITY",
    "note": "approximate city centre"
+  },
+  {
+   "kind": "city",
+   "name": "Lucena",
+   "aliases": [
+    "Lucena City"
+   ],
+   "province": "Quezon",
+   "lat": 13.9373,
+   "lon": 121.617,
+   "precision": "CITY",
+   "note": "approximate city centre"
+  },
+  {
+   "kind": "city",
+   "name": "Boac",
+   "aliases": [],
+   "province": "Marinduque",
+   "lat": 13.4467,
+   "lon": 121.8399,
+   "precision": "CITY",
+   "note": "approximate city centre"
+  },
+  {
+   "kind": "city",
+   "name": "Calapan",
+   "aliases": [
+    "Calapan City"
+   ],
+   "province": "Oriental Mindoro",
+   "lat": 13.4115,
+   "lon": 121.1803,
+   "precision": "CITY",
+   "note": "approximate city centre"
+  },
+  {
+   "kind": "city",
+   "name": "Cotabato City",
+   "aliases": [],
+   "province": "Maguindanao del Norte",
+   "lat": 7.2236,
+   "lon": 124.2464,
+   "precision": "CITY",
+   "note": "approximate city centre"
+  },
+  {
+   "kind": "city",
+   "name": "Ormoc",
+   "aliases": [
+    "Ormoc City"
+   ],
+   "province": "Leyte",
+   "lat": 11.0064,
+   "lon": 124.6075,
+   "precision": "CITY",
+   "note": "approximate city centre"
+  },
+  {
+   "kind": "city",
+   "name": "San Fernando (La Union)",
+   "aliases": [
+    "San Fernando City, La Union"
+   ],
+   "province": "La Union",
+   "lat": 16.6159,
+   "lon": 120.3166,
+   "precision": "CITY",
+   "note": "approximate city centre"
+  },
+  {
+   "kind": "city",
+   "name": "Clark",
+   "aliases": [
+    "Clark Freeport Zone"
+   ],
+   "province": "Pampanga",
+   "lat": 15.1855,
+   "lon": 120.546,
+   "precision": "CITY",
+   "note": "approximate city centre"
+  },
+  {
+   "kind": "city",
+   "name": "Valencia (Bukidnon)",
+   "aliases": [],
+   "province": "Bukidnon",
+   "lat": 7.9064,
+   "lon": 125.0942,
+   "precision": "CITY",
+   "note": "approximate city centre"
+  },
+  {
+   "kind": "city",
+   "name": "Koronadal",
+   "aliases": [
+    "Koronadal City"
+   ],
+   "province": "South Cotabato",
+   "lat": 6.5008,
+   "lon": 124.8469,
+   "precision": "CITY",
+   "note": "approximate city centre"
+  },
+  {
+   "kind": "city",
+   "name": "Surigao City",
+   "aliases": [],
+   "province": "Surigao del Norte",
+   "lat": 9.7838,
+   "lon": 125.4888,
+   "precision": "CITY",
+   "note": "approximate city centre"
   }
  ]
 }

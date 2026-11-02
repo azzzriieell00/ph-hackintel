@@ -93,7 +93,9 @@ body.cursor-on #cursor{display:block}
 .chip.s-open{color:var(--fg);border-color:rgba(255,43,63,.45)}
 .chip.s-closing{color:var(--amber);border-color:rgba(231,177,74,.5)}
 .chip.s-today{color:#fff;border-color:var(--red);background:rgba(255,43,63,.18)}
-.chip.s-closed{color:#6f6261}
+.chip.s-closed{color:#b8a9a7}
+.chip.s-past{color:#8f8280;border-color:#3a2a2c}
+.chip.s-live{color:#fff;border-color:var(--red)}
 .chip.amber{color:var(--amber);border-color:rgba(231,177,74,.45)}
 .chip.new{color:var(--bg);background:var(--red);border-color:var(--red)}
 
@@ -140,7 +142,7 @@ body.cursor-on #cursor{display:block}
 .titem .tc small{display:block;font-size:9.5px;color:var(--muted);letter-spacing:.06em}
 .titem .tags{grid-column:1;display:flex;gap:5px;flex-wrap:wrap}
 .titem.closed .tn{color:var(--muted)}
-.tc.s-closing{color:var(--amber)}.tc.s-today{color:var(--red)}
+.tc.s-closing{color:var(--amber)}.tc.s-today{color:var(--red)}.tc.s-past{color:var(--muted)}.tc.s-live{color:var(--red)}
 .empty{padding:22px 12px;font:500 11px/1.6 var(--f-mono);color:var(--muted);display:grid;gap:8px}
 .empty b{color:var(--fg);font-weight:500}
 .lead{display:grid;gap:4px;padding:9px 10px;border:1px solid transparent;color:inherit;text-decoration:none}
@@ -206,6 +208,7 @@ body.intel-open .zoomctl{right:calc(var(--intel) + var(--gap) * 2)}
 .legend .lg-closing{border-color:var(--red);box-shadow:0 0 0 3px rgba(255,43,63,.25)}
 .legend .lg-city{border-style:solid;border-color:rgba(255,43,63,.45);width:16px;height:16px}
 .legend .lg-prov{border-style:dashed;width:16px;height:16px}
+.legend .lg-past{border-color:rgba(160,143,141,.7)}
 .legend .lg-ctf{border-radius:0;transform:rotate(45deg);width:9px;height:9px}
 .chip.cat-ctf{color:var(--fg);border-color:var(--red);background:rgba(125,13,24,.35)}
 
@@ -326,10 +329,11 @@ body.mode-3d #ret3d{display:block}
     <div class="rbars" id="rbars" aria-label="Active hackathons by region"></div>
     <div class="filters" id="filters" role="group" aria-label="Filter targets">
       <button class="fbtn" data-f="all" aria-pressed="true">All</button>
+      <button class="fbtn" data-f="upcoming" aria-pressed="false">Upcoming</button>
+      <button class="fbtn" data-f="past" aria-pressed="false">Past</button>
       <button class="fbtn" data-f="hackathon" aria-pressed="false">Hackathon</button>
       <button class="fbtn" data-f="ctf" aria-pressed="false">CTF</button>
       <button class="fbtn" data-f="closing" aria-pressed="false">Closing</button>
-      <button class="fbtn" data-f="archive" aria-pressed="false">Closed</button>
       <button class="fbtn" data-f="signals" aria-pressed="false">Signals</button>
     </div>
     <ul class="tlist" id="tlist"></ul>
@@ -382,6 +386,7 @@ body.mode-3d #ret3d{display:block}
   <div class="legend" aria-hidden="true">
     <span><i></i>Hackathon</span>
     <span><i class="lg-ctf"></i>CTF / cyber</span>
+    <span><i class="lg-past"></i>Past (2 months)</span>
     <span><i class="lg-closing"></i>Closing (7 days)</span>
     <span><i class="lg-city"></i>City precision</span>
     <span><i class="lg-prov"></i>Province only</span>
@@ -507,16 +512,33 @@ function normalize(list) {
       ev.locCheck = !hit ? 'NO_LAND' : (!stated ? 'UNSTATED' : (provName(hit.prov).toLowerCase() === stated ? 'MATCH' : 'MISMATCH'));
     } else { ev.geoProv = -1; ev.geoRegion = -1; ev.locCheck = 'N/A'; }
     return ev;
+  }).map(ev => {
+    ev.startT = Date.parse(ev.start || '');
+    if (!Number.isFinite(ev.dl) && Number.isFinite(ev.startT)) ev.dl = ev.startT;
+    const endT = Date.parse(ev.end || '');
+    /* when the event is over: its end, else a day after its start, else its deadline */
+    ev.endT = Number.isFinite(endT) ? endT : Number.isFinite(ev.startT) ? ev.startT + 864e5 : ev.dl;
+    ev.lastDayT = Number.isFinite(endT) ? endT : Number.isFinite(ev.startT) ? ev.startT : ev.dl;   /* last calendar day, for display */
+    return ev;
   }).filter(ev => Number.isFinite(ev.dl));
 }
 function status(ev, now = Date.now()) {
+  if (now > ev.endT) return 'past';
   const ms = ev.dl - now;
-  if (ms < 0) return 'closed';
+  if (ms < 0) return Number.isFinite(ev.startT) && ev.startT <= now ? 'live' : 'closed';
   if (ms < 864e5) return 'today';
   if (ms <= 7 * 864e5) return 'closing';
   return 'open';
 }
-const ST_LABEL = { open:'Open', closing:'Closing soon', today:'Under 24 hours', closed:'Closed' };
+const ST_LABEL = { open:'Open', closing:'Closing soon', today:'Under 24 hours', closed:'Registration closed', live:'Happening now', past:'Finished' };
+/* short right-hand label in the list, the callout and the ticker */
+function cdLabel(ev, now = Date.now()) {
+  const st = status(ev, now);
+  if (st === 'past') return ['ENDED', fmtDay(ev.lastDayT)];
+  if (st === 'live') return ['LIVE', 'NOW'];
+  if (st === 'closed') return ['REG CLOSED', Number.isFinite(ev.startT) ? 'STARTS ' + fmtDay(ev.startT) : ''];
+  return [shortCd(ev.dl - now), 'DL ' + fmtDay(ev.dl)];
+}
 
 /* ---- time formatting (always Philippine time) ---- */
 const DTF = new Intl.DateTimeFormat('en-US', { timeZone: TZ, year:'numeric', month:'short', day:'2-digit', hour:'2-digit', minute:'2-digit', hourCycle:'h23' });
@@ -597,7 +619,7 @@ function fitAll() { return animateView({ k: 1, cx: (bx0 + bx1) / 2, cy: (by0 + b
 const HEAT = new Float32Array(N);
 function computeHeat() {
   HEAT.fill(0);
-  const active = EVENTS.filter(e => e.hasPin && status(e) !== 'closed');
+  const active = EVENTS.filter(e => e.hasPin && status(e) !== 'past');
   const regionActive = new Set(active.map(e => e.geoRegion));
   const sig2 = 2 * 0.85 * 0.85;
   for (let i = 0; i < N; i++) {
@@ -648,12 +670,12 @@ function triggerMapGlitch(strength = 1) {
 function pinVisible(ev) {
   if (!ev.hasPin) return false;
   const st = status(ev);
-  if (filter === 'archive') return st === 'closed';
-  if (st === 'closed') return false;
+  if (filter === 'past') return st === 'past';
+  if (filter === 'upcoming') return st !== 'past';
   if (filter === 'closing') return st === 'closing' || st === 'today';
   if (filter === 'hackathon' || filter === 'ctf') return ev.category === filter;
   if (filter === 'signals') return false;
-  return true;
+  return true;                       /* All: upcoming and past (past pins drawn dim) */
 }
 
 function draw(t) {
@@ -779,7 +801,7 @@ function draw(t) {
     if (!pinVisible(ev)) continue;
     const [x, y] = toScreen(ev.px, ev.py);
     if (x < -40 || y < -40 || x > W + 40 || y > H + 40) continue;
-    const st = status(ev, now), closed = st === 'closed';
+    const st = status(ev, now), closed = st === 'past';   /* finished events: dim grey pin */
     const isSel = selected === ev, isHov = hoverPin === ev;
     const base = closed ? 'rgba(160,143,141,0.6)' : COL.red;
     pinHits.push({ ev, x, y });
@@ -839,7 +861,8 @@ function draw(t) {
     ctx.beginPath(); ctx.moveTo(x + (left ? -9 : 9), y - 9); ctx.lineTo(ex, ey); ctx.lineTo(hx, ey); ctx.stroke();
     co.classList.toggle('left', left);
     const cw = co.offsetWidth;
-    const lx = clamp(left ? ex - cw - 6 : ex + 6, 8, Math.max(8, W - cw - 8));
+    const minX = W > 820 ? cssNum('--side') + cssNum('--gap') * 2 : 8;   /* never behind the target list */
+    const lx = clamp(left ? ex - cw - 6 : ex + 6, minX, Math.max(minX, W - cw - 8));
     co.style.transform = `translate(${Math.round(lx)}px, ${Math.round(ey - 30)}px)`;
   } else {
     co.style.transform = 'translate(-9999px,0)';
@@ -935,13 +958,17 @@ function filtered() {
   const now = Date.now();
   return EVENTS.filter(ev => {
     const st = status(ev, now);
-    if (filter === 'archive') return st === 'closed';
-    if (st === 'closed') return false;
+    if (filter === 'past') return st === 'past';
+    if (filter === 'upcoming') return st !== 'past';
     if (filter === 'closing') return st === 'closing' || st === 'today';
     if (filter === 'hackathon' || filter === 'ctf') return ev.category === filter;
     if (filter === 'signals') return false;
     return true;
-  }).sort((a, b) => filter === 'archive' ? b.dl - a.dl : a.dl - b.dl);
+  }).sort((a, b) => {
+    const pa = status(a, now) === 'past', pb = status(b, now) === 'past';
+    if (pa !== pb) return pa ? 1 : -1;               /* upcoming first */
+    return pa ? b.endT - a.endT : a.dl - b.dl;       /* past: most recent first */
+  });
 }
 function ago(t) {
   const m = Math.round((Date.now() - t) / 6e4);
@@ -978,29 +1005,31 @@ function renderList() {
     const tags = [`<span class="chip ${ev.category === 'ctf' ? 'cat-ctf' : ''}">${ev.category === 'ctf' ? 'CTF' : 'Hackathon'}</span>`, `<span class="chip s-${st}">${esc(ST_LABEL[st])}</span>`];
     if (ev.mode !== 'onsite') tags.push(`<span class="chip">${esc(ev.mode)}</span>`);
     if (ev.is_new) tags.push(`<span class="chip new">New</span>`);
-    return `<li><button class="titem ${st === 'closed' ? 'closed' : ''} ${selected === ev ? 'sel' : ''}" data-id="${esc(ev.id)}">
+    const [cdMain, cdSub] = cdLabel(ev, now);
+    return `<li><button class="titem ${st === 'past' ? 'closed' : ''} ${selected === ev ? 'sel' : ''}" data-id="${esc(ev.id)}">
       <span class="tags">${tags.join('')}</span>
       <span class="tn">${esc(ev.name)}</span>
       <span class="tl">${esc(placeLine(ev))}</span>
-      <span class="tc s-${st}" data-cd="${esc(ev.id)}">${esc(shortCd(ev.dl - now))}<small>DL ${esc(fmtDay(ev.dl))}</small></span>
+      <span class="tc s-${st}" data-cd="${esc(ev.id)}">${esc(cdMain)}<small>${esc(cdSub)}</small></span>
     </button></li>`;
   }).join('');
 }
 function renderStats() {
   const now = Date.now();
-  const act = EVENTS.filter(e => status(e, now) !== 'closed');
+  const act = EVENTS.filter(e => status(e, now) !== 'past');
+  const pastN = EVENTS.length - act.length;
   const closing = act.filter(e => ['closing', 'today'].includes(status(e, now))).length;
-  const ctfs = act.filter(e => e.category === 'ctf').length;
-  const regs = new Map();
-  for (const e of act) if (e.geoRegion >= 0) regs.set(e.geoRegion, (regs.get(e.geoRegion) || 0) + 1);
+  const ctfs = EVENTS.filter(e => e.category === 'ctf').length;
+  const regs = new Map();   /* all pinned events, upcoming and past */
+  for (const e of EVENTS) if (e.geoRegion >= 0) regs.set(e.geoRegion, (regs.get(e.geoRegion) || 0) + 1);
   $('#stats').innerHTML = [
-    ['Active', act.length, false], ['Closing', closing, closing > 0], ['CTF', ctfs, false], ['Regions', regs.size, false]
+    ['Upcoming', act.length, false], ['Closing', closing, closing > 0], ['CTF', ctfs, false], ['Past', pastN, false]
   ].map(([l, v, hot]) => `<div class="stat ${hot ? 'hot' : ''}"><b>${v}</b><span>${l}</span></div>`).join('');
   const top = [...regs.entries()].sort((a, b) => b[1] - a[1]).slice(0, 5);
   const max = top.length ? top[0][1] : 1;
   $('#rbars').innerHTML = top.length ? top.map(([ri, n]) =>
     `<div class="rbar"><span title="${esc(GEO.regions[ri])}">${esc(regionName(ri))}</span><i style="transform:scaleX(${(n / max).toFixed(3)})"></i><em>${n}</em></div>`).join('')
-    : `<div class="note">No active events with a confirmed Philippine location.</div>`;
+    : `<div class="note">No events with a confirmed Philippine location yet.</div>`;
   $('#rec-count').textContent = `${EVENTS.length} RECORDS`;
 }
 document.querySelector('#filters').addEventListener('click', e => {
@@ -1049,10 +1078,11 @@ function openIntel(ev) {
            <dt>Location check</dt><dd class="m">${check}</dd>
            <dt>Located by</dt><dd>${esc({ gazetteer: 'Gazetteer (checked list)', nominatim: 'OpenStreetMap geocoder', source: 'Coordinates in the announcement', manual: 'Manual entry' }[ev.location_source] || ev.location_source || 'Not recorded')}</dd>`;
   }
-  const evDates = ev.start ? `${fmtDay(Date.parse(ev.start))}${ev.end ? ' – ' + fmtDay(Date.parse(ev.end)) : ''} ${parts(Date.parse(ev.start)).year}` : 'Not announced';
+  const evDates = eventDates(ev);
   $('#facts').innerHTML = `
-    <dt>${ev.deadline_is_estimate ? 'Event starts' : 'Deadline'}</dt><dd class="m">${esc(fmtDate(ev.dl))}${ev.deadline_is_estimate ? '<br><span class="warn">No registration deadline stated</span>' : ''}${ev.deadline_extended_from ? '<br><span class="warn">Extended from ' + esc(fmtDate(Date.parse(ev.deadline_extended_from))) + '</span>' : ''}</dd>
+    <dt>Deadline</dt><dd class="m">${ev.deadline_is_estimate ? (status(ev) === 'past' ? 'Not stated in source' : '<span class="warn">No registration deadline stated</span>') : esc(fmtDate(ev.dl))}${ev.deadline_extended_from ? '<br><span class="warn">Extended from ' + esc(fmtDate(Date.parse(ev.deadline_extended_from))) + '</span>' : ''}</dd>
     <dt>Event dates</dt><dd class="m">${esc(evDates)}</dd>
+    ${ev.results ? `<dt>Results</dt><dd>${esc(ev.results)}</dd>` : ''}
     <dt>Mode</dt><dd>${esc(ev.mode.charAt(0).toUpperCase() + ev.mode.slice(1))}</dd>
     <dt>Venue</dt><dd>${esc(ev.venue || 'Not announced')}</dd>
     <dt>Location</dt><dd>${esc(placeLine(ev))}</dd>
@@ -1065,7 +1095,7 @@ function openIntel(ev) {
   if (Number.isFinite(lv)) ver.push(`official link answered ${esc(ago(lv))} (${esc(ev.link_status || 'OK')})`);
   else if (ev.link_status) ver.push(esc(ev.link_status));
   if (Number.isFinite(mv)) ver.push(`checked by hand ${esc(fmtDate(mv))}${ev.verified_by ? ' (' + esc(ev.verified_by) + ')' : ''}`);
-  const how = { jsonld: 'structured event data on the page', llm: 'AI reading of the page text, then checks', manual: 'entered by hand from the official page' }[ev.extraction] || ev.extraction || 'not recorded';
+  const how = { jsonld: 'structured event data on the page', llm: 'AI reading of the page text, then checks', manual: 'entered by hand from the source page' }[ev.extraction] || ev.extraction || 'not recorded';
   const src = `<div><b>SOURCE</b> // ${(ev.sources || []).map(s => s.url ? `<a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer" style="color:var(--fg)">${esc(s.label || s.url)}</a>` : esc(s.label)).join(', ') || 'Not recorded'}</div>
        <div><b>EXTRACTED FROM</b> // ${esc(how)}</div>
        <div><b>VERIFIED</b> // ${ver.length ? ver.join('; ') : 'Not recorded'}</div>
@@ -1102,15 +1132,29 @@ function update3DButton() {
 $('#btn-3d').addEventListener('click', e => { zap(e.currentTarget); if (in3D) returnToOverview(false); else if (selected) enter3D(selected); });
 $('#btn-ics').addEventListener('click', e => { zap(e.currentTarget); if (selected) downloadICS(selected); });
 
+function eventDates(ev) {
+  if (!Number.isFinite(ev.startT)) return 'Not announced';
+  const endT = Date.parse(ev.end || '');
+  const sameDay = !Number.isFinite(endT) || fmtDay(endT) === fmtDay(ev.startT);
+  return `${fmtDay(ev.startT)}${sameDay ? '' : ' – ' + fmtDay(endT)} ${parts(ev.startT).year}`;
+}
 function updateCountdown() {
   if (!selected) return;
   const now = Date.now(), st = status(selected, now), ms = selected.dl - now;
-  $('#cd').textContent = countdown(ms);
-  $('#cd-label').textContent = selected.deadline_is_estimate
-    ? (st === 'closed' ? 'Event has started' : 'Event starts in (no deadline stated)')
-    : (st === 'closed' ? 'Registration closed' : 'Registration closes in');
-  $('#cdbox').className = 'cdbox s-' + st;
-  $('#cdbar').style.transform = `scaleX(${clamp(ms / (30 * 864e5), 0, 1).toFixed(4)})`;
+  let label, value, frac = clamp(ms / (30 * 864e5), 0, 1);
+  if (st === 'past') { label = 'Event held ' + eventDates(selected); value = 'FINISHED'; frac = 0; }
+  else if (st === 'live') { label = 'Event in progress'; value = 'HAPPENING NOW'; frac = 0; }
+  else if (st === 'closed') {
+    label = Number.isFinite(selected.startT) ? 'Registration closed // event starts in' : 'Registration closed';
+    value = Number.isFinite(selected.startT) ? countdown(selected.startT - now) : 'CLOSED'; frac = 0;
+  } else {
+    label = selected.deadline_is_estimate ? 'Event starts in (no deadline stated)' : 'Registration closes in';
+    value = countdown(ms);
+  }
+  $('#cd').textContent = value;
+  $('#cd-label').textContent = label;
+  $('#cdbox').className = 'cdbox s-' + (st === 'past' ? 'closed' : st);
+  $('#cdbar').style.transform = `scaleX(${frac.toFixed(4)})`;
 }
 
 /* Centre the target in the part of the map the panels leave visible. */
@@ -1127,11 +1171,12 @@ async function select(ev, { via }) {
   openIntel(ev);
   const cs = $('#callout');
   cs.querySelector('.cn').textContent = ev.name;
-  cs.querySelector('.cs').textContent = `${ev.category === 'ctf' ? 'CTF' : 'HACKATHON'} // ${placeLine(ev)} // DL ${shortCd(ev.dl - Date.now())}`;
+  const [m, sub] = cdLabel(ev);
+  cs.querySelector('.cs').textContent = `${ev.category === 'ctf' ? 'CTF' : 'HACKATHON'} // ${placeLine(ev)} // ${m}${sub ? ' ' + sub : ''}`;
   triggerMapGlitch(0.8);
   if (ev.hasPin) {
     if (!pinVisible(ev)) {
-      filter = status(ev) === 'closed' ? 'archive' : 'all';
+      filter = 'all';
       document.querySelectorAll('.fbtn').forEach(x => x.setAttribute('aria-pressed', String(x.dataset.f === filter)));
       renderList();
     }
@@ -1163,8 +1208,10 @@ function renderTicker() {
   const t = TF.format(new Date());
   const okSrc = DATA.sources.filter(x => x.ok).length;
   const lines = [`[${t}] FEED // ${DATA.origin === 'live' ? 'LIVE FILE' : 'SNAPSHOT'} // LAST SCAN ${DATA.generated ? esc(ago(DATA.generated).toUpperCase()) : 'UNKNOWN'} // ${EVENTS.length} VERIFIED // ${LEADS.length} SIGNALS${DATA.sources.length ? ` // SOURCES ${okSrc}/${DATA.sources.length} OK` : ''}`];
+  for (const ev of [...EVENTS].filter(e => status(e, now) === 'past').sort((a, b) => b.endT - a.endT).slice(0, 5))
+    lines.push(`RECENT // ${ev.category === 'ctf' ? 'CTF' : 'HACKATHON'} // ${esc(ev.name.toUpperCase())} // ${esc(placeLine(ev).toUpperCase())} // ENDED ${esc(fmtDay(ev.lastDayT))}`);
   for (const ev of [...EVENTS].sort((a, b) => a.dl - b.dl)) {
-    const st = status(ev, now); if (st === 'closed') continue;
+    const st = status(ev, now); if (st === 'past') continue;
     lines.push(`${ev.is_new ? '<b>NEW</b> // ' : ''}${ev.category === 'ctf' ? 'CTF' : 'HACKATHON'} // ${esc(ev.name.toUpperCase())} // ${esc(placeLine(ev).toUpperCase())} // DL ${esc(fmtDay(ev.dl))} (${esc(shortCd(ev.dl - now))})`);
   }
   for (const l of LEADS.slice(0, 6)) lines.push(`SIGNAL // ${esc((l.title || l.url).toUpperCase())}`);
@@ -1515,7 +1562,7 @@ function tick() {
   const now = Date.now();
   document.querySelectorAll('[data-cd]').forEach(el => {
     const ev = EVENTS.find(x => x.id === el.dataset.cd); if (!ev) return;
-    el.firstChild.nodeValue = shortCd(ev.dl - now);
+    el.firstChild.nodeValue = cdLabel(ev, now)[0];
   });
   updateCountdown();
   const sig = EVENTS.map(e => status(e, now)).join();

@@ -86,11 +86,33 @@ page), `rss` (`leads_only: true` keeps headlines without opening them). Before e
 read its terms; the scanner checks robots.txt itself and waits 2 s between requests per host.
 The fastest way to add coverage is your own **Google Alerts** feed (instructions in the file).
 
-## Adding an event by hand
+## Past and upcoming events
 
-Found one on Facebook or Luma? Open the official page, then add an entry to
-`config/manual_events.yaml` with only what the page states and `verified_manually` set to now.
-Commit; the next run publishes it.
+- **Upcoming**: registration open, closing soon, registration closed, or happening now.
+- **Past**: finished events stay on the map as dim pins for about two months (`PAST_WINDOW_D = 62`
+  in `pipeline/config.py`). A past event needs a confirmed Philippine location and a public source
+  link (news report, school or organizer page). Registration links are no longer checked for them.
+- Filters: All, Upcoming, Past, Hackathon, CTF, Closing, Signals.
+
+## Adding an event by hand (Facebook and other closed platforms)
+
+The scanner does not read Facebook (Meta's terms prohibit automated collection). To add an event
+you saw there, run the helper and answer the questions with what the post states:
+
+```bash
+python tools/add_event.py
+```
+
+It checks the city against the Philippine province boundaries (or asks for coordinates from
+Google Maps), builds the entry and appends it to `config/manual_events.yaml`. Then:
+
+```bash
+git add config/manual_events.yaml
+git commit -m "Add <event name>"
+git push
+```
+
+The push triggers a scan, and the event appears on the map within a few minutes.
 
 ## Files
 

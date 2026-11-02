@@ -77,14 +77,50 @@ def merge(prev: dict | None, cur: dict, now: datetime) -> dict:
     return out
 
 
+def event_end(ev: dict) -> datetime | None:
+    """When the event itself is over: end, else start (+1 day), else the deadline."""
+    end = parse_iso(ev.get("end"))
+    if end:
+        return end
+    start = parse_iso(ev.get("start"))
+    if start:
+        return start + timedelta(days=1)
+    return parse_iso(ev.get("deadline"))
+
+
+def is_finished(ev: dict, now: datetime) -> bool:
+    end = event_end(ev)
+    return bool(end and end < now)
+
+
+def phase(ev: dict, now: datetime) -> str:
+    """upcoming (registration open) | registration_closed | ongoing | finished"""
+    if is_finished(ev, now):
+        return "finished"
+    start, dl = parse_iso(ev.get("start")), parse_iso(ev.get("deadline"))
+    if start and start <= now:
+        return "ongoing"
+    if dl and dl < now:
+        return "registration_closed"
+    return "upcoming"
+
+
 def publish_decision(ev: dict, now: datetime) -> tuple[bool, str]:
     dl = parse_iso(ev.get("deadline"))
-    if not dl:
+    if not dl and not parse_iso(ev.get("start")):
         return False, "no deadline or event date"
-    if dl < now - timedelta(days=config.KEEP_CLOSED_DAYS):
-        return False, "closed more than %d days ago" % config.KEEP_CLOSED_DAYS
     if (ev.get("status_note") or "").lower() in ("eventcancelled", "cancelled"):
         return False, "cancelled"
+    if is_finished(ev, now):
+        # Past events: shown for about two months. They need a pin and a public source that documents them;
+        # registration links are not checked any more (they usually close after the event).
+        if event_end(ev) < now - timedelta(days=config.PAST_WINDOW_D):
+            return False, f"finished more than {config.PAST_WINDOW_D} days ago"
+        if not any(s.get("url") for s in ev.get("sources") or []):
+            return False, "finished event without a source link"
+        if ev.get("lat") is None or ev.get("lon") is None:
+            return False, f"finished event without a confirmed Philippine venue ({ev.get('location_check')})"
+        return True, "ok"
     lv = parse_iso(ev.get("last_verified"))
     mv = parse_iso(ev.get("verified_manually"))
     skew = timedelta(hours=12)  # a check stamped in the future is a typo, not a verification

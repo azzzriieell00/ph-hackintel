@@ -55,3 +55,20 @@ def test_classify_ctf_and_hackathon():
     assert classify({"name": "Cebu Cybersecurity Competition"}) == "ctf"
     assert classify({"name": "Iloilo Civic Hackathon"}) == "hackathon"
     assert classify({"name": "Anything", "category": "ctf"}) == "ctf"
+
+
+def test_finished_event_rules():
+    from datetime import timedelta
+    from pipeline.store import phase
+    src = [{"label": "news", "url": "https://news.example/a"}]
+    base = {"mode": "onsite", "lat": 10.7, "lon": 122.56, "sources": src}
+    recent = {**base, "start": iso(NOW - timedelta(days=20)), "deadline": iso(NOW - timedelta(days=20))}
+    assert phase(recent, NOW) == "finished" and publish_decision(recent, NOW) == (True, "ok")
+    old = {**base, "start": iso(NOW - timedelta(days=90)), "deadline": iso(NOW - timedelta(days=90))}
+    assert publish_decision(old, NOW)[0] is False
+    nosrc = {**recent, "sources": []}
+    assert "source" in publish_decision(nosrc, NOW)[1]
+    nopin = {**recent, "lat": None, "lon": None}
+    assert publish_decision(nopin, NOW)[0] is False
+    soon = {**base, "start": iso(NOW + timedelta(days=5)), "deadline": iso(NOW - timedelta(days=1))}
+    assert phase(soon, NOW) == "registration_closed"

@@ -35,4 +35,124 @@
 #    verified_manually: "2026-11-03T09:00"
 #    verified_by: Your name
 
-events: []
+events:
+  # ---- Past events (about the last two months), researched 2026-11-03 from public sources ----
+  # Past events stay on the map for ~62 days after they end. Coordinates are city centres
+  # (CITY precision) because exact venue coordinates were not confirmed.
+
+  - id: hackforgov-2026-region13-ctf
+    name: HackForGov 2026 Region 13 CTF Regional Qualifying Round
+    category: ctf
+    organizer: DICT Region 13
+    mode: onsite
+    venue: Almont Inland Resort
+    city: Butuan
+    province: Agusan del Norte
+    start: "2026-09-02"
+    deadline: "2026-09-02"
+    deadline_is_estimate: true
+    themes: [Capture the Flag, Cybersecurity]
+    results: "Champion: SMCC Team Michaelinian Tech Knights; 1st runner-up: SMCC Team Un!N$P3CT3d; 2nd runner-up: St. Francis Xavier College"
+    sources:
+      - label: Mindanao Gold Star Daily (2026-09-29)
+        url: https://mindanaogoldstardaily.com/smcc-sweeps-top-spots-in-caraga-hack4gov-2026
+    verified_manually: "2026-11-03T00:45"
+    verified_by: Web research
+
+  - id: cyber-hunt-ctf-league-zamboanga-2026
+    name: Provincial Cyber Hunt CTF League 2026, Zamboanga City leg
+    category: ctf
+    organizer: DICT Region 9
+    mode: onsite
+    venue: Not stated in source
+    city: Zamboanga City
+    province: Zamboanga del Sur
+    start: "2026-09-23"
+    deadline: "2026-09-23"
+    deadline_is_estimate: true
+    themes: [Capture the Flag, Threat mitigation, Network defense]
+    results: "Top team: WMSU Team BaiPass; qualifiers advance to the regional HackForGov round"
+    sources:
+      - label: Mindanao Gold Star Daily (2026-09-30)
+        url: https://mindanaogoldstardaily.com/wmsu-dominates-zamboanga-ctf-leg-leads-qualifiers-to-regional-hack4gov
+    verified_manually: "2026-11-03T00:45"
+    verified_by: Web research
+
+  - id: hackforgov-2026-nir-ctf
+    name: HackForGov 2026 Negros Island Region CTF Regional Competition
+    category: ctf
+    organizer: DICT
+    mode: onsite
+    venue: Roy's Hotel and Convention Center
+    city: Bacolod
+    province: Negros Occidental
+    start: "2026-10-12"
+    deadline: "2026-10-12"
+    deadline_is_estimate: true
+    themes: [Capture the Flag, Cybersecurity]
+    results: "Champion: University of St. La Salle Bacolod; 1st runner-up: STI West Negros University; 2nd runner-up: Silliman University (Phish & Chips)"
+    sources:
+      - label: Silliman University news
+        url: https://su.edu.ph/su-places-third-in-hackforgov-5-nir-regional-competition/
+      - label: CHMSU news
+        url: https://chmsu.edu.ph/chmsu-team-bags-3rd-runner-up-in-dict-hackforgov5-regionals-student-qualifies-for-nationals/
+    verified_manually: "2026-11-03T00:45"
+    verified_by: Web research
+
+  - id: hack4aprogress-2026-calabarzon
+    name: Hack4A Progress 2026 (DOST CALABARZON Hackathon)
+    category: hackathon
+    organizer: DOST CALABARZON
+    mode: onsite
+    venue: Quezon Convention Center
+    city: Lucena
+    province: Quezon
+    start: "2026-10-12"
+    end: "2026-10-14"
+    deadline: "2026-10-12"
+    deadline_is_estimate: true
+    themes: [Innovation, Digital solutions]
+    results: "Champion: BatStateU-Alangilan; 1st runner-up: STI College Lipa; 2nd runner-up: Laguna State Polytechnic University"
+    sources:
+      - label: Daily Tribune (2026-10-14)
+        url: https://tribune.net.ph/2026/10/14/batstateu-alangilan-wins-dost-calabarzon-hackathon
+    verified_manually: "2026-11-03T00:45"
+    verified_by: Web research
+
+  - id: cyber-skills-challenge-iligan-2026
+    name: Cyber Skills Challenge Iligan 2026
+    category: ctf
+    organizer: Not stated in source (National Cybersecurity Awareness Month activity)
+    mode: onsite
+    venue: Digital Creatives Hub, Pala-o
+    city: Iligan
+    province: Lanao del Norte
+    start: "2026-10-17"
+    deadline: "2026-10-17"
+    deadline_is_estimate: true
+    themes: [Capture the Flag, Cybersecurity quiz bowl]
+    results: "Overall champion: IMCC College of Computer Studies"
+    sources:
+      - label: IMCC news (2026-10-19)
+        url: https://imcc.edu.ph/college-of-computer-studies-brings-home-overall-championship-in-cyber-skills-challenge-2026/
+    verified_manually: "2026-11-03T00:45"
+    verified_by: Web research
+
+  - id: marinduque-innovation-fest-hackathon-2026
+    name: Marinduque Innovation Fest 2026 Hackathon
+    category: hackathon
+    organizer: DOST Marinduque
+    mode: onsite
+    venue: Governor's Hall, Provincial Capitol
+    city: Boac
+    province: Marinduque
+    start: "2026-10-29"
+    deadline: "2026-10-29"
+    deadline_is_estimate: true
+    themes: [Community challenges, Digital solutions]
+    results: "Five finalist teams; winners not reported in the source"
+    sources:
+      - label: Daily Tribune (2026-10-29)
+        url: https://tribune.net.ph/2026/10/29/five-teams-compete-in-marinduque-innovation-fest-2026-hackathon
+    verified_manually: "2026-11-03T00:45"
+    verified_by: Web research

@@ -211,7 +211,8 @@ def candidate_links(html: str, base_url: str, allow_hosts: list[str] | None, pat
 
 
 # ------------------------------------------------------------------ LLM
-LLM_PROMPT = """You extract hackathon and CTF announcements from web pages for a public map of Philippine competitions.
+LLM_PROMPT = """You extract hackathon and CTF events from web pages (announcements, or reports of events already held)
+for a public map of Philippine competitions.
 Read the page text and answer with ONLY a JSON object, no prose. Use null for anything the page does not state.
 Never guess dates, venues or links.
 
@@ -232,7 +233,8 @@ Never guess dates, venues or links.
   "themes": [string],
   "prize": string|null,
   "registration_url": string|null,     // only a URL that appears in the page text
-  "registration_closed": true|false|null
+  "registration_closed": true|false|null,
+  "results": string|null               // for events already held: winners in one short factual line
 }}
 
 Page URL: {url}
@@ -287,5 +289,6 @@ def from_llm(data: dict | None, url: str, text: str) -> dict | None:
         "registration_url": reg or url, "official_url": url,
         "registration_closed": data.get("registration_closed"),
         "category": data.get("category") if data.get("category") in ("hackathon", "ctf") else None,
+        "results": (data.get("results") or None) if isinstance(data.get("results"), str) else None,
         "extraction": "llm",
     }

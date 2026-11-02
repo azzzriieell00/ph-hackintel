@@ -235,6 +235,16 @@ body.mode-3d .zoomctl{display:none}
 body.mode-3d #attr3d{display:inline}
 body.mode-3d .credit-2d{display:none}
 #ret3d{position:fixed;left:0;top:0;z-index:4;pointer-events:none;width:0;height:0;display:none}
+#callout3d{position:fixed;inset:0;z-index:4;pointer-events:none;display:none}
+body.mode-3d #callout3d{display:block}
+#callout3d .lead{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+#callout3d polyline{fill:none;stroke:var(--red);stroke-width:1.4}
+#callout3d .c3{position:absolute;left:0;top:0;max-width:min(460px,calc(100vw - 32px))}
+#callout3d .cn{font:700 22px/1.05 var(--f-display);text-transform:uppercase;letter-spacing:.04em;color:var(--fg);text-shadow:0 0 14px rgba(11,8,9,.95),0 0 3px rgba(11,8,9,.95)}
+#callout3d .cs,#callout3d .cv{margin-top:6px;font:500 11px/1.35 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-shadow:0 0 8px rgba(11,8,9,.95)}
+#callout3d .cv b{color:var(--amber);font-weight:500}
+#callout3d .cv b.ok{color:#7fd39a}
+#callout3d.left .c3{text-align:right}
 body.mode-3d #ret3d{display:block}
 #ret3d i{position:absolute;border:1.5px solid var(--red);border-radius:50%}
 #ret3d .r1{width:22px;height:22px;left:-11px;top:-11px;box-shadow:0 0 18px rgba(255,43,63,.6)}
@@ -298,6 +308,10 @@ body.mode-3d #ret3d{display:block}
 <canvas id="map2d" aria-label="Map of the Philippines showing hackathon locations. Use the target list to browse events with a keyboard."></canvas>
 <div id="map3d" aria-hidden="true"></div>
 <div id="ret3d" aria-hidden="true"><i class="r2"></i><i class="r1"></i><i class="r3"></i></div>
+<div id="callout3d" aria-hidden="true">
+  <svg class="lead"><polyline points="" /></svg>
+  <div class="c3"><div class="cn"></div><div class="cs"></div><div class="cv"></div></div>
+</div>
 <div id="callout" aria-hidden="true"><div class="cn"></div><div class="cs"></div></div>
 <div class="fx-scan" aria-hidden="true"></div>
 <div class="fx-grain" aria-hidden="true"></div>
@@ -1348,6 +1362,7 @@ function fly3D(ev) {
   if (!map3) return;
   selected = ev;
   $('#hud3d-t').innerHTML = `CITY VIEW // <b>${esc((ev.city || ev.province).toUpperCase())}</b> // ${esc(ev.precision)} PRECISION`;
+  fill3DCallout(ev);
   orbiting = false;
   map3.flyTo({ center: [ev.lon, ev.lat], zoom: 16.2, pitch: 62, bearing: -28, duration: RM ? 0 : 3200, essential: true, padding: viewPadding3D() });
   map3.once('moveend', () => { if (in3D && !RM && selected === ev) { orbiting = true; requestAnimationFrame(orbit); } });
@@ -1365,10 +1380,35 @@ function orbit() {
   if (!document.hidden) map3.setBearing(map3.getBearing() + 0.04);
   requestAnimationFrame(orbit);
 }
+/* Label in the 3D view: says honestly whether the marker is the venue itself or only the city centre. */
+function fill3DCallout(ev) {
+  const box = $('#callout3d');
+  const [m, sub] = cdLabel(ev);
+  const exact = ev.precision === 'EXACT';
+  const place = [ev.city, ev.province].filter(Boolean).join(', ');
+  const venueKnown = ev.venue && !/not (stated|yet announced|announced)/i.test(ev.venue);
+  decode(box.querySelector('.cn'), ev.name, 700);
+  box.querySelector('.cs').textContent = `${ev.category === 'ctf' ? 'CTF' : 'HACKATHON'} // ${m}${sub ? ' ' + sub : ''}`;
+  box.querySelector('.cv').innerHTML = exact
+    ? `<b class="ok">VENUE</b> // ${esc(ev.venue || place)}`
+    : `<b>CITY CENTRE</b> // ${esc(place)}${venueKnown ? `<br>VENUE: ${esc(ev.venue)} // EXACT SPOT NOT PINNED` : '<br>VENUE NOT CONFIRMED'}`;
+}
 function place3DReticle() {
   if (!map3 || !selected || !selected.hasPin) return;
   const p = map3.project([selected.lon, selected.lat]);
   $('#ret3d').style.transform = `translate(${p.x}px, ${p.y}px)`;
+  /* leader line: from the marker up and out, then a horizontal rule under the label */
+  const box = $('#callout3d'), label = box.querySelector('.c3');
+  const intelW = document.body.classList.contains('intel-open') && W > 820 ? cssNum('--intel') + cssNum('--gap') * 2 : 0;
+  const minX = W > 820 ? cssNum('--side') + cssNum('--gap') * 2 : 12;
+  const lw = Math.min(label.offsetWidth || 300, 460), lh = label.offsetHeight || 70;
+  const left = p.x + 70 + lw > W - intelW - 12;
+  const ex = p.x + (left ? -70 : 70), ey = Math.max(cssNum('--hdr') + 90 + lh, p.y - 90);
+  const hx = ex + (left ? -Math.max(lw, 180) : Math.max(lw, 180));
+  box.classList.toggle('left', left);
+  box.querySelector('polyline').setAttribute('points', `${p.x + (left ? -12 : 12)},${p.y - 12} ${ex},${ey} ${hx},${ey}`);
+  const lx = clamp(left ? hx : ex, minX, Math.max(minX, W - intelW - lw - 12));
+  label.style.transform = `translate(${Math.round(lx)}px, ${Math.round(ey - lh - 6)}px)`;
 }
 function destroy3D() {
   orbiting = false;

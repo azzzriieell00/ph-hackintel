@@ -1,1 +1,24 @@
-{}
+{
+ "almont inland resort butuan philippines": [
+  {
+   "lat": 8.946265,
+   "lon": 125.5294135,
+   "category": "tourism",
+   "type": "hotel",
+   "display_name": "Almont Inland Hotel & Resort, Jose C. Aquino Avenue, Bayanihan, Poblacion, Butuan, Caraga, 8600, Philippines"
+  }
+ ],
+ "not stated in source zamboanga philippines": [],
+ "roy s hotel and convention center bacolod philippines": [
+  {
+   "lat": 10.6121636,
+   "lon": 122.9261312,
+   "category": "building",
+   "type": "hotel",
+   "display_name": "Roy's Hotel and Convention Center, Araneta Street, NHA, Pahanocoy, Bacolod-2, Bacolod, Negros Island Region, 6100, Philippines"
+  }
+ ],
+ "quezon convention center lucena philippines": [],
+ "digital creatives hub pala o iligan philippines": [],
+ "governor s hall provincial capitol boac philippines": []
+}

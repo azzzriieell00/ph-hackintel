@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-02T16:36:24Z",
+ "generated_at": "2026-11-02T16:48:28Z",
  "generator": "PH HackIntel pipeline 1.0",
  "offline_run": false,
  "llm_enabled": false,
@@ -38,7 +38,236 @@
    "leads": 0
   }
  ],
- "events": [],
+ "events": [
+  {
+   "id": "marinduque-innovation-fest-hackathon-2026",
+   "name": "Marinduque Innovation Fest 2026 Hackathon",
+   "category": "hackathon",
+   "organizer": "DOST Marinduque",
+   "mode": "onsite",
+   "venue": "Governor's Hall, Provincial Capitol",
+   "city": "Boac",
+   "province": "Marinduque",
+   "start": "2026-10-29T00:00:00+08:00",
+   "deadline": "2026-10-29T23:59:00+08:00",
+   "deadline_is_estimate": true,
+   "themes": [
+    "Community challenges",
+    "Digital solutions"
+   ],
+   "results": "Five finalist teams; winners not reported in the source",
+   "sources": [
+    {
+     "label": "Daily Tribune (2026-10-29)",
+     "url": "https://tribune.net.ph/2026/10/29/five-teams-compete-in-marinduque-innovation-fest-2026-hackathon"
+    }
+   ],
+   "verified_manually": "2026-11-03T00:45:00+08:00",
+   "verified_by": "Web research",
+   "extraction": "manual",
+   "source_id": "manual",
+   "first_seen": "2026-11-02T16:48:28Z",
+   "last_seen": "2026-11-02T16:48:28Z",
+   "lat": 13.4467,
+   "lon": 121.8399,
+   "precision": "CITY",
+   "location_source": "gazetteer",
+   "location_check": "MATCH",
+   "is_new": false,
+   "phase": "finished"
+  },
+  {
+   "id": "cyber-skills-challenge-iligan-2026",
+   "name": "Cyber Skills Challenge Iligan 2026",
+   "category": "ctf",
+   "organizer": "Not stated in source (National Cybersecurity Awareness Month activity)",
+   "mode": "onsite",
+   "venue": "Digital Creatives Hub, Pala-o",
+   "city": "Iligan",
+   "province": "Lanao del Norte",
+   "start": "2026-10-17T00:00:00+08:00",
+   "deadline": "2026-10-17T23:59:00+08:00",
+   "deadline_is_estimate": true,
+   "themes": [
+    "Capture the Flag",
+    "Cybersecurity quiz bowl"
+   ],
+   "results": "Overall champion: IMCC College of Computer Studies",
+   "sources": [
+    {
+     "label": "IMCC news (2026-10-19)",
+     "url": "https://imcc.edu.ph/college-of-computer-studies-brings-home-overall-championship-in-cyber-skills-challenge-2026/"
+    }
+   ],
+   "verified_manually": "2026-11-03T00:45:00+08:00",
+   "verified_by": "Web research",
+   "extraction": "manual",
+   "source_id": "manual",
+   "first_seen": "2026-11-02T16:48:28Z",
+   "last_seen": "2026-11-02T16:48:28Z",
+   "lat": 8.228,
+   "lon": 124.2452,
+   "precision": "CITY",
+   "location_source": "gazetteer",
+   "location_check": "MATCH",
+   "is_new": false,
+   "phase": "finished"
+  },
+  {
+   "id": "hack4aprogress-2026-calabarzon",
+   "name": "Hack4A Progress 2026 (DOST CALABARZON Hackathon)",
+   "category": "hackathon",
+   "organizer": "DOST CALABARZON",
+   "mode": "onsite",
+   "venue": "Quezon Convention Center",
+   "city": "Lucena",
+   "province": "Quezon",
+   "start": "2026-10-12T00:00:00+08:00",
+   "end": "2026-10-14T00:00:00+08:00",
+   "deadline": "2026-10-12T23:59:00+08:00",
+   "deadline_is_estimate": true,
+   "themes": [
+    "Innovation",
+    "Digital solutions"
+   ],
+   "results": "Champion: BatStateU-Alangilan; 1st runner-up: STI College Lipa; 2nd runner-up: Laguna State Polytechnic University",
+   "sources": [
+    {
+     "label": "Daily Tribune (2026-10-14)",
+     "url": "https://tribune.net.ph/2026/10/14/batstateu-alangilan-wins-dost-calabarzon-hackathon"
+    }
+   ],
+   "verified_manually": "2026-11-03T00:45:00+08:00",
+   "verified_by": "Web research",
+   "extraction": "manual",
+   "source_id": "manual",
+   "first_seen": "2026-11-02T16:48:28Z",
+   "last_seen": "2026-11-02T16:48:28Z",
+   "lat": 13.9373,
+   "lon": 121.617,
+   "precision": "CITY",
+   "location_source": "gazetteer",
+   "location_check": "MATCH",
+   "is_new": false,
+   "phase": "finished"
+  },
+  {
+   "id": "hackforgov-2026-nir-ctf",
+   "name": "HackForGov 2026 Negros Island Region CTF Regional Competition",
+   "category": "ctf",
+   "organizer": "DICT",
+   "mode": "onsite",
+   "venue": "Roy's Hotel and Convention Center",
+   "city": "Bacolod",
+   "province": "Negros Occidental",
+   "start": "2026-10-12T00:00:00+08:00",
+   "deadline": "2026-10-12T23:59:00+08:00",
+   "deadline_is_estimate": true,
+   "themes": [
+    "Capture the Flag",
+    "Cybersecurity"
+   ],
+   "results": "Champion: University of St. La Salle Bacolod; 1st runner-up: STI West Negros University; 2nd runner-up: Silliman University (Phish & Chips)",
+   "sources": [
+    {
+     "label": "Silliman University news",
+     "url": "https://su.edu.ph/su-places-third-in-hackforgov-5-nir-regional-competition/"
+    },
+    {
+     "label": "CHMSU news",
+     "url": "https://chmsu.edu.ph/chmsu-team-bags-3rd-runner-up-in-dict-hackforgov5-regionals-student-qualifies-for-nationals/"
+    }
+   ],
+   "verified_manually": "2026-11-03T00:45:00+08:00",
+   "verified_by": "Web research",
+   "extraction": "manual",
+   "source_id": "manual",
+   "first_seen": "2026-11-02T16:48:28Z",
+   "last_seen": "2026-11-02T16:48:28Z",
+   "lat": 10.61216,
+   "lon": 122.92613,
+   "precision": "EXACT",
+   "location_source": "nominatim",
+   "location_check": "MATCH",
+   "is_new": false,
+   "phase": "finished"
+  },
+  {
+   "id": "cyber-hunt-ctf-league-zamboanga-2026",
+   "name": "Provincial Cyber Hunt CTF League 2026, Zamboanga City leg",
+   "category": "ctf",
+   "organizer": "DICT Region 9",
+   "mode": "onsite",
+   "venue": "Not stated in source",
+   "city": "Zamboanga City",
+   "province": "Zamboanga del Sur",
+   "start": "2026-09-23T00:00:00+08:00",
+   "deadline": "2026-09-23T23:59:00+08:00",
+   "deadline_is_estimate": true,
+   "themes": [
+    "Capture the Flag",
+    "Threat mitigation",
+    "Network defense"
+   ],
+   "results": "Top team: WMSU Team BaiPass; qualifiers advance to the regional HackForGov round",
+   "sources": [
+    {
+     "label": "Mindanao Gold Star Daily (2026-09-30)",
+     "url": "https://mindanaogoldstardaily.com/wmsu-dominates-zamboanga-ctf-leg-leads-qualifiers-to-regional-hack4gov"
+    }
+   ],
+   "verified_manually": "2026-11-03T00:45:00+08:00",
+   "verified_by": "Web research",
+   "extraction": "manual",
+   "source_id": "manual",
+   "first_seen": "2026-11-02T16:48:28Z",
+   "last_seen": "2026-11-02T16:48:28Z",
+   "lat": 6.9214,
+   "lon": 122.079,
+   "precision": "CITY",
+   "location_source": "gazetteer",
+   "location_check": "MATCH",
+   "is_new": false,
+   "phase": "finished"
+  },
+  {
+   "id": "hackforgov-2026-region13-ctf",
+   "name": "HackForGov 2026 Region 13 CTF Regional Qualifying Round",
+   "category": "ctf",
+   "organizer": "DICT Region 13",
+   "mode": "onsite",
+   "venue": "Almont Inland Resort",
+   "city": "Butuan",
+   "province": "Agusan del Norte",
+   "start": "2026-09-02T00:00:00+08:00",
+   "deadline": "2026-09-02T23:59:00+08:00",
+   "deadline_is_estimate": true,
+   "themes": [
+    "Capture the Flag",
+    "Cybersecurity"
+   ],
+   "results": "Champion: SMCC Team Michaelinian Tech Knights; 1st runner-up: SMCC Team Un!N$P3CT3d; 2nd runner-up: St. Francis Xavier College",
+   "sources": [
+    {
+     "label": "Mindanao Gold Star Daily (2026-09-29)",
+     "url": "https://mindanaogoldstardaily.com/smcc-sweeps-top-spots-in-caraga-hack4gov-2026"
+    }
+   ],
+   "verified_manually": "2026-11-03T00:45:00+08:00",
+   "verified_by": "Web research",
+   "extraction": "manual",
+   "source_id": "manual",
+   "first_seen": "2026-11-02T16:48:28Z",
+   "last_seen": "2026-11-02T16:48:28Z",
+   "lat": 8.94627,
+   "lon": 125.52941,
+   "precision": "EXACT",
+   "location_source": "nominatim",
+   "location_check": "MATCH",
+   "is_new": false,
+   "phase": "finished"
+  }
+ ],
  "leads": [],
  "held": []
 }

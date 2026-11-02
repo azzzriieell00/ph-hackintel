@@ -95,6 +95,9 @@ def publish_decision(ev: dict, now: datetime) -> tuple[bool, str]:
     fresh = (lv and -skew <= now - lv <= timedelta(hours=config.LINK_OK_WINDOW_H)) or manual_fresh
     if not fresh:
         return False, "not verified recently (link check or manual check)"
-    if ev.get("mode") == "onsite" and ev.get("lat") is None:
-        return False, f"location unresolved ({ev.get('location_check')})"
+    if ev.get("lat") is None or ev.get("lon") is None:
+        # The map shows pinned events only: a confirmed place in the Philippines is required.
+        if ev.get("mode") == "online":
+            return False, "online only: no Philippine venue to pin (kept as a signal)"
+        return False, f"no confirmed Philippine venue ({ev.get('location_check')}) (kept as a signal)"
     return True, "ok"

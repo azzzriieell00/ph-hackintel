@@ -1,35 +1,38 @@
 # Events added and checked by a person.
 #
 # Use this for announcements on platforms the pipeline must not fetch (Facebook, Luma, Devpost)
-# or for anything the pipeline missed. Open the official page yourself, copy only what it states,
-# and set verified_manually to the date you checked. A manual check keeps an event published for
-# 7 days; after that it needs a new check (or a passing automated link check).
+# or for anything the scanner missed. Open the official page yourself, copy only what it states,
+# and set verified_manually to the date and time you checked (Philippine time). A manual check keeps
+# an event published for 7 days; after that it needs a new check or a passing automated link check.
 #
-# Times without an offset are read as Philippine time. A deadline given as a bare date means 23:59.
-# If the page states no registration deadline, put the event start in `deadline` and set
-# deadline_is_estimate: true so the site says so.
+# Only events with a confirmed place in the Philippines appear on the map. Give at least the city
+# and province; add a venue name too if the announcement states one.
+# category: hackathon | ctf  (ctf = capture the flag and other cybersecurity competitions)
+# Times without an offset are Philippine time. A deadline given as a bare date means 23:59 that day.
+# If no registration deadline is stated, put the event start in `deadline` and set deadline_is_estimate: true.
+#
+# Example (copy, uncomment, fill in from the official page):
+#
+#  - id: example-ctf-2026
+#    name: Example Regional CTF 2026
+#    category: ctf
+#    organizer: Example Organizer
+#    mode: onsite
+#    venue: Example Hall
+#    city: Iloilo City
+#    province: Iloilo
+#    start: "2026-12-05T08:00"
+#    end: "2026-12-05T18:00"
+#    deadline: "2026-11-28"
+#    deadline_is_estimate: false
+#    eligibility: College students, teams of 3
+#    themes: [Web, Forensics, Crypto]
+#    registration_url: https://example.org/register
+#    official_url: https://example.org/ctf
+#    sources:
+#      - label: Official announcement
+#        url: https://example.org/ctf
+#    verified_manually: "2026-11-03T09:00"
+#    verified_by: Your name
 
-events:
-  - id: nasa-space-apps-2026
-    name: NASA Space Apps Challenge 2026
-    organizer: NASA and partner space agencies
-    mode: hybrid
-    venue: Local events worldwide, plus the virtual Universal Event
-    city: ""
-    province: ""
-    start: "2026-11-14T09:00"
-    end: "2026-11-15T23:59"
-    deadline: "2026-11-15T23:59"
-    deadline_is_estimate: false
-    eligibility: See the official Participant FAQs. Philippine local event sites are not confirmed here.
-    themes: [Space, Earth science data]
-    registration_url: https://www.spaceappschallenge.org/2026/
-    official_url: https://www.spaceappschallenge.org/2026/
-    sources:
-      - label: Official site (spaceappschallenge.org)
-        url: https://www.spaceappschallenge.org/2026/
-    verified_manually: "2026-11-02T22:50"
-    verified_by: Web research
-    notes: >-
-      Official page: hackathon runs Nov 14-15 2026, registration open until the hackathon closes
-      on Nov 15, virtual Universal Event available. Times are local to each participant.
+events: []

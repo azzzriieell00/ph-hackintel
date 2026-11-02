@@ -15,18 +15,26 @@
 #                Otherwise matching items are opened like listing links.
 
 sources:
+  # Google News search feeds: robots.txt disallows /rss/search for our bot (run on 2026-11-02). Off.
   - id: gnews-hackathon-ph
     name: Google News, "hackathon" Philippines
     type: rss
-    leads_only: true          # Google News article links redirect with JavaScript, so we keep the headline as a lead
+    leads_only: true
     url: https://news.google.com/rss/search?q=hackathon+Philippines+when:14d&hl=en-PH&gl=PH&ceid=PH:en
+    enabled: false
+
+  # Philippine tech news feeds. Headlines that mention a hackathon or CTF become signals,
+  # and the article is opened (if robots.txt allows) to try to extract the event.
+  - id: inquirer-tech
+    name: Inquirer Technology
+    type: rss
+    url: https://technology.inquirer.net/feed
     enabled: true
 
-  - id: gnews-ctf-ph
-    name: Google News, CTF Philippines
+  - id: bitpinas
+    name: BitPinas
     type: rss
-    leads_only: true
-    url: https://news.google.com/rss/search?q=%22capture+the+flag%22+OR+HackForGov+Philippines+when:30d&hl=en-PH&gl=PH&ceid=PH:en
+    url: https://bitpinas.com/feed/
     enabled: true
 
   # DICT and PIA answered HTTP 403 to the scanner on GitHub Actions (first run, 2026-11-02).

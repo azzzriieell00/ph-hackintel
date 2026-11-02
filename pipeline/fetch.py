@@ -73,11 +73,19 @@ class Http:
                 return entry["error"]
         return "no response"
 
-    def check_link(self, url: str) -> tuple[bool, str]:
-        """Is a registration/official link alive? HEAD first, GET if HEAD is refused."""
+    def check_link(self, url: str) -> tuple[bool | None, str]:
+        """Is a registration/official link alive? HEAD first, GET if HEAD is refused.
+
+        Returns (True, status) alive, (False, reason) dead, (None, reason) inconclusive.
+        Inconclusive: the server answered the TLS handshake but its certificate chain could not be
+        verified here. Usually the server omits an intermediate certificate; browsers fetch it
+        themselves (AIA), Python does not. We never turn verification off to "fix" this."""
         r = self.get(url, respect_robots=False, method="HEAD")  # a single link check, like a person clicking
         if r is None or r.status_code in (403, 405, 501):
             r = self.get(url, respect_robots=False)   # some servers refuse or drop HEAD requests
         if r is None:
-            return False, self.why(url)
+            why = self.why(url)
+            if "CERTIFICATE_VERIFY_FAILED" in why or "SSLCertVerificationError" in why:
+                return None, "inconclusive: site's TLS certificate chain could not be verified by the scanner"
+            return False, why
         return (r.status_code < 400), f"HTTP {r.status_code}"

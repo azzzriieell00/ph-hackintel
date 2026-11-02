@@ -96,19 +96,20 @@ def run_source(http, src: dict, page_state: dict, report: dict) -> list[dict]:
             title, summary = it.get("title", ""), it.get("summary", "")
             if src.get("require_keyword", True) and not extract.is_relevant(title, summary):
                 continue
-            if src.get("leads_only"):
-                pub = None
-                if it.get("published_parsed"):
-                    from datetime import datetime, timezone
-                    pub = iso(datetime(*it.published_parsed[:6], tzinfo=timezone.utc))
-                srcname = (it.get("source") or {}).get("title", "") if isinstance(it.get("source"), dict) else ""
-                add_lead(report, it.get("link", ""), title, srcname or src.get("name", ""), pub, "headline only, not verified")
-                continue
+            pub = None
+            if it.get("published_parsed"):
+                from datetime import datetime, timezone
+                pub = iso(datetime(*it.published_parsed[:6], tzinfo=timezone.utc))
+            srcname = (it.get("source") or {}).get("title", "") if isinstance(it.get("source"), dict) else ""
             link = extract.clean_url(it.get("link"))
             if link and "google.com/url" in link:   # Google Alerts wraps results in a redirect
                 from urllib.parse import parse_qs, urlsplit
                 link = extract.clean_url((parse_qs(urlsplit(link).query).get("url") or [None])[0])
-            if link:
+            if not link:
+                continue
+            # Every matching headline is kept as a signal, whether or not an event can be extracted from it.
+            add_lead(report, link, title, srcname or src.get("name", ""), pub, "headline only, not verified")
+            if not src.get("leads_only"):
                 links.append(link)
         return follow(http, links, src, page_state, report)
     report["errors"].append(f"unknown source type {t!r}")
@@ -204,13 +205,16 @@ def main(argv=None) -> int:
         by_id[c["id"]] = c
 
     # Events found earlier but not seen this run are carried forward until they expire.
+    manual_ids = {e.get("id") for e in candidates if e.get("extraction") == "manual"}
     for pid, p in prev_all.items():
+        if p.get("extraction") == "manual" and pid not in manual_ids:
+            continue        # removed from manual_events.yaml: drop it everywhere, including Signals
         if pid not in by_id:
             p = dict(p)
             p["carried_over"] = True
             by_id[pid] = p
 
-    published, held = [], []
+    published, held, no_pin_leads = [], [], []
     for eid, ev in by_id.items():
         ev = merge(prev_all.get(eid), ev, now) if not ev.get("carried_over") else ev
         if ev.get("lat") is None or ev.get("location_source") is None or ev.get("location_check") in (None, "UNRESOLVED", "NO_VENUE_CONFIRMED"):
@@ -222,13 +226,15 @@ def main(argv=None) -> int:
         elif url and not args.offline and dl and dl > now - timedelta(days=1):
             ok, status = http.check_link(url)
             ev["link_status"] = status
-            if ok:
+            if ok is True:
                 ev["last_verified"] = iso(now)
                 ev["link_failures"] = 0
-            else:
+            elif ok is False:
                 ev["link_failures"] = (ev.get("link_failures") or 0) + 1
+            # ok is None: inconclusive (e.g. the scanner could not verify the site's TLS chain); counts neither way
         fs = parse_iso(ev.get("first_seen"))
         ev["is_new"] = bool(fs and now - fs <= timedelta(hours=config.NEW_WINDOW_H)) and ev.get("extraction") != "manual"
+        ev["category"] = extract.classify(ev)
         ok, why = publish_decision(ev, now)
         ev.pop("description", None)
         if ok:
@@ -238,11 +244,18 @@ def main(argv=None) -> int:
             ev["hold_reason"] = why
             held.append(ev)
             review.append({"name": ev.get("name"), "id": eid, "url": url, "reason": why})
+            # Real competitions without a pin (online, venue not confirmed) still show up under Signals.
+            if "kept as a signal" in why and url and parse_iso(ev.get("deadline")) and parse_iso(ev["deadline"]) > now:
+                no_pin_leads.append({"title": f"[{ev['category'].upper()}] {ev['name']}", "url": url,
+                                     "source": (ev.get("sources") or [{}])[0].get("label", ""),
+                                     "published": None, "note": why.split(" (kept")[0]})
 
     published.sort(key=lambda e: e.get("deadline") or "")
 
     # Leads: unverified headlines and links on platforms we must not fetch. Kept 21 days.
     leads = {l["url"]: l for l in prev_doc.get("leads", []) if l.get("url")}
+    for l in no_pin_leads:
+        leads[l["url"]] = {**leads.get(l["url"], {}), **l, "first_seen": leads.get(l["url"], {}).get("first_seen") or iso(now)}
     for r in source_reports:
         for l in r.get("leads", []):
             if l.get("url"):

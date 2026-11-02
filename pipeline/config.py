@@ -39,5 +39,13 @@ MAX_LINK_FAILURES = 3        # consecutive failed checks before an event is hidd
 KEEP_CLOSED_DAYS = 30        # closed events stay in the archive this long
 NEW_WINDOW_H = 72            # "NEW" badge for events first seen within this window
 
-KEYWORDS = ["hackathon", "hack-a-thon", "hackfest", "capture the flag", "ctf", "buildathon",
-            "codefest", "code fest", "ideathon", "datathon", "hack4", "hack for", "hacks"]
+KEYWORDS = ["hackathon", "hack-a-thon", "hackfest", "buildathon", "codefest", "code fest", "ideathon",
+            "datathon", "hack4", "hack for", "hacks",
+            # CTF and cybersecurity competitions
+            "capture the flag", "capture-the-flag", "ctf", "hackforgov", "hack4gov", "cybersecurity competition",
+            "cyber security competition", "cybersecurity challenge", "hacking competition", "cyber defense competition",
+            "cyber olympiad", "cyber challenge"]
+
+# Anything matching this is shown as a CTF / cybersecurity pin; everything else as a hackathon.
+CTF_PATTERN = (r"\b(ctf|capture[- ]the[- ]flag|hackforgov|hack4gov|cyber ?security (competition|challenge|olympiad)|"
+               r"hacking competition|cyber (defen[cs]e|challenge|olympiad|range)|red team|blue team|jeopardy)\b")

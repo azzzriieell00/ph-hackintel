@@ -22,8 +22,19 @@ KW_RE = re.compile(r"\b(" + "|".join(re.escape(k) for k in config.KEYWORDS) + r"
 PH_RE = re.compile(r"\b(philippines|pilipinas|filipino|manila|cebu|davao|iloilo|luzon|visayas|mindanao)\b", re.I)
 
 
+CTF_RE = re.compile(config.CTF_PATTERN, re.I)
+
+
 def is_relevant(*texts: str) -> bool:
     return any(KW_RE.search(t or "") for t in texts)
+
+
+def classify(ev: dict) -> str:
+    """'ctf' for capture-the-flag and cybersecurity competitions, otherwise 'hackathon'."""
+    if (ev.get("category") or "").lower() in ("ctf", "hackathon"):
+        return ev["category"].lower()
+    text = " ".join([ev.get("name") or "", ev.get("description") or "", " ".join(ev.get("themes") or [])])
+    return "ctf" if CTF_RE.search(text) else "hackathon"
 
 
 def parse_dt(value, end_of_day: bool = False) -> str | None:
@@ -200,12 +211,13 @@ def candidate_links(html: str, base_url: str, allow_hosts: list[str] | None, pat
 
 
 # ------------------------------------------------------------------ LLM
-LLM_PROMPT = """You extract hackathon announcements from web pages for a public map of Philippine hackathons.
+LLM_PROMPT = """You extract hackathon and CTF announcements from web pages for a public map of Philippine competitions.
 Read the page text and answer with ONLY a JSON object, no prose. Use null for anything the page does not state.
 Never guess dates, venues or links.
 
 {{
-  "is_hackathon": true|false,          // hackathon, CTF, buildathon, ideathon or similar build competition
+  "is_hackathon": true|false,          // hackathon, CTF (capture the flag), cybersecurity competition, buildathon, ideathon or similar
+  "category": "hackathon"|"ctf",       // "ctf" for capture-the-flag and other cybersecurity / hacking competitions
   "in_scope_philippines": true|false,  // held in the Philippines, or an online event aimed at Philippine participants
   "name": string,
   "organizer": string|null,
@@ -274,5 +286,6 @@ def from_llm(data: dict | None, url: str, text: str) -> dict | None:
         "prize": data.get("prize"),
         "registration_url": reg or url, "official_url": url,
         "registration_closed": data.get("registration_closed"),
+        "category": data.get("category") if data.get("category") in ("hackathon", "ctf") else None,
         "extraction": "llm",
     }

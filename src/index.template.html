@@ -206,6 +206,8 @@ body.intel-open .zoomctl{right:calc(var(--intel) + var(--gap) * 2)}
 .legend .lg-closing{border-color:var(--red);box-shadow:0 0 0 3px rgba(255,43,63,.25)}
 .legend .lg-city{border-style:solid;border-color:rgba(255,43,63,.45);width:16px;height:16px}
 .legend .lg-prov{border-style:dashed;width:16px;height:16px}
+.legend .lg-ctf{border-radius:0;transform:rotate(45deg);width:9px;height:9px}
+.chip.cat-ctf{color:var(--fg);border-color:var(--red);background:rgba(125,13,24,.35)}
 
 #callout{position:fixed;z-index:6;pointer-events:none;left:0;top:0;transform:translate(-9999px,0);min-width:0}
 #callout .cn{font:700 17px/1.1 var(--f-display);text-transform:uppercase;letter-spacing:.04em;white-space:nowrap;text-shadow:0 0 12px rgba(11,8,9,.9)}
@@ -302,7 +304,7 @@ body.mode-3d #ret3d{display:block}
   <header class="hdr">
     <div class="brand">
       <h1 class="brand-name glitch" data-text="PH//HACKINTEL">PH<em>//</em>HACKINTEL</h1>
-      <span class="path">~/ops <b>$</b> ./hackintel --scan --region=PH</span>
+      <span class="path">~/ops <b>$</b> ./hackintel --scan --type=hackathon,ctf --region=PH</span>
     </div>
     <div class="hdr-status">
       <span class="chip amber" id="data-mode">LOADING</span>
@@ -324,9 +326,9 @@ body.mode-3d #ret3d{display:block}
     <div class="rbars" id="rbars" aria-label="Active hackathons by region"></div>
     <div class="filters" id="filters" role="group" aria-label="Filter targets">
       <button class="fbtn" data-f="all" aria-pressed="true">All</button>
+      <button class="fbtn" data-f="hackathon" aria-pressed="false">Hackathon</button>
+      <button class="fbtn" data-f="ctf" aria-pressed="false">CTF</button>
       <button class="fbtn" data-f="closing" aria-pressed="false">Closing</button>
-      <button class="fbtn" data-f="open" aria-pressed="false">Open</button>
-      <button class="fbtn" data-f="remote" aria-pressed="false">No venue</button>
       <button class="fbtn" data-f="archive" aria-pressed="false">Closed</button>
       <button class="fbtn" data-f="signals" aria-pressed="false">Signals</button>
     </div>
@@ -378,7 +380,8 @@ body.mode-3d #ret3d{display:block}
   </div>
 
   <div class="legend" aria-hidden="true">
-    <span><i></i>Open</span>
+    <span><i></i>Hackathon</span>
+    <span><i class="lg-ctf"></i>CTF / cyber</span>
     <span><i class="lg-closing"></i>Closing (7 days)</span>
     <span><i class="lg-city"></i>City precision</span>
     <span><i class="lg-prov"></i>Province only</span>
@@ -492,6 +495,7 @@ function normalize(list) {
     ev.mode = (ev.mode || 'onsite').toLowerCase();
     ev.precision = (ev.precision || 'CITY').toUpperCase();
     ev.hasPin = ev.mode !== 'online' && Number.isFinite(ev.lat) && Number.isFinite(ev.lon) && ev.precision !== 'NONE';
+    ev.category = ev.category === 'ctf' ? 'ctf' : 'hackathon';
     ev.themes = Array.isArray(ev.themes) ? ev.themes : [];
     if (ev.hasPin) {
       const p = proj(ev.lon, ev.lat); ev.px = p[0]; ev.py = p[1];
@@ -647,8 +651,8 @@ function pinVisible(ev) {
   if (filter === 'archive') return st === 'closed';
   if (st === 'closed') return false;
   if (filter === 'closing') return st === 'closing' || st === 'today';
-  if (filter === 'open') return st === 'open';
-  if (filter === 'remote' || filter === 'signals') return false;
+  if (filter === 'hackathon' || filter === 'ctf') return ev.category === filter;
+  if (filter === 'signals') return false;
   return true;
 }
 
@@ -801,7 +805,14 @@ function draw(t) {
       ctx.beginPath(); ctx.arc(x + 3, y, 6, 0, Math.PI * 2); ctx.stroke(); ctx.globalAlpha = 1;
     }
     ctx.strokeStyle = base;
-    ctx.beginPath(); ctx.arc(x, y, isSel ? 8 : 6, 0, Math.PI * 2); ctx.stroke();
+    ctx.beginPath();
+    if (ev.category === 'ctf') {   /* CTF / cybersecurity: diamond reticle */
+      const d = isSel ? 9.5 : 7.5;
+      ctx.moveTo(x, y - d); ctx.lineTo(x + d, y); ctx.lineTo(x, y + d); ctx.lineTo(x - d, y); ctx.closePath();
+    } else {                       /* hackathon: round reticle */
+      ctx.arc(x, y, isSel ? 8 : 6, 0, Math.PI * 2);
+    }
+    ctx.stroke();
     ctx.beginPath();
     for (const [a, b] of [[1,0],[-1,0],[0,1],[0,-1]]) { const r0 = isSel ? 10 : 8, r1 = isSel ? 15 : 12; ctx.moveTo(x + a*r0, y + b*r0); ctx.lineTo(x + a*r1, y + b*r1); }
     ctx.stroke();
@@ -822,7 +833,7 @@ function draw(t) {
   if (selected && selected.hasPin && !in3D && pinVisible(selected)) {
     const [x, y] = toScreen(selected.px, selected.py);
     const intelW = document.body.classList.contains('intel-open') && W > 820 ? cssNum('--intel') + cssNum('--gap') * 2 : 0;
-    const left = x > W - intelW - 300;
+    const left = x + 60 + Math.max(co.offsetWidth, 220) > W - intelW - 12;   /* flip so the label never runs under the intel panel */
     const ex = x + (left ? -54 : 54), ey = y - 46, hx = ex + (left ? -150 : 150);
     ctx.strokeStyle = COL.red; ctx.lineWidth = 1.2;
     ctx.beginPath(); ctx.moveTo(x + (left ? -9 : 9), y - 9); ctx.lineTo(ex, ey); ctx.lineTo(hx, ey); ctx.stroke();
@@ -927,8 +938,7 @@ function filtered() {
     if (filter === 'archive') return st === 'closed';
     if (st === 'closed') return false;
     if (filter === 'closing') return st === 'closing' || st === 'today';
-    if (filter === 'open') return st === 'open';
-    if (filter === 'remote') return !ev.hasPin;
+    if (filter === 'hackathon' || filter === 'ctf') return ev.category === filter;
     if (filter === 'signals') return false;
     return true;
   }).sort((a, b) => filter === 'archive' ? b.dl - a.dl : a.dl - b.dl);
@@ -958,14 +968,14 @@ function renderList() {
   if (!items.length) {
     const scan = DATA.generated ? `Last scan: <b>${esc(fmtDate(DATA.generated))}</b> (${esc(ago(DATA.generated))}).` : 'No scan data loaded.';
     const msg = !EVENTS.length
-      ? `<span><b>No verified hackathons right now.</b></span><span>${scan}</span><span>Records appear after the scanner finds an announcement and confirms its official link. Unverified finds are under Signals.</span>`
+      ? `<span><b>No verified hackathons or CTFs with a Philippine venue right now.</b></span><span>${scan}</span><span>A pin appears after the scanner finds an announcement, confirms its official link and places it in a Philippine city. Online events and unverified finds are under Signals.</span>`
       : `<span>No records match this filter.</span><span>${scan}</span>`;
     ul.innerHTML = `<li class="empty">${msg}</li>`; return;
   }
   const now = Date.now();
   ul.innerHTML = items.map(ev => {
     const st = status(ev, now);
-    const tags = [`<span class="chip s-${st}">${esc(ST_LABEL[st])}</span>`];
+    const tags = [`<span class="chip ${ev.category === 'ctf' ? 'cat-ctf' : ''}">${ev.category === 'ctf' ? 'CTF' : 'Hackathon'}</span>`, `<span class="chip s-${st}">${esc(ST_LABEL[st])}</span>`];
     if (ev.mode !== 'onsite') tags.push(`<span class="chip">${esc(ev.mode)}</span>`);
     if (ev.is_new) tags.push(`<span class="chip new">New</span>`);
     return `<li><button class="titem ${st === 'closed' ? 'closed' : ''} ${selected === ev ? 'sel' : ''}" data-id="${esc(ev.id)}">
@@ -980,11 +990,11 @@ function renderStats() {
   const now = Date.now();
   const act = EVENTS.filter(e => status(e, now) !== 'closed');
   const closing = act.filter(e => ['closing', 'today'].includes(status(e, now))).length;
-  const online = act.filter(e => !e.hasPin).length;
+  const ctfs = act.filter(e => e.category === 'ctf').length;
   const regs = new Map();
   for (const e of act) if (e.geoRegion >= 0) regs.set(e.geoRegion, (regs.get(e.geoRegion) || 0) + 1);
   $('#stats').innerHTML = [
-    ['Active', act.length, false], ['Closing', closing, closing > 0], ['No venue', online, false], ['Regions', regs.size, false]
+    ['Active', act.length, false], ['Closing', closing, closing > 0], ['CTF', ctfs, false], ['Regions', regs.size, false]
   ].map(([l, v, hot]) => `<div class="stat ${hot ? 'hot' : ''}"><b>${v}</b><span>${l}</span></div>`).join('');
   const top = [...regs.entries()].sort((a, b) => b[1] - a[1]).slice(0, 5);
   const max = top.length ? top[0][1] : 1;
@@ -1016,7 +1026,7 @@ function canEngage(ev) { return ev && ev.hasPin && ev.precision !== 'PROVINCE'; 
 function openIntel(ev) {
   const now = Date.now(), st = status(ev, now);
   $('#intel-file').textContent = ev.id + '.json';
-  const chips = [`<span class="chip s-${st}">${esc(ST_LABEL[st])}</span>`, `<span class="chip">${esc(ev.mode)}</span>`];
+  const chips = [`<span class="chip ${ev.category === 'ctf' ? 'cat-ctf' : ''}">${ev.category === 'ctf' ? 'CTF / cybersecurity' : 'Hackathon'}</span>`, `<span class="chip s-${st}">${esc(ST_LABEL[st])}</span>`, `<span class="chip">${esc(ev.mode)}</span>`];
   if (ev.hasPin) chips.push(`<span class="chip">${esc(ev.precision)} precision</span>`);
   if (ev.is_new) chips.push(`<span class="chip new">New</span>`);
   if (ev.deadline_extended_from) chips.push(`<span class="chip amber">Deadline extended</span>`);
@@ -1117,7 +1127,7 @@ async function select(ev, { via }) {
   openIntel(ev);
   const cs = $('#callout');
   cs.querySelector('.cn').textContent = ev.name;
-  cs.querySelector('.cs').textContent = `${placeLine(ev)} // DL ${shortCd(ev.dl - Date.now())}`;
+  cs.querySelector('.cs').textContent = `${ev.category === 'ctf' ? 'CTF' : 'HACKATHON'} // ${placeLine(ev)} // DL ${shortCd(ev.dl - Date.now())}`;
   triggerMapGlitch(0.8);
   if (ev.hasPin) {
     if (!pinVisible(ev)) {
@@ -1155,7 +1165,7 @@ function renderTicker() {
   const lines = [`[${t}] FEED // ${DATA.origin === 'live' ? 'LIVE FILE' : 'SNAPSHOT'} // LAST SCAN ${DATA.generated ? esc(ago(DATA.generated).toUpperCase()) : 'UNKNOWN'} // ${EVENTS.length} VERIFIED // ${LEADS.length} SIGNALS${DATA.sources.length ? ` // SOURCES ${okSrc}/${DATA.sources.length} OK` : ''}`];
   for (const ev of [...EVENTS].sort((a, b) => a.dl - b.dl)) {
     const st = status(ev, now); if (st === 'closed') continue;
-    lines.push(`${ev.is_new ? '<b>NEW</b> // ' : ''}${esc(ev.name.toUpperCase())} // ${esc(placeLine(ev).toUpperCase())} // DL ${esc(fmtDay(ev.dl))} (${esc(shortCd(ev.dl - now))})`);
+    lines.push(`${ev.is_new ? '<b>NEW</b> // ' : ''}${ev.category === 'ctf' ? 'CTF' : 'HACKATHON'} // ${esc(ev.name.toUpperCase())} // ${esc(placeLine(ev).toUpperCase())} // DL ${esc(fmtDay(ev.dl))} (${esc(shortCd(ev.dl - now))})`);
   }
   for (const l of LEADS.slice(0, 6)) lines.push(`SIGNAL // ${esc((l.title || l.url).toUpperCase())}`);
   if (!EVENTS.length) lines.push('NO VERIFIED HACKATHONS IN THE CURRENT FILE');
@@ -1513,7 +1523,7 @@ function tick() {
 }
 
 function applyDoc(doc, origin) {
-  EVENTS = normalize(Array.isArray(doc.events) ? doc.events : []);
+  EVENTS = normalize(Array.isArray(doc.events) ? doc.events : []).filter(e => e.hasPin);  /* map shows pinned events only */
   LEADS = Array.isArray(doc.leads) ? doc.leads.filter(l => l && l.url) : [];
   DATA = { origin, generated: Date.parse(doc.generated_at || '') || null, sources: Array.isArray(doc.sources) ? doc.sources : [],
            held: Array.isArray(doc.held) ? doc.held.length : (doc.held_count || 0) };
@@ -1548,7 +1558,7 @@ async function refresh() {
   applyDoc(doc, 'live');
   const added = EVENTS.filter(e => !before.has(e.id));
   rerenderAll();
-  if (added.length) { tear(1); triggerMapGlitch(1.2); toast(`${added.length} new verified hackathon(s): ${added.map(e => e.name).slice(0, 2).join(', ')}`); }
+  if (added.length) { tear(1); triggerMapGlitch(1.2); toast(`${added.length} new verified event(s): ${added.map(e => e.name).slice(0, 2).join(', ')}`); }
 }
 
 async function init() {
@@ -1565,7 +1575,7 @@ async function init() {
   requestAnimationFrame(loop); requestAnimationFrame(bgLoop);
   scheduleTear(); scheduleIdleGlitch(); scheduleTextGlitch();
   document.documentElement.style.setProperty('--scan-w', '100%');
-  if (EVENTS.some(e => e.is_new)) setTimeout(() => { tear(1); triggerMapGlitch(1.2); toast(`${EVENTS.filter(e => e.is_new).length} hackathon(s) first seen in the last 3 days.`); }, 1200);
+  if (EVENTS.some(e => e.is_new)) setTimeout(() => { tear(1); triggerMapGlitch(1.2); toast(`${EVENTS.filter(e => e.is_new).length} event(s) first seen in the last 3 days.`); }, 1200);
   /* small debug handle for the browser console */
   window.__hackintel = { get EVENTS() { return EVENTS; }, get LEADS() { return LEADS; }, lookup, provName, status, view, enter3D, select,
     pinScreen: id => { const e = EVENTS.find(x => x.id === id); return e && e.hasPin ? toScreen(e.px, e.py) : null; } };

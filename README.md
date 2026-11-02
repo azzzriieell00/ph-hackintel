@@ -1,6 +1,7 @@
 # PH HackIntel Map
 
-A red-team themed map of hackathons in the Philippines, fed by an automated scanner.
+A red-team themed map of hackathons and CTF / cybersecurity competitions in the Philippines,
+fed by an automated scanner. Round pins are hackathons; diamond pins are CTFs.
 
 - **Site**: one static page (`index.html`). 2D dot-matrix map of the country, pins for verified
   events, intel panel with live deadline countdown, 3D city view on pin click, Signals list.
@@ -34,9 +35,9 @@ An event is shown only if all of these hold:
 1. It has a deadline, or an event start date (then the page says no deadline was stated).
 2. Its official/registration link answered within the last 72 hours, or a person checked it
    within the last 7 days. Three failed link checks in a row hide it.
-3. An onsite event has coordinates that fall inside the Philippines and inside the province the
-   announcement names (checked against PSGC boundaries). Hybrid events without a confirmed
-   Philippine venue are listed without a pin.
+3. It has coordinates inside the Philippines and inside the province the announcement names
+   (checked against PSGC boundaries). The map shows pinned events only: online events and events
+   without a confirmed Philippine venue go to Signals instead.
 4. Its country is the Philippines (or not stated).
 
 Closed events stay in the *Closed* filter for 30 days. Everything held back is written to

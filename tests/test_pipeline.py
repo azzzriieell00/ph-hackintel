@@ -71,12 +71,16 @@ def test_end_to_end(site, workdir):
     assert ev["is_new"] is True and ev["sources"][0]["url"].endswith("/events/iloilo-hackathon.html")
 
     assert "Singapore Partner Hackathon" not in names and "Singapore Partner Hackathon" not in held
-    assert held["Mystery Town Hackathon"]["hold_reason"].startswith("location unresolved")
+    assert held["Mystery Town Hackathon"]["hold_reason"].startswith("no confirmed Philippine venue")
+    assert ev["category"] == "hackathon"
+    ctf = names["Cebu Capture the Flag 2099"]
+    assert ctf["category"] == "ctf" and ctf["province"] == "Cebu"
 
     lead_urls = {l["url"] for l in out["leads"]}
     assert "https://blocked.test/e/123" in lead_urls          # never fetched, kept as a lead
     assert "https://news.example/a1" in lead_urls              # headline with keyword
     assert "https://news.example/a2" not in lead_urls          # no keyword
+    assert any(l["title"].startswith("[HACKATHON] Mystery Town") for l in out["leads"])  # no-pin event kept as a signal
     assert not any("other-host.test" in u for u in lead_urls)  # off-site links ignored
 
     review = json.loads((workdir / "data" / "review.json").read_text())
@@ -117,3 +121,25 @@ events:
     assert [e["id"] for e in out["events"]] == ["m1"]
     assert [e["id"] for e in out["held"]] == ["m2"]          # manual check older than 7 days
     assert out["events"][0]["location_check"] == "MATCH"
+
+
+def test_removed_manual_event_disappears(workdir):
+    (workdir / "config" / "sources.yaml").write_text("sources: []\n")
+    from datetime import datetime, timedelta, timezone
+    today = datetime.now(timezone(timedelta(hours=8))).strftime("%Y-%m-%dT%H:%M")
+    (workdir / "config" / "manual_events.yaml").write_text(f"""
+events:
+  - id: gone
+    name: Gone Hack
+    mode: onsite
+    city: Kalibo
+    province: Aklan
+    deadline: "2099-01-01"
+    registration_url: https://example.org/x
+    verified_manually: "{today}"
+""")
+    assert run.main(["--offline"]) == 0
+    (workdir / "config" / "manual_events.yaml").write_text("events: []\n")
+    assert run.main(["--offline"]) == 0
+    out = json.loads((workdir / "data" / "events.json").read_text())
+    assert not out["events"] and not out["held"] and not out["leads"]

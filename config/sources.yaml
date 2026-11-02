@@ -1,0 +1,85 @@
+# Where the pipeline looks for Philippine hackathons.
+#
+# Rules this file follows:
+#   * Only public pages, fetched with an honest User-Agent, robots.txt respected, max one
+#     request per host every 2 seconds.
+#   * No platform whose terms forbid automated access (see "excluded" at the bottom).
+#     Links that point to those platforms become leads for a human to check, and are never fetched.
+#   * Every published event must pass a link check or a recent manual check (pipeline/store.py).
+#
+# Source types
+#   event_page : one announcement page. Read schema.org Event data, else LLM extraction.
+#   listing    : a news/events page. Follow links whose text or URL matches link_pattern
+#                (or the hackathon keywords), then read each like an event_page.
+#   rss        : a feed. leads_only: true keeps headlines as unverified leads without opening them.
+#                Otherwise matching items are opened like listing links.
+
+sources:
+  - id: gnews-hackathon-ph
+    name: Google News, "hackathon" Philippines
+    type: rss
+    leads_only: true          # Google News article links redirect with JavaScript, so we keep the headline as a lead
+    url: https://news.google.com/rss/search?q=hackathon+Philippines+when:14d&hl=en-PH&gl=PH&ceid=PH:en
+    enabled: true
+
+  - id: gnews-ctf-ph
+    name: Google News, CTF Philippines
+    type: rss
+    leads_only: true
+    url: https://news.google.com/rss/search?q=%22capture+the+flag%22+OR+HackForGov+Philippines+when:30d&hl=en-PH&gl=PH&ceid=PH:en
+    enabled: true
+
+  - id: dict-home
+    name: DICT website
+    type: listing
+    url: https://dict.gov.ph/
+    link_pattern: "hack|ctf|capture[- ]the[- ]flag"
+    enabled: true
+
+  - id: pia-home
+    name: Philippine Information Agency
+    type: listing
+    url: https://pia.gov.ph/
+    link_pattern: "hackathon|hack4|hackforgov|capture[- ]the[- ]flag"
+    enabled: true
+
+  - id: pna-home
+    name: Philippine News Agency
+    type: listing
+    url: https://www.pna.gov.ph/
+    link_pattern: "hackathon|hack4|hackforgov|capture[- ]the[- ]flag"
+    enabled: true
+
+  # Your own Google Alerts. Create an alert at google.com/alerts, set "Deliver to" = RSS feed,
+  # paste the feed URL here and set enabled: true. Alerts links are opened and read.
+  - id: alerts-hackathon-ph
+    name: Google Alert, hackathon Philippines
+    type: rss
+    url: https://www.google.com/alerts/feeds/REPLACE_WITH_YOUR_FEED_ID
+    enabled: false
+
+  # Template for an organizer, university or community page that announces hackathons.
+  # Check the site's terms first; the pipeline checks robots.txt by itself.
+  - id: example-organizer
+    name: Example organizer news page
+    type: listing
+    url: https://example.edu.ph/news
+    link_pattern: "hackathon|ctf"
+    enabled: false
+
+# Hosts the pipeline never fetches. Links to them are recorded as leads for manual checking.
+blocked_hosts:
+  - hackathons.ph            # terms: "Do not spam, scrape, or abuse the service or its APIs" (checked 2026-11-02)
+  - www.hackathons.ph
+  - devpost.com              # terms prohibit automated access, scraping and crawling (checked 2026-11-02)
+  - luma.com                 # terms limit access to publicly supported interfaces (checked 2026-11-02)
+  - lu.ma
+  - facebook.com             # Meta terms prohibit automated collection
+  - www.facebook.com
+  - m.facebook.com
+  - instagram.com
+  - www.instagram.com
+  - x.com
+  - twitter.com
+  - linkedin.com
+  - www.linkedin.com

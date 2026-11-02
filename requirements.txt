@@ -1,0 +1,7 @@
+# Versions the pipeline was tested with (2026-11-02).
+requests==2.34.2
+PyYAML==6.0.3
+feedparser==6.0.14
+beautifulsoup4==4.15.0
+python-dateutil==2.9.0.post0
+pytest==9.1.1

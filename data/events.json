@@ -1,0 +1,52 @@
+{
+ "generated_at": "2026-11-02T14:54:33Z",
+ "generator": "PH HackIntel pipeline 1.0",
+ "offline_run": true,
+ "llm_enabled": false,
+ "sources": [],
+ "events": [
+  {
+   "id": "nasa-space-apps-2026",
+   "name": "NASA Space Apps Challenge 2026",
+   "organizer": "NASA and partner space agencies",
+   "mode": "hybrid",
+   "venue": "Local events worldwide, plus the virtual Universal Event",
+   "city": "",
+   "province": "",
+   "start": "2026-11-14T09:00:00+08:00",
+   "end": "2026-11-15T23:59:00+08:00",
+   "deadline": "2026-11-15T23:59:00+08:00",
+   "deadline_is_estimate": false,
+   "eligibility": "See the official Participant FAQs. Philippine local event sites are not confirmed here.",
+   "themes": [
+    "Space",
+    "Earth science data"
+   ],
+   "registration_url": "https://www.spaceappschallenge.org/2026/",
+   "official_url": "https://www.spaceappschallenge.org/2026/",
+   "sources": [
+    {
+     "label": "Official site (spaceappschallenge.org)",
+     "url": "https://www.spaceappschallenge.org/2026/"
+    }
+   ],
+   "verified_manually": "2026-11-02T22:50:00+08:00",
+   "verified_by": "Web research",
+   "notes": "Official page: hackathon runs Nov 14-15 2026, registration open until the hackathon closes on Nov 15, virtual Universal Event available. Times are local to each participant.",
+   "extraction": "manual",
+   "source_id": "manual",
+   "first_seen": "2026-11-02T14:50:41Z",
+   "last_verified": null,
+   "link_failures": null,
+   "link_status": null,
+   "last_seen": "2026-11-02T14:54:33Z",
+   "lat": null,
+   "lon": null,
+   "precision": "NONE",
+   "location_check": "NO_VENUE_CONFIRMED",
+   "is_new": false
+  }
+ ],
+ "leads": [],
+ "held": []
+}

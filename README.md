@@ -50,8 +50,15 @@ Closed events stay in the *Closed* filter for 30 days. Everything held back is w
 3. Settings > Secrets and variables > Actions:
    - Variable `HACKINTEL_CONTACT`: an email or URL. It goes in the scanner's User-Agent;
      OpenStreetMap's geocoder requires a contact.
-   - Secret `ANTHROPIC_API_KEY` (optional): turns on AI extraction for pages without structured
-     event data. Without it those pages are listed in `data/review.json` as "pages_needing_llm".
+   - Secret `GEMINI_API_KEY` (recommended) or `ANTHROPIC_API_KEY`: turns on AI extraction for
+     articles and pages without structured event data. Without a key those pages are listed in
+     `data/review.json` as "pages_needing_llm". With Gemini the scanner picks the newest
+     Flash-Lite model automatically (override with the variable `HACKINTEL_GEMINI_MODEL`) and stays
+     under a request budget: 12 per scan and 120 per day by default
+     (`HACKINTEL_LLM_RUN_CAP`, `HACKINTEL_LLM_DAILY_CAP`). If both keys are set, Gemini is used unless
+     the variable `HACKINTEL_LLM_PROVIDER` is `anthropic`. The AI's output is checked like any other
+     source: links must appear in the page text, the location must match the province, and the
+     official link must answer.
    - Variable `HACKINTEL_LLM_MODEL` (optional): the model used for extraction, default `claude-haiku-5-5`.
 4. Actions tab > "Scan and deploy" > **Run workflow** for the first run. After that it runs
    every hour at :17.

@@ -62,7 +62,7 @@ def process_page(http, url: str, source: dict, report: dict, trusted: bool) -> l
             llm = extract.llm_extract(http, text, r.url)
             if llm:
                 found = [llm]
-            elif not config.ANTHROPIC_API_KEY:
+            elif not extract.llm_available():
                 report["needs_llm"].append(r.url)
     for e in found:
         e["source_id"] = source["id"]
@@ -162,6 +162,7 @@ def main(argv=None) -> int:
     args = ap.parse_args(argv)
 
     now = now_utc()
+    extract.BUDGET = None   # fresh AI request budget for this run (day count is read from data/state)
     http = Http(user_agent=config.USER_AGENT, delay=config.PER_HOST_DELAY, timeout=config.HTTP_TIMEOUT)
     geocoder = geo.Geocoder(http, cache_path=config.GEOCODE_CACHE, enabled=config.NOMINATIM_ENABLED and not args.offline)
     page_state = load_json(config.PAGE_STATE, {})
@@ -271,7 +272,12 @@ def main(argv=None) -> int:
         "generated_at": iso(now),
         "generator": "PH HackIntel pipeline 1.0",
         "offline_run": bool(args.offline),
-        "llm_enabled": bool(config.ANTHROPIC_API_KEY),
+        "llm_enabled": bool(config.llm_provider()),
+        "llm": {"provider": config.llm_provider() or None,
+                "model": (extract.BUDGET.model if extract.BUDGET else None) or (config.ANTHROPIC_MODEL if config.llm_provider() == "anthropic" else None),
+                "requests_this_run": extract.BUDGET.run_count if extract.BUDGET else 0,
+                "requests_today": extract.BUDGET.day_count if extract.BUDGET else 0,
+                "stopped": (extract.BUDGET.stopped or None) if extract.BUDGET else None},
         "sources": [{**{k: v for k, v in r.items() if k not in ("needs_llm", "leads")},
                      "needs_llm": len(r["needs_llm"]), "leads": len(r.get("leads", []))} for r in source_reports],
         "events": published,
@@ -281,6 +287,8 @@ def main(argv=None) -> int:
     write_json(config.REVIEW_FILE, {"generated_at": iso(now), "items": review,
                                     "pages_needing_llm": sorted({u for r in source_reports for u in r["needs_llm"]})})
     write_json(config.PAGE_STATE, page_state)
+    if extract.BUDGET and extract.BUDGET.run_count:
+        extract.BUDGET.save()
     geocoder.save()
     print(f"[done] published={len(published)} held={len(held)} review={len(review)} "
           f"http_errors={len(http.log)}", file=sys.stderr)

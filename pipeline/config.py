@@ -15,6 +15,7 @@ EVENTS_FILE = DATA_DIR / "events.json"
 REVIEW_FILE = DATA_DIR / "review.json"
 GEOCODE_CACHE = STATE_DIR / "geocode_cache.json"
 PAGE_STATE = STATE_DIR / "page_state.json"
+LLM_USAGE_FILE = STATE_DIR / "llm_usage.json"
 
 # Identify the bot honestly. Nominatim's usage policy requires a contact in the User-Agent.
 CONTACT = os.environ.get("HACKINTEL_CONTACT", "set-HACKINTEL_CONTACT")
@@ -27,7 +28,26 @@ MAX_FOLLOW_PER_SOURCE = int(os.environ.get("HACKINTEL_MAX_FOLLOW", "15"))
 
 # Optional LLM extraction for pages without structured data.
 ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
-ANTHROPIC_MODEL = os.environ.get("HACKINTEL_LLM_MODEL", "claude-haiku-5-5")
+ANTHROPIC_MODEL = os.environ.get("HACKINTEL_LLM_MODEL", "") or "claude-haiku-5-5"
+GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
+# Leave empty to pick the newest available Gemini Flash-Lite model automatically (free tier friendly).
+GEMINI_MODEL = os.environ.get("HACKINTEL_GEMINI_MODEL", "")
+GEMINI_BASE = "https://generativelanguage.googleapis.com/v1beta"
+# "gemini", "anthropic" or "" (auto: Gemini if its key is set, else Anthropic if its key is set, else off)
+LLM_PROVIDER = os.environ.get("HACKINTEL_LLM_PROVIDER", "").strip().lower()
+LLM_DAILY_CAP = int(os.environ.get("HACKINTEL_LLM_DAILY_CAP", "120"))   # requests per UTC day, all runs together
+LLM_RUN_CAP = int(os.environ.get("HACKINTEL_LLM_RUN_CAP", "12"))        # requests per scan
+
+
+def llm_provider() -> str:
+    """Which AI service extraction uses this run, or '' when none is configured."""
+    if LLM_PROVIDER == "gemini" and GEMINI_API_KEY:
+        return "gemini"
+    if LLM_PROVIDER == "anthropic" and ANTHROPIC_API_KEY:
+        return "anthropic"
+    if not LLM_PROVIDER:
+        return "gemini" if GEMINI_API_KEY else "anthropic" if ANTHROPIC_API_KEY else ""
+    return ""
 
 NOMINATIM_URL = os.environ.get("HACKINTEL_NOMINATIM_URL", "https://nominatim.openstreetmap.org/search")
 NOMINATIM_ENABLED = os.environ.get("HACKINTEL_NOMINATIM", "1") == "1"

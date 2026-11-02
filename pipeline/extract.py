@@ -2,7 +2,7 @@
 
 Two extraction paths:
   * schema.org Event JSON-LD embedded in the page (exact, preferred)
-  * optional LLM extraction of the visible text (only if ANTHROPIC_API_KEY is set)
+  * optional AI extraction of the visible text (Gemini or Anthropic, whichever key is set)
 Nothing is guessed: fields the page does not state stay empty.
 """
 from __future__ import annotations
@@ -244,25 +244,131 @@ Page text:
 >>>"""
 
 
-def llm_extract(http, text: str, url: str) -> dict | None:
-    """Optional. Returns a candidate or None. Requires ANTHROPIC_API_KEY."""
-    if not config.ANTHROPIC_API_KEY:
+class LLMBudget:
+    """Counts AI requests per scan and per UTC day so the free tier is never exceeded.
+    The day's count is stored in data/state/llm_usage.json and committed with the data."""
+
+    def __init__(self, path=None):
+        self.path = path or config.LLM_USAGE_FILE
+        self.today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+        try:
+            saved = json.loads(self.path.read_text(encoding="utf-8"))
+        except (FileNotFoundError, json.JSONDecodeError, AttributeError):
+            saved = {}
+        self.day_count = saved.get("count", 0) if saved.get("date") == self.today else 0
+        self.run_count = 0
+        self.stopped = ""          # reason the AI was switched off for the rest of this run
+        self.model = None
+
+    def allow(self) -> bool:
+        if self.stopped:
+            return False
+        if self.run_count >= config.LLM_RUN_CAP:
+            self.stopped = f"run cap of {config.LLM_RUN_CAP} AI requests reached"
+        elif self.day_count >= config.LLM_DAILY_CAP:
+            self.stopped = f"daily cap of {config.LLM_DAILY_CAP} AI requests reached"
+        return not self.stopped
+
+    def used(self):
+        self.run_count += 1
+        self.day_count += 1
+
+    def save(self):
+        self.path.parent.mkdir(parents=True, exist_ok=True)
+        self.path.write_text(json.dumps({"date": self.today, "count": self.day_count}) + "\n", encoding="utf-8")
+
+
+BUDGET: LLMBudget | None = None
+
+
+def _json_from(raw: str):
+    m = re.search(r"\{.*\}", raw or "", re.S)
+    return json.loads(m.group(0)) if m else None
+
+
+def _pick_gemini_model(http) -> str | None:
+    """Newest Flash-Lite model that supports generateContent (free-tier friendly), unless one is configured."""
+    if config.GEMINI_MODEL:
+        return config.GEMINI_MODEL if config.GEMINI_MODEL.startswith("models/") else "models/" + config.GEMINI_MODEL
+    r = http.s.get(f"{config.GEMINI_BASE}/models", timeout=30, params={"pageSize": 1000},
+                   headers={"x-goog-api-key": config.GEMINI_API_KEY})
+    if r.status_code != 200:
+        http.log.append({"url": "gemini:models", "error": f"Gemini model list HTTP {r.status_code}: {r.text[:200]}"})
         return None
-    try:
-        r = http.s.post("https://api.anthropic.com/v1/messages", timeout=60, headers={
-            "x-api-key": config.ANTHROPIC_API_KEY, "anthropic-version": "2023-06-01", "content-type": "application/json",
-        }, json={
-            "model": config.ANTHROPIC_MODEL, "max_tokens": 900, "temperature": 0,
-            "messages": [{"role": "user", "content": LLM_PROMPT.format(url=url, text=text)}],
-        })
-        if r.status_code != 200:
-            http.log.append({"url": url, "error": f"LLM HTTP {r.status_code}: {r.text[:200]}"})
+    names = [m["name"] for m in r.json().get("models", [])
+             if "generateContent" in m.get("supportedGenerationMethods", [])]
+
+    def score(name):
+        n = name.lower()
+        if any(x in n for x in ("tts", "audio", "image", "live", "embedding", "vision", "exp")):
             return None
-        raw = "".join(b.get("text", "") for b in r.json().get("content", []) if b.get("type") == "text")
-        m = re.search(r"\{.*\}", raw, re.S)
-        data = json.loads(m.group(0)) if m else None
+        pref = 2 if "flash-lite" in n else 1 if "flash" in n else 0
+        if not pref:
+            return None
+        m = re.search(r"gemini-(\d+)(?:\.(\d+))?", n)
+        ver = (int(m.group(1)), int(m.group(2) or 0)) if m else (0, 0)
+        return (pref, 0 if "preview" in n else 1, ver, -len(n))
+    ranked = sorted((s, n) for n in names if (s := score(n)) is not None)
+    return ranked[-1][1] if ranked else None
+
+
+def _call_gemini(http, prompt: str, url: str):
+    if BUDGET.model is None:
+        BUDGET.model = _pick_gemini_model(http) or ""
+    if not BUDGET.model:
+        BUDGET.stopped = "no usable Gemini model found for this key"
+        return None
+    r = http.s.post(f"{config.GEMINI_BASE}/{BUDGET.model}:generateContent", timeout=60,
+                    headers={"x-goog-api-key": config.GEMINI_API_KEY, "content-type": "application/json"},
+                    json={"contents": [{"role": "user", "parts": [{"text": prompt}]}],
+                          "generationConfig": {"temperature": 0, "responseMimeType": "application/json",
+                                               "maxOutputTokens": 1200}})
+    BUDGET.used()
+    if r.status_code == 429:
+        BUDGET.stopped = "Gemini rate limit reached (HTTP 429); remaining pages wait for the next run"
+        return None
+    if r.status_code != 200:
+        http.log.append({"url": url, "error": f"Gemini HTTP {r.status_code}: {r.text[:200]}"})
+        return None
+    cands = r.json().get("candidates") or []
+    parts = (cands[0].get("content") or {}).get("parts", []) if cands else []
+    return _json_from("".join(p.get("text", "") for p in parts))
+
+
+def _call_anthropic(http, prompt: str, url: str):
+    r = http.s.post("https://api.anthropic.com/v1/messages", timeout=60, headers={
+        "x-api-key": config.ANTHROPIC_API_KEY, "anthropic-version": "2023-06-01", "content-type": "application/json",
+    }, json={"model": config.ANTHROPIC_MODEL, "max_tokens": 900, "temperature": 0,
+             "messages": [{"role": "user", "content": prompt}]})
+    BUDGET.used()
+    if r.status_code == 429:
+        BUDGET.stopped = "Anthropic rate limit reached (HTTP 429)"
+        return None
+    if r.status_code != 200:
+        http.log.append({"url": url, "error": f"Anthropic HTTP {r.status_code}: {r.text[:200]}"})
+        return None
+    return _json_from("".join(b.get("text", "") for b in r.json().get("content", []) if b.get("type") == "text"))
+
+
+def llm_available() -> bool:
+    """True when an AI provider is configured and today's budget is not used up."""
+    global BUDGET
+    if not config.llm_provider():
+        return False
+    if BUDGET is None:
+        BUDGET = LLMBudget()
+    return BUDGET.allow()
+
+
+def llm_extract(http, text: str, url: str) -> dict | None:
+    """Optional. Returns a candidate or None. Needs GEMINI_API_KEY or ANTHROPIC_API_KEY."""
+    if not llm_available():
+        return None
+    prompt = LLM_PROMPT.format(url=url, text=text)
+    try:
+        data = _call_gemini(http, prompt, url) if config.llm_provider() == "gemini" else _call_anthropic(http, prompt, url)
     except Exception as e:  # network, JSON or schema surprises: log and skip, never crash the run
-        http.log.append({"url": url, "error": f"LLM extraction failed: {type(e).__name__}: {e}"[:300]})
+        http.log.append({"url": url, "error": f"AI extraction failed: {type(e).__name__}: {e}"[:300]})
         return None
     return from_llm(data, url, text)
 

@@ -36,6 +36,9 @@ jobs:
           HACKINTEL_CONTACT: ${{ vars.HACKINTEL_CONTACT }}
           HACKINTEL_REPO_URL: https://github.com/${{ github.repository }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          HACKINTEL_GEMINI_MODEL: ${{ vars.HACKINTEL_GEMINI_MODEL }}
+          HACKINTEL_LLM_PROVIDER: ${{ vars.HACKINTEL_LLM_PROVIDER }}
           HACKINTEL_LLM_MODEL: ${{ vars.HACKINTEL_LLM_MODEL || 'claude-haiku-5-5' }}
         run: python -m pipeline.run
       - name: Build page

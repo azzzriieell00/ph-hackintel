@@ -29,19 +29,22 @@ sources:
     url: https://news.google.com/rss/search?q=%22capture+the+flag%22+OR+HackForGov+Philippines+when:30d&hl=en-PH&gl=PH&ceid=PH:en
     enabled: true
 
+  # DICT and PIA answered HTTP 403 to the scanner on GitHub Actions (first run, 2026-11-02).
+  # The sites refuse automated requests from that network; we do not work around a refusal.
+  # Check them by hand and use config/manual_events.yaml, or ask the agency for a feed.
   - id: dict-home
     name: DICT website
     type: listing
     url: https://dict.gov.ph/
     link_pattern: "hack|ctf|capture[- ]the[- ]flag"
-    enabled: true
+    enabled: false
 
   - id: pia-home
     name: Philippine Information Agency
     type: listing
     url: https://pia.gov.ph/
     link_pattern: "hackathon|hack4|hackforgov|capture[- ]the[- ]flag"
-    enabled: true
+    enabled: false
 
   - id: pna-home
     name: Philippine News Agency

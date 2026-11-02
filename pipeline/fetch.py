@@ -54,7 +54,9 @@ class Http:
     def get(self, url: str, params: dict | None = None, respect_robots: bool = True, method: str = "GET"):
         """Returns a Response, or None when blocked by robots.txt or the request failed."""
         if respect_robots and not self.allowed(url):
-            self.log.append({"url": url, "error": "blocked by robots.txt or robots.txt unreachable"})
+            rp = self._robots.get(self._host(url))
+            why = "robots.txt could not be read" if rp is None else "robots.txt disallows this URL for our bot"
+            self.log.append({"url": url, "error": why})
             return None
         self._wait(self._host(url))
         try:
@@ -64,11 +66,18 @@ class Http:
             self.log.append({"url": url, "error": f"{type(e).__name__}: {e}"[:300]})
             return None
 
+    def why(self, url: str) -> str:
+        """Last recorded failure reason for a URL."""
+        for entry in reversed(self.log):
+            if entry["url"] == url:
+                return entry["error"]
+        return "no response"
+
     def check_link(self, url: str) -> tuple[bool, str]:
         """Is a registration/official link alive? HEAD first, GET if HEAD is refused."""
         r = self.get(url, respect_robots=False, method="HEAD")  # a single link check, like a person clicking
-        if r is not None and r.status_code in (403, 405, 501):
-            r = self.get(url, respect_robots=False)
+        if r is None or r.status_code in (403, 405, 501):
+            r = self.get(url, respect_robots=False)   # some servers refuse or drop HEAD requests
         if r is None:
-            return False, "no response"
+            return False, self.why(url)
         return (r.status_code < 400), f"HTTP {r.status_code}"

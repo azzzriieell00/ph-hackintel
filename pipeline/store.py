@@ -85,13 +85,14 @@ def publish_decision(ev: dict, now: datetime) -> tuple[bool, str]:
         return False, "closed more than %d days ago" % config.KEEP_CLOSED_DAYS
     if (ev.get("status_note") or "").lower() in ("eventcancelled", "cancelled"):
         return False, "cancelled"
-    if (ev.get("link_failures") or 0) >= config.MAX_LINK_FAILURES:
-        return False, f"official link failed {ev['link_failures']} checks in a row"
     lv = parse_iso(ev.get("last_verified"))
     mv = parse_iso(ev.get("verified_manually"))
     skew = timedelta(hours=12)  # a check stamped in the future is a typo, not a verification
-    fresh = (lv and -skew <= now - lv <= timedelta(hours=config.LINK_OK_WINDOW_H)) or \
-            (mv and -skew <= now - mv <= timedelta(days=config.MANUAL_OK_WINDOW_D))
+    manual_fresh = bool(mv and -skew <= now - mv <= timedelta(days=config.MANUAL_OK_WINDOW_D))
+    # Some official sites refuse requests from cloud servers. A recent check by a person still counts.
+    if (ev.get("link_failures") or 0) >= config.MAX_LINK_FAILURES and not manual_fresh:
+        return False, f"official link failed {ev['link_failures']} checks in a row"
+    fresh = (lv and -skew <= now - lv <= timedelta(hours=config.LINK_OK_WINDOW_H)) or manual_fresh
     if not fresh:
         return False, "not verified recently (link check or manual check)"
     if ev.get("mode") == "onsite" and ev.get("lat") is None:

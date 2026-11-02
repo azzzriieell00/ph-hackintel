@@ -50,7 +50,7 @@ def process_page(http, url: str, source: dict, report: dict, trusted: bool) -> l
         return []
     r = http.get(url)
     if r is None or r.status_code >= 400:
-        report["errors"].append(f"{url}: {'no response' if r is None else 'HTTP %d' % r.status_code}")
+        report["errors"].append(f"{url}: {http.why(url) if r is None else 'HTTP %d' % r.status_code}")
         return []
     html = r.text
     found = extract.jsonld_events(html, r.url)
@@ -77,7 +77,7 @@ def run_source(http, src: dict, page_state: dict, report: dict) -> list[dict]:
     if t == "listing":
         r = http.get(src["url"])
         if r is None or r.status_code >= 400:
-            report["errors"].append(f"{src['url']}: {'no response or blocked' if r is None else 'HTTP %d' % r.status_code}")
+            report["errors"].append(f"{src['url']}: {http.why(src['url']) if r is None else 'HTTP %d' % r.status_code}")
             return []
         offsite: list = []
         links = extract.candidate_links(r.text, r.url, src.get("allow_hosts"), src.get("link_pattern"), offsite)
@@ -88,7 +88,7 @@ def run_source(http, src: dict, page_state: dict, report: dict) -> list[dict]:
     if t == "rss":
         r = http.get(src["url"])
         if r is None or r.status_code >= 400:
-            report["errors"].append(f"{src['url']}: feed unreachable")
+            report["errors"].append(f"{src['url']}: {http.why(src['url']) if r is None else 'HTTP %d' % r.status_code}")
             return []
         feed = feedparser.parse(r.content)
         links = []

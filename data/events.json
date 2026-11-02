@@ -1,9 +1,73 @@
 {
- "generated_at": "2026-11-02T14:54:33Z",
+ "generated_at": "2026-11-02T15:23:56Z",
  "generator": "PH HackIntel pipeline 1.0",
- "offline_run": true,
+ "offline_run": false,
  "llm_enabled": false,
- "sources": [],
+ "sources": [
+  {
+   "id": "gnews-hackathon-ph",
+   "name": "Google News, \"hackathon\" Philippines",
+   "type": "rss",
+   "url": "https://news.google.com/rss/search?q=hackathon+Philippines+when:14d&hl=en-PH&gl=PH&ceid=PH:en",
+   "errors": [
+    "https://news.google.com/rss/search?q=hackathon+Philippines+when:14d&hl=en-PH&gl=PH&ceid=PH:en: feed unreachable"
+   ],
+   "found": 0,
+   "ok": false,
+   "needs_llm": 0,
+   "leads": 0
+  },
+  {
+   "id": "gnews-ctf-ph",
+   "name": "Google News, CTF Philippines",
+   "type": "rss",
+   "url": "https://news.google.com/rss/search?q=%22capture+the+flag%22+OR+HackForGov+Philippines+when:30d&hl=en-PH&gl=PH&ceid=PH:en",
+   "errors": [
+    "https://news.google.com/rss/search?q=%22capture+the+flag%22+OR+HackForGov+Philippines+when:30d&hl=en-PH&gl=PH&ceid=PH:en: feed unreachable"
+   ],
+   "found": 0,
+   "ok": false,
+   "needs_llm": 0,
+   "leads": 0
+  },
+  {
+   "id": "dict-home",
+   "name": "DICT website",
+   "type": "listing",
+   "url": "https://dict.gov.ph/",
+   "errors": [
+    "https://dict.gov.ph/: HTTP 403"
+   ],
+   "found": 0,
+   "ok": false,
+   "needs_llm": 0,
+   "leads": 0
+  },
+  {
+   "id": "pia-home",
+   "name": "Philippine Information Agency",
+   "type": "listing",
+   "url": "https://pia.gov.ph/",
+   "errors": [
+    "https://pia.gov.ph/: HTTP 403"
+   ],
+   "found": 0,
+   "ok": false,
+   "needs_llm": 0,
+   "leads": 0
+  },
+  {
+   "id": "pna-home",
+   "name": "Philippine News Agency",
+   "type": "listing",
+   "url": "https://www.pna.gov.ph/",
+   "errors": [],
+   "found": 0,
+   "ok": true,
+   "needs_llm": 0,
+   "leads": 0
+  }
+ ],
  "events": [
   {
    "id": "nasa-space-apps-2026",
@@ -37,9 +101,9 @@
    "source_id": "manual",
    "first_seen": "2026-11-02T14:50:41Z",
    "last_verified": null,
-   "link_failures": null,
-   "link_status": null,
-   "last_seen": "2026-11-02T14:54:33Z",
+   "link_failures": 1,
+   "link_status": "no response",
+   "last_seen": "2026-11-02T15:23:56Z",
    "lat": null,
    "lon": null,
    "precision": "NONE",

@@ -1,30 +1,52 @@
-# Where the pipeline looks for Philippine hackathons.
+# Where the pipeline looks for Philippine hackathons and CTF / cybersecurity competitions.
 #
 # Rules this file follows:
-#   * Only public pages, fetched with an honest User-Agent, robots.txt respected, max one
-#     request per host every 2 seconds.
-#   * No platform whose terms forbid automated access (see "excluded" at the bottom).
-#     Links that point to those platforms become leads for a human to check, and are never fetched.
+#   * Only public pages and public feeds/APIs, fetched with an honest User-Agent. robots.txt is obeyed,
+#     including wildcard rules and Crawl-delay; at least 2 seconds between requests to one host.
+#   * No platform whose terms forbid automated access (see blocked_hosts at the bottom).
+#     Links that point to those platforms become signals for a person to check, and are never fetched.
 #   * Every published event must pass a link check or a recent manual check (pipeline/store.py).
 #
 # Source types
-#   event_page : one announcement page. Read schema.org Event data, else LLM extraction.
-#   listing    : a news/events page. Follow links whose text or URL matches link_pattern
-#                (or the hackathon keywords), then read each like an event_page.
-#   rss        : a feed. leads_only: true keeps headlines as unverified leads without opening them.
-#                Otherwise matching items are opened like listing links.
+#   site       : a whole website (school, organizer, news outlet). The scanner finds its RSS/Atom feed
+#                by itself and reads it every scan; once a day it also reads homepage links and, on
+#                WordPress sites whose robots.txt allows it, the site's own search for "hackathon",
+#                "capture the flag" and "hackforgov". Optional: feeds: [url], link_pattern, search: false.
+#   event_page : one announcement page, read every scan. Structured event data, else AI reading
+#                (cached: an unchanged page is never sent to the AI twice).
+#   listing    : a news/events page. Follows links whose text or URL matches link_pattern
+#                (or the competition keywords), then reads each like an event_page.
+#   rss        : a feed. leads_only: true keeps headlines as signals without opening them.
+#   ctftime    : CTFtime's public events API. Only onsite CTFs whose location names the Philippines.
+#
+# Every source's result (pages read, feeds found, errors, notes) is in data/events.json > sources.
+# A source that fails only reports an error; it never stops the scan. To stop using a site, set
+# enabled: false. Sites below came up in web searches for Philippine hackathon and CTF news
+# (2025-2026 posts, searched on 2026-11-03).
 
 sources:
-  # Google News search feeds: robots.txt disallows /rss/search for our bot (run on 2026-11-02). Off.
-  - id: gnews-hackathon-ph
-    name: Google News, "hackathon" Philippines
-    type: rss
-    leads_only: true
-    url: https://news.google.com/rss/search?q=hackathon+Philippines+when:14d&hl=en-PH&gl=PH&ceid=PH:en
-    enabled: false
+  # ---------------------------------------------------------------- official event sites (from announcements)
+  - id: tcon9-site
+    name: TCON9 official site (Hack the North PH)
+    type: event_page
+    url: https://tcon.hackthenorth.ph
+    enabled: true
 
-  # Philippine tech news feeds. Headlines that mention a hackathon or CTF become signals,
-  # and the article is opened (if robots.txt allows) to try to extract the event.
+  - id: techconnect-aideathon-site
+    name: Tech Connect SYNC AIdeathon site (BatStateU Alangilan)
+    type: event_page
+    url: https://techconnect-zeta.vercel.app/
+    enabled: true
+
+  # ---------------------------------------------------------------- structured CTF data
+  - id: ctftime-ph
+    name: CTFtime (onsite CTFs in the Philippines)
+    type: ctftime
+    url: https://ctftime.org/api/v1/events/
+    refresh_hours: 12          # CTFtime asks for 10 s between requests; twice a day is plenty
+    enabled: true
+
+  # ---------------------------------------------------------------- tech and regional news
   - id: inquirer-tech
     name: Inquirer Technology
     type: rss
@@ -36,6 +58,217 @@ sources:
     type: rss
     url: https://bitpinas.com/feed/
     enabled: true
+
+  - id: bitpinas-hackathon-tag
+    name: BitPinas, hackathon tag
+    type: rss
+    url: https://bitpinas.com/tag/hackathon/feed/
+    enabled: true
+
+  - id: newsbytes
+    name: NewsBytes.PH
+    type: site
+    url: https://newsbytes.ph/
+    enabled: true
+
+  - id: tribune
+    name: Daily Tribune
+    type: site
+    url: https://tribune.net.ph/
+    enabled: true
+
+  - id: mindanao-gold-star
+    name: Mindanao Gold Star Daily
+    type: site
+    url: https://mindanaogoldstardaily.com/
+    enabled: true
+
+  - id: sunstar-hackathon-tag
+    name: SunStar, Hackathon tag
+    type: listing
+    url: https://www.sunstar.com.ph/tags/Hackathon
+    link_pattern: "hackathon|hack4|hackforgov|capture[- ]the[- ]flag|\\bctf\\b|cyber"
+    enabled: true
+
+  - id: cebu-daily-news
+    name: Cebu Daily News
+    type: site
+    url: https://cebudailynews.inquirer.net/
+    enabled: true
+
+  - id: the-post
+    name: The POST (Central Visayas)
+    type: site
+    url: https://thepost.net.ph/
+    enabled: true
+
+  - id: insiderph
+    name: InsiderPH
+    type: site
+    url: https://insiderph.com/
+    enabled: true
+
+  - id: pna-home
+    name: Philippine News Agency
+    type: listing
+    url: https://www.pna.gov.ph/
+    link_pattern: "hackathon|hack4|hackforgov|capture[- ]the[- ]flag"
+    enabled: true
+
+  # ---------------------------------------------------------------- government and communities
+  - id: dost-asti
+    name: DOST-ASTI news
+    type: site
+    url: https://asti.dost.gov.ph/
+    enabled: true
+
+  - id: devcon
+    name: DEVCON Philippines
+    type: site
+    url: https://devcon.ph/
+    enabled: true
+
+  - id: circuitrocks-events
+    name: Circuitrocks events
+    type: site
+    url: https://event.circuit.rocks/
+    enabled: true
+
+  # ---------------------------------------------------------------- universities (news pages)
+  - id: rtu
+    name: Rizal Technological University
+    type: site
+    url: https://www.rtu.edu.ph/
+    enabled: true
+
+  - id: upm
+    name: University of the Philippines Manila
+    type: site
+    url: https://www.upm.edu.ph/
+    enabled: true
+
+  - id: national-u
+    name: National University
+    type: site
+    url: https://www.national-u.edu.ph/
+    enabled: true
+
+  - id: feutech
+    name: FEU Institute of Technology
+    type: site
+    url: https://www.feutech.edu.ph/
+    enabled: true
+
+  - id: slu
+    name: Saint Louis University (Baguio)
+    type: site
+    url: https://www.slu.edu.ph/
+    enabled: true
+
+  - id: hau
+    name: Holy Angel University
+    type: site
+    url: https://www.hau.edu.ph/
+    enabled: true
+
+  - id: bicol-u
+    name: Bicol University
+    type: site
+    url: https://bicol-u.edu.ph/
+    enabled: true
+
+  - id: cit-u
+    name: Cebu Institute of Technology - University
+    type: site
+    url: https://cit.edu/
+    enabled: true
+
+  - id: su
+    name: Silliman University
+    type: site
+    url: https://su.edu.ph/
+    enabled: true
+
+  - id: chmsu
+    name: Carlos Hilado Memorial State University
+    type: site
+    url: https://chmsu.edu.ph/
+    enabled: true
+
+  - id: antique-spride
+    name: University of Antique
+    type: site
+    url: https://www.antiquespride.edu.ph/
+    enabled: true
+
+  - id: gsu-cst
+    name: Guimaras State University, College of Science and Technology
+    type: site
+    url: https://cst.gsu.edu.ph/
+    enabled: true
+
+  - id: uptacloban
+    name: UP Tacloban
+    type: site
+    url: https://www.uptacloban.edu.ph/
+    enabled: true
+
+  - id: vsu
+    name: Visayas State University
+    type: site
+    url: https://www.vsu.edu.ph/
+    enabled: true
+
+  - id: adzu
+    name: Ateneo de Zamboanga University
+    type: site
+    url: https://adzu.edu.ph/
+    enabled: true
+
+  - id: imcc
+    name: Iligan Medical Center College
+    type: site
+    url: https://imcc.edu.ph/
+    enabled: true
+
+  - id: upmin
+    name: UP Mindanao
+    type: site
+    url: https://upmin.edu.ph/
+    enabled: true
+
+  - id: usep-ic
+    name: USeP Institute of Computing
+    type: site
+    url: https://usep.edu.ph/ic/
+    enabled: true
+
+  - id: usm
+    name: University of Southern Mindanao
+    type: site
+    url: https://www.usm.edu.ph/
+    enabled: true
+
+  - id: ndmc
+    name: Notre Dame of Marbel College
+    type: site
+    url: https://www.ndmc.edu.ph/
+    enabled: true
+
+  - id: carsu
+    name: Caraga State University
+    type: site
+    url: https://www.carsu.edu.ph/
+    enabled: true
+
+  # ---------------------------------------------------------------- off (reasons given)
+  # Google News search feeds: robots.txt disallows /rss/search for our bot (checked 2026-11-02).
+  - id: gnews-hackathon-ph
+    name: Google News, "hackathon" Philippines
+    type: rss
+    leads_only: true
+    url: https://news.google.com/rss/search?q=hackathon+Philippines+when:14d&hl=en-PH&gl=PH&ceid=PH:en
+    enabled: false
 
   # DICT and PIA answered HTTP 403 to the scanner on GitHub Actions (first run, 2026-11-02).
   # The sites refuse automated requests from that network; we do not work around a refusal.
@@ -54,13 +287,6 @@ sources:
     link_pattern: "hackathon|hack4|hackforgov|capture[- ]the[- ]flag"
     enabled: false
 
-  - id: pna-home
-    name: Philippine News Agency
-    type: listing
-    url: https://www.pna.gov.ph/
-    link_pattern: "hackathon|hack4|hackforgov|capture[- ]the[- ]flag"
-    enabled: true
-
   # Your own Google Alerts. Create an alert at google.com/alerts, set "Deliver to" = RSS feed,
   # paste the feed URL here and set enabled: true. Alerts links are opened and read.
   - id: alerts-hackathon-ph
@@ -69,16 +295,14 @@ sources:
     url: https://www.google.com/alerts/feeds/REPLACE_WITH_YOUR_FEED_ID
     enabled: false
 
-  # Template for an organizer, university or community page that announces hackathons.
-  # Check the site's terms first; the pipeline checks robots.txt by itself.
+  # Template: add any school, organizer or community website. Only its address is needed.
   - id: example-organizer
-    name: Example organizer news page
-    type: listing
-    url: https://example.edu.ph/news
-    link_pattern: "hackathon|ctf"
+    name: Example organizer website
+    type: site
+    url: https://example.edu.ph/
     enabled: false
 
-# Hosts the pipeline never fetches. Links to them are recorded as leads for manual checking.
+# Hosts the pipeline never fetches. Links to them are recorded as signals for manual checking.
 blocked_hosts:
   - hackathons.ph            # terms: "Do not spam, scrape, or abuse the service or its APIs" (checked 2026-11-02)
   - www.hackathons.ph
@@ -88,9 +312,12 @@ blocked_hosts:
   - facebook.com             # Meta terms prohibit automated collection
   - www.facebook.com
   - m.facebook.com
+  - fb.com
+  - fb.me
   - instagram.com
   - www.instagram.com
   - x.com
   - twitter.com
   - linkedin.com
   - www.linkedin.com
+  - ph.linkedin.com

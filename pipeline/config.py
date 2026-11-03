@@ -37,6 +37,17 @@ GEMINI_BASE = "https://generativelanguage.googleapis.com/v1beta"
 LLM_PROVIDER = os.environ.get("HACKINTEL_LLM_PROVIDER", "").strip().lower()
 LLM_DAILY_CAP = int(os.environ.get("HACKINTEL_LLM_DAILY_CAP", "120"))   # requests per UTC day, all runs together
 LLM_RUN_CAP = int(os.environ.get("HACKINTEL_LLM_RUN_CAP", "12"))        # requests per scan
+LLM_MIN_INTERVAL_S = float(os.environ.get("HACKINTEL_LLM_MIN_INTERVAL", "6"))  # seconds between AI requests (per-minute limits)
+AI_REFRESH_H = 6             # a page whose text changed is re-read by the AI at most this often
+
+# Discovery limits: keep each hourly scan polite and well inside the workflow's time limit.
+SCAN_TIME_BUDGET_S = float(os.environ.get("HACKINTEL_SCAN_BUDGET_S", "720"))   # stop opening new pages after this
+MAX_PAGES_PER_RUN = int(os.environ.get("HACKINTEL_MAX_PAGES", "60"))           # announcement pages opened per scan
+DAILY_REFRESH_PER_RUN = 8    # "site" sources whose homepage and search feeds are re-read in one scan (spreads the load)
+FEED_MAX_AGE_D = 100         # feed items older than this are ignored (past events are kept about two months)
+QUEUE_MAX_AGE_D = 14         # links waiting for the AI are dropped after this
+# Searches run once a day on WordPress sites that allow them in robots.txt (their built-in search feed).
+SEARCH_TERMS = ["hackathon", "capture the flag", "hackforgov"]
 
 
 def llm_provider() -> str:

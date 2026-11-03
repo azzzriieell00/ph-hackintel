@@ -1,0 +1,3 @@
+# Test robots.txt: Python's robotparser ignores wildcards; the scanner must still obey this line.
+User-agent: *
+Disallow: /*?s=capture

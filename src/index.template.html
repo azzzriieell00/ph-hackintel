@@ -186,6 +186,45 @@ body.cursor-on #cursor{display:block}
 .btn-row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .note{font:500 10.5px/1.5 var(--f-mono);color:var(--muted)}
 
+/* ---------- confidence (intel panel) ---------- */
+.confbox{border:1px solid var(--line);padding:10px 12px;display:grid;gap:7px}
+.confbox[hidden]{display:none}
+.confbox .ch{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
+.confbox .ch span{font:500 10px/1 var(--f-mono);letter-spacing:.1em;color:var(--muted);text-transform:uppercase}
+.confbox .ch b{font:700 20px/1 var(--f-mono);font-variant-numeric:tabular-nums}
+.confbox .ch b small{font-size:10.5px;color:var(--muted);font-weight:500;letter-spacing:.08em;margin-left:4px}
+.confbar{height:4px;background:var(--surface-2);position:relative;overflow:hidden}
+.confbar i{position:absolute;inset:0;transform-origin:left;background:var(--red)}
+.confbox.lv-HIGH .confbar i{background:var(--ice)}
+.confbox.lv-MEDIUM .confbar i{background:var(--amber)}
+.confbox.lv-HIGH .ch b small{color:var(--ice)}
+.confbox.lv-MEDIUM .ch b small{color:var(--amber)}
+.confbox.lv-LOW .ch b small{color:var(--red)}
+.confbox ul{margin:0;padding:0;list-style:none;display:grid;gap:3px;font:500 10.5px/1.45 var(--f-mono);color:var(--muted)}
+.confbox li{display:grid;grid-template-columns:34px 1fr;gap:6px}
+.confbox li em{font-style:normal;color:var(--fg);text-align:right;font-variant-numeric:tabular-nums}
+.confbox li.neg em{color:var(--red)}
+
+/* ---------- briefing (analysis tab) ---------- */
+.brief{list-style:none;display:grid;gap:10px;padding:4px 2px 12px}
+.bsec{border:1px solid var(--line);background:rgba(19,14,15,.72);padding:10px 11px;display:grid;gap:8px;min-width:0}
+.bsec h3{margin:0;font:600 10px/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--red)}
+.bsec h3 small{color:var(--muted);font-weight:500;letter-spacing:.06em;margin-left:6px}
+.bsec p{margin:0;font:400 12.5px/1.55 var(--f-body)}
+.bsec p b{font-weight:600}
+.bsec .rbar{grid-template-columns:96px 1fr 22px}
+.btiles{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.btile{border:1px solid var(--line);padding:7px 8px;min-width:0}
+.btile b{display:block;font:700 18px/1 var(--f-display);font-variant-numeric:tabular-nums}
+.btile span{font:500 9px/1.3 var(--f-mono);letter-spacing:.08em;color:var(--muted);text-transform:uppercase}
+.btile.lv-HIGH b{color:var(--ice)} .btile.lv-MEDIUM b{color:var(--amber)} .btile.lv-LOW b{color:var(--red)}
+.bkv{margin:0;display:grid;grid-template-columns:auto 1fr;gap:4px 10px;font:500 10.5px/1.45 var(--f-mono)}
+.bkv dt{color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.bkv dd{margin:0;text-align:right;font-variant-numeric:tabular-nums;min-width:0;overflow-wrap:anywhere}
+.berr{margin:0;padding:0;list-style:none;display:grid;gap:4px;font:500 10px/1.45 var(--f-mono);color:var(--muted)}
+.berr b{color:var(--amber);font-weight:500}
+.bsec .titem{padding:7px 8px}
+
 /* footer HUD */
 .ftr{position:absolute;left:0;right:0;bottom:0;height:var(--ftr);display:flex;align-items:center;gap:16px;border-top:1px solid var(--line);
   padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));background:rgba(11,8,9,.9);
@@ -203,6 +242,8 @@ body.cursor-on #cursor{display:block}
 body.intel-open .zoomctl{right:calc(var(--intel) + var(--gap) * 2)}
 .zoomctl .icon-btn{width:34px;height:34px;padding:0;font-size:14px}
 .legend{position:absolute;left:calc(var(--side) + var(--gap) * 2);bottom:calc(var(--ftr) + var(--gap));display:flex;gap:14px;flex-wrap:wrap;font:500 10px/1 var(--f-mono);color:var(--muted);letter-spacing:.06em;text-transform:uppercase;pointer-events:none}
+.legend{right:calc(var(--gap) * 3 + 34px);transition:right .42s cubic-bezier(.2,.8,.2,1)}
+body.intel-open .legend{right:calc(var(--intel) + var(--gap) * 4 + 34px)}
 .legend span{display:flex;align-items:center;gap:6px}
 .legend i{width:10px;height:10px;border:1.5px solid var(--red);border-radius:50%;display:inline-block}
 .legend .lg-closing{border-color:var(--red);box-shadow:0 0 0 3px rgba(255,43,63,.25)}
@@ -287,6 +328,7 @@ body.mode-3d #ret3d{display:block}
   .intel.open{transform:none}
   .intel .corner{display:none}
   body.intel-open .zoomctl{right:var(--gap)}
+  .targets.expanded ~ .zoomctl{display:none}
   .zoomctl{bottom:calc(var(--ftr) + 46px + var(--gap))}
   .intel-name{font-size:22px}
   .ticker{display:none}
@@ -349,6 +391,7 @@ body.mode-3d #ret3d{display:block}
       <button class="fbtn" data-f="ctf" aria-pressed="false">CTF</button>
       <button class="fbtn" data-f="closing" aria-pressed="false">Closing</button>
       <button class="fbtn" data-f="signals" aria-pressed="false">Signals</button>
+      <button class="fbtn" data-f="brief" aria-pressed="false">Brief</button>
     </div>
     <ul class="tlist" id="tlist"></ul>
   </aside>
@@ -373,6 +416,7 @@ body.mode-3d #ret3d{display:block}
         <span class="cd" id="cd">--</span>
         <div class="cdbar"><i id="cdbar"></i></div>
       </div>
+      <div class="confbox" id="confbox" hidden></div>
       <dl class="facts" id="facts"></dl>
       <div class="srcbox" id="srcbox"></div>
       <div class="actions">
@@ -505,7 +549,7 @@ function lookup(lon, lat, maxDeg = 0.09) {
    2. Event data
    ========================================================================= */
 /* DATA: 'live' = data/events.json fetched now, 'snapshot' = copy embedded at build time */
-let EVENTS = [], LEADS = [], DATA = { origin: 'snapshot', generated: null, sources: [], held: 0 };
+let EVENTS = [], LEADS = [], DATA = { origin: 'snapshot', generated: null, sources: [], held: 0, scan: null, llm: null };
 function normalize(list) {
   return list.map((e, i) => {
     const ev = { ...e };
@@ -1002,9 +1046,104 @@ function renderLeads(ul) {
         <span class="lm">${esc(l.source || host)}${Number.isFinite(t) ? ' // ' + esc(ago(t)) : ''}${l.note ? ' // ' + esc(l.note) : ''}</span></a></li>`;
     }).join('');
 }
+/* ---- Brief: an analysis of the current file, computed in the browser from the same data the map shows ---- */
+function islandOf(ri) {
+  if (ri < 0) return null;
+  const r = GEO.regions[ri];
+  if (/Visayas|\(NIR\)/i.test(r)) return 'Visayas';
+  if (/Mindanao|Zamboanga|Davao|SOCCSKSARGEN|Caraga|BARMM/i.test(r)) return 'Mindanao';
+  return 'Luzon';
+}
+function bars(rows) {
+  const max = Math.max(1, ...rows.map(r => r[1]));
+  return rows.map(([label, n, title]) => `<div class="rbar" title="${esc(title || label)}: ${n}"><span>${esc(label)}</span><i style="transform:scaleX(${(n / max).toFixed(3)})"></i><em>${n}</em></div>`).join('');
+}
+function renderBrief(ul) {
+  const now = Date.now();
+  const st = new Map(EVENTS.map(e => [e, status(e, now)]));
+  const up = EVENTS.filter(e => st.get(e) !== 'past'), past = EVENTS.filter(e => st.get(e) === 'past');
+  const open = up.filter(e => ['open', 'closing', 'today'].includes(st.get(e))).sort((a, b) => a.dl - b.dl);
+  const closing = up.filter(e => ['closing', 'today'].includes(st.get(e)));
+  const fresh = EVENTS.filter(e => e.is_new);
+  const cnt = (list, c) => list.filter(e => e.category === c).length;
+  const regs = new Map();
+  for (const e of EVENTS) if (e.geoRegion >= 0) regs.set(e.geoRegion, (regs.get(e.geoRegion) || 0) + 1);
+  const ranked = [...regs.entries()].sort((a, b) => b[1] - a[1]);
+  const topReg = ranked.length && (ranked.length === 1 || ranked[0][1] > ranked[1][1]) ? ranked[0] : null;   /* no "most active" on a tie */
+
+  const sum = [];
+  if (!EVENTS.length) sum.push('No verified competitions with a Philippine venue in the current file.');
+  else {
+    sum.push(`<b>${up.length}</b> upcoming (${cnt(up, 'hackathon')} hackathon, ${cnt(up, 'ctf')} CTF) and <b>${past.length}</b> held in about the last two months (${cnt(past, 'hackathon')} hackathon, ${cnt(past, 'ctf')} CTF).`);
+    if (open.length) {
+      const n = open[0];
+      sum.push(`Next: <b>${esc(n.name)}</b> ${n.deadline_is_estimate ? '(no deadline stated) starts' : 'closes'} in ${esc(shortCd(n.dl - now))}, ${esc(fmtDay(n.dl))}.`);
+    } else sum.push('No registration is open in the current file.');
+    if (closing.length) sum.push(`<b>${closing.length}</b> closing within 7 days.`);
+    if (topReg) sum.push(`Most active region: <b>${esc(regionName(topReg[0]))}</b> (${topReg[1]} of ${EVENTS.length}), ${regs.size} region${regs.size === 1 ? '' : 's'} in total.`);
+    else if (regs.size) sum.push(`Spread across <b>${regs.size}</b> regions with no single most active one.`);
+    if (fresh.length) sum.push(`<b>${fresh.length}</b> found by the scanner in the last 3 days.`);
+  }
+
+  const nextRows = up.slice().sort((a, b) => a.dl - b.dl).slice(0, 5).map(ev => {
+    const s = st.get(ev), [m, sub] = cdLabel(ev, now);
+    return `<button class="titem" data-id="${esc(ev.id)}"><span class="tags"><span class="chip ${ev.category === 'ctf' ? 'cat-ctf' : ''}">${ev.category === 'ctf' ? 'CTF' : 'Hackathon'}</span><span class="chip s-${s}">${esc(ST_LABEL[s])}</span></span>
+      <span class="tn">${esc(ev.name)}</span><span class="tl">${esc(placeLine(ev))}</span><span class="tc s-${s}">${esc(m)}<small>${esc(sub)}</small></span></button>`;
+  }).join('');
+
+  const islands = ['Luzon', 'Visayas', 'Mindanao'].map(g => {
+    const list = EVENTS.filter(e => islandOf(e.geoRegion) === g);
+    return [g, list.length, `${g}: ${list.filter(e => st.get(e) !== 'past').length} upcoming, ${list.filter(e => st.get(e) === 'past').length} past`];
+  });
+  const monthKey = t => { const p = parts(t); return p.year + '-' + p.month; };
+  const months = [];
+  const pm = parts(now), y0 = +pm.year, m0 = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'].indexOf(pm.month);
+  for (let k = -2; k <= 3; k++) {
+    const d = new Date(Date.UTC(y0, m0 + k, 15));     /* mid-month: the same month in UTC and Philippine time */
+    const key = monthKey(d.getTime());
+    months.push([parts(d.getTime()).month.toUpperCase() + ' ' + parts(d.getTime()).year, EVENTS.filter(e => monthKey(Number.isFinite(e.startT) ? e.startT : e.dl) === key).length]);
+  }
+
+  const lv = { HIGH: 0, MEDIUM: 0, LOW: 0 };
+  let scored = 0;
+  for (const e of EVENTS) if (e.confidence && lv[e.confidence.level] !== undefined) { lv[e.confidence.level]++; scored++; }
+
+  const src = DATA.sources, ok = src.filter(x => x.ok).length, bad = src.filter(x => x.errors && x.errors.length);
+  const sc = DATA.scan || {}, ai = DATA.llm || {};
+  const kv = [
+    ['Last scan', DATA.generated ? `${fmtDate(DATA.generated)} (${ago(DATA.generated)})` : 'unknown'],
+    ['Sources answering', src.length ? `${ok} / ${src.length}` : 'not reported'],
+  ];
+  if (Number.isFinite(sc.pages_opened)) kv.push(['Pages read last scan', sc.pages_opened]);
+  if (Number.isFinite(sc.feeds_known)) kv.push(['Feeds found', sc.feeds_known]);
+  if (Number.isFinite(sc.pending_links)) kv.push(['Links waiting', sc.pending_links]);
+  if (Number.isFinite(sc.duration_s)) kv.push(['Scan time', Math.round(sc.duration_s) + ' s']);
+  kv.push(['AI reading', ai.provider ? `${ai.provider}${ai.model ? ' · ' + String(ai.model).replace(/^models\//, '') : ''}` : 'off (no API key)']);
+  if (ai.provider) kv.push(['AI requests', `${ai.requests_this_run || 0} this scan · ${ai.requests_today || 0} today${ai.daily_cap ? ' / ' + ai.daily_cap : ''}`]);
+  if (ai.stopped) kv.push(['AI note', ai.stopped]);
+  if (Number.isFinite(sc.ai_cache_hits)) kv.push(['AI answers reused', sc.ai_cache_hits]);
+  kv.push(['Signals', LEADS.length], ['Held for review', DATA.held]);
+
+  ul.innerHTML = `<li class="brief">
+    <section class="bsec"><h3>Sitrep<small>${esc(DATA.origin === 'live' ? 'live file' : 'snapshot')}</small></h3>${sum.map(x => `<p>${x}</p>`).join('')}</section>
+    ${nextRows ? `<section class="bsec"><h3>Next on the board</h3>${nextRows}</section>` : ''}
+    <section class="bsec"><h3>By island group<small>all pinned events</small></h3>${bars(islands)}</section>
+    <section class="bsec"><h3>By month<small>event date</small></h3>${bars(months)}</section>
+    <section class="bsec"><h3>Mix</h3><div class="btiles">
+      <div class="btile"><b>${cnt(EVENTS, 'hackathon')}</b><span>Hackathon</span></div>
+      <div class="btile"><b>${cnt(EVENTS, 'ctf')}</b><span>CTF / cyber</span></div>
+      <div class="btile"><b>${regs.size}</b><span>Regions</span></div></div></section>
+    ${scored ? `<section class="bsec"><h3>Confidence<small>how well each record is backed</small></h3><div class="btiles">
+      ${['HIGH', 'MEDIUM', 'LOW'].map(k => `<div class="btile lv-${k}"><b>${lv[k]}</b><span>${k}</span></div>`).join('')}</div></section>` : ''}
+    <section class="bsec"><h3>Scanner</h3><dl class="bkv">${kv.map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join('')}</dl>
+      ${bad.length ? `<ul class="berr">${bad.slice(0, 6).map(x => `<li><b>${esc(x.name || x.id)}</b> // ${esc(String(x.errors[0]).replace(/^https?:\/\/\S+:\s*/, '').slice(0, 110))}</li>`).join('')}${bad.length > 6 ? `<li>+${bad.length - 6} more in data/events.json</li>` : ''}</ul>` : ''}</section>
+    <section class="bsec"><h3>Coverage</h3><p class="note">Facebook, Luma, Devpost and hackathons.ph are not read automatically (their terms do not allow it). Links to them appear under Signals; add those events with tools/add_event.py. Always confirm on the official page.</p></section>
+  </li>`;
+}
 function renderList() {
   const ul = $('#tlist');
   if (filter === 'signals') { renderLeads(ul); return; }
+  if (filter === 'brief') { renderBrief(ul); return; }
   const items = filtered();
   if (!items.length) {
     const scan = DATA.generated ? `Last scan: <b>${esc(fmtDate(DATA.generated))}</b> (${esc(ago(DATA.generated))}).` : 'No scan data loaded.';
@@ -1017,7 +1156,7 @@ function renderList() {
   ul.innerHTML = items.map(ev => {
     const st = status(ev, now);
     const tags = [`<span class="chip ${ev.category === 'ctf' ? 'cat-ctf' : ''}">${ev.category === 'ctf' ? 'CTF' : 'Hackathon'}</span>`, `<span class="chip s-${st}">${esc(ST_LABEL[st])}</span>`];
-    if (ev.mode !== 'onsite') tags.push(`<span class="chip">${esc(ev.mode)}</span>`);
+    if (ev.mode === 'hybrid' || ev.mode === 'online') tags.push(`<span class="chip">${esc(ev.mode)}</span>`);
     if (ev.is_new) tags.push(`<span class="chip new">New</span>`);
     const [cdMain, cdSub] = cdLabel(ev, now);
     return `<li><button class="titem ${st === 'past' ? 'closed' : ''} ${selected === ev ? 'sel' : ''}" data-id="${esc(ev.id)}">
@@ -1069,7 +1208,7 @@ function canEngage(ev) { return ev && ev.hasPin && ev.precision !== 'PROVINCE'; 
 function openIntel(ev) {
   const now = Date.now(), st = status(ev, now);
   $('#intel-file').textContent = ev.id + '.json';
-  const chips = [`<span class="chip ${ev.category === 'ctf' ? 'cat-ctf' : ''}">${ev.category === 'ctf' ? 'CTF / cybersecurity' : 'Hackathon'}</span>`, `<span class="chip s-${st}">${esc(ST_LABEL[st])}</span>`, `<span class="chip">${esc(ev.mode)}</span>`];
+  const chips = [`<span class="chip ${ev.category === 'ctf' ? 'cat-ctf' : ''}">${ev.category === 'ctf' ? 'CTF / cybersecurity' : 'Hackathon'}</span>`, `<span class="chip s-${st}">${esc(ST_LABEL[st])}</span>`, `<span class="chip">${esc(ev.mode === 'unspecified' ? 'mode not stated' : ev.mode)}</span>`];
   if (ev.hasPin) chips.push(`<span class="chip">${esc(ev.precision)} precision</span>`);
   if (ev.is_new) chips.push(`<span class="chip new">New</span>`);
   if (ev.deadline_extended_from) chips.push(`<span class="chip amber">Deadline extended</span>`);
@@ -1097,7 +1236,7 @@ function openIntel(ev) {
     <dt>Deadline</dt><dd class="m">${ev.deadline_is_estimate ? (status(ev) === 'past' ? 'Not stated in source' : '<span class="warn">No registration deadline stated</span>') : esc(fmtDate(ev.dl))}${ev.deadline_extended_from ? '<br><span class="warn">Extended from ' + esc(fmtDate(Date.parse(ev.deadline_extended_from))) + '</span>' : ''}</dd>
     <dt>Event dates</dt><dd class="m">${esc(evDates)}</dd>
     ${ev.results ? `<dt>Results</dt><dd>${esc(ev.results)}</dd>` : ''}
-    <dt>Mode</dt><dd>${esc(ev.mode.charAt(0).toUpperCase() + ev.mode.slice(1))}</dd>
+    <dt>Mode</dt><dd>${esc(ev.mode === 'unspecified' ? 'Not stated' : ev.mode.charAt(0).toUpperCase() + ev.mode.slice(1))}</dd>
     <dt>Venue</dt><dd>${esc(ev.venue || 'Not announced')}</dd>
     <dt>Location</dt><dd>${esc(placeLine(ev))}</dd>
     ${loc}
@@ -1109,13 +1248,23 @@ function openIntel(ev) {
   if (Number.isFinite(lv)) ver.push(`official link answered ${esc(ago(lv))} (${esc(ev.link_status || 'OK')})`);
   else if (ev.link_status) ver.push(esc(ev.link_status));
   if (Number.isFinite(mv)) ver.push(`checked by hand ${esc(fmtDate(mv))}${ev.verified_by ? ' (' + esc(ev.verified_by) + ')' : ''}`);
-  const how = { jsonld: 'structured event data on the page', llm: 'AI reading of the page text, then checks', manual: 'entered by hand from the source page' }[ev.extraction] || ev.extraction || 'not recorded';
+  const how = { jsonld: 'structured event data on the page', llm: 'AI reading of the page text, then checks', manual: 'entered by hand from the source page', api: 'structured data from a public API (CTFtime)' }[ev.extraction] || ev.extraction || 'not recorded';
   const src = `<div><b>SOURCE</b> // ${(ev.sources || []).map(s => s.url ? `<a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer" style="color:var(--fg)">${esc(s.label || s.url)}</a>` : esc(s.label)).join(', ') || 'Not recorded'}</div>
        <div><b>EXTRACTED FROM</b> // ${esc(how)}</div>
        <div><b>VERIFIED</b> // ${ver.length ? ver.join('; ') : 'Not recorded'}</div>
        <div><b>FIRST SEEN</b> // ${ev.first_seen ? esc(fmtDate(Date.parse(ev.first_seen))) : 'Not recorded'}</div>
+       ${Array.isArray(ev.ai_checks) && ev.ai_checks.length ? `<div><b>AI CHECKS</b> // ${ev.ai_checks.map(esc).join('; ')}</div>` : ''}
        ${ev.notes ? `<div><b>NOTE</b> // ${esc(ev.notes)}</div>` : ''}`;
   $('#srcbox').innerHTML = src;
+  const cf = ev.confidence, cb = $('#confbox');
+  if (cf && Number.isFinite(cf.score) && ['HIGH', 'MEDIUM', 'LOW'].includes(cf.level)) {
+    cb.hidden = false;
+    cb.className = 'confbox lv-' + cf.level;
+    cb.innerHTML = `<div class="ch"><span>Confidence</span><b>${Math.round(cf.score)}<small>/100 ${cf.level}</small></b></div>
+      <div class="confbar" role="img" aria-label="Confidence ${Math.round(cf.score)} of 100"><i style="transform:scaleX(${clamp(cf.score / 100, 0, 1).toFixed(2)})"></i></div>
+      <ul>${(Array.isArray(cf.reasons) ? cf.reasons : []).map(r => Array.isArray(r) && Number.isFinite(r[0])
+        ? `<li class="${r[0] < 0 ? 'neg' : ''}"><em>${r[0] > 0 ? '+' : ''}${r[0]}</em><span>${esc(r[1])}</span></li>` : '').join('')}</ul>`;
+  } else { cb.hidden = true; cb.innerHTML = ''; }
 
   const reg = $('#btn-reg');
   if (ev.registration_url) { reg.href = ev.registration_url; reg.removeAttribute('aria-disabled'); reg.style.pointerEvents = ''; reg.style.opacity = ''; }
@@ -1229,6 +1378,8 @@ function renderTicker() {
     lines.push(`${ev.is_new ? '<b>NEW</b> // ' : ''}${ev.category === 'ctf' ? 'CTF' : 'HACKATHON'} // ${esc(ev.name.toUpperCase())} // ${esc(placeLine(ev).toUpperCase())} // DL ${esc(fmtDay(ev.dl))} (${esc(shortCd(ev.dl - now))})`);
   }
   for (const l of LEADS.slice(0, 6)) lines.push(`SIGNAL // ${esc((l.title || l.url).toUpperCase())}`);
+  const num = v => Number.isFinite(+v) ? Math.round(+v) : 0;
+  if (DATA.scan && Number.isFinite(DATA.scan.pages_opened)) lines.push(`SCANNER // ${num(DATA.scan.pages_opened)} PAGES READ // ${num(DATA.scan.feeds_known)} FEEDS // ${DATA.llm && DATA.llm.provider ? 'AI ' + esc(String(DATA.llm.provider).toUpperCase()) + ' ' + num(DATA.llm.requests_today) + ' REQ TODAY' : 'AI OFF'}`);
   if (!EVENTS.length) lines.push('NO VERIFIED HACKATHONS IN THE CURRENT FILE');
   $('#ticker').innerHTML = lines.map(l => `<span>${l}</span>`).join('');
 }
@@ -1613,7 +1764,8 @@ function applyDoc(doc, origin) {
   EVENTS = normalize(Array.isArray(doc.events) ? doc.events : []).filter(e => e.hasPin);  /* map shows pinned events only */
   LEADS = Array.isArray(doc.leads) ? doc.leads.filter(l => l && l.url) : [];
   DATA = { origin, generated: Date.parse(doc.generated_at || '') || null, sources: Array.isArray(doc.sources) ? doc.sources : [],
-           held: Array.isArray(doc.held) ? doc.held.length : (doc.held_count || 0) };
+           held: Array.isArray(doc.held) ? doc.held.length : (doc.held_count || 0),
+           scan: doc.scan && typeof doc.scan === 'object' ? doc.scan : null, llm: doc.llm && typeof doc.llm === 'object' ? doc.llm : null };
 }
 async function fetchLive() {
   if (!/^https?:$/.test(location.protocol)) return null;

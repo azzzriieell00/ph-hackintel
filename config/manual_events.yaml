@@ -36,6 +36,55 @@
 #    verified_by: Your name
 
 events:
+  # ---- Upcoming, from Facebook announcements (seen 2026-11-03) and checked on the official sites ----
+
+  - id: tcon9-ctf-2026
+    name: TCON9 CTF (Hack the North PH)
+    category: ctf
+    organizer: Hack the North PH; challenges by Recon Village PH
+    mode: onsite
+    venue: Hotel Supreme Convention Plaza
+    city: Baguio
+    province: Benguet
+    start: "2026-11-27"
+    end: "2026-11-28"
+    deadline: "2026-11-27"
+    deadline_is_estimate: true
+    eligibility: TCON9 attendees (students, professionals, cybersecurity enthusiasts); teams of up to 3; max 2 teams per organization
+    themes: [Capture the Flag, Cybersecurity]
+    registration_url: https://bit.ly/TCON9CTF-Reg
+    official_url: https://tcon.hackthenorth.ph
+    sources:
+      - label: TCON9 official site
+        url: https://tcon.hackthenorth.ph
+      - label: Hack the North PH Facebook post (CTF registration open)
+    notes: The CTF is part of the TCON9 conference; a TCON9 pass is needed. CTF registration deadline not stated.
+    verified_manually: "2026-11-03T07:45"
+    verified_by: Facebook post + official site
+
+  - id: techconnect-sync-aideathon-2026
+    name: "Tech Connect: SYNC AIdeathon"
+    category: hackathon
+    organizer: CICS Student Council, BatStateU Alangilan (with CAIST, CTI and Nex Network)
+    mode: unspecified
+    venue: Not stated (organizer is based at BatStateU Alangilan)
+    city: Batangas City
+    province: Batangas
+    start: "2026-12-03"
+    deadline: "2026-11-10T23:59"
+    deadline_is_estimate: false
+    eligibility: Currently enrolled BatStateU students from all campuses; teams of 4 students plus 1 faculty adviser
+    themes: [AI, Innovation]
+    registration_url: https://techconnect-zeta.vercel.app/
+    official_url: https://techconnect-zeta.vercel.app/
+    sources:
+      - label: Tech Connect AIdeathon site
+        url: https://techconnect-zeta.vercel.app/
+      - label: CICS Alangilan Student Council Facebook post
+    notes: Registration opened Nov 2, 2026. Dec 3 is Demo Day. Pin is the city of the organizer's campus; venue not stated.
+    verified_manually: "2026-11-03T07:45"
+    verified_by: Facebook post + official site
+
   # ---- Past events (about the last two months), researched 2026-11-03 from public sources ----
   # Past events stay on the map for ~62 days after they end. Coordinates are city centres
   # (CITY precision) because exact venue coordinates were not confirmed.

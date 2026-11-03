@@ -21,7 +21,7 @@ concurrency:
 jobs:
   scan:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 30         # the scanner stops opening new pages after 12 minutes (HACKINTEL_SCAN_BUDGET_S)
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5

@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-03T15:05:02Z",
+ "generated_at": "2026-11-03T20:58:09Z",
  "generator": "PH HackIntel pipeline 2.0",
  "offline_run": false,
  "llm_enabled": true,
@@ -18,7 +18,7 @@
   "pages_opened": 0,
   "queued_from_earlier": 0,
   "links_considered": 5,
-  "duration_s": 176.0,
+  "duration_s": 94.5,
   "pending_links": 0,
   "feeds_known": 18,
   "ai_pages_read": 0,
@@ -65,7 +65,7 @@
    "url": "https://ctftime.org/api/v1/events/",
    "errors": [],
    "notes": [
-    "86 CTFs listed in the window, 0 onsite in the Philippines"
+    "not due yet; events from the last read are carried over"
    ],
    "found": 0,
    "pages": 0,
@@ -632,9 +632,7 @@
    "name": "UP Mindanao",
    "type": "site",
    "url": "https://upmin.edu.ph/",
-   "errors": [
-    "https://upmin.edu.ph/feed/: HTTP 403"
-   ],
+   "errors": [],
    "notes": [],
    "found": 0,
    "pages": 0,
@@ -644,7 +642,7 @@
    "feeds": [
     "https://upmin.edu.ph/feed/"
    ],
-   "ok": false,
+   "ok": true,
    "needs_llm": 0,
    "leads": 0
   },
@@ -760,10 +758,10 @@
    "extraction": "manual",
    "source_id": "manual",
    "first_seen": "2026-11-03T00:48:31Z",
-   "last_verified": "2026-11-03T15:05:02Z",
+   "last_verified": "2026-11-03T20:58:09Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
-   "last_seen": "2026-11-03T15:05:02Z",
+   "last_seen": "2026-11-03T20:58:09Z",
    "lat": 13.7565,
    "lon": 121.0583,
    "precision": "CITY",
@@ -834,10 +832,10 @@
    "extraction": "manual",
    "source_id": "manual",
    "first_seen": "2026-11-03T00:48:31Z",
-   "last_verified": "2026-11-03T15:05:02Z",
+   "last_verified": "2026-11-03T20:58:09Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
-   "last_seen": "2026-11-03T15:05:02Z",
+   "last_seen": "2026-11-03T20:58:09Z",
    "lat": 16.42929,
    "lon": 120.59504,
    "precision": "EXACT",
@@ -908,7 +906,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-03T15:05:02Z",
+   "last_seen": "2026-11-03T20:58:09Z",
    "lat": 13.4467,
    "lon": 121.8399,
    "precision": "CITY",
@@ -975,7 +973,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-03T15:05:02Z",
+   "last_seen": "2026-11-03T20:58:09Z",
    "lat": 8.228,
    "lon": 124.2452,
    "precision": "CITY",
@@ -1043,7 +1041,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-03T15:05:02Z",
+   "last_seen": "2026-11-03T20:58:09Z",
    "lat": 13.9373,
    "lon": 121.617,
    "precision": "CITY",
@@ -1114,7 +1112,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-03T15:05:02Z",
+   "last_seen": "2026-11-03T20:58:09Z",
    "lat": 10.61216,
    "lon": 122.92613,
    "precision": "EXACT",
@@ -1324,7 +1322,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-03T15:05:02Z",
+   "last_seen": "2026-11-03T20:58:09Z",
    "lat": 6.9214,
    "lon": 122.079,
    "precision": "CITY",
@@ -1356,77 +1354,6 @@
      [
       15,
       "pin is inside the province the source names"
-     ]
-    ]
-   }
-  },
-  {
-   "id": "hackforgov-2026-region13-ctf",
-   "name": "HackForGov 2026 Region 13 CTF Regional Qualifying Round",
-   "category": "ctf",
-   "organizer": "DICT Region 13",
-   "mode": "onsite",
-   "venue": "Almont Inland Resort",
-   "city": "Butuan",
-   "province": "Agusan del Norte",
-   "start": "2026-09-02T00:00:00+08:00",
-   "deadline": "2026-09-02T00:00:00+08:00",
-   "deadline_is_estimate": true,
-   "themes": [
-    "Capture the Flag",
-    "Cybersecurity"
-   ],
-   "results": "Champion: SMCC Team Michaelinian Tech Knights; 1st runner-up: SMCC Team Un!N$P3CT3d; 2nd runner-up: St. Francis Xavier College",
-   "sources": [
-    {
-     "label": "Mindanao Gold Star Daily (2026-09-29)",
-     "url": "https://mindanaogoldstardaily.com/smcc-sweeps-top-spots-in-caraga-hack4gov-2026"
-    }
-   ],
-   "verified_manually": "2026-11-03T00:45:00+08:00",
-   "verified_by": "Web research",
-   "extraction": "manual",
-   "source_id": "manual",
-   "first_seen": "2026-11-02T16:48:28Z",
-   "last_verified": null,
-   "link_failures": null,
-   "link_status": null,
-   "last_seen": "2026-11-03T15:05:02Z",
-   "lat": 8.94627,
-   "lon": 125.52941,
-   "precision": "EXACT",
-   "location_source": "nominatim",
-   "location_check": "MATCH",
-   "is_new": false,
-   "phase": "finished",
-   "corroboration": 1,
-   "confidence": {
-    "score": 85,
-    "level": "HIGH",
-    "reasons": [
-     [
-      30,
-      "entered by a person from the source"
-     ],
-     [
-      20,
-      "documented by a published source"
-     ],
-     [
-      10,
-      "checked by a person"
-     ],
-     [
-      5,
-      "results reported"
-     ],
-     [
-      15,
-      "pin is inside the province the source names"
-     ],
-     [
-      5,
-      "venue located exactly"
      ]
     ]
    }
@@ -1492,6 +1419,78 @@
  ],
  "held": [
   {
+   "id": "hackforgov-2026-region13-ctf",
+   "name": "HackForGov 2026 Region 13 CTF Regional Qualifying Round",
+   "category": "ctf",
+   "organizer": "DICT Region 13",
+   "mode": "onsite",
+   "venue": "Almont Inland Resort",
+   "city": "Butuan",
+   "province": "Agusan del Norte",
+   "start": "2026-09-02T00:00:00+08:00",
+   "deadline": "2026-09-02T00:00:00+08:00",
+   "deadline_is_estimate": true,
+   "themes": [
+    "Capture the Flag",
+    "Cybersecurity"
+   ],
+   "results": "Champion: SMCC Team Michaelinian Tech Knights; 1st runner-up: SMCC Team Un!N$P3CT3d; 2nd runner-up: St. Francis Xavier College",
+   "sources": [
+    {
+     "label": "Mindanao Gold Star Daily (2026-09-29)",
+     "url": "https://mindanaogoldstardaily.com/smcc-sweeps-top-spots-in-caraga-hack4gov-2026"
+    }
+   ],
+   "verified_manually": "2026-11-03T00:45:00+08:00",
+   "verified_by": "Web research",
+   "extraction": "manual",
+   "source_id": "manual",
+   "first_seen": "2026-11-02T16:48:28Z",
+   "last_verified": null,
+   "link_failures": null,
+   "link_status": null,
+   "last_seen": "2026-11-03T20:58:09Z",
+   "lat": 8.94627,
+   "lon": 125.52941,
+   "precision": "EXACT",
+   "location_source": "nominatim",
+   "location_check": "MATCH",
+   "is_new": false,
+   "phase": "finished",
+   "corroboration": 1,
+   "confidence": {
+    "score": 85,
+    "level": "HIGH",
+    "reasons": [
+     [
+      30,
+      "entered by a person from the source"
+     ],
+     [
+      20,
+      "documented by a published source"
+     ],
+     [
+      10,
+      "checked by a person"
+     ],
+     [
+      5,
+      "results reported"
+     ],
+     [
+      15,
+      "pin is inside the province the source names"
+     ],
+     [
+      5,
+      "venue located exactly"
+     ]
+    ]
+   },
+   "hold_reason": "finished more than 62 days ago"
+  },
+  {
    "name": "ASEAN AI Hackathon",
    "organizer": null,
    "mode": "unspecified",
@@ -1531,7 +1530,7 @@
    "precision": "NONE",
    "location_check": "NO_LOCATION",
    "link_status": "HTTP 200",
-   "last_verified": "2026-11-03T15:05:02Z",
+   "last_verified": "2026-11-03T20:58:09Z",
    "link_failures": 0,
    "is_new": true,
    "phase": "upcoming",
@@ -1600,7 +1599,7 @@
    "precision": "NONE",
    "location_check": "N/A",
    "link_status": "HTTP 404",
-   "link_failures": 3,
+   "link_failures": 4,
    "is_new": true,
    "phase": "upcoming",
    "corroboration": 1,
@@ -1618,7 +1617,7 @@
      ],
      [
       -10,
-      "official link failed 3 check(s)"
+      "official link failed 4 check(s)"
      ],
      [
       -10,
@@ -1677,7 +1676,7 @@
    "location_source": "gazetteer",
    "location_check": "MATCH",
    "link_status": "HTTP 200",
-   "last_verified": "2026-11-03T15:05:02Z",
+   "last_verified": "2026-11-03T20:58:09Z",
    "link_failures": 0,
    "is_new": true,
    "phase": "upcoming",
@@ -1752,7 +1751,7 @@
    "precision": "NONE",
    "location_check": "NO_LOCATION",
    "link_status": "HTTP 200",
-   "last_verified": "2026-11-03T15:05:02Z",
+   "last_verified": "2026-11-03T20:58:09Z",
    "link_failures": 0,
    "is_new": true,
    "phase": "upcoming",
@@ -1821,7 +1820,7 @@
    "location_source": "gazetteer",
    "location_check": "PROVINCE_FROM_MAP",
    "link_status": "HTTP 200",
-   "last_verified": "2026-11-03T15:05:02Z",
+   "last_verified": "2026-11-03T20:58:09Z",
    "link_failures": 0,
    "is_new": true,
    "phase": "upcoming",

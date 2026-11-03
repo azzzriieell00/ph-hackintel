@@ -1,1 +1,623 @@
-{}
+{
+ "_source_runs": {
+  "tcon9-site": "2026-11-03T00:48:31Z",
+  "techconnect-aideathon-site": "2026-11-03T00:48:31Z",
+  "ctftime-ph": "2026-11-03T00:48:31Z",
+  "inquirer-tech": "2026-11-03T00:48:31Z",
+  "bitpinas": "2026-11-03T00:48:31Z",
+  "bitpinas-hackathon-tag": "2026-11-03T00:48:31Z",
+  "newsbytes": "2026-11-03T00:48:31Z",
+  "tribune": "2026-11-03T00:48:31Z",
+  "mindanao-gold-star": "2026-11-03T00:48:31Z",
+  "sunstar-hackathon-tag": "2026-11-03T00:48:31Z",
+  "cebu-daily-news": "2026-11-03T00:48:31Z",
+  "the-post": "2026-11-03T00:48:31Z",
+  "insiderph": "2026-11-03T00:48:31Z",
+  "pna-home": "2026-11-03T00:48:31Z",
+  "dost-asti": "2026-11-03T00:48:31Z",
+  "devcon": "2026-11-03T00:48:31Z",
+  "circuitrocks-events": "2026-11-03T00:48:31Z",
+  "rtu": "2026-11-03T00:48:31Z",
+  "upm": "2026-11-03T00:48:31Z",
+  "national-u": "2026-11-03T00:48:31Z",
+  "feutech": "2026-11-03T00:48:31Z",
+  "slu": "2026-11-03T00:48:31Z",
+  "hau": "2026-11-03T00:48:31Z",
+  "bicol-u": "2026-11-03T00:48:31Z",
+  "cit-u": "2026-11-03T00:48:31Z",
+  "su": "2026-11-03T00:48:31Z",
+  "chmsu": "2026-11-03T00:48:31Z",
+  "antique-spride": "2026-11-03T00:48:31Z",
+  "gsu-cst": "2026-11-03T00:48:31Z",
+  "uptacloban": "2026-11-03T00:48:31Z",
+  "vsu": "2026-11-03T00:48:31Z",
+  "adzu": "2026-11-03T00:48:31Z",
+  "imcc": "2026-11-03T00:48:31Z",
+  "upmin": "2026-11-03T00:48:31Z",
+  "usep-ic": "2026-11-03T00:48:31Z",
+  "usm": "2026-11-03T00:48:31Z",
+  "ndmc": "2026-11-03T00:48:31Z",
+  "carsu": "2026-11-03T00:48:31Z"
+ },
+ "_sites": {
+  "ctftime-ph": {
+   "fetched_at": "2026-11-03T00:48:31Z"
+  },
+  "newsbytes": {
+   "home_at": "2026-11-03T00:48:31Z",
+   "wordpress": true,
+   "feeds": [
+    "https://newsbytes.ph/feed/"
+   ],
+   "search_at": "2026-11-03T00:48:31Z"
+  },
+  "tribune": {
+   "home_at": "2026-11-03T00:48:31Z",
+   "wordpress": false,
+   "feeds": []
+  },
+  "mindanao-gold-star": {
+   "home_at": "2026-11-03T00:48:31Z",
+   "wordpress": false,
+   "feeds": []
+  },
+  "cebu-daily-news": {
+   "home_at": "2026-11-03T00:48:31Z",
+   "wordpress": true,
+   "feeds": [
+    "https://cebudailynews.inquirer.net/feed/"
+   ],
+   "search_at": "2026-11-03T00:48:31Z"
+  },
+  "the-post": {
+   "home_at": "2026-11-03T00:48:31Z",
+   "wordpress": true,
+   "feeds": [
+    "https://thepost.net.ph/feed/"
+   ],
+   "search_at": "2026-11-03T00:48:31Z"
+  },
+  "insiderph": {
+   "home_at": "2026-11-03T00:48:31Z",
+   "wordpress": false,
+   "feeds": []
+  },
+  "dost-asti": {
+   "home_at": "2026-11-03T00:48:31Z",
+   "wordpress": true,
+   "feeds": [
+    "https://asti.dost.gov.ph/feed/"
+   ],
+   "search_at": "2026-11-03T00:48:31Z"
+  },
+  "devcon": {
+   "home_at": "2026-11-03T00:48:31Z",
+   "wordpress": false,
+   "feeds": []
+  },
+  "circuitrocks-events": {
+   "home_at": "2026-11-03T00:48:31Z",
+   "wordpress": true,
+   "feeds": [
+    "https://event.circuit.rocks/feed/"
+   ],
+   "search_at": "2026-11-03T00:48:31Z"
+  },
+  "rtu": {
+   "home_at": "2026-11-03T00:48:31Z",
+   "wordpress": true,
+   "feeds": [
+    "https://www.rtu.edu.ph/feed/"
+   ],
+   "search_at": "2026-11-03T00:48:31Z"
+  },
+  "upm": {
+   "home_at": "2026-11-03T00:48:31Z",
+   "home_error": "https://www.upm.edu.ph/: robots.txt could not be read"
+  },
+  "national-u": {
+   "home_at": "2026-11-03T00:48:31Z",
+   "home_error": "https://www.national-u.edu.ph/: HTTP 403"
+  },
+  "feutech": {
+   "home_at": "2026-11-03T00:48:31Z",
+   "wordpress": false,
+   "feeds": []
+  },
+  "slu": {
+   "home_at": "2026-11-03T00:48:31Z",
+   "home_error": "https://www.slu.edu.ph/: robots.txt could not be read"
+  },
+  "hau": {
+   "home_at": "2026-11-03T00:48:31Z",
+   "wordpress": false,
+   "feeds": []
+  },
+  "bicol-u": {
+   "home_at": "2026-11-03T00:48:31Z",
+   "wordpress": true,
+   "feeds": [
+    "https://bicol-u.edu.ph/feed/"
+   ],
+   "search_at": "2026-11-03T00:48:31Z"
+  },
+  "cit-u": {
+   "home_at": "2026-11-03T00:48:31Z",
+   "wordpress": true,
+   "feeds": [
+    "https://cit.edu/feed/"
+   ],
+   "search_at": "2026-11-03T00:48:31Z"
+  },
+  "su": {
+   "home_at": "2026-11-03T00:48:31Z",
+   "wordpress": false,
+   "feeds": []
+  },
+  "chmsu": {
+   "home_at": "2026-11-03T00:48:31Z",
+   "home_error": "https://chmsu.edu.ph/: robots.txt could not be read"
+  },
+  "antique-spride": {
+   "home_at": "2026-11-03T00:48:31Z",
+   "wordpress": true,
+   "feeds": [
+    "https://www.antiquespride.edu.ph/feed/"
+   ]
+  },
+  "gsu-cst": {
+   "home_at": "2026-11-03T00:48:31Z",
+   "wordpress": true,
+   "feeds": [
+    "https://cst.gsu.edu.ph/feed/"
+   ]
+  },
+  "uptacloban": {
+   "home_at": "2026-11-03T00:48:31Z",
+   "wordpress": true,
+   "feeds": [
+    "https://www.uptacloban.edu.ph/feed/"
+   ]
+  },
+  "vsu": {
+   "home_at": "2026-11-03T00:48:31Z",
+   "wordpress": false,
+   "feeds": []
+  },
+  "adzu": {
+   "home_at": "2026-11-03T00:48:31Z",
+   "wordpress": true,
+   "feeds": [
+    "https://adzu.edu.ph/feed/"
+   ]
+  },
+  "imcc": {
+   "home_at": "2026-11-03T00:48:31Z",
+   "wordpress": true,
+   "feeds": [
+    "https://imcc.edu.ph/feed/"
+   ]
+  },
+  "upmin": {
+   "home_at": "2026-11-03T00:48:31Z",
+   "wordpress": true,
+   "feeds": [
+    "https://upmin.edu.ph/feed/"
+   ]
+  },
+  "usep-ic": {
+   "home_at": "2026-11-03T00:48:31Z",
+   "wordpress": true,
+   "feeds": [
+    "https://usep.edu.ph/ic/feed/"
+   ]
+  },
+  "usm": {
+   "home_at": "2026-11-03T00:48:31Z",
+   "wordpress": true,
+   "feeds": [
+    "https://www.usm.edu.ph/feed/"
+   ]
+  },
+  "ndmc": {
+   "home_at": "2026-11-03T00:48:31Z",
+   "wordpress": false,
+   "feeds": [
+    "https://www.ndmc.edu.ph/rss.xml"
+   ]
+  },
+  "carsu": {
+   "home_at": "2026-11-03T00:48:31Z",
+   "wordpress": true,
+   "feeds": [
+    "https://www.carsu.edu.ph/feed/"
+   ]
+  }
+ },
+ "_queue": {},
+ "_ai": {
+  "https://tcon.hackthenorth.ph/": {
+   "hash": "ae0fee82b1f1f63d",
+   "at": "2026-11-03T00:48:31Z",
+   "events": [
+    {
+     "name": "TCON9",
+     "organizer": null,
+     "mode": "onsite",
+     "venue": "Hotel Supreme Convention Plaza",
+     "city": "Baguio City",
+     "province": null,
+     "country": "Philippines",
+     "lat": null,
+     "lon": null,
+     "start": "2026-11-27T00:00:00+08:00",
+     "end": "2026-11-28T00:00:00+08:00",
+     "deadline": "2026-11-27T00:00:00+08:00",
+     "deadline_is_estimate": true,
+     "eligibility": null,
+     "themes": [],
+     "prize": null,
+     "registration_url": "https://tcon.hackthenorth.ph/",
+     "official_url": "https://tcon.hackthenorth.ph/",
+     "registration_closed": null,
+     "category": "hackathon",
+     "results": null,
+     "ai_checks": [
+      "province 'Benguet' dropped: not in the page text"
+     ],
+     "extraction": "llm"
+    }
+   ]
+  },
+  "https://techconnect-zeta.vercel.app/": {
+   "hash": "438899967b33f493",
+   "at": "2026-11-03T00:48:31Z",
+   "events": []
+  },
+  "https://cit.edu/2026/08/21/asean-ai-hackathon-champion-cit-u/": {
+   "hash": "14e03639f3ffb1ec",
+   "at": "2026-11-03T00:48:31Z",
+   "events": [
+    {
+     "name": "ASEAN AI Hackathon",
+     "organizer": null,
+     "mode": "unspecified",
+     "venue": null,
+     "city": null,
+     "province": null,
+     "country": "Philippines",
+     "lat": null,
+     "lon": null,
+     "start": null,
+     "end": null,
+     "deadline": null,
+     "deadline_is_estimate": true,
+     "eligibility": null,
+     "themes": [
+      "Artificial Intelligence",
+      "Student Innovation"
+     ],
+     "prize": null,
+     "registration_url": "https://cit.edu/2026/08/21/asean-ai-hackathon-champion-cit-u/",
+     "official_url": "https://cit.edu/2026/08/21/asean-ai-hackathon-champion-cit-u/",
+     "registration_closed": null,
+     "category": "hackathon",
+     "results": "Team CIT-U Shane-nanigans emerged as the champion.",
+     "ai_checks": null,
+     "extraction": "llm"
+    }
+   ]
+  },
+  "https://www.uptacloban.edu.ph/up-tacloban-conquers-the-2026-rscene-48-hour-hackathon/": {
+   "hash": "95aa00a26b202909",
+   "at": "2026-11-03T00:48:31Z",
+   "events": [
+    {
+     "name": "2026 rSCENE 48-hour Hackathon",
+     "organizer": null,
+     "mode": "onsite",
+     "venue": "Catbalogan City",
+     "city": "Catbalogan City",
+     "province": null,
+     "country": "Philippines",
+     "lat": null,
+     "lon": null,
+     "start": "2026-10-06T00:00:00+08:00",
+     "end": "2026-10-08T00:00:00+08:00",
+     "deadline": "2026-10-06T00:00:00+08:00",
+     "deadline_is_estimate": true,
+     "eligibility": "Student teams representing respective municipalities and cities",
+     "themes": [
+      "water security",
+      "smart communities"
+     ],
+     "prize": null,
+     "registration_url": "https://www.uptacloban.edu.ph/up-tacloban-conquers-the-2026-rscene-48-hour-hackathon/",
+     "official_url": "https://www.uptacloban.edu.ph/up-tacloban-conquers-the-2026-rscene-48-hour-hackathon/",
+     "registration_closed": null,
+     "category": "hackathon",
+     "results": "UP Tacloban (Honey Joy B. Mora, Desirre Bless I. Barbosa, and Rolf Genree L. Garces) emerged as champions with their project PIA WaterBack.",
+     "ai_checks": null,
+     "extraction": "llm"
+    }
+   ]
+  },
+  "https://su.edu.ph/news/su-places-third-in-hackforgov-5-nir-regional-competition/": {
+   "hash": "7c1b13c40f419be6",
+   "at": "2026-11-03T00:48:31Z",
+   "events": [
+    {
+     "name": "HackForGov 5 NIR Regional Competition",
+     "organizer": "Department of Information and Communications Technology (DICT)",
+     "mode": "onsite",
+     "venue": "Roy’s Hotel and Convention Center",
+     "city": "Bacolod City",
+     "province": "Negros Occidental",
+     "country": "Philippines",
+     "lat": null,
+     "lon": null,
+     "start": "2026-10-12T00:00:00+08:00",
+     "end": "2026-10-12T00:00:00+08:00",
+     "deadline": "2026-10-12T00:00:00+08:00",
+     "deadline_is_estimate": true,
+     "eligibility": "Students from Negros Occidental and Negros Oriental",
+     "themes": [
+      "cybersecurity",
+      "Capture-the-Flag",
+      "open-source intelligence",
+      "web application security",
+      "network forensics and security",
+      "cryptography"
+     ],
+     "prize": null,
+     "registration_url": "https://su.edu.ph/news/su-places-third-in-hackforgov-5-nir-regional-competition/",
+     "official_url": "https://su.edu.ph/news/su-places-third-in-hackforgov-5-nir-regional-competition/",
+     "registration_closed": null,
+     "category": "ctf",
+     "results": "Champion: University of St. La Salle Bacolod; 1st Runner-up: STI West Negros University; 2nd Runner-up (3rd place): Silliman University (Phish & Chips)",
+     "ai_checks": null,
+     "extraction": "llm"
+    }
+   ]
+  },
+  "https://newsbytes.ph/2026/10/28/ph-cybersecurity-team-tops-2026-cyber-sea-game/?utm_source=rss&utm_medium=rss&utm_campaign=ph-cybersecurity-team-tops-2026-cyber-sea-game": {
+   "hash": "78ebcdda2efb3d62",
+   "at": "2026-11-03T00:48:31Z",
+   "events": []
+  },
+  "https://www.sunstar.com.ph/bacolod/business/phs-biggest-5g-hackathon-kicks-off-with-enablement-workshops": {
+   "hash": "6a8538a779224bb2",
+   "at": "2026-11-03T00:48:31Z",
+   "events": [
+    {
+     "name": "PH's biggest 5G Hackathon",
+     "organizer": "Globe Telecom and De La Salle University (DLSU) Animo Labs",
+     "mode": "online",
+     "venue": "Globe Prepaid's Virtual Hangouts",
+     "city": null,
+     "province": null,
+     "country": "Philippines",
+     "lat": null,
+     "lon": null,
+     "start": null,
+     "end": null,
+     "deadline": null,
+     "deadline_is_estimate": true,
+     "eligibility": "Students, professors, startups, and tech professionals",
+     "themes": [
+      "5G for society",
+      "5G for industries",
+      "5G for Smart Cities"
+     ],
+     "prize": "Cash pool worth half a million pesos, a chance to turn ideas into a business venture under 917Ventures, and an opportunity to work directly with Globe's 5G Acceleration Lab",
+     "registration_url": "https://globe5ghackathon.com/workshop",
+     "official_url": "https://www.sunstar.com.ph/bacolod/business/phs-biggest-5g-hackathon-kicks-off-with-enablement-workshops",
+     "registration_closed": true,
+     "category": "hackathon",
+     "results": null,
+     "ai_checks": [
+      "start 2021-05-21 dropped: implausible year"
+     ],
+     "extraction": "llm"
+    }
+   ]
+  },
+  "https://www.sunstar.com.ph/manila/business/aboitiz-group-holds-biggest-hackathon": {
+   "hash": "c3519da0b68ff9b5",
+   "at": "2026-11-03T00:48:31Z",
+   "events": [
+    {
+     "name": "Decode Tomorrow: The Aboitiz Future Challenge Hackathon",
+     "organizer": "Aboitiz Group",
+     "mode": "onsite",
+     "venue": "The Mega Tent in Ortigas Center",
+     "city": "Pasig City",
+     "province": "Metro Manila",
+     "country": "Philippines",
+     "lat": null,
+     "lon": null,
+     "start": null,
+     "end": null,
+     "deadline": null,
+     "deadline_is_estimate": true,
+     "eligibility": "Start-up entrepreneurs, freelancers, and 2nd to 4th year college students",
+     "themes": [
+      "Business solutions",
+      "Information Technology",
+      "Internet of Things",
+      "Big Data and Predictive Analytics",
+      "Artificial Intelligence",
+      "Robotics and Automation"
+     ],
+     "prize": "Cash prizes ranging from P40,000 to P100,000",
+     "registration_url": "https://www.sunstar.com.ph/manila/business/aboitiz-group-holds-biggest-hackathon",
+     "official_url": "https://www.sunstar.com.ph/manila/business/aboitiz-group-holds-biggest-hackathon",
+     "registration_closed": null,
+     "category": "hackathon",
+     "results": null,
+     "ai_checks": [
+      "start 2018-11-10 dropped: implausible year",
+      "end 2018-11-11 dropped: implausible year"
+     ],
+     "extraction": "llm"
+    }
+   ]
+  },
+  "https://www.rtu.edu.ph/rtu-ics-students-among-top-10-finalists-in-egovph-hackathon-2026/": {
+   "hash": "c7945dba7617cf4f",
+   "at": "2026-11-03T00:48:31Z",
+   "events": [
+    {
+     "name": "eGovPH Hackathon 2026",
+     "organizer": "Department of Information and Communications Technology (DICT) – eGovernment Office",
+     "mode": "unspecified",
+     "venue": null,
+     "city": null,
+     "province": null,
+     "country": "Philippines",
+     "lat": null,
+     "lon": null,
+     "start": null,
+     "end": null,
+     "deadline": null,
+     "deadline_is_estimate": true,
+     "eligibility": "Students, software developers, IT professionals, startups, innovators, and technology experts",
+     "themes": [
+      "Collaborative Solutions for a Better Philippines",
+      "Government service delivery",
+      "Public sector innovation"
+     ],
+     "prize": null,
+     "registration_url": "https://www.rtu.edu.ph/rtu-ics-students-among-top-10-finalists-in-egovph-hackathon-2026/",
+     "official_url": "https://www.rtu.edu.ph/rtu-ics-students-among-top-10-finalists-in-egovph-hackathon-2026/",
+     "registration_closed": null,
+     "category": "hackathon",
+     "results": "RTU ICS students secured a place among the Top 10 Finalists.",
+     "ai_checks": null,
+     "extraction": "llm"
+    }
+   ]
+  },
+  "https://cit.edu/2026/08/20/can-you-hackit-2026-cebu/": {
+   "hash": "92b6ed5c5945d2fd",
+   "at": "2026-11-03T00:48:31Z",
+   "events": [
+    {
+     "name": "Can You HackIT 2026 Cebu",
+     "organizer": null,
+     "mode": "unspecified",
+     "venue": null,
+     "city": "Cebu",
+     "province": null,
+     "country": "Philippines",
+     "lat": null,
+     "lon": null,
+     "start": null,
+     "end": null,
+     "deadline": null,
+     "deadline_is_estimate": true,
+     "eligibility": "Students",
+     "themes": [
+      "Resilient Systems",
+      "Intelligent Rural Transportation Access",
+      "Civic Access and Opportunity Platforms",
+      "Transparent and Accountable Systems"
+     ],
+     "prize": null,
+     "registration_url": "https://cit.edu/2026/08/20/can-you-hackit-2026-cebu/",
+     "official_url": "https://cit.edu/2026/08/20/can-you-hackit-2026-cebu/",
+     "registration_closed": true,
+     "category": "hackathon",
+     "results": "Exelia (Cebu Technological University – Main Campus) won first place, L1ghtbyte (CIT-U) won second place, and Undefined (University of Cebu – South Campus) took third place.",
+     "ai_checks": null,
+     "extraction": "llm"
+    }
+   ]
+  },
+  "https://bicol-u.edu.ph/daraga-lgu-seals-2-moas-with-bu-to-drive-ict-startup-ecosystem-in-albay/": {
+   "hash": "8278e2643ff505e1",
+   "at": "2026-11-03T00:48:31Z",
+   "events": []
+  }
+ },
+ "https://cit.edu/2026/08/21/asean-ai-hackathon-champion-cit-u/": {
+  "checked": "2026-11-03T00:48:31Z",
+  "found": 1
+ },
+ "https://www.uptacloban.edu.ph/up-tacloban-conquers-the-2026-rscene-48-hour-hackathon/": {
+  "checked": "2026-11-03T00:48:31Z",
+  "found": 1
+ },
+ "https://su.edu.ph/news/su-places-third-in-hackforgov-5-nir-regional-competition/": {
+  "checked": "2026-11-03T00:48:31Z",
+  "found": 1
+ },
+ "https://newsbytes.ph/2026/10/28/ph-cybersecurity-team-tops-2026-cyber-sea-game/?utm_source=rss&utm_medium=rss&utm_campaign=ph-cybersecurity-team-tops-2026-cyber-sea-game": {
+  "checked": "2026-11-03T00:48:31Z",
+  "found": 0
+ },
+ "https://cebudailynews.inquirer.net/781697/p15-m-mega-lotto-jackpot-of-nov-2-draw-won-by-lone-bettor": {
+  "checked": "2026-11-03T00:48:31Z",
+  "found": 0
+ },
+ "https://cebudailynews.inquirer.net/781707/visayas-to-see-high-heat-index-tuesday": {
+  "checked": "2026-11-03T00:48:31Z",
+  "found": 0
+ },
+ "https://cebudailynews.inquirer.net/780196/cebu-to-hold-modest-rites-marking-deadly-typhoon-tino-anniversary": {
+  "checked": "2026-11-03T00:48:31Z",
+  "found": 0
+ },
+ "https://cebudailynews.inquirer.net/781723/alex-eala-talks-intimidating-nadal-fan-frenzy-in-breakthrough-year": {
+  "checked": "2026-11-03T00:48:31Z",
+  "found": 0
+ },
+ "https://cebudailynews.inquirer.net/781710/florida-crash-probe-parts-of-a-learjet-may-have-broken-off-midair": {
+  "checked": "2026-11-03T00:48:31Z",
+  "found": 0
+ },
+ "https://cebudailynews.inquirer.net/781704/nba-thunder-to-retire-westbrook-jersey-0-in-february": {
+  "checked": "2026-11-03T00:48:31Z",
+  "found": 0
+ },
+ "https://cebudailynews.inquirer.net/781701/gasoline-prices-to-increase-by-p3-50-l-doe": {
+  "checked": "2026-11-03T00:48:31Z",
+  "found": 0
+ },
+ "https://cebudailynews.inquirer.net/781695/daily-gospel-november-3-2026": {
+  "checked": "2026-11-03T00:48:31Z",
+  "found": 0
+ },
+ "https://cebudailynews.inquirer.net/781686/lotto-results-for-nov-2-2026": {
+  "checked": "2026-11-03T00:48:31Z",
+  "found": 0
+ },
+ "https://cebudailynews.inquirer.net/781688/jessica-sanchez-returns-to-ph-for-shows-spends-time-with-daughter": {
+  "checked": "2026-11-03T00:48:31Z",
+  "found": 0
+ },
+ "https://www.sunstar.com.ph/bacolod/business/phs-biggest-5g-hackathon-kicks-off-with-enablement-workshops": {
+  "checked": "2026-11-03T00:48:31Z",
+  "found": 1
+ },
+ "https://www.sunstar.com.ph/manila/business/aboitiz-group-holds-biggest-hackathon": {
+  "checked": "2026-11-03T00:48:31Z",
+  "found": 1
+ },
+ "https://www.rtu.edu.ph/rtu-ics-students-among-top-10-finalists-in-egovph-hackathon-2026/": {
+  "checked": "2026-11-03T00:48:31Z",
+  "found": 1
+ },
+ "https://cit.edu/2026/08/20/can-you-hackit-2026-cebu/": {
+  "checked": "2026-11-03T00:48:31Z",
+  "found": 1
+ },
+ "https://bicol-u.edu.ph/daraga-lgu-seals-2-moas-with-bu-to-drive-ict-startup-ecosystem-in-albay/": {
+  "checked": "2026-11-03T00:48:31Z",
+  "found": 0
+ },
+ "https://newsbytes.ph/2026/08/11/interoprability-to-take-center-stage-at-digicon-2026/?utm_source=rss&utm_medium=rss&utm_campaign=interoprability-to-take-center-stage-at-digicon-2026": {
+  "checked": "2026-11-03T00:48:31Z",
+  "found": 0
+ }
+}

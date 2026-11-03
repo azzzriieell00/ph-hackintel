@@ -20,5 +20,40 @@
  ],
  "quezon convention center lucena philippines": [],
  "digital creatives hub pala o iligan philippines": [],
- "governor s hall provincial capitol boac philippines": []
+ "governor s hall provincial capitol boac philippines": [],
+ "hotel supreme convention plaza baguio philippines": [
+  {
+   "lat": 16.4292907,
+   "lon": 120.595043,
+   "category": "tourism",
+   "type": "hotel",
+   "display_name": "Hotel Supreme Convention Plaza, Magsaysay Avenue, Happy Homes - Old Lucban, District 8, Baguio, Cordillera Administrative Region, 2600, Philippines"
+  }
+ ],
+ "not stated organizer is based at batstateu alangilan batangas philippines": [],
+ "catbalogan catbalogan philippines": [
+  {
+   "lat": 11.7588157,
+   "lon": 124.9234774,
+   "category": "landuse",
+   "type": "residential",
+   "display_name": "Catbalogan City Homes, Pangdan, Catbalogan, Samar, Eastern Visayas, 6700, Philippines"
+  },
+  {
+   "lat": 11.7768207,
+   "lon": 124.8805534,
+   "category": "amenity",
+   "type": "police",
+   "display_name": "Catbalogan City Police Station, Barangay 3, Poblacion, San Andres, Catbalogan, Samar, Eastern Visayas, 6700, Philippines"
+  },
+  {
+   "lat": 11.7745099,
+   "lon": 124.8791847,
+   "category": "landuse",
+   "type": "industrial",
+   "display_name": "Catbalogan Port, Barangay 4, Poblacion, San Andres, Catbalogan, Samar, Eastern Visayas, 6700, Philippines"
+  }
+ ],
+ "roys hotel and convention center bacolod philippines": [],
+ "the mega tent in ortigas center pasig philippines": []
 }

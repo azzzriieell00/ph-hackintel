@@ -1,5 +1,37 @@
 {
- "generated_at": "2026-11-02T23:32:51Z",
- "items": [],
- "pages_needing_llm": []
+ "generated_at": "2026-11-03T00:48:31Z",
+ "items": [
+  {
+   "name": "ASEAN AI Hackathon",
+   "id": "asean-ai-hackathon-23e39c",
+   "url": "https://cit.edu/2026/08/21/asean-ai-hackathon-champion-cit-u/",
+   "reason": "no deadline or event date"
+  },
+  {
+   "name": "PH's biggest 5G Hackathon",
+   "id": "ph-s-biggest-5g-hackathon-41197d",
+   "url": "https://globe5ghackathon.com/workshop",
+   "reason": "no deadline or event date"
+  },
+  {
+   "name": "Decode Tomorrow: The Aboitiz Future Challenge Hackathon",
+   "id": "decode-tomorrow-the-aboitiz-future-challenge-hackathon-b02b49",
+   "url": "https://www.sunstar.com.ph/manila/business/aboitiz-group-holds-biggest-hackathon",
+   "reason": "no deadline or event date"
+  },
+  {
+   "name": "eGovPH Hackathon 2026",
+   "id": "egovph-hackathon-2026-4fb323",
+   "url": "https://www.rtu.edu.ph/rtu-ics-students-among-top-10-finalists-in-egovph-hackathon-2026/",
+   "reason": "no deadline or event date"
+  },
+  {
+   "name": "Can You HackIT 2026 Cebu",
+   "id": "can-you-hackit-2026-cebu-95f618",
+   "url": "https://cit.edu/2026/08/20/can-you-hackit-2026-cebu/",
+   "reason": "no deadline or event date"
+  }
+ ],
+ "pages_needing_llm": [],
+ "pending_links": {}
 }

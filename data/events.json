@@ -1,13 +1,13 @@
 {
- "generated_at": "2026-11-03T20:58:09Z",
+ "generated_at": "2026-11-04T01:19:57Z",
  "generator": "PH HackIntel pipeline 2.0",
  "offline_run": false,
  "llm_enabled": true,
  "llm": {
   "provider": "gemini",
-  "model": null,
-  "requests_this_run": 0,
-  "requests_today": 0,
+  "model": "models/gemini-3.5-flash-lite",
+  "requests_this_run": 3,
+  "requests_today": 3,
   "daily_cap": 120,
   "stopped": null
  },
@@ -15,15 +15,15 @@
   "sources_total": 38,
   "sources_scanned": 38,
   "sources_skipped": 0,
-  "pages_opened": 0,
+  "pages_opened": 19,
   "queued_from_earlier": 0,
-  "links_considered": 5,
-  "duration_s": 94.5,
+  "links_considered": 21,
+  "duration_s": 224.7,
   "pending_links": 0,
   "feeds_known": 18,
-  "ai_pages_read": 0,
-  "ai_cache_hits": 2,
-  "candidates": 9
+  "ai_pages_read": 3,
+  "ai_cache_hits": 7,
+  "candidates": 15
  },
  "sources": [
   {
@@ -132,8 +132,8 @@
    "errors": [],
    "notes": [],
    "found": 0,
-   "pages": 0,
-   "ai_read": 0,
+   "pages": 2,
+   "ai_read": 1,
    "ai_cache_hits": 0,
    "deferred": 0,
    "feeds": [
@@ -141,7 +141,7 @@
    ],
    "ok": true,
    "needs_llm": 0,
-   "leads": 0
+   "leads": 2
   },
   {
    "id": "tribune",
@@ -188,9 +188,9 @@
    "url": "https://www.sunstar.com.ph/tags/Hackathon",
    "errors": [],
    "notes": [],
-   "found": 0,
-   "pages": 0,
-   "ai_read": 0,
+   "found": 2,
+   "pages": 2,
+   "ai_read": 2,
    "ai_cache_hits": 0,
    "deferred": 0,
    "ok": true,
@@ -203,11 +203,21 @@
    "type": "site",
    "url": "https://cebudailynews.inquirer.net/",
    "errors": [
-    "https://cebudailynews.inquirer.net/feed/: HTTP 403"
+    "https://cebudailynews.inquirer.net/feed/: HTTP 403",
+    "https://cebudailynews.inquirer.net/780178/a-year-after-tino-could-cebu-face-another-extreme-rainfall-disaster: HTTP 403",
+    "https://cebudailynews.inquirer.net/781975/china-tells-philippines-to-stop-politicians-crossing-red-lines: HTTP 403",
+    "https://cebudailynews.inquirer.net/781956/filipino-american-history-celebrated-in-mural-unveiled-at-california-university: HTTP 403",
+    "https://cebudailynews.inquirer.net/782001/up-remains-no-1-in-ph-as-10-more-schools-make-qs-asia-rankings: HTTP 403",
+    "https://cebudailynews.inquirer.net/781995/ph-factory-slump-worsens-on-weak-sales-el-nino: HTTP 403",
+    "https://cebudailynews.inquirer.net/781989/icc-trial-schedule-reflects-fairness-says-duterte-victims-lawyer: HTTP 403",
+    "https://cebudailynews.inquirer.net/781983/prosecution-cites-bank-records-in-dropping-3-impeachment-charges: HTTP 403",
+    "https://cebudailynews.inquirer.net/781981/daily-gospel-november-4-2026: HTTP 403",
+    "https://cebudailynews.inquirer.net/781952/lotto-results-for-nov-3-2026: HTTP 403",
+    "https://cebudailynews.inquirer.net/781973/florida-jet-crash-update-bad-weather-a-major-focus: HTTP 403"
    ],
    "notes": [],
    "found": 0,
-   "pages": 0,
+   "pages": 10,
    "ai_read": 0,
    "ai_cache_hits": 0,
    "deferred": 0,
@@ -338,17 +348,17 @@
    "url": "https://www.rtu.edu.ph/",
    "errors": [],
    "notes": [],
-   "found": 0,
-   "pages": 0,
+   "found": 1,
+   "pages": 1,
    "ai_read": 0,
-   "ai_cache_hits": 0,
+   "ai_cache_hits": 1,
    "deferred": 0,
    "feeds": [
     "https://www.rtu.edu.ph/feed/"
    ],
    "ok": true,
    "needs_llm": 0,
-   "leads": 0
+   "leads": 1
   },
   {
    "id": "upm",
@@ -447,9 +457,9 @@
    "errors": [],
    "notes": [],
    "found": 0,
-   "pages": 0,
+   "pages": 1,
    "ai_read": 0,
-   "ai_cache_hits": 0,
+   "ai_cache_hits": 1,
    "deferred": 0,
    "feeds": [
     "https://bicol-u.edu.ph/feed/"
@@ -465,17 +475,17 @@
    "url": "https://cit.edu/",
    "errors": [],
    "notes": [],
-   "found": 0,
-   "pages": 0,
+   "found": 2,
+   "pages": 2,
    "ai_read": 0,
-   "ai_cache_hits": 0,
+   "ai_cache_hits": 2,
    "deferred": 0,
    "feeds": [
     "https://cit.edu/feed/"
    ],
    "ok": true,
    "needs_llm": 0,
-   "leads": 0
+   "leads": 1
   },
   {
    "id": "su",
@@ -558,10 +568,10 @@
    "url": "https://www.uptacloban.edu.ph/",
    "errors": [],
    "notes": [],
-   "found": 0,
-   "pages": 0,
+   "found": 1,
+   "pages": 1,
    "ai_read": 0,
-   "ai_cache_hits": 0,
+   "ai_cache_hits": 1,
    "deferred": 0,
    "feeds": [
     "https://www.uptacloban.edu.ph/feed/"
@@ -758,10 +768,10 @@
    "extraction": "manual",
    "source_id": "manual",
    "first_seen": "2026-11-03T00:48:31Z",
-   "last_verified": "2026-11-03T20:58:09Z",
+   "last_verified": "2026-11-04T01:19:57Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
-   "last_seen": "2026-11-03T20:58:09Z",
+   "last_seen": "2026-11-04T01:19:57Z",
    "lat": 13.7565,
    "lon": 121.0583,
    "precision": "CITY",
@@ -832,10 +842,10 @@
    "extraction": "manual",
    "source_id": "manual",
    "first_seen": "2026-11-03T00:48:31Z",
-   "last_verified": "2026-11-03T20:58:09Z",
+   "last_verified": "2026-11-04T01:19:57Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
-   "last_seen": "2026-11-03T20:58:09Z",
+   "last_seen": "2026-11-04T01:19:57Z",
    "lat": 16.42929,
    "lon": 120.59504,
    "precision": "EXACT",
@@ -906,7 +916,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-03T20:58:09Z",
+   "last_seen": "2026-11-04T01:19:57Z",
    "lat": 13.4467,
    "lon": 121.8399,
    "precision": "CITY",
@@ -973,7 +983,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-03T20:58:09Z",
+   "last_seen": "2026-11-04T01:19:57Z",
    "lat": 8.228,
    "lon": 124.2452,
    "precision": "CITY",
@@ -1041,7 +1051,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-03T20:58:09Z",
+   "last_seen": "2026-11-04T01:19:57Z",
    "lat": 13.9373,
    "lon": 121.617,
    "precision": "CITY",
@@ -1112,7 +1122,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-03T20:58:09Z",
+   "last_seen": "2026-11-04T01:19:57Z",
    "lat": 10.61216,
    "lon": 122.92613,
    "precision": "EXACT",
@@ -1263,7 +1273,10 @@
    ],
    "id": "2026-rscene-48-hour-hackathon-2026-10-af885e",
    "first_seen": "2026-11-03T00:48:31Z",
-   "last_seen": "2026-11-03T00:48:31Z",
+   "last_verified": null,
+   "link_failures": null,
+   "link_status": null,
+   "last_seen": "2026-11-04T01:19:57Z",
    "precision": "CITY",
    "location_source": "nominatim",
    "location_check": "PROVINCE_FROM_MAP",
@@ -1287,8 +1300,7 @@
       "results reported"
      ]
     ]
-   },
-   "carried_over": true
+   }
   },
   {
    "id": "cyber-hunt-ctf-league-zamboanga-2026",
@@ -1322,7 +1334,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-03T20:58:09Z",
+   "last_seen": "2026-11-04T01:19:57Z",
    "lat": 6.9214,
    "lon": 122.079,
    "precision": "CITY",
@@ -1369,7 +1381,7 @@
    "first_seen": "2026-11-03T00:48:31Z"
   },
   {
-   "title": "[HACKATHON] PH's biggest 5G Hackathon",
+   "title": "[HACKATHON] Globe 5G Hackathon",
    "url": "https://globe5ghackathon.com/workshop",
    "source": "SunStar, Hackathon tag",
    "published": null,
@@ -1449,7 +1461,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-03T20:58:09Z",
+   "last_seen": "2026-11-04T01:19:57Z",
    "lat": 8.94627,
    "lon": 125.52941,
    "precision": "EXACT",
@@ -1526,12 +1538,12 @@
    ],
    "id": "asean-ai-hackathon-23e39c",
    "first_seen": "2026-11-03T00:48:31Z",
-   "last_seen": "2026-11-03T00:48:31Z",
+   "last_verified": "2026-11-04T01:19:57Z",
+   "link_failures": 0,
+   "link_status": "HTTP 200",
+   "last_seen": "2026-11-04T01:19:57Z",
    "precision": "NONE",
    "location_check": "NO_LOCATION",
-   "link_status": "HTTP 200",
-   "last_verified": "2026-11-03T20:58:09Z",
-   "link_failures": 0,
    "is_new": true,
    "phase": "upcoming",
    "corroboration": 1,
@@ -1553,12 +1565,11 @@
      ]
     ]
    },
-   "hold_reason": "no deadline or event date",
-   "carried_over": true
+   "hold_reason": "no deadline or event date"
   },
   {
-   "name": "PH's biggest 5G Hackathon",
-   "organizer": "Globe Telecom and De La Salle University (DLSU) Animo Labs",
+   "name": "Globe 5G Hackathon",
+   "organizer": "Globe Telecom and De La Salle University (DLSU)'s Animo Labs",
    "mode": "online",
    "venue": "Globe Prepaid's Virtual Hangouts",
    "city": null,
@@ -1579,7 +1590,7 @@
    "prize": "Cash pool worth half a million pesos, a chance to turn ideas into a business venture under 917Ventures, and an opportunity to work directly with Globe's 5G Acceleration Lab",
    "registration_url": "https://globe5ghackathon.com/workshop",
    "official_url": "https://www.sunstar.com.ph/bacolod/business/phs-biggest-5g-hackathon-kicks-off-with-enablement-workshops",
-   "registration_closed": true,
+   "registration_closed": null,
    "category": "hackathon",
    "results": null,
    "ai_checks": [
@@ -1595,11 +1606,12 @@
    ],
    "id": "ph-s-biggest-5g-hackathon-41197d",
    "first_seen": "2026-11-03T00:48:31Z",
-   "last_seen": "2026-11-03T00:48:31Z",
+   "last_verified": null,
+   "link_failures": 5,
+   "link_status": "HTTP 404",
+   "last_seen": "2026-11-04T01:19:57Z",
    "precision": "NONE",
    "location_check": "N/A",
-   "link_status": "HTTP 404",
-   "link_failures": 4,
    "is_new": true,
    "phase": "upcoming",
    "corroboration": 1,
@@ -1617,7 +1629,7 @@
      ],
      [
       -10,
-      "official link failed 4 check(s)"
+      "official link failed 5 check(s)"
      ],
      [
       -10,
@@ -1625,12 +1637,11 @@
      ]
     ]
    },
-   "hold_reason": "no deadline or event date",
-   "carried_over": true
+   "hold_reason": "no deadline or event date"
   },
   {
    "name": "Decode Tomorrow: The Aboitiz Future Challenge Hackathon",
-   "organizer": "Aboitiz Group",
+   "organizer": "Aboitiz Group of Companies",
    "mode": "onsite",
    "venue": "The Mega Tent in Ortigas Center",
    "city": "Pasig City",
@@ -1645,16 +1656,16 @@
    "eligibility": "Start-up entrepreneurs, freelancers, and 2nd to 4th year college students",
    "themes": [
     "Business solutions",
-    "Information Technology",
+    "Intelligent applications",
     "Internet of Things",
     "Big Data and Predictive Analytics",
     "Artificial Intelligence",
     "Robotics and Automation"
    ],
-   "prize": "Cash prizes ranging from P40,000 to P100,000",
+   "prize": "P40,000 to P100,000",
    "registration_url": "https://www.sunstar.com.ph/manila/business/aboitiz-group-holds-biggest-hackathon",
    "official_url": "https://www.sunstar.com.ph/manila/business/aboitiz-group-holds-biggest-hackathon",
-   "registration_closed": null,
+   "registration_closed": true,
    "category": "hackathon",
    "results": null,
    "ai_checks": [
@@ -1671,13 +1682,13 @@
    ],
    "id": "decode-tomorrow-the-aboitiz-future-challenge-hackathon-b02b49",
    "first_seen": "2026-11-03T00:48:31Z",
-   "last_seen": "2026-11-03T00:48:31Z",
+   "last_verified": "2026-11-04T01:19:57Z",
+   "link_failures": 0,
+   "link_status": "HTTP 200",
+   "last_seen": "2026-11-04T01:19:57Z",
    "precision": "CITY",
    "location_source": "gazetteer",
    "location_check": "MATCH",
-   "link_status": "HTTP 200",
-   "last_verified": "2026-11-03T20:58:09Z",
-   "link_failures": 0,
    "is_new": true,
    "phase": "upcoming",
    "corroboration": 1,
@@ -1707,8 +1718,7 @@
      ]
     ]
    },
-   "hold_reason": "no deadline or event date",
-   "carried_over": true
+   "hold_reason": "no deadline or event date"
   },
   {
    "name": "eGovPH Hackathon 2026",
@@ -1747,12 +1757,12 @@
    ],
    "id": "egovph-hackathon-2026-4fb323",
    "first_seen": "2026-11-03T00:48:31Z",
-   "last_seen": "2026-11-03T00:48:31Z",
+   "last_verified": "2026-11-04T01:19:57Z",
+   "link_failures": 0,
+   "link_status": "HTTP 200",
+   "last_seen": "2026-11-04T01:19:57Z",
    "precision": "NONE",
    "location_check": "NO_LOCATION",
-   "link_status": "HTTP 200",
-   "last_verified": "2026-11-03T20:58:09Z",
-   "link_failures": 0,
    "is_new": true,
    "phase": "upcoming",
    "corroboration": 1,
@@ -1774,8 +1784,7 @@
      ]
     ]
    },
-   "hold_reason": "no deadline or event date",
-   "carried_over": true
+   "hold_reason": "no deadline or event date"
   },
   {
    "name": "Can You HackIT 2026 Cebu",
@@ -1815,13 +1824,13 @@
    ],
    "id": "can-you-hackit-2026-cebu-95f618",
    "first_seen": "2026-11-03T00:48:31Z",
-   "last_seen": "2026-11-03T00:48:31Z",
+   "last_verified": "2026-11-04T01:19:57Z",
+   "link_failures": 0,
+   "link_status": "HTTP 200",
+   "last_seen": "2026-11-04T01:19:57Z",
    "precision": "CITY",
    "location_source": "gazetteer",
    "location_check": "PROVINCE_FROM_MAP",
-   "link_status": "HTTP 200",
-   "last_verified": "2026-11-03T20:58:09Z",
-   "link_failures": 0,
    "is_new": true,
    "phase": "upcoming",
    "corroboration": 1,
@@ -1843,8 +1852,7 @@
      ]
     ]
    },
-   "hold_reason": "no deadline or event date",
-   "carried_over": true
+   "hold_reason": "no deadline or event date"
   }
  ]
 }

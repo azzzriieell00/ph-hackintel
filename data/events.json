@@ -1,13 +1,13 @@
 {
- "generated_at": "2026-11-04T09:08:49Z",
+ "generated_at": "2026-11-04T17:13:21Z",
  "generator": "PH HackIntel pipeline 2.0",
  "offline_run": false,
  "llm_enabled": true,
  "llm": {
   "provider": "gemini",
-  "model": "models/gemini-3.5-flash-lite",
-  "requests_this_run": 2,
-  "requests_today": 5,
+  "model": null,
+  "requests_this_run": 0,
+  "requests_today": 0,
   "daily_cap": 120,
   "stopped": null
  },
@@ -15,15 +15,15 @@
   "sources_total": 38,
   "sources_scanned": 38,
   "sources_skipped": 0,
-  "pages_opened": 7,
+  "pages_opened": 1,
   "queued_from_earlier": 0,
-  "links_considered": 12,
-  "duration_s": 290.8,
+  "links_considered": 6,
+  "duration_s": 156.5,
   "pending_links": 0,
   "feeds_known": 20,
-  "ai_pages_read": 2,
+  "ai_pages_read": 0,
   "ai_cache_hits": 3,
-  "candidates": 12
+  "candidates": 10
  },
  "sources": [
   {
@@ -65,7 +65,7 @@
    "url": "https://ctftime.org/api/v1/events/",
    "errors": [],
    "notes": [
-    "87 CTFs listed in the window, 0 onsite in the Philippines"
+    "not due yet; events from the last read are carried over"
    ],
    "found": 0,
    "pages": 0,
@@ -357,9 +357,9 @@
    "url": "https://www.upm.edu.ph/",
    "errors": [],
    "notes": [],
-   "found": 1,
-   "pages": 1,
-   "ai_read": 1,
+   "found": 0,
+   "pages": 0,
+   "ai_read": 0,
    "ai_cache_hits": 0,
    "deferred": 0,
    "feeds": [
@@ -367,16 +367,14 @@
    ],
    "ok": true,
    "needs_llm": 0,
-   "leads": 1
+   "leads": 0
   },
   {
    "id": "national-u",
    "name": "National University",
    "type": "site",
    "url": "https://www.national-u.edu.ph/",
-   "errors": [
-    "https://www.national-u.edu.ph/: HTTP 403"
-   ],
+   "errors": [],
    "notes": [],
    "found": 0,
    "pages": 0,
@@ -384,7 +382,7 @@
    "ai_cache_hits": 0,
    "deferred": 0,
    "feeds": [],
-   "ok": false,
+   "ok": true,
    "needs_llm": 0,
    "leads": 0
   },
@@ -414,9 +412,9 @@
    "url": "https://www.slu.edu.ph/",
    "errors": [],
    "notes": [],
-   "found": 1,
-   "pages": 3,
-   "ai_read": 1,
+   "found": 0,
+   "pages": 0,
+   "ai_read": 0,
    "ai_cache_hits": 0,
    "deferred": 0,
    "feeds": [
@@ -424,7 +422,7 @@
    ],
    "ok": true,
    "needs_llm": 0,
-   "leads": 1
+   "leads": 0
   },
   {
    "id": "hau",
@@ -492,10 +490,10 @@
    "notes": [
     "no feed found; reading homepage links once a day"
    ],
-   "found": 0,
-   "pages": 0,
+   "found": 1,
+   "pages": 1,
    "ai_read": 0,
-   "ai_cache_hits": 0,
+   "ai_cache_hits": 1,
    "deferred": 0,
    "feeds": [],
    "ok": true,
@@ -507,7 +505,9 @@
    "name": "Carlos Hilado Memorial State University",
    "type": "site",
    "url": "https://chmsu.edu.ph/",
-   "errors": [],
+   "errors": [
+    "https://chmsu.edu.ph/: robots.txt could not be read"
+   ],
    "notes": [],
    "found": 0,
    "pages": 0,
@@ -515,7 +515,7 @@
    "ai_cache_hits": 0,
    "deferred": 0,
    "feeds": [],
-   "ok": true,
+   "ok": false,
    "needs_llm": 0,
    "leads": 0
   },
@@ -565,7 +565,7 @@
    "errors": [],
    "notes": [],
    "found": 0,
-   "pages": 2,
+   "pages": 0,
    "ai_read": 0,
    "ai_cache_hits": 0,
    "deferred": 0,
@@ -574,7 +574,7 @@
    ],
    "ok": true,
    "needs_llm": 0,
-   "leads": 2
+   "leads": 1
   },
   {
    "id": "vsu",
@@ -621,10 +621,10 @@
    "url": "https://imcc.edu.ph/",
    "errors": [],
    "notes": [],
-   "found": 1,
-   "pages": 1,
+   "found": 0,
+   "pages": 0,
    "ai_read": 0,
-   "ai_cache_hits": 1,
+   "ai_cache_hits": 0,
    "deferred": 0,
    "feeds": [
     "https://imcc.edu.ph/feed/"
@@ -764,10 +764,10 @@
    "extraction": "manual",
    "source_id": "manual",
    "first_seen": "2026-11-03T00:48:31Z",
-   "last_verified": "2026-11-04T09:08:49Z",
+   "last_verified": "2026-11-04T17:13:21Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
-   "last_seen": "2026-11-04T09:08:49Z",
+   "last_seen": "2026-11-04T17:13:21Z",
    "lat": 13.7565,
    "lon": 121.0583,
    "precision": "CITY",
@@ -838,10 +838,10 @@
    "extraction": "manual",
    "source_id": "manual",
    "first_seen": "2026-11-03T00:48:31Z",
-   "last_verified": "2026-11-04T09:08:49Z",
+   "last_verified": "2026-11-04T17:13:21Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
-   "last_seen": "2026-11-04T09:08:49Z",
+   "last_seen": "2026-11-04T17:13:21Z",
    "lat": 16.42929,
    "lon": 120.59504,
    "precision": "EXACT",
@@ -912,7 +912,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-04T09:08:49Z",
+   "last_seen": "2026-11-04T17:13:21Z",
    "lat": 13.4467,
    "lon": 121.8399,
    "precision": "CITY",
@@ -979,7 +979,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-04T09:08:49Z",
+   "last_seen": "2026-11-04T17:13:21Z",
    "lat": 8.228,
    "lon": 124.2452,
    "precision": "CITY",
@@ -1047,7 +1047,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-04T09:08:49Z",
+   "last_seen": "2026-11-04T17:13:21Z",
    "lat": 13.9373,
    "lon": 121.617,
    "precision": "CITY",
@@ -1118,7 +1118,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-04T09:08:49Z",
+   "last_seen": "2026-11-04T17:13:21Z",
    "lat": 10.61216,
    "lon": 122.92613,
    "precision": "EXACT",
@@ -1202,7 +1202,10 @@
    ],
    "id": "hackforgov-5-nir-regional-competition-2026-10-c5ce97",
    "first_seen": "2026-11-03T00:48:31Z",
-   "last_seen": "2026-11-03T00:48:31Z",
+   "last_verified": null,
+   "link_failures": null,
+   "link_status": null,
+   "last_seen": "2026-11-04T17:13:21Z",
    "precision": "CITY",
    "location_source": "gazetteer",
    "location_check": "MATCH",
@@ -1230,8 +1233,7 @@
       "pin is inside the province the source names"
      ]
     ]
-   },
-   "carried_over": true
+   }
   },
   {
    "name": "2026 rSCENE 48-hour Hackathon",
@@ -1331,7 +1333,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-04T09:08:49Z",
+   "last_seen": "2026-11-04T17:13:21Z",
    "lat": 6.9214,
    "lon": 122.079,
    "precision": "CITY",
@@ -1458,7 +1460,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-04T09:08:49Z",
+   "last_seen": "2026-11-04T17:13:21Z",
    "lat": 8.94627,
    "lon": 125.52941,
    "precision": "EXACT",
@@ -1562,7 +1564,8 @@
      ]
     ]
    },
-   "hold_reason": "finished more than 62 days ago"
+   "hold_reason": "finished more than 62 days ago",
+   "carried_over": true
   },
   {
    "name": "2026 eGovPH Hackathon",
@@ -1630,7 +1633,8 @@
      ]
     ]
    },
-   "hold_reason": "finished more than 62 days ago"
+   "hold_reason": "finished more than 62 days ago",
+   "carried_over": true
   },
   {
    "name": "ASEAN AI Hackathon",
@@ -1668,7 +1672,7 @@
    ],
    "id": "asean-ai-hackathon-23e39c",
    "first_seen": "2026-11-03T00:48:31Z",
-   "last_verified": "2026-11-04T09:08:49Z",
+   "last_verified": "2026-11-04T17:13:21Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
    "last_seen": "2026-11-04T01:19:57Z",
@@ -1738,7 +1742,7 @@
    "id": "ph-s-biggest-5g-hackathon-41197d",
    "first_seen": "2026-11-03T00:48:31Z",
    "last_verified": null,
-   "link_failures": 6,
+   "link_failures": 7,
    "link_status": "HTTP 404",
    "last_seen": "2026-11-04T01:19:57Z",
    "precision": "NONE",
@@ -1760,7 +1764,7 @@
      ],
      [
       -10,
-      "official link failed 6 check(s)"
+      "official link failed 7 check(s)"
      ],
      [
       -10,
@@ -1814,7 +1818,7 @@
    ],
    "id": "decode-tomorrow-the-aboitiz-future-challenge-hackathon-b02b49",
    "first_seen": "2026-11-03T00:48:31Z",
-   "last_verified": "2026-11-04T09:08:49Z",
+   "last_verified": "2026-11-04T17:13:21Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
    "last_seen": "2026-11-04T01:19:57Z",
@@ -1890,7 +1894,7 @@
    ],
    "id": "egovph-hackathon-2026-4fb323",
    "first_seen": "2026-11-03T00:48:31Z",
-   "last_verified": "2026-11-04T09:08:49Z",
+   "last_verified": "2026-11-04T17:13:21Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
    "last_seen": "2026-11-04T01:19:57Z",
@@ -1958,7 +1962,7 @@
    ],
    "id": "can-you-hackit-2026-cebu-95f618",
    "first_seen": "2026-11-03T00:48:31Z",
-   "last_verified": "2026-11-04T09:08:49Z",
+   "last_verified": "2026-11-04T17:13:21Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
    "last_seen": "2026-11-04T01:19:57Z",

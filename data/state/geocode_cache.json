@@ -55,5 +55,23 @@
   }
  ],
  "roys hotel and convention center bacolod philippines": [],
- "the mega tent in ortigas center pasig philippines": []
+ "the mega tent in ortigas center pasig philippines": [],
+ "paragon hotel baguio philippines": [
+  {
+   "lat": 16.4123741,
+   "lon": 120.5920743,
+   "category": "tourism",
+   "type": "hotel",
+   "display_name": "Paragon Hotel& Suites, Otek Street, Rizal Monument, District 18, Central Business District, Baguio, Cordillera Administrative Region, 2600, Philippines"
+  }
+ ],
+ "baguio cordillera administrative region philippines": [
+  {
+   "lat": 16.411986,
+   "lon": 120.5933878,
+   "category": "boundary",
+   "type": "administrative",
+   "display_name": "Baguio, Cordillera Administrative Region, 2600, Philippines"
+  }
+ ]
 }

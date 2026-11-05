@@ -1,12 +1,46 @@
 {
- "generated_at": "2026-11-05T03:28:40Z",
+ "generated_at": "2026-11-05T06:20:00Z",
  "generator": "PH HackIntel pipeline 2.0",
  "offline_run": false,
  "llm_enabled": true,
  "llm": {
   "provider": "gemini",
-  "model": "models/gemini-3.5-flash-lite",
-  "requests_this_run": 3,
+  "model": null,
+  "chain": [
+   {
+    "provider": "gemini",
+    "model": null,
+    "requests_this_run": 0,
+    "requests_today": 0,
+    "paused_until": null,
+    "skipped": null
+   },
+   {
+    "provider": "groq",
+    "model": null,
+    "requests_this_run": 0,
+    "requests_today": 0,
+    "paused_until": null,
+    "skipped": null
+   },
+   {
+    "provider": "github",
+    "model": null,
+    "requests_this_run": 0,
+    "requests_today": 0,
+    "paused_until": null,
+    "skipped": null
+   },
+   {
+    "provider": "openrouter",
+    "model": null,
+    "requests_this_run": 0,
+    "requests_today": 0,
+    "paused_until": null,
+    "skipped": null
+   }
+  ],
+  "requests_this_run": 0,
   "requests_today": 3,
   "daily_cap": 120,
   "stopped": null
@@ -15,15 +49,15 @@
   "sources_total": 38,
   "sources_scanned": 38,
   "sources_skipped": 0,
-  "pages_opened": 18,
+  "pages_opened": 2,
   "queued_from_earlier": 0,
-  "links_considered": 20,
-  "duration_s": 237.9,
-  "pending_links": 2,
+  "links_considered": 5,
+  "duration_s": 168.4,
+  "pending_links": 0,
   "feeds_known": 20,
-  "ai_pages_read": 1,
-  "ai_cache_hits": 6,
-  "candidates": 12
+  "ai_pages_read": 0,
+  "ai_cache_hits": 2,
+  "candidates": 10
  },
  "sources": [
   {
@@ -132,8 +166,8 @@
    "errors": [],
    "notes": [],
    "found": 0,
-   "pages": 2,
-   "ai_read": 1,
+   "pages": 0,
+   "ai_read": 0,
    "ai_cache_hits": 0,
    "deferred": 0,
    "feeds": [
@@ -141,7 +175,7 @@
    ],
    "ok": true,
    "needs_llm": 0,
-   "leads": 2
+   "leads": 0
   },
   {
    "id": "tribune",
@@ -192,7 +226,8 @@
    "pages": 2,
    "ai_read": 0,
    "ai_cache_hits": 0,
-   "deferred": 2,
+   "deferred": 0,
+   "old_pages_skipped": 2,
    "ok": true,
    "needs_llm": 0,
    "leads": 0
@@ -203,21 +238,11 @@
    "type": "site",
    "url": "https://cebudailynews.inquirer.net/",
    "errors": [
-    "https://cebudailynews.inquirer.net/feed/: HTTP 403",
-    "https://cebudailynews.inquirer.net/782283/robert-toledano-jr-cebus-lone-oct-2026-cpa-topnotcher-credits-3-cores: HTTP 403",
-    "https://cebudailynews.inquirer.net/782292/high-heat-index-easterlies-visayas: HTTP 403",
-    "https://cebudailynews.inquirer.net/782295/very-strong-el-nino: HTTP 403",
-    "https://cebudailynews.inquirer.net/782269/p11b-needed-for-tino-recovery-capitol-says: HTTP 403",
-    "https://cebudailynews.inquirer.net/782282/lapu-lapu-fire-razes-9-houses-traps-kills-pwd-in-gun-ob: HTTP 403",
-    "https://cebudailynews.inquirer.net/782265/sinulog-2027-tribu-malipayon-to-unveil-fresh-concept-in-comeback-performance: HTTP 403",
-    "https://cebudailynews.inquirer.net/782273/who-warns-of-lack-of-physical-activity-among-teens: HTTP 403",
-    "https://cebudailynews.inquirer.net/782263/rip-maga-stunned-us-right-contemplates-life-after-trump: HTTP 403",
-    "https://cebudailynews.inquirer.net/782260/pope-receives-black-clad-bob-dylan: HTTP 403",
-    "https://cebudailynews.inquirer.net/782247/daily-gospel-november-5-2026: HTTP 403"
+    "https://cebudailynews.inquirer.net/feed/: HTTP 403"
    ],
    "notes": [],
    "found": 0,
-   "pages": 10,
+   "pages": 0,
    "ai_read": 0,
    "ai_cache_hits": 0,
    "deferred": 0,
@@ -346,7 +371,9 @@
    "name": "Rizal Technological University",
    "type": "site",
    "url": "https://www.rtu.edu.ph/",
-   "errors": [],
+   "errors": [
+    "https://www.rtu.edu.ph/feed/: robots.txt could not be read"
+   ],
    "notes": [],
    "found": 0,
    "pages": 0,
@@ -356,7 +383,7 @@
    "feeds": [
     "https://www.rtu.edu.ph/feed/"
    ],
-   "ok": true,
+   "ok": false,
    "needs_llm": 0,
    "leads": 0
   },
@@ -461,9 +488,9 @@
    "errors": [],
    "notes": [],
    "found": 0,
-   "pages": 1,
+   "pages": 0,
    "ai_read": 0,
-   "ai_cache_hits": 1,
+   "ai_cache_hits": 0,
    "deferred": 0,
    "feeds": [
     "https://bicol-u.edu.ph/feed/"
@@ -479,17 +506,17 @@
    "url": "https://cit.edu/",
    "errors": [],
    "notes": [],
-   "found": 2,
-   "pages": 2,
+   "found": 0,
+   "pages": 0,
    "ai_read": 0,
-   "ai_cache_hits": 2,
+   "ai_cache_hits": 0,
    "deferred": 0,
    "feeds": [
     "https://cit.edu/feed/"
    ],
    "ok": true,
    "needs_llm": 0,
-   "leads": 1
+   "leads": 0
   },
   {
    "id": "su",
@@ -572,10 +599,10 @@
    "url": "https://www.uptacloban.edu.ph/",
    "errors": [],
    "notes": [],
-   "found": 1,
-   "pages": 1,
+   "found": 0,
+   "pages": 0,
    "ai_read": 0,
-   "ai_cache_hits": 1,
+   "ai_cache_hits": 0,
    "deferred": 0,
    "feeds": [
     "https://www.uptacloban.edu.ph/feed/"
@@ -774,10 +801,10 @@
    "extraction": "manual",
    "source_id": "manual",
    "first_seen": "2026-11-03T00:48:31Z",
-   "last_verified": "2026-11-05T03:28:40Z",
+   "last_verified": "2026-11-05T06:20:00Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
-   "last_seen": "2026-11-05T03:28:40Z",
+   "last_seen": "2026-11-05T06:20:00Z",
    "lat": 13.7565,
    "lon": 121.0583,
    "precision": "CITY",
@@ -785,6 +812,74 @@
    "location_check": "MATCH",
    "is_new": false,
    "phase": "upcoming",
+   "corroboration": 1,
+   "confidence": {
+    "score": 85,
+    "level": "HIGH",
+    "reasons": [
+     [
+      30,
+      "entered by a person from the source"
+     ],
+     [
+      20,
+      "official link answered in the last 72 hours"
+     ],
+     [
+      20,
+      "checked by a person in the last 7 days"
+     ],
+     [
+      15,
+      "pin is inside the province the source names"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "innova-thon-2026",
+   "name": "Innova-Thon 2026",
+   "category": "hackathon",
+   "organizer": "Upsilon Sigma Phi; co-presented by Maya Bank, Inc.",
+   "mode": "hybrid",
+   "venue": "UP School of Economics Auditorium, UP Diliman",
+   "city": "Quezon City",
+   "province": "Metro Manila",
+   "start": "2026-11-03T00:00:00+08:00",
+   "end": "2026-11-21T00:00:00+08:00",
+   "deadline": "2026-11-12T23:59:00+08:00",
+   "deadline_is_estimate": false,
+   "themes": [
+    "Innovation"
+   ],
+   "prize": "Over PHP 50,000 in prizes and awards",
+   "registration_url": "https://bit.ly/innova-thonregistration",
+   "sources": [
+    {
+     "label": "Registration form (from the organizer's Facebook post)",
+     "url": "https://bit.ly/innova-thonregistration"
+    },
+    {
+     "label": "Innova-Thon Facebook post, deadline extended (seen 2026-11-05)"
+    }
+   ],
+   "notes": "Online round Nov 3-12; final round Nov 21 at UP Diliman. Registration extended to the Nov 12 submission deadline; time of day not stated.",
+   "verified_manually": "2026-11-05T13:38:00+08:00",
+   "verified_by": "Organizer's Facebook post",
+   "extraction": "manual",
+   "source_id": "manual",
+   "first_seen": "2026-11-05T06:20:00Z",
+   "last_seen": "2026-11-05T06:20:00Z",
+   "lat": 14.676,
+   "lon": 121.0437,
+   "precision": "CITY",
+   "location_source": "gazetteer",
+   "location_check": "MATCH",
+   "link_status": "HTTP 200",
+   "last_verified": "2026-11-05T06:20:00Z",
+   "link_failures": 0,
+   "is_new": false,
+   "phase": "ongoing",
    "corroboration": 1,
    "confidence": {
     "score": 85,
@@ -848,10 +943,10 @@
    "extraction": "manual",
    "source_id": "manual",
    "first_seen": "2026-11-03T00:48:31Z",
-   "last_verified": "2026-11-05T03:28:40Z",
+   "last_verified": "2026-11-05T06:20:00Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
-   "last_seen": "2026-11-05T03:28:40Z",
+   "last_seen": "2026-11-05T06:20:00Z",
    "lat": 16.42929,
    "lon": 120.59504,
    "precision": "EXACT",
@@ -922,7 +1017,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-05T03:28:40Z",
+   "last_seen": "2026-11-05T06:20:00Z",
    "lat": 13.4467,
    "lon": 121.8399,
    "precision": "CITY",
@@ -989,7 +1084,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-05T03:28:40Z",
+   "last_seen": "2026-11-05T06:20:00Z",
    "lat": 8.228,
    "lon": 124.2452,
    "precision": "CITY",
@@ -1057,7 +1152,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-05T03:28:40Z",
+   "last_seen": "2026-11-05T06:20:00Z",
    "lat": 13.9373,
    "lon": 121.617,
    "precision": "CITY",
@@ -1118,6 +1213,10 @@
     {
      "label": "CHMSU news",
      "url": "https://chmsu.edu.ph/chmsu-team-bags-3rd-runner-up-in-dict-hackforgov5-regionals-student-qualifies-for-nationals/"
+    },
+    {
+     "label": "Silliman University",
+     "url": "https://su.edu.ph/news/su-places-third-in-hackforgov-5-nir-regional-competition/"
     }
    ],
    "verified_manually": "2026-11-03T00:45:00+08:00",
@@ -1128,7 +1227,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-05T03:28:40Z",
+   "last_seen": "2026-11-05T06:20:00Z",
    "lat": 10.61216,
    "lon": 122.92613,
    "precision": "EXACT",
@@ -1171,80 +1270,6 @@
      ]
     ]
    }
-  },
-  {
-   "name": "HackForGov 5 NIR Regional Competition",
-   "organizer": "Department of Information and Communications Technology (DICT)",
-   "mode": "onsite",
-   "venue": "Roy’s Hotel and Convention Center",
-   "city": "Bacolod City",
-   "province": "Negros Occidental",
-   "country": "Philippines",
-   "lat": 10.6765,
-   "lon": 122.9509,
-   "start": "2026-10-12T00:00:00+08:00",
-   "end": "2026-10-12T00:00:00+08:00",
-   "deadline": "2026-10-12T00:00:00+08:00",
-   "deadline_is_estimate": true,
-   "eligibility": "Students from Negros Occidental and Negros Oriental",
-   "themes": [
-    "cybersecurity",
-    "Capture-the-Flag",
-    "open-source intelligence",
-    "web application security",
-    "network forensics and security",
-    "cryptography"
-   ],
-   "prize": null,
-   "registration_url": "https://su.edu.ph/news/su-places-third-in-hackforgov-5-nir-regional-competition/",
-   "official_url": "https://su.edu.ph/news/su-places-third-in-hackforgov-5-nir-regional-competition/",
-   "registration_closed": null,
-   "category": "ctf",
-   "results": "Champion: University of St. La Salle Bacolod; 1st Runner-up: STI West Negros University; 2nd Runner-up (3rd place): Silliman University (Phish & Chips)",
-   "ai_checks": null,
-   "extraction": "llm",
-   "source_id": "su",
-   "sources": [
-    {
-     "label": "Silliman University",
-     "url": "https://su.edu.ph/news/su-places-third-in-hackforgov-5-nir-regional-competition/"
-    }
-   ],
-   "id": "hackforgov-5-nir-regional-competition-2026-10-c5ce97",
-   "first_seen": "2026-11-03T00:48:31Z",
-   "last_verified": null,
-   "link_failures": null,
-   "link_status": null,
-   "last_seen": "2026-11-04T17:13:21Z",
-   "precision": "CITY",
-   "location_source": "gazetteer",
-   "location_check": "MATCH",
-   "is_new": true,
-   "phase": "finished",
-   "corroboration": 1,
-   "confidence": {
-    "score": 55,
-    "level": "MEDIUM",
-    "reasons": [
-     [
-      15,
-      "read by AI from the page text, then checked"
-     ],
-     [
-      20,
-      "documented by a published source"
-     ],
-     [
-      5,
-      "results reported"
-     ],
-     [
-      15,
-      "pin is inside the province the source names"
-     ]
-    ]
-   },
-   "carried_over": true
   },
   {
    "name": "2026 rSCENE 48-hour Hackathon",
@@ -1309,7 +1334,8 @@
       "results reported"
      ]
     ]
-   }
+   },
+   "carried_over": true
   },
   {
    "id": "cyber-hunt-ctf-league-zamboanga-2026",
@@ -1343,7 +1369,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-05T03:28:40Z",
+   "last_seen": "2026-11-05T06:20:00Z",
    "lat": 6.9214,
    "lon": 122.079,
    "precision": "CITY",
@@ -1381,46 +1407,6 @@
   }
  ],
  "leads": [
-  {
-   "title": "[HACKATHON] ASEAN AI Hackathon",
-   "url": "https://cit.edu/2026/08/21/asean-ai-hackathon-champion-cit-u/",
-   "source": "Cebu Institute of Technology - University",
-   "published": null,
-   "note": "AI found a competition but no date it could confirm",
-   "first_seen": "2026-11-03T00:48:31Z"
-  },
-  {
-   "title": "[HACKATHON] Globe 5G Hackathon",
-   "url": "https://globe5ghackathon.com/workshop",
-   "source": "SunStar, Hackathon tag",
-   "published": null,
-   "note": "AI found a competition but no date it could confirm",
-   "first_seen": "2026-11-03T00:48:31Z"
-  },
-  {
-   "title": "[HACKATHON] Decode Tomorrow: The Aboitiz Future Challenge Hackathon",
-   "url": "https://www.sunstar.com.ph/manila/business/aboitiz-group-holds-biggest-hackathon",
-   "source": "SunStar, Hackathon tag",
-   "published": null,
-   "note": "AI found a competition but no date it could confirm",
-   "first_seen": "2026-11-03T00:48:31Z"
-  },
-  {
-   "title": "[HACKATHON] eGovPH Hackathon 2026",
-   "url": "https://www.rtu.edu.ph/rtu-ics-students-among-top-10-finalists-in-egovph-hackathon-2026/",
-   "source": "Rizal Technological University",
-   "published": null,
-   "note": "AI found a competition but no date it could confirm",
-   "first_seen": "2026-11-03T00:48:31Z"
-  },
-  {
-   "title": "[HACKATHON] Can You HackIT 2026 Cebu",
-   "url": "https://cit.edu/2026/08/20/can-you-hackit-2026-cebu/",
-   "source": "Cebu Institute of Technology - University",
-   "published": null,
-   "note": "AI found a competition but no date it could confirm",
-   "first_seen": "2026-11-03T00:48:31Z"
-  },
   {
    "title": "PH cybersecurity team tops 2026 Cyber SEA Game",
    "url": "https://newsbytes.ph/2026/10/28/ph-cybersecurity-team-tops-2026-cyber-sea-game/?utm_source=rss&utm_medium=rss&utm_campaign=ph-cybersecurity-team-tops-2026-cyber-sea-game",
@@ -1462,7 +1448,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-05T03:28:40Z",
+   "last_seen": "2026-11-05T06:20:00Z",
    "lat": 8.94627,
    "lon": 125.52941,
    "precision": "EXACT",
@@ -1539,7 +1525,7 @@
    ],
    "id": "asean-ai-hackathon-23e39c",
    "first_seen": "2026-11-03T00:48:31Z",
-   "last_verified": "2026-11-05T03:28:40Z",
+   "last_verified": "2026-11-05T06:20:00Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
    "last_seen": "2026-11-05T03:28:40Z",
@@ -1566,7 +1552,8 @@
      ]
     ]
    },
-   "hold_reason": "no deadline or event date"
+   "hold_reason": "no deadline or event date",
+   "carried_over": true
   },
   {
    "name": "Can You HackIT 2026 Cebu",
@@ -1606,7 +1593,7 @@
    ],
    "id": "can-you-hackit-2026-cebu-95f618",
    "first_seen": "2026-11-03T00:48:31Z",
-   "last_verified": "2026-11-05T03:28:40Z",
+   "last_verified": "2026-11-05T06:20:00Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
    "last_seen": "2026-11-05T03:28:40Z",
@@ -1634,7 +1621,8 @@
      ]
     ]
    },
-   "hold_reason": "no deadline or event date"
+   "hold_reason": "no deadline or event date",
+   "carried_over": true
   },
   {
    "name": "HackForGov 5 – Cordillera Regional Competition",
@@ -1811,7 +1799,7 @@
    "id": "ph-s-biggest-5g-hackathon-41197d",
    "first_seen": "2026-11-03T00:48:31Z",
    "last_verified": null,
-   "link_failures": 9,
+   "link_failures": 10,
    "link_status": "HTTP 404",
    "last_seen": "2026-11-04T01:19:57Z",
    "precision": "NONE",
@@ -1833,7 +1821,7 @@
      ],
      [
       -10,
-      "official link failed 9 check(s)"
+      "official link failed 10 check(s)"
      ],
      [
       -10,
@@ -1887,7 +1875,7 @@
    ],
    "id": "decode-tomorrow-the-aboitiz-future-challenge-hackathon-b02b49",
    "first_seen": "2026-11-03T00:48:31Z",
-   "last_verified": "2026-11-05T03:28:40Z",
+   "last_verified": "2026-11-05T06:20:00Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
    "last_seen": "2026-11-04T01:19:57Z",
@@ -1963,7 +1951,7 @@
    ],
    "id": "egovph-hackathon-2026-4fb323",
    "first_seen": "2026-11-03T00:48:31Z",
-   "last_verified": "2026-11-05T03:28:40Z",
+   "last_verified": "2026-11-05T06:20:00Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
    "last_seen": "2026-11-04T01:19:57Z",

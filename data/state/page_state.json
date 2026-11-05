@@ -1,43 +1,43 @@
 {
  "_source_runs": {
-  "tcon9-site": "2026-11-05T03:28:40Z",
-  "techconnect-aideathon-site": "2026-11-05T03:28:40Z",
-  "ctftime-ph": "2026-11-05T03:28:40Z",
-  "inquirer-tech": "2026-11-05T03:28:40Z",
-  "bitpinas": "2026-11-05T03:28:40Z",
-  "bitpinas-hackathon-tag": "2026-11-05T03:28:40Z",
-  "newsbytes": "2026-11-05T03:28:40Z",
-  "tribune": "2026-11-05T03:28:40Z",
-  "mindanao-gold-star": "2026-11-05T03:28:40Z",
-  "sunstar-hackathon-tag": "2026-11-05T03:28:40Z",
-  "cebu-daily-news": "2026-11-05T03:28:40Z",
-  "the-post": "2026-11-05T03:28:40Z",
-  "insiderph": "2026-11-05T03:28:40Z",
-  "pna-home": "2026-11-05T03:28:40Z",
-  "dost-asti": "2026-11-05T03:28:40Z",
-  "devcon": "2026-11-05T03:28:40Z",
-  "circuitrocks-events": "2026-11-05T03:28:40Z",
-  "rtu": "2026-11-05T03:28:40Z",
-  "upm": "2026-11-05T03:28:40Z",
-  "national-u": "2026-11-05T03:28:40Z",
-  "feutech": "2026-11-05T03:28:40Z",
-  "slu": "2026-11-05T03:28:40Z",
-  "hau": "2026-11-05T03:28:40Z",
-  "bicol-u": "2026-11-05T03:28:40Z",
-  "cit-u": "2026-11-05T03:28:40Z",
-  "su": "2026-11-05T03:28:40Z",
-  "chmsu": "2026-11-05T03:28:40Z",
-  "antique-spride": "2026-11-05T03:28:40Z",
-  "gsu-cst": "2026-11-05T03:28:40Z",
-  "uptacloban": "2026-11-05T03:28:40Z",
-  "vsu": "2026-11-05T03:28:40Z",
-  "adzu": "2026-11-05T03:28:40Z",
-  "imcc": "2026-11-05T03:28:40Z",
-  "upmin": "2026-11-05T03:28:40Z",
-  "usep-ic": "2026-11-05T03:28:40Z",
-  "usm": "2026-11-05T03:28:40Z",
-  "ndmc": "2026-11-05T03:28:40Z",
-  "carsu": "2026-11-05T03:28:40Z"
+  "tcon9-site": "2026-11-05T06:20:00Z",
+  "techconnect-aideathon-site": "2026-11-05T06:20:00Z",
+  "ctftime-ph": "2026-11-05T06:20:00Z",
+  "inquirer-tech": "2026-11-05T06:20:00Z",
+  "bitpinas": "2026-11-05T06:20:00Z",
+  "bitpinas-hackathon-tag": "2026-11-05T06:20:00Z",
+  "newsbytes": "2026-11-05T06:20:00Z",
+  "tribune": "2026-11-05T06:20:00Z",
+  "mindanao-gold-star": "2026-11-05T06:20:00Z",
+  "sunstar-hackathon-tag": "2026-11-05T06:20:00Z",
+  "cebu-daily-news": "2026-11-05T06:20:00Z",
+  "the-post": "2026-11-05T06:20:00Z",
+  "insiderph": "2026-11-05T06:20:00Z",
+  "pna-home": "2026-11-05T06:20:00Z",
+  "dost-asti": "2026-11-05T06:20:00Z",
+  "devcon": "2026-11-05T06:20:00Z",
+  "circuitrocks-events": "2026-11-05T06:20:00Z",
+  "rtu": "2026-11-05T06:20:00Z",
+  "upm": "2026-11-05T06:20:00Z",
+  "national-u": "2026-11-05T06:20:00Z",
+  "feutech": "2026-11-05T06:20:00Z",
+  "slu": "2026-11-05T06:20:00Z",
+  "hau": "2026-11-05T06:20:00Z",
+  "bicol-u": "2026-11-05T06:20:00Z",
+  "cit-u": "2026-11-05T06:20:00Z",
+  "su": "2026-11-05T06:20:00Z",
+  "chmsu": "2026-11-05T06:20:00Z",
+  "antique-spride": "2026-11-05T06:20:00Z",
+  "gsu-cst": "2026-11-05T06:20:00Z",
+  "uptacloban": "2026-11-05T06:20:00Z",
+  "vsu": "2026-11-05T06:20:00Z",
+  "adzu": "2026-11-05T06:20:00Z",
+  "imcc": "2026-11-05T06:20:00Z",
+  "upmin": "2026-11-05T06:20:00Z",
+  "usep-ic": "2026-11-05T06:20:00Z",
+  "usm": "2026-11-05T06:20:00Z",
+  "ndmc": "2026-11-05T06:20:00Z",
+  "carsu": "2026-11-05T06:20:00Z"
  },
  "_sites": {
   "ctftime-ph": {
@@ -251,24 +251,7 @@
    "search_at": "2026-11-04T17:13:21Z"
   }
  },
- "_queue": {
-  "https://www.sunstar.com.ph/bacolod/business/phs-biggest-5g-hackathon-kicks-off-with-enablement-workshops": {
-   "source": "sunstar-hackathon-tag",
-   "score": 30,
-   "title": "",
-   "needs_ai": true,
-   "ai_attempts": 1,
-   "added": "2026-11-05T03:28:40Z"
-  },
-  "https://www.sunstar.com.ph/manila/business/aboitiz-group-holds-biggest-hackathon": {
-   "source": "sunstar-hackathon-tag",
-   "score": 30,
-   "title": "",
-   "needs_ai": true,
-   "ai_attempts": 1,
-   "added": "2026-11-05T03:28:40Z"
-  }
- },
+ "_queue": {},
  "_ai": {
   "https://tcon.hackthenorth.ph/": {
    "hash": "ae0fee82b1f1f63d",
@@ -740,12 +723,12 @@
   "found": 0
  },
  "https://www.sunstar.com.ph/bacolod/business/phs-biggest-5g-hackathon-kicks-off-with-enablement-workshops": {
-  "checked": "2026-11-04T01:19:57Z",
-  "found": 1
+  "checked": "2026-11-05T06:20:00Z",
+  "found": 0
  },
  "https://www.sunstar.com.ph/manila/business/aboitiz-group-holds-biggest-hackathon": {
-  "checked": "2026-11-04T01:19:57Z",
-  "found": 1
+  "checked": "2026-11-05T06:20:00Z",
+  "found": 0
  },
  "https://www.rtu.edu.ph/rtu-ics-students-among-top-10-finalists-in-egovph-hackathon-2026/": {
   "checked": "2026-11-04T01:19:57Z",

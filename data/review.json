@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-05T03:28:40Z",
+ "generated_at": "2026-11-05T06:20:00Z",
  "items": [
   {
    "name": "HackForGov 2026 Region 13 CTF Regional Qualifying Round",
@@ -51,22 +51,5 @@
   }
  ],
  "pages_needing_llm": [],
- "pending_links": {
-  "https://www.sunstar.com.ph/bacolod/business/phs-biggest-5g-hackathon-kicks-off-with-enablement-workshops": {
-   "source": "sunstar-hackathon-tag",
-   "score": 30,
-   "title": "",
-   "needs_ai": true,
-   "ai_attempts": 1,
-   "added": "2026-11-05T03:28:40Z"
-  },
-  "https://www.sunstar.com.ph/manila/business/aboitiz-group-holds-biggest-hackathon": {
-   "source": "sunstar-hackathon-tag",
-   "score": 30,
-   "title": "",
-   "needs_ai": true,
-   "ai_attempts": 1,
-   "added": "2026-11-05T03:28:40Z"
-  }
- }
+ "pending_links": {}
 }

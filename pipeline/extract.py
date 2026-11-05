@@ -326,6 +326,36 @@ def link_score(title: str, url: str, published: datetime | None = None, now: dat
     return score
 
 
+def page_published(html: str) -> datetime | None:
+    """When the page itself was published, from its metadata (article:published_time, schema.org
+    datePublished, or the first <time datetime>). None when the page does not say."""
+    soup = BeautifulSoup(html, "html.parser")
+    cands = []
+    for attr, val in (("property", "article:published_time"), ("name", "article:published_time"),
+                      ("itemprop", "datePublished"), ("name", "date"), ("name", "pubdate")):
+        tag = soup.find("meta", attrs={attr: val})
+        if tag and tag.get("content"):
+            cands.append(tag["content"])
+    for tag in soup.find_all("script", attrs={"type": re.compile("ld\\+json", re.I)}):
+        try:
+            data = json.loads(tag.string or tag.get_text() or "")
+        except (json.JSONDecodeError, TypeError):
+            continue
+        for node in _iter_nodes(data):
+            if isinstance(node.get("datePublished"), str) and not any(t.endswith("Event") for t in _types(node)):
+                cands.append(node["datePublished"])
+    t = soup.find("time", attrs={"datetime": True})
+    if t:
+        cands.append(t["datetime"])
+    for c in cands:
+        try:
+            d = dtparser.isoparse(c.strip()) if "T" in c else dtparser.parse(c.strip())
+        except (ValueError, OverflowError, TypeError):
+            continue
+        return d if d.tzinfo else d.replace(tzinfo=PHT)
+    return None
+
+
 # ------------------------------------------------------------------ date checks for AI output
 _MONTHS = [("january", "enero"), ("february", "pebrero"), ("march", "marso"), ("april", "abril"), ("may", "mayo"),
            ("june", "hunyo"), ("july", "hulyo"), ("august", "agosto"), ("september", "setyembre"),
@@ -412,8 +442,8 @@ Page text:
 
 
 class LLMBudget:
-    """Counts AI requests per scan and per UTC day so the free tier is never exceeded.
-    The day's count is stored in data/state/llm_usage.json and committed with the data."""
+    """Counts AI requests per scan and per UTC day (all providers together) so free tiers are never exceeded,
+    and remembers which provider is paused after a quota answer. Stored in data/state/llm_usage.json."""
 
     def __init__(self, path=None):
         self.path = path or config.LLM_USAGE_FILE
@@ -423,52 +453,91 @@ class LLMBudget:
         except (FileNotFoundError, json.JSONDecodeError, AttributeError):
             saved = {}
         self.day_count = saved.get("count", 0) if saved.get("date") == self.today else 0
-        self.blocked_until = saved.get("blocked_until")   # set after a quota answer (HTTP 429)
+        self.blocked = dict(saved.get("blocked") or {})        # provider -> UTC time its quota resets
+        if saved.get("blocked_until") and "gemini" not in self.blocked:   # older single-provider format
+            self.blocked["gemini"] = saved["blocked_until"]
+        self.by_provider = dict(saved.get("by_provider") or {}) if saved.get("date") == self.today else {}
         self.run_count = 0
+        self.run_by_provider = {}
         self.cache_hits = 0
         self.stopped = ""          # reason the AI was switched off for the rest of this run
-        self.model = None
-        self._last_call = 0.0
+        self.off = {}              # provider -> reason it is skipped for the rest of this run (bad key, no model)
+        self.models = {}           # provider -> model used this run
+        self.last_error = False    # the last page got a real error or unusable answer (not just quota/budget)
+        self._last_call = {}
+
+    # ---- which providers may be asked
+    def is_blocked(self, provider) -> bool:
+        bu = _parse_utc(self.blocked.get(provider))
+        return bool(bu and datetime.now(timezone.utc) < bu)
+
+    def ready(self) -> list[str]:
+        return [p for p in config.llm_chain() if p not in self.off and not self.is_blocked(p)]
 
     def allow(self) -> bool:
         if self.stopped:
             return False
-        bu = _parse_utc(self.blocked_until)
-        if bu and datetime.now(timezone.utc) < bu:
-            self.stopped = f"AI paused until {self.blocked_until} after a quota answer from the provider"
-        elif self.run_count >= config.LLM_RUN_CAP:
+        if self.run_count >= config.LLM_RUN_CAP:
             self.stopped = f"run cap of {config.LLM_RUN_CAP} AI requests reached"
         elif self.day_count >= config.LLM_DAILY_CAP:
             self.stopped = f"daily cap of {config.LLM_DAILY_CAP} AI requests reached"
+        elif not self.ready():
+            paused = {p: self.blocked[p] for p in config.llm_chain() if self.is_blocked(p)}
+            if paused:
+                self.stopped = ("AI paused after quota answers (HTTP 429): "
+                                + ", ".join(f"{p} until {u}" for p, u in paused.items()))
+            else:
+                self.stopped = "no AI provider usable this run: " + "; ".join(f"{p}: {r}" for p, r in self.off.items())
         return not self.stopped
 
-    def pace(self):
-        """Space requests out (free tiers also limit requests per minute)."""
-        wait = config.LLM_MIN_INTERVAL_S - (time.monotonic() - self._last_call)
-        if wait > 0 and self._last_call:
-            time.sleep(wait)
-        self._last_call = time.monotonic()
+    @property
+    def model(self):        # first model used this run (older callers and the page)
+        return next(iter(self.models.values()), None)
 
-    def used(self):
+    @property
+    def blocked_until(self):
+        return self.blocked.get("gemini")
+
+    def pace(self, provider="gemini"):
+        """Space requests to one provider out (free tiers also limit requests per minute)."""
+        last = self._last_call.get(provider, 0.0)
+        wait = config.LLM_MIN_INTERVAL_S - (time.monotonic() - last)
+        if wait > 0 and last:
+            time.sleep(wait)
+        self._last_call[provider] = time.monotonic()
+
+    def used(self, provider="gemini"):
         self.run_count += 1
         self.day_count += 1
+        self.run_by_provider[provider] = self.run_by_provider.get(provider, 0) + 1
+        self.by_provider[provider] = self.by_provider.get(provider, 0) + 1
 
-    def quota_hit(self, body: str):
-        """HTTP 429. A daily quota resets at midnight Pacific time (07:00-08:00 UTC); otherwise retry next run."""
+    def quota_hit(self, body: str, provider="gemini", retry_after=None):
+        """HTTP 429 from one provider: pause only that provider. A daily quota resets around midnight
+        Pacific time (07:00-08:00 UTC) for Gemini, 00:00 UTC for most others; otherwise retry in 20 minutes."""
         now = datetime.now(timezone.utc)
-        if re.search(r"per ?day|PerDay|daily", body or "", re.I):
-            until = now.replace(hour=8, minute=0, second=0, microsecond=0)
+        try:
+            ra = float(retry_after) if retry_after else 0
+        except ValueError:
+            ra = 0
+        if re.search(r"per ?day|PerDay|daily|tokens per day|requests per day|\bRPD\b|free-models-per-day", body or "", re.I):
+            until = now.replace(hour=8 if provider == "gemini" else 0, minute=0, second=0, microsecond=0)
             if until <= now:
                 until += timedelta(days=1)
+        elif ra > 0:
+            until = now + timedelta(seconds=min(max(ra, 60), 86400))
         else:
             until = now + timedelta(minutes=20)
-        self.blocked_until = until.replace(microsecond=0).isoformat().replace("+00:00", "Z")
+        self.blocked[provider] = until.replace(microsecond=0).isoformat().replace("+00:00", "Z")
 
     def save(self):
         self.path.parent.mkdir(parents=True, exist_ok=True)
         doc = {"date": self.today, "count": self.day_count}
-        if self.blocked_until:
-            doc["blocked_until"] = self.blocked_until
+        if self.by_provider:
+            doc["by_provider"] = self.by_provider
+        live = {p: u for p, u in self.blocked.items() if self.is_blocked(p)}
+        if live:
+            doc["blocked"] = live
         self.path.write_text(json.dumps(doc) + "\n", encoding="utf-8")
 
 
@@ -482,9 +551,30 @@ def _parse_utc(s):
 BUDGET: LLMBudget | None = None
 
 
+class Quota(Exception):
+    """HTTP 429: this provider is paused; try the next one."""
+
+
+class Unusable(Exception):
+    """Bad key, no credit or no suitable model: skip this provider for the rest of the run."""
+
+
 def _json_from(raw: str):
     m = re.search(r"\{.*\}", raw or "", re.S)
     return json.loads(m.group(0)) if m else None
+
+
+def _check(http, r, provider: str, url: str):
+    """Shared handling of a provider's HTTP answer."""
+    if r.status_code == 429:
+        BUDGET.quota_hit(r.text, provider, (getattr(r, "headers", None) or {}).get("retry-after"))
+        raise Quota(provider)
+    if r.status_code in (401, 402, 403):
+        raise Unusable(f"HTTP {r.status_code} (key, permission or credit problem)")
+    if r.status_code != 200:
+        http.log.append({"url": url, "error": f"{provider} HTTP {r.status_code}: {r.text[:200]}"})
+        return False
+    return True
 
 
 def _pick_gemini_model(http) -> str | None:
@@ -514,24 +604,19 @@ def _pick_gemini_model(http) -> str | None:
 
 
 def _call_gemini(http, prompt: str, url: str):
-    if BUDGET.model is None:
-        BUDGET.model = _pick_gemini_model(http) or ""
-    if not BUDGET.model:
-        BUDGET.stopped = "no usable Gemini model found for this key"
-        return None
-    BUDGET.pace()
-    r = http.s.post(f"{config.GEMINI_BASE}/{BUDGET.model}:generateContent", timeout=90,
+    if "gemini" not in BUDGET.models:
+        model = _pick_gemini_model(http)
+        if not model:
+            raise Unusable("no usable Gemini model found for this key")
+        BUDGET.models["gemini"] = model
+    BUDGET.pace("gemini")
+    r = http.s.post(f"{config.GEMINI_BASE}/{BUDGET.models['gemini']}:generateContent", timeout=90,
                     headers={"x-goog-api-key": config.GEMINI_API_KEY, "content-type": "application/json"},
                     json={"contents": [{"role": "user", "parts": [{"text": prompt}]}],
                           "generationConfig": {"temperature": 0, "responseMimeType": "application/json",
                                                "maxOutputTokens": 2500}})
-    BUDGET.used()
-    if r.status_code == 429:
-        BUDGET.stopped = "Gemini rate limit reached (HTTP 429); remaining pages wait for the next run"
-        BUDGET.quota_hit(r.text)
-        return None
-    if r.status_code != 200:
-        http.log.append({"url": url, "error": f"Gemini HTTP {r.status_code}: {r.text[:200]}"})
+    BUDGET.used("gemini")
+    if not _check(http, r, "gemini", url):
         return None
     cands = r.json().get("candidates") or []
     parts = (cands[0].get("content") or {}).get("parts", []) if cands else []
@@ -539,24 +624,104 @@ def _call_gemini(http, prompt: str, url: str):
 
 
 def _call_anthropic(http, prompt: str, url: str):
-    BUDGET.pace()
+    BUDGET.models.setdefault("anthropic", config.ANTHROPIC_MODEL)
+    BUDGET.pace("anthropic")
     r = http.s.post("https://api.anthropic.com/v1/messages", timeout=60, headers={
         "x-api-key": config.ANTHROPIC_API_KEY, "anthropic-version": "2023-06-01", "content-type": "application/json",
     }, json={"model": config.ANTHROPIC_MODEL, "max_tokens": 2500, "temperature": 0,
              "messages": [{"role": "user", "content": prompt}]})
-    BUDGET.used()
-    if r.status_code == 429:
-        BUDGET.stopped = "Anthropic rate limit reached (HTTP 429)"
-        BUDGET.quota_hit(r.text)
-        return None
-    if r.status_code != 200:
-        http.log.append({"url": url, "error": f"Anthropic HTTP {r.status_code}: {r.text[:200]}"})
+    BUDGET.used("anthropic")
+    if not _check(http, r, "anthropic", url):
         return None
     return _json_from("".join(b.get("text", "") for b in r.json().get("content", []) if b.get("type") == "text"))
 
 
+# OpenAI-compatible free tiers. Models are picked from each provider's own list, in this order of preference.
+OPENAI_COMPAT = {
+    "groq": {"base": "https://api.groq.com/openai/v1", "key": "GROQ_API_KEY", "model": "GROQ_MODEL",
+             "prefer": ["openai/gpt-oss-120b", "llama-3.3-70b-versatile", "openai/gpt-oss-20b", "llama-3.1-8b-instant"]},
+    "cerebras": {"base": "https://api.cerebras.ai/v1", "key": "CEREBRAS_API_KEY", "model": "CEREBRAS_MODEL",
+                 "prefer": ["gpt-oss-120b", "llama-3.3-70b", "qwen-3-235b-a22b-instruct-2507", "llama3.1-8b"]},
+    "mistral": {"base": "https://api.mistral.ai/v1", "key": "MISTRAL_API_KEY", "model": "MISTRAL_MODEL",
+                "prefer": ["mistral-small-latest", "mistral-medium-latest", "open-mistral-nemo"]},
+    # GitHub Models: the workflow's own token (permission models: read); no model list call, a fixed small model.
+    "github": {"base": "https://models.github.ai/inference", "key": "GITHUB_MODELS_TOKEN", "model": "GITHUB_MODEL",
+               "prefer": [], "default": "openai/gpt-4.1-mini"},
+    # OpenRouter: only models whose id ends in ":free" are ever used (the account has no credit).
+    "openrouter": {"base": "https://openrouter.ai/api/v1", "key": "OPENROUTER_API_KEY", "model": "OPENROUTER_MODEL",
+                   "prefer": ["openai/gpt-oss-120b:free", "meta-llama/llama-3.3-70b-instruct:free",
+                              "deepseek/deepseek-chat-v3.1:free", "qwen/qwen3-235b-a22b:free",
+                              "google/gemma-3-27b-it:free", "mistralai/mistral-small-3.2-24b-instruct:free"],
+                   "free_only": True},
+}
+_SKIP_MODEL = re.compile(r"whisper|guard|tts|embed|moderat|ocr|vision|audio|image|transcri|safeguard|prompt-guard", re.I)
+
+
+def _pick_openai_model(http, provider: str) -> str | None:
+    spec = OPENAI_COMPAT[provider]
+    want = getattr(config, spec["model"], "")
+    if want:
+        if spec.get("free_only") and not want.endswith(":free"):
+            raise Unusable(f"configured model {want!r} is not a free model; only ':free' models are allowed")
+        return want
+    if spec.get("default"):
+        return spec["default"]
+    r = http.s.get(f"{spec['base']}/models", timeout=30,
+                   headers={"authorization": f"Bearer {getattr(config, spec['key'])}"})
+    if r.status_code in (401, 403):
+        raise Unusable(f"model list HTTP {r.status_code} (check the key)")
+    if r.status_code != 200:
+        http.log.append({"url": f"{provider}:models", "error": f"{provider} model list HTTP {r.status_code}: {r.text[:200]}"})
+        return None
+    ids = [m.get("id", "") for m in (r.json().get("data") or []) if isinstance(m, dict)]
+    if spec.get("free_only"):
+        ids = [i for i in ids if i.endswith(":free")]
+    for p in spec["prefer"]:
+        if p in ids:
+            return p
+    rest = sorted(i for i in ids if i and not _SKIP_MODEL.search(i))
+    good = [i for i in rest if re.search(r"gpt-oss|llama-3\.3|llama-4|qwen|mistral|gemma|deepseek", i, re.I)]
+    return (good or rest or [None])[0]
+
+
+def _call_openai_compat(http, provider: str, prompt: str, url: str):
+    spec = OPENAI_COMPAT[provider]
+    if provider not in BUDGET.models:
+        model = _pick_openai_model(http, provider)
+        if not model:
+            raise Unusable("no suitable model in the provider's list")
+        BUDGET.models[provider] = model
+    model = BUDGET.models[provider]
+    if spec.get("free_only") and not model.endswith(":free"):     # belt and braces: never a paid model
+        raise Unusable(f"refusing non-free model {model!r}")
+    body = {"model": model, "temperature": 0, "max_tokens": 3000,
+            "messages": [{"role": "user", "content": prompt}]}
+    if "gpt-oss" in model and provider in ("groq", "cerebras"):
+        body["reasoning_effort"] = "low"
+    headers = {"authorization": f"Bearer {getattr(config, spec['key'])}", "content-type": "application/json"}
+    if provider == "openrouter" and config.REPO_URL:
+        headers.update({"HTTP-Referer": config.REPO_URL, "X-Title": "PH HackIntel Map"})
+    BUDGET.pace(provider)
+    r = http.s.post(f"{spec['base']}/chat/completions", timeout=90, headers=headers, json=body)
+    BUDGET.used(provider)
+    if not _check(http, r, provider, url):
+        return None
+    choices = r.json().get("choices") or []
+    content = ((choices[0].get("message") or {}).get("content") or "") if choices else ""
+    return _json_from(content if isinstance(content, str) else "")
+
+
+def _call(provider: str, http, prompt: str, url: str):
+    """Looked up at call time so tests can replace a single provider."""
+    if provider == "gemini":
+        return _call_gemini(http, prompt, url)
+    if provider == "anthropic":
+        return _call_anthropic(http, prompt, url)
+    return _call_openai_compat(http, provider, prompt, url)
+
+
 def llm_available() -> bool:
-    """True when an AI provider is configured and today's budget is not used up."""
+    """True when at least one AI provider is configured, not paused, and the budget is not used up."""
     global BUDGET
     if not config.llm_provider():
         return False
@@ -566,23 +731,38 @@ def llm_available() -> bool:
 
 
 def llm_extract_ex(http, text: str, url: str) -> tuple[list[dict], bool]:
-    """(events, answered). answered is False when no AI answer was obtained (no key, budget used up,
-    quota, network error), so the caller can try the page again later instead of marking it read."""
+    """(events, answered). Tries each provider in the chain until one gives a usable answer; a provider that
+    answers 429 is paused and the next one is asked. answered is False when no AI answer was obtained, so the
+    caller can try the page again later. BUDGET.last_error tells it whether that was a real failure."""
     if not llm_available():
         return [], False
+    BUDGET.last_error = False
     prompt = LLM_PROMPT.format(url=url, text=text, today=datetime.now(PHT).strftime("%Y-%m-%d"))
-    try:
-        data = _call_gemini(http, prompt, url) if config.llm_provider() == "gemini" else _call_anthropic(http, prompt, url)
-    except Exception as e:  # network, JSON or schema surprises: log and skip, never crash the run
-        http.log.append({"url": url, "error": f"AI extraction failed: {type(e).__name__}: {e}"[:300]})
-        return [], False
-    if not isinstance(data, dict):
-        return [], False
-    return from_llm_many(data, url, text), True
+    for provider in BUDGET.ready():
+        if not BUDGET.allow():
+            break
+        try:
+            data = _call(provider, http, prompt, url)
+        except Quota:
+            continue
+        except Unusable as e:
+            BUDGET.off[provider] = str(e)
+            http.log.append({"url": f"{provider}:setup", "error": f"{provider} skipped this run: {e}"[:300]})
+            continue
+        except Exception as e:  # network, JSON or schema surprises: log, try the next provider, never crash
+            http.log.append({"url": url, "error": f"AI extraction ({provider}) failed: {type(e).__name__}: {e}"[:300]})
+            BUDGET.last_error = True
+            continue
+        if isinstance(data, dict):
+            BUDGET.last_error = False
+            return from_llm_many(data, url, text), True
+        BUDGET.last_error = True
+    BUDGET.allow()          # records why nothing is left (all paused, caps) for the scan report
+    return [], False
 
 
 def llm_extract(http, text: str, url: str) -> dict | None:
-    """Optional. The first event the AI found on the page, or None. Needs GEMINI_API_KEY or ANTHROPIC_API_KEY."""
+    """Optional. The first event the AI found on the page, or None. Needs at least one AI key."""
     evs, _ = llm_extract_ex(http, text, url)
     return evs[0] if evs else None
 

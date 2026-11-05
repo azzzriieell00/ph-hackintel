@@ -54,6 +54,9 @@ MODELS = ["models/gemini-3.1-flash-lite", "models/gemini-3.5-flash-lite", "model
 def gemini(monkeypatch, tmp_path):
     monkeypatch.setattr(config, "GEMINI_API_KEY", "test-key")
     monkeypatch.setattr(config, "ANTHROPIC_API_KEY", "")
+    for k in ("GROQ_API_KEY", "CEREBRAS_API_KEY", "MISTRAL_API_KEY", "GITHUB_MODELS_TOKEN", "OPENROUTER_API_KEY",
+              "GROQ_MODEL", "OPENROUTER_MODEL"):
+        monkeypatch.setattr(config, k, "")
     monkeypatch.setattr(config, "LLM_PROVIDER", "")
     monkeypatch.setattr(config, "GEMINI_MODEL", "")
     monkeypatch.setattr(config, "LLM_USAGE_FILE", tmp_path / "llm_usage.json")
@@ -61,9 +64,8 @@ def gemini(monkeypatch, tmp_path):
     monkeypatch.setattr(extract, "BUDGET", None)
 
 
-def test_no_key_means_no_ai(monkeypatch):
+def test_no_key_means_no_ai(gemini, monkeypatch):
     monkeypatch.setattr(config, "GEMINI_API_KEY", "")
-    monkeypatch.setattr(config, "ANTHROPIC_API_KEY", "")
     monkeypatch.setattr(config, "LLM_PROVIDER", "")
     monkeypatch.setattr(extract, "BUDGET", None)
     assert config.llm_provider() == "" and extract.llm_available() is False
@@ -117,7 +119,7 @@ def test_rate_limit_stops_ai_for_the_run(gemini):
 def test_daily_quota_pauses_until_reset(gemini):
     b = extract.LLMBudget()
     b.quota_hit('{"error": {"message": "Quota exceeded for metric: GenerateRequestsPerDayPerProjectPerModel-FreeTier"}}')
-    until = datetime.fromisoformat(b.blocked_until.replace("Z", "+00:00"))
+    until = datetime.fromisoformat(b.blocked["gemini"].replace("Z", "+00:00"))
     assert until.hour == 8 and until.minute == 0
 
 
@@ -131,3 +133,113 @@ def test_answered_flag_and_several_events(gemini):
     assert evs[1]["deadline_is_estimate"] is True and evs[1]["registration_url"] == "https://news.example/a"
     evs, answered = extract.llm_extract_ex(FakeHttp(FakeSession(MODELS, two, status=500)), page, "https://news.example/a")
     assert evs == [] and answered is False
+
+
+# ---------------------------------------------------------------- backup providers (fix 9)
+class ChainSession:
+    """Gemini answers with gemini_status; OpenAI-compatible providers answer from their own table."""
+    def __init__(self, gemini_status=200, compat=None, model_lists=None):
+        self.gemini_status, self.compat, self.model_lists = gemini_status, compat or {}, model_lists or {}
+        self.posts, self.bodies = [], []
+
+    def get(self, url, **kw):
+        if "generativelanguage" in url:
+            return Resp(200, {"models": [{"name": n, "supportedGenerationMethods": ["generateContent"]} for n in MODELS]})
+        for host, ids in self.model_lists.items():
+            if host in url:
+                return Resp(200, {"data": [{"id": i} for i in ids]})
+        return Resp(404, {})
+
+    def post(self, url, **kw):
+        self.posts.append(url)
+        self.bodies.append(kw.get("json"))
+        if "generativelanguage" in url:
+            if self.gemini_status != 200:
+                return Resp(self.gemini_status, {"error": {"message": "Resource exhausted"}})
+            return Resp(200, {"candidates": [{"content": {"parts": [{"text": json.dumps(ANSWER)}]}}]})
+        for host, status in self.compat.items():
+            if host in url:
+                if status != 200:
+                    return Resp(status, {"error": {"message": "nope"}})
+                return Resp(200, {"choices": [{"message": {"content": "```json\n" + json.dumps(ANSWER) + "\n```"}}]})
+        return Resp(500, {})
+
+
+def test_chain_order_and_preferred_first(gemini, monkeypatch):
+    monkeypatch.setattr(config, "GROQ_API_KEY", "g")
+    monkeypatch.setattr(config, "OPENROUTER_API_KEY", "o")
+    assert config.llm_chain() == ["gemini", "groq", "openrouter"]
+    monkeypatch.setattr(config, "LLM_PROVIDER", "openrouter")
+    assert config.llm_chain() == ["openrouter", "gemini", "groq"] and config.llm_provider() == "openrouter"
+    monkeypatch.setattr(config, "GEMINI_API_KEY", "")
+    monkeypatch.setattr(config, "LLM_PROVIDER", "")
+    assert config.llm_chain() == ["groq", "openrouter"]
+
+
+def test_gemini_429_falls_back_to_groq(gemini, monkeypatch):
+    monkeypatch.setattr(config, "GROQ_API_KEY", "g")
+    s = ChainSession(gemini_status=429, compat={"groq.com": 200},
+                     model_lists={"groq.com": ["whisper-large-v3", "llama-3.3-70b-versatile", "openai/gpt-oss-120b"]})
+    evs, answered = extract.llm_extract_ex(FakeHttp(s), PAGE, "https://news.example/a")
+    assert answered and evs[0]["name"] == f"Iloilo Regional CTF {Y}"
+    assert "generativelanguage" in s.posts[0] and s.posts[1] == "https://api.groq.com/openai/v1/chat/completions"
+    assert s.bodies[1]["model"] == "openai/gpt-oss-120b" and s.bodies[1]["reasoning_effort"] == "low"
+    assert extract.BUDGET.is_blocked("gemini") and not extract.BUDGET.stopped
+    # next page goes straight to Groq: Gemini stays paused
+    extract.llm_extract_ex(FakeHttp(s), PAGE, "https://news.example/b")
+    assert len(s.posts) == 3 and "groq.com" in s.posts[2]
+    assert extract.BUDGET.run_by_provider == {"gemini": 1, "groq": 2}
+    extract.BUDGET.save()
+    saved = json.loads(config.LLM_USAGE_FILE.read_text())
+    assert "gemini" in saved["blocked"] and saved["by_provider"]["groq"] == 2 and saved["count"] == 3
+
+
+def test_openrouter_uses_only_free_models(gemini, monkeypatch):
+    monkeypatch.setattr(config, "GEMINI_API_KEY", "")
+    monkeypatch.setattr(config, "OPENROUTER_API_KEY", "o")
+    s = ChainSession(compat={"openrouter.ai": 200},
+                     model_lists={"openrouter.ai": ["openai/gpt-5", "anthropic/claude-x", "google/gemma-3-27b-it:free"]})
+    evs, answered = extract.llm_extract_ex(FakeHttp(s), PAGE, "https://news.example/a")
+    assert answered and s.bodies[0]["model"] == "google/gemma-3-27b-it:free"
+
+    # a configured paid model is refused before any request is sent
+    monkeypatch.setattr(extract, "BUDGET", None)
+    monkeypatch.setattr(config, "OPENROUTER_MODEL", "openai/gpt-5")
+    s2 = ChainSession(compat={"openrouter.ai": 200})
+    evs, answered = extract.llm_extract_ex(FakeHttp(s2), PAGE, "https://news.example/a")
+    assert not answered and not s2.posts and "openrouter" in extract.BUDGET.off
+    assert "no AI provider usable" in extract.BUDGET.stopped
+
+    # no free model in the list: skipped, nothing paid is chosen
+    monkeypatch.setattr(extract, "BUDGET", None)
+    monkeypatch.setattr(config, "OPENROUTER_MODEL", "")
+    s3 = ChainSession(compat={"openrouter.ai": 200}, model_lists={"openrouter.ai": ["openai/gpt-5"]})
+    assert extract.llm_extract_ex(FakeHttp(s3), PAGE, "https://news.example/a") == ([], False) and not s3.posts
+
+
+def test_bad_key_is_skipped_and_all_quota_stops(gemini, monkeypatch):
+    monkeypatch.setattr(config, "GROQ_API_KEY", "g")
+    monkeypatch.setattr(config, "MISTRAL_API_KEY", "m")
+    s = ChainSession(gemini_status=429, compat={"groq.com": 401, "mistral.ai": 429},
+                     model_lists={"groq.com": ["llama-3.3-70b-versatile"], "mistral.ai": ["mistral-small-latest"]})
+    evs, answered = extract.llm_extract_ex(FakeHttp(s), PAGE, "https://news.example/a")
+    assert not answered and not extract.BUDGET.last_error     # quota/key problems: not the page's fault
+    assert "groq" in extract.BUDGET.off and extract.BUDGET.is_blocked("mistral")
+    assert "429" in extract.BUDGET.stopped and extract.llm_available() is False
+
+
+def test_github_models_uses_workflow_token(gemini, monkeypatch):
+    monkeypatch.setattr(config, "GEMINI_API_KEY", "")
+    monkeypatch.setattr(config, "GITHUB_MODELS_TOKEN", "ghs_test")
+    monkeypatch.setattr(config, "GITHUB_MODEL", "")
+    s = ChainSession(compat={"models.github.ai": 200})
+    evs, answered = extract.llm_extract_ex(FakeHttp(s), PAGE, "https://news.example/a")
+    assert answered and s.posts == ["https://models.github.ai/inference/chat/completions"]
+    assert s.bodies[0]["model"] == "openai/gpt-4.1-mini"
+
+
+def test_unreadable_answer_tries_next_provider(gemini, monkeypatch):
+    monkeypatch.setattr(config, "CEREBRAS_API_KEY", "c")
+    s = ChainSession(gemini_status=500, compat={"cerebras.ai": 200}, model_lists={"cerebras.ai": ["llama-3.3-70b"]})
+    evs, answered = extract.llm_extract_ex(FakeHttp(s), PAGE, "https://news.example/a")
+    assert answered and "cerebras.ai" in s.posts[-1] and not extract.BUDGET.last_error

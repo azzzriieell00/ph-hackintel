@@ -205,3 +205,28 @@ events:
         url: https://tribune.net.ph/2026/10/29/five-teams-compete-in-marinduque-innovation-fest-2026-hackathon
     verified_manually: "2026-11-03T00:45"
     verified_by: Web research
+
+  # ---- Added 2026-11-05 from the organizer's Facebook post (registration extended) ----
+
+  - id: innova-thon-2026
+    name: Innova-Thon 2026
+    category: hackathon
+    organizer: Upsilon Sigma Phi; co-presented by Maya Bank, Inc.
+    mode: hybrid
+    venue: UP School of Economics Auditorium, UP Diliman
+    city: Quezon City
+    province: Metro Manila
+    start: "2026-11-03"
+    end: "2026-11-21"
+    deadline: "2026-11-12"
+    deadline_is_estimate: false
+    themes: [Innovation]
+    prize: Over PHP 50,000 in prizes and awards
+    registration_url: https://bit.ly/innova-thonregistration
+    sources:
+      - label: Registration form (from the organizer's Facebook post)
+        url: https://bit.ly/innova-thonregistration
+      - label: Innova-Thon Facebook post, deadline extended (seen 2026-11-05)
+    notes: Online round Nov 3-12; final round Nov 21 at UP Diliman. Registration extended to the Nov 12 submission deadline; time of day not stated.
+    verified_manually: "2026-11-05T13:38"
+    verified_by: Organizer's Facebook post

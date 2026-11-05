@@ -245,6 +245,7 @@ def gather_site(http, src: dict, page_state: dict, report: dict, queue: Queue, n
     report["feeds"] = feeds
     if not feeds and not st.get("home_error"):
         report["notes"].append("no feed found; reading homepage links once a day")
+    latest: set[str] = set()       # links in the site's own feed, to recognise a search that is ignored
     for f in feeds[:2]:
         r = http.get(f)
         if r is None or r.status_code >= 400:
@@ -253,11 +254,13 @@ def gather_site(http, src: dict, page_state: dict, report: dict, queue: Queue, n
         items = extract.feed_items(r.content, r.url)
         if not items:
             report["notes"].append(f"{f}: no feed entries")
+        latest |= {it["link"] for it in items}
         queue_feed_items(items, src, report, queue, now)
     if st.get("wordpress") and src.get("search", True) and older_than(st.get("search_at"), now, 24) and slots["search"] > 0:
         slots["search"] -= 1
         st["search_at"] = iso(now)
         base = home if home.endswith("/") else home + "/"
+        results = []
         for term in config.SEARCH_TERMS:
             url = base + "?" + urlencode({"s": term, "feed": "rss2", "orderby": "date", "order": "DESC"})
             r = http.get(url)
@@ -265,8 +268,19 @@ def gather_site(http, src: dict, page_state: dict, report: dict, queue: Queue, n
                 why = http.why(url) if r is None else f"HTTP {r.status_code}"
                 report["notes"].append(f"site search skipped: {why}")
                 break           # robots.txt or the server said no: do not try the other terms
-            # The site's search matched the term somewhere in the post, so a headline without it still counts.
-            queue_feed_items(extract.feed_items(r.content, r.url), src, report, queue, now, bonus=10, keyword_required=False)
+            results.append(extract.feed_items(r.content, r.url))
+        for i, items in enumerate(results):
+            # A working search matched the term somewhere in each post, so a headline without it still counts.
+            # Some sites ignore the search and send their latest posts instead: then only matching headlines count.
+            links = [it["link"] for it in items]
+            relevant = sum(1 for it in items if extract.is_relevant(it["title"], it["summary"], it["link"].replace("-", " ")))
+            ignored = bool(links) and (
+                (len(items) >= 5 and relevant * 2 < len(items))
+                or (latest and set(links) <= latest and relevant < len(items))
+                or any(links == [it["link"] for it in other] for j, other in enumerate(results) if j != i))
+            if ignored and "site search seems to ignore the query; only matching headlines kept" not in report["notes"]:
+                report["notes"].append("site search seems to ignore the query; only matching headlines kept")
+            queue_feed_items(items, src, report, queue, now, bonus=10, keyword_required=ignored)
 
 
 # ------------------------------------------------------------------ reading pages
@@ -287,7 +301,7 @@ def ai_read(http, url: str, text: str, page_state: dict, report: dict, now) -> t
     if not answered:           # budget used up, quota, or an error: try this page again in a later scan
         report["deferred"] += 1
         asked = bool(extract.BUDGET and extract.BUDGET.run_count > before)
-        report["_ai_failed"] = asked and not extract.BUDGET.stopped
+        report["_ai_failed"] = asked and extract.BUDGET.last_error   # a real error, not a quota pause or cap
         if report["_ai_failed"]:
             fails = page_state.setdefault("_ai_fail", {})
             n = fails.get(url, {}).get("n", 0) + 1
@@ -308,6 +322,7 @@ def process_page(http, url: str, source: dict, report: dict, trusted: bool, page
         add_lead(report, url, source_name=source.get("name", ""), why="platform does not allow automated access: check by hand")
         return [], False
     r = http.get(url)
+    report["_status"] = r.status_code if r is not None else None
     if r is None or r.status_code >= 400:
         fail(report, http, url, r)
         return [], False
@@ -319,6 +334,11 @@ def process_page(http, url: str, source: dict, report: dict, trusted: bool, page
     if not found:
         text = extract.page_text(html)
         if trusted or extract.is_relevant(extract.page_title(html), text[:3000]):
+            pub = None if trusted else extract.page_published(html)
+            if pub and now - pub > timedelta(days=config.FEED_MAX_AGE_D):
+                # An old article (e.g. from a tag page): its event is long over. Do not spend the AI on it.
+                report["old_pages_skipped"] = report.get("old_pages_skipped", 0) + 1
+                return [], False
             found, deferred = ai_read(http, r.url, text, page_state, report, now)
     for e in found:
         e["source_id"] = source["id"]
@@ -341,9 +361,16 @@ def keep(pending: dict, w: dict, now, attempts: int | None = None) -> None:
 def read_queue(http, queue: Queue, reports: dict, page_state: dict, now, deadline: float) -> tuple[list[dict], dict]:
     pending = page_state.setdefault("_queue", {})
     out, per_src, pages, capped = [], Counter(), 0, set()
+    refused = Counter()             # hosts that answered 401/403/429 this scan
     for w in queue.ordered():
         url, src = w["url"], w["src"]
         rep = reports[src["id"]]
+        host = host_of(url)
+        if refused[host] >= 2 and not w["force"]:
+            if f"refused:{host}" not in capped:
+                rep["notes"].append(f"{host} refused 2 pages; its other pages are skipped this scan")
+                capped.add(f"refused:{host}")
+            continue
         if not w["force"]:
             last = parse_iso(page_state.get(url, {}).get("checked"))
             if last and now - last < timedelta(hours=src.get("recheck_hours", 24)):
@@ -373,6 +400,8 @@ def read_queue(http, queue: Queue, reports: dict, page_state: dict, now, deadlin
         except Exception as e:   # one odd page must never stop the others
             rep["errors"].append(f"{url}: crash: {type(e).__name__}: {e}"[:300])
             found, deferred = [], False
+        if rep.pop("_status", None) in (401, 403, 429):
+            refused[host] += 1
         attempts = pending.get(url, {}).get("ai_attempts", 0) + (1 if rep.pop("_ai_failed", False) else 0)
         if deferred and attempts >= 3:
             rep["notes"].append(f"AI gave no usable answer 3 times; page set aside: {url}"[:300])
@@ -572,12 +601,14 @@ def main(argv=None) -> int:
             review.append({"name": ev.get("name"), "id": eid, "url": url, "reason": why})
             # Real competitions without a pin (online, venue not confirmed) still show up under Signals,
             # and so do AI finds whose dates could not be confirmed in the page text.
-            ai_undated = ev.get("extraction") == "llm" and why == "no deadline or event date"
+            # (not when the page reports results, or the AI's dates were years off: that event is over)
+            ai_undated = (ev.get("extraction") == "llm" and why == "no deadline or event date" and not ev.get("results")
+                          and not any("implausible year" in c for c in ev.get("ai_checks") or []))
             if url and not is_finished(ev, now) and ("kept as a signal" in why or ai_undated):
                 note = "AI found a competition but no date it could confirm" if ai_undated else why.split(" (kept")[0]
                 no_pin_leads.append({"title": f"[{ev['category'].upper()}] {ev['name']}", "url": url,
                                      "source": (ev.get("sources") or [{}])[0].get("label", ""),
-                                     "published": None, "note": note})
+                                     "published": None, "note": note, "from_event": True})
 
     # upcoming first (soonest deadline), then finished events (most recent first)
     upcoming = sorted((e for e in published if e["phase"] != "finished"), key=lambda e: e.get("deadline") or e.get("start") or "")
@@ -585,9 +616,13 @@ def main(argv=None) -> int:
     published = upcoming + past
 
     # Leads: unverified headlines and links on platforms we must not fetch. Kept 21 days.
-    leads = {l["url"]: l for l in prev_doc.get("leads", []) if l.get("url")}
+    # Signals made from held events are rebuilt every scan (so a fixed or expired one disappears at once);
+    # headline signals are kept for 21 days.
+    leads = {l["url"]: l for l in prev_doc.get("leads", []) if l.get("url") and not l.get("from_event")
+             and not str(l.get("title", "")).startswith(("[HACKATHON] ", "[CTF] "))}
+    prev_first = {l.get("url"): l.get("first_seen") for l in prev_doc.get("leads", []) if l.get("url")}
     for l in no_pin_leads:
-        leads[l["url"]] = {**leads.get(l["url"], {}), **l, "first_seen": leads.get(l["url"], {}).get("first_seen") or iso(now)}
+        leads[l["url"]] = {**leads.get(l["url"], {}), **l, "first_seen": prev_first.get(l["url"]) or iso(now)}
     for r in reports.values():
         for l in r.get("leads", []):
             if l.get("url"):
@@ -610,8 +645,15 @@ def main(argv=None) -> int:
         "generator": "PH HackIntel pipeline 2.0",
         "offline_run": bool(args.offline),
         "llm_enabled": bool(config.llm_provider()),
-        "llm": {"provider": config.llm_provider() or None,
-                "model": (budget.model if budget else None) or (config.ANTHROPIC_MODEL if config.llm_provider() == "anthropic" else None),
+        "llm": {"provider": (next(iter(budget.run_by_provider), None) if budget else None) or config.llm_provider() or None,
+                "model": (budget.models.get(next(iter(budget.run_by_provider), ""), budget.model) if budget else None)
+                         or (config.ANTHROPIC_MODEL if config.llm_provider() == "anthropic" else None),
+                "chain": [{"provider": p,
+                           "model": budget.models.get(p) if budget else None,
+                           "requests_this_run": budget.run_by_provider.get(p, 0) if budget else 0,
+                           "requests_today": budget.by_provider.get(p, 0) if budget else 0,
+                           "paused_until": (budget.blocked.get(p) if budget and budget.is_blocked(p) else None),
+                           "skipped": (budget.off.get(p) if budget else None)} for p in config.llm_chain()],
                 "requests_this_run": budget.run_count if budget else 0,
                 "requests_today": budget.day_count if budget else 0,
                 "daily_cap": config.LLM_DAILY_CAP,
@@ -628,7 +670,7 @@ def main(argv=None) -> int:
                                     "pending_links": page_state.get("_queue", {})})
     prune_state(page_state, now)
     write_json(config.PAGE_STATE, page_state)
-    if budget and (budget.run_count or budget.blocked_until):
+    if budget and (budget.run_count or budget.blocked):
         budget.save()
     geocoder.save()
     print(f"[done] published={len(published)} held={len(held)} review={len(review)} pages={scan['pages_opened']} "

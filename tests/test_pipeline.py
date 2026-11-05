@@ -456,3 +456,63 @@ def test_a_crashing_page_does_not_stop_the_others(site, workdir, monkeypatch):
     assert "Iloilo Civic Hackathon 2026" in {e["name"] for e in out["events"]}
     rep = {r["id"]: r for r in out["sources"]}["org-news"]
     assert rep["ok"] is False and any("crash: RuntimeError: boom" in e for e in rep["errors"])
+
+
+def test_site_search_that_ignores_the_query_is_filtered(site, workdir):
+    from datetime import datetime, timedelta, timezone
+    from email.utils import format_datetime
+    root = site.root / "uni2"
+    (root / "news").mkdir(parents=True)
+    (root / "index.html").write_text('<html><head><meta name="generator" content="WordPress 6.9">'
+                                     '<link rel="alternate" type="application/rss+xml" href="/uni2/feed.xml"></head></html>')
+    when = format_datetime(datetime.now(timezone.utc) - timedelta(days=1), usegmt=True)
+    titles = ["Lotto results", "Weather update", "Basketball finals", "Gas prices", "Daily gospel", "Mall sale"]
+    items = "".join(f"<item><title>{t}</title><link>/uni2/news/{i}.html</link><pubDate>{when}</pubDate></item>"
+                    for i, t in enumerate(titles))
+    feed = f'<?xml version="1.0"?><rss version="2.0"><channel><title>x</title>{items}</channel></rss>'
+    (root / "feed.xml").write_text(feed)
+    (root / "search-hackathon.xml").write_text(feed)          # the "search" just returns the latest posts
+    for i, t in enumerate(titles):
+        (root / "news" / f"{i}.html").write_text(f"<html><head><title>{t}</title></head><body>{t}</body></html>")
+    (workdir / "config" / "sources.yaml").write_text(f"""
+sources:
+  - id: uni2
+    name: Uni 2
+    type: site
+    url: {site}/uni2/
+""")
+    assert run.main([]) == 0
+    rep = json.loads((workdir / "data" / "events.json").read_text())["sources"][0]
+    assert rep["pages"] == 0 and any("ignore the query" in n for n in rep["notes"])
+
+
+def test_old_articles_and_reported_results_do_not_use_ai_or_become_signals(site, workdir, monkeypatch):
+    from pipeline import extract
+    (site.root / "uni" / "news" / "old.html").write_text(
+        '<html><head><title>Biggest hackathon ever</title><meta property="article:published_time" '
+        'content="2018-11-10T08:00:00+08:00"></head><body>The biggest hackathon was held this weekend.</body></html>')
+    (site.root / "uni" / "news" / "winners.html").write_text(
+        '<html><head><title>Students win hackathon</title></head><body>Our team won the Regional Hackathon.</body></html>')
+    (site.root / "news3.html").write_text('<a href="/uni/news/old.html">Biggest hackathon ever</a>'
+                                          '<a href="/uni/news/winners.html">Students win hackathon</a>')
+    monkeypatch.setattr(config, "GEMINI_API_KEY", "test-key")
+    calls = []
+
+    def answer(http, prompt, url):
+        extract.BUDGET.used()
+        calls.append(url)
+        return {"events": [{"is_hackathon": True, "category": "hackathon", "in_scope_philippines": True,
+                            "name": "Regional Hackathon", "results": "Our team won"}]}
+    monkeypatch.setattr(extract, "_call_gemini", answer)
+    (workdir / "config" / "sources.yaml").write_text(f"""
+sources:
+  - id: news3
+    name: News 3
+    type: listing
+    url: {site}/news3.html
+""")
+    assert run.main([]) == 0
+    out = json.loads((workdir / "data" / "events.json").read_text())
+    assert [u.rsplit("/", 1)[-1] for u in calls] == ["winners.html"]      # the 2018 article never reached the AI
+    assert out["sources"][0]["old_pages_skipped"] == 1
+    assert not any("Regional Hackathon" in l["title"] for l in out["leads"])   # results reported: not a live signal

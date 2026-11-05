@@ -1120,6 +1120,10 @@ function renderBrief(ul) {
   if (Number.isFinite(sc.duration_s)) kv.push(['Scan time', Math.round(sc.duration_s) + ' s']);
   kv.push(['AI reading', ai.provider ? `${ai.provider}${ai.model ? ' · ' + String(ai.model).replace(/^models\//, '') : ''}` : 'off (no API key)']);
   if (ai.provider) kv.push(['AI requests', `${ai.requests_this_run || 0} this scan · ${ai.requests_today || 0} today${ai.daily_cap ? ' / ' + ai.daily_cap : ''}`]);
+  if (Array.isArray(ai.chain) && ai.chain.length > 1) kv.push(['AI backup chain', ai.chain.map(c => {
+    const st = c.paused_until ? 'paused' : c.skipped ? 'skipped' : (c.requests_this_run ? c.requests_this_run + ' req' : 'ready');
+    return `${c.provider} (${st})`;
+  }).join(' → ')]);
   if (ai.stopped) kv.push(['AI note', ai.stopped]);
   if (Number.isFinite(sc.ai_cache_hits)) kv.push(['AI answers reused', sc.ai_cache_hits]);
   kv.push(['Signals', LEADS.length], ['Held for review', DATA.held]);

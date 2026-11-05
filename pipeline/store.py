@@ -171,10 +171,26 @@ def similar_event(a: dict, b: dict) -> bool:
     pa, pb = _prov(a.get("province")), _prov(b.get("province"))
     if pa and pb and pa != pb:
         return False
-    ta, tb = name_tokens(a.get("name")), name_tokens(b.get("name"))
+    return name_match_ratio(a.get("name"), b.get("name")) >= 0.6
+
+
+def _acronyms(name: str) -> set[str]:
+    """Initials of every run of 2-4 consecutive words: "Negros Island Region" -> "nir"."""
+    words = [w for w in slug(name or "").split("-") if w and not w.isdigit()]
+    return {"".join(w[0] for w in words[i:i + n]) for n in (2, 3, 4) for i in range(len(words) - n + 1)}
+
+
+def name_match_ratio(a: str, b: str) -> float:
+    """Share of distinctive name words two names have in common (of the shorter name). A short word in one
+    name that spells the initials of words in the other counts as shared ("NIR" ~ "Negros Island Region")."""
+    ta, tb = name_tokens(a), name_tokens(b)
     if not ta or not tb:
-        return False
-    return len(ta & tb) / min(len(ta), len(tb)) >= 0.6
+        return 0.0
+    aa, ab = _acronyms(a), _acronyms(b)
+    shared = len(ta & tb)
+    shared += sum(1 for t in ta - tb if t.isalpha() and 2 <= len(t) <= 5 and t in ab)
+    shared += sum(1 for t in tb - ta if t.isalpha() and 2 <= len(t) <= 5 and t in aa)
+    return min(1.0, shared / min(len(ta), len(tb)))
 
 
 def _url_key(ev: dict) -> str:
@@ -193,8 +209,7 @@ def compatible(a: dict, b: dict) -> bool:
 
 
 def names_overlap(a: dict, b: dict, ratio: float = 0.5) -> bool:
-    ta, tb = name_tokens(a.get("name")), name_tokens(b.get("name"))
-    return bool(ta and tb) and len(ta & tb) / min(len(ta), len(tb)) >= ratio
+    return name_match_ratio(a.get("name"), b.get("name")) >= ratio
 
 
 def is_twin(keep: dict, new: dict) -> bool:

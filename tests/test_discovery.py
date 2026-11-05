@@ -220,3 +220,21 @@ def test_redirects_are_checked_hop_by_hop():
     ok, why = h.check_link("https://uni.example/")
     assert ok is None and why.startswith("inconclusive")
     assert h.get("https://b.example/api", params={"start": 1}).url == "https://b.example/api?start=1"
+
+
+def test_acronyms_count_as_shared_name_words():
+    from pipeline.store import name_match_ratio
+    long = "HackForGov 2026 Negros Island Region CTF Regional Competition"
+    assert name_match_ratio(long, "HackForGov 5 NIR Regional Competition") >= 0.6
+    assert similar_event({"name": long, "start": "2026-10-12", "province": "Negros Occidental", "category": "ctf"},
+                         {"name": "HackForGov 5 NIR Regional Competition", "start": "2026-10-12T00:00:00+08:00",
+                          "province": "Negros Occidental", "category": "ctf"})
+    assert name_match_ratio("HackForGov 2026 Region 13 CTF", "HackForGov 2026 NIR CTF") < 0.6
+    assert name_match_ratio("Cebu AI Hackathon", "Cebu Fintech Hackathon") < 0.6
+
+
+def test_page_published_date_from_metadata():
+    assert extract.page_published('<meta property="article:published_time" content="2018-11-10T08:00:00+08:00">').year == 2018
+    assert extract.page_published('<script type="application/ld+json">{"@type": "NewsArticle", "datePublished": "2021-05-21"}</script>').year == 2021
+    assert extract.page_published('<p><time datetime="2026-10-01">Oct 1</time></p>').month == 10
+    assert extract.page_published("<p>no date</p>") is None

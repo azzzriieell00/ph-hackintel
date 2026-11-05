@@ -13,6 +13,7 @@ permissions:
   contents: write             # commit data/events.json
   pages: write
   id-token: write
+  models: read                # free GitHub Models backup for AI reading (uses the workflow's own token)
 
 concurrency:
   group: scan-and-deploy
@@ -37,6 +38,17 @@ jobs:
           HACKINTEL_REPO_URL: https://github.com/${{ github.repository }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          CEREBRAS_API_KEY: ${{ secrets.CEREBRAS_API_KEY }}
+          MISTRAL_API_KEY: ${{ secrets.MISTRAL_API_KEY }}
+          GITHUB_MODELS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          HACKINTEL_OPENROUTER_MODEL: ${{ vars.HACKINTEL_OPENROUTER_MODEL }}
+          HACKINTEL_GROQ_MODEL: ${{ vars.HACKINTEL_GROQ_MODEL }}
+          HACKINTEL_CEREBRAS_MODEL: ${{ vars.HACKINTEL_CEREBRAS_MODEL }}
+          HACKINTEL_MISTRAL_MODEL: ${{ vars.HACKINTEL_MISTRAL_MODEL }}
+          HACKINTEL_GITHUB_MODEL: ${{ vars.HACKINTEL_GITHUB_MODEL }}
+          HACKINTEL_LLM_RUN_CAP: ${{ vars.HACKINTEL_LLM_RUN_CAP || '12' }}
           HACKINTEL_GEMINI_MODEL: ${{ vars.HACKINTEL_GEMINI_MODEL }}
           HACKINTEL_LLM_PROVIDER: ${{ vars.HACKINTEL_LLM_PROVIDER }}
           HACKINTEL_LLM_MODEL: ${{ vars.HACKINTEL_LLM_MODEL || 'claude-haiku-5-5' }}

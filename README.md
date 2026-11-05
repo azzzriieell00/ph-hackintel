@@ -39,12 +39,15 @@ The full list with reasons is in `config/sources.yaml`; the research behind it i
    dates first; old posts last.
 3. **Read** the best ones first (15 per source, 60 per scan, 12 minutes). Structured event data is
    used directly; other pages go to the AI, cached by page content, within a daily budget. Pages
-   that could not be read yet wait in a queue for the next scan.
+   that could not be read yet wait in a queue for the next scan. Articles whose own metadata says
+   they are over ~3 months old are skipped before the AI; a site whose search ignores the query is
+   recognised; a host that refuses two pages is left alone for the rest of the scan.
 4. **Check AI answers**: dates and places must be written in the page, links must appear in the
    page, years must be plausible, a deadline may not fall after the event. Failing details are
    dropped and shown as "AI checks".
 5. **Merge duplicates**: same official page, same name, or the same competition under another
-   name (same category, start within a day, same province, same distinctive words).
+   name (same category, start within a day, same province, same distinctive words; an acronym
+   such as "NIR" counts for "Negros Island Region"), also against events from earlier scans.
 6. **Locate, link-check, decide, score** (below).
 
 ## Publication rules (pipeline/store.py)
@@ -87,14 +90,29 @@ HIGH is 75 or more, MEDIUM 50-74, LOW below 50.
 3. Settings > Secrets and variables > Actions:
    - Variable `HACKINTEL_CONTACT`: an email or URL. It goes in the scanner's User-Agent;
      OpenStreetMap's geocoder requires a contact.
-   - Secret `GEMINI_API_KEY` (recommended) or `ANTHROPIC_API_KEY`: turns on AI reading for pages
-     without structured event data. Without a key those pages are listed in `data/review.json`
-     as "pages_needing_llm". With Gemini the scanner picks the newest Flash-Lite model
-     automatically (override with the variable `HACKINTEL_GEMINI_MODEL`) and stays under a request
-     budget: 12 per scan, 120 per day, one every 6 s (`HACKINTEL_LLM_RUN_CAP`,
-     `HACKINTEL_LLM_DAILY_CAP`, `HACKINTEL_LLM_MIN_INTERVAL`). After a quota answer (HTTP 429)
-     the AI pauses until the quota resets. If both keys are set, Gemini is used unless the variable
-     `HACKINTEL_LLM_PROVIDER` is `anthropic`.
+   - AI keys (secrets, all optional): they turn on AI reading for pages without
+     structured event data. Without any key those pages are listed in `data/review.json` as
+     "pages_needing_llm". The scanner tries them in this order and moves to the next one when a
+     provider answers "quota reached" (HTTP 429), has a bad key, or gives an unusable answer:
+
+     | Order | Secret | Free key | Model (picked automatically) |
+     |---|---|---|---|
+     | 1 | `GEMINI_API_KEY` | https://aistudio.google.com/apikey | newest Gemini Flash-Lite |
+     | 2 | `GROQ_API_KEY` | https://console.groq.com/keys | gpt-oss-120b or Llama 3.3 70B |
+     | 3 | `CEREBRAS_API_KEY` | https://cloud.cerebras.ai (Nov 2026: one-time $5 credit or paid; may ask for a card) | gpt-oss-120b or Llama 3.3 70B |
+     | 4 | `MISTRAL_API_KEY` | https://console.mistral.ai/api-keys (Nov 2026: keys need a paid plan) | Mistral Small |
+     | 5 | none: GitHub Models uses the workflow's own token (`models: read`) | | GPT-4.1 mini |
+     | 6 | `OPENROUTER_API_KEY` | https://openrouter.ai/settings/keys | a `:free` model only; paid models are refused |
+     | 7 | `ANTHROPIC_API_KEY` | paid | `HACKINTEL_LLM_MODEL` |
+
+     A paused provider stays paused until its quota resets (saved in `data/state/llm_usage.json`), so
+     the next scan goes straight to the next one. The variable `HACKINTEL_LLM_PROVIDER` moves one
+     provider to the front; `HACKINTEL_GEMINI_MODEL`, `HACKINTEL_GROQ_MODEL`,
+     `HACKINTEL_CEREBRAS_MODEL`, `HACKINTEL_MISTRAL_MODEL`, `HACKINTEL_GITHUB_MODEL` and
+     `HACKINTEL_OPENROUTER_MODEL` pin a model. The budget covers all providers together: 12 requests
+     per scan, 120 per day, one every 6 s per provider (`HACKINTEL_LLM_RUN_CAP`,
+     `HACKINTEL_LLM_DAILY_CAP`, `HACKINTEL_LLM_MIN_INTERVAL`). The Brief tab shows the chain and which
+     provider answered.
    - Optional variables: `HACKINTEL_SCAN_BUDGET_S` (default 720 s), `HACKINTEL_MAX_PAGES` (60).
 4. Actions tab > "Scan and deploy" > **Run workflow** for the first run. After that it runs
    every hour at :17.
@@ -105,7 +123,7 @@ HIGH is 75 or more, MEDIUM 50-74, LOW below 50.
 python -m venv .venv
 .venv\Scripts\activate            # Windows      |  source .venv/bin/activate  (Linux)
 pip install -r requirements.txt
-python -m pytest -q               # 59 tests, no internet needed
+python -m pytest -q               # 69 tests, no internet needed
 python -m pipeline.run            # one scan (needs internet)
 python tools/build_page.py        # re-embed the snapshot into index.html
 python -m http.server 8000        # open http://localhost:8000
@@ -179,7 +197,7 @@ docs/SOURCES.md               source research and the reasons behind each decisi
 
 ## What is verified and what is not
 
-- Tested here: 59 tests (extraction, feed discovery, link ranking, robots.txt wildcards and redirects, AI
+- Tested here: 69 tests (extraction, the AI backup chain (fallback on quota, free-only OpenRouter, bad keys), feed discovery, link ranking, robots.txt wildcards and redirects, AI
   answer checks, duplicate merging, confidence, CTFtime, location checks, publication rules, the AI
   cache and waiting queue, and end-to-end scans of a local fixture website); the page in headless
   Chrome at desktop and phone width with new data and with the older data format.

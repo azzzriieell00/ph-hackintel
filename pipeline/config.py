@@ -33,9 +33,21 @@ GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
 # Leave empty to pick the newest available Gemini Flash-Lite model automatically (free tier friendly).
 GEMINI_MODEL = os.environ.get("HACKINTEL_GEMINI_MODEL", "")
 GEMINI_BASE = "https://generativelanguage.googleapis.com/v1beta"
-# "gemini", "anthropic" or "" (auto: Gemini if its key is set, else Anthropic if its key is set, else off)
+# Free backups, tried in order when the provider before them is out of quota or fails (keys in GitHub Secrets).
+GROQ_API_KEY = os.environ.get("GROQ_API_KEY", "")
+GROQ_MODEL = os.environ.get("HACKINTEL_GROQ_MODEL", "")
+CEREBRAS_API_KEY = os.environ.get("CEREBRAS_API_KEY", "")
+CEREBRAS_MODEL = os.environ.get("HACKINTEL_CEREBRAS_MODEL", "")
+MISTRAL_API_KEY = os.environ.get("MISTRAL_API_KEY", "")
+MISTRAL_MODEL = os.environ.get("HACKINTEL_MISTRAL_MODEL", "")
+# GitHub Models: in GitHub Actions the workflow passes its own token (needs "models: read"); no secret to create.
+GITHUB_MODELS_TOKEN = os.environ.get("GITHUB_MODELS_TOKEN", "")
+GITHUB_MODEL = os.environ.get("HACKINTEL_GITHUB_MODEL", "")
+OPENROUTER_API_KEY = os.environ.get("OPENROUTER_API_KEY", "")
+OPENROUTER_MODEL = os.environ.get("HACKINTEL_OPENROUTER_MODEL", "")   # must be a ":free" model; others are refused
+# Optional: name one provider to try first ("gemini", "groq", "cerebras", "mistral", "github", "openrouter", "anthropic").
 LLM_PROVIDER = os.environ.get("HACKINTEL_LLM_PROVIDER", "").strip().lower()
-LLM_DAILY_CAP = int(os.environ.get("HACKINTEL_LLM_DAILY_CAP", "120"))   # requests per UTC day, all runs together
+LLM_DAILY_CAP = int(os.environ.get("HACKINTEL_LLM_DAILY_CAP", "120"))   # requests per UTC day, all providers together
 LLM_RUN_CAP = int(os.environ.get("HACKINTEL_LLM_RUN_CAP", "12"))        # requests per scan
 LLM_MIN_INTERVAL_S = float(os.environ.get("HACKINTEL_LLM_MIN_INTERVAL", "6"))  # seconds between AI requests (per-minute limits)
 AI_REFRESH_H = 6             # a page whose text changed is re-read by the AI at most this often
@@ -49,16 +61,24 @@ QUEUE_MAX_AGE_D = 14         # links waiting for the AI are dropped after this
 # Searches run once a day on WordPress sites that allow them in robots.txt (their built-in search feed).
 SEARCH_TERMS = ["hackathon", "capture the flag", "hackforgov"]
 
+PROVIDERS = ("gemini", "groq", "cerebras", "mistral", "github", "openrouter", "anthropic")
+
+
+def llm_chain() -> list[str]:
+    """AI providers with a key, in the order they are tried."""
+    keys = {"gemini": GEMINI_API_KEY, "groq": GROQ_API_KEY, "cerebras": CEREBRAS_API_KEY,
+            "mistral": MISTRAL_API_KEY, "github": GITHUB_MODELS_TOKEN, "openrouter": OPENROUTER_API_KEY, "anthropic": ANTHROPIC_API_KEY}
+    order = list(PROVIDERS)
+    if LLM_PROVIDER in order:
+        order.remove(LLM_PROVIDER)
+        order.insert(0, LLM_PROVIDER)
+    return [p for p in order if keys[p]]
+
 
 def llm_provider() -> str:
-    """Which AI service extraction uses this run, or '' when none is configured."""
-    if LLM_PROVIDER == "gemini" and GEMINI_API_KEY:
-        return "gemini"
-    if LLM_PROVIDER == "anthropic" and ANTHROPIC_API_KEY:
-        return "anthropic"
-    if not LLM_PROVIDER:
-        return "gemini" if GEMINI_API_KEY else "anthropic" if ANTHROPIC_API_KEY else ""
-    return ""
+    """The first AI provider tried this run, or '' when none is configured."""
+    chain = llm_chain()
+    return chain[0] if chain else ""
 
 NOMINATIM_URL = os.environ.get("HACKINTEL_NOMINATIM_URL", "https://nominatim.openstreetmap.org/search")
 NOMINATIM_ENABLED = os.environ.get("HACKINTEL_NOMINATIM", "1") == "1"

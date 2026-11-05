@@ -1,97 +1,97 @@
 {
  "_source_runs": {
-  "tcon9-site": "2026-11-04T22:38:15Z",
-  "techconnect-aideathon-site": "2026-11-04T22:38:15Z",
-  "ctftime-ph": "2026-11-04T22:38:15Z",
-  "inquirer-tech": "2026-11-04T22:38:15Z",
-  "bitpinas": "2026-11-04T22:38:15Z",
-  "bitpinas-hackathon-tag": "2026-11-04T22:38:15Z",
-  "newsbytes": "2026-11-04T22:38:15Z",
-  "tribune": "2026-11-04T22:38:15Z",
-  "mindanao-gold-star": "2026-11-04T22:38:15Z",
-  "sunstar-hackathon-tag": "2026-11-04T22:38:15Z",
-  "cebu-daily-news": "2026-11-04T22:38:15Z",
-  "the-post": "2026-11-04T22:38:15Z",
-  "insiderph": "2026-11-04T22:38:15Z",
-  "pna-home": "2026-11-04T22:38:15Z",
-  "dost-asti": "2026-11-04T22:38:15Z",
-  "devcon": "2026-11-04T22:38:15Z",
-  "circuitrocks-events": "2026-11-04T22:38:15Z",
-  "rtu": "2026-11-04T22:38:15Z",
-  "upm": "2026-11-04T22:38:15Z",
-  "national-u": "2026-11-04T22:38:15Z",
-  "feutech": "2026-11-04T22:38:15Z",
-  "slu": "2026-11-04T22:38:15Z",
-  "hau": "2026-11-04T22:38:15Z",
-  "bicol-u": "2026-11-04T22:38:15Z",
-  "cit-u": "2026-11-04T22:38:15Z",
-  "su": "2026-11-04T22:38:15Z",
-  "chmsu": "2026-11-04T22:38:15Z",
-  "antique-spride": "2026-11-04T22:38:15Z",
-  "gsu-cst": "2026-11-04T22:38:15Z",
-  "uptacloban": "2026-11-04T22:38:15Z",
-  "vsu": "2026-11-04T22:38:15Z",
-  "adzu": "2026-11-04T22:38:15Z",
-  "imcc": "2026-11-04T22:38:15Z",
-  "upmin": "2026-11-04T22:38:15Z",
-  "usep-ic": "2026-11-04T22:38:15Z",
-  "usm": "2026-11-04T22:38:15Z",
-  "ndmc": "2026-11-04T22:38:15Z",
-  "carsu": "2026-11-04T22:38:15Z"
+  "tcon9-site": "2026-11-05T03:28:40Z",
+  "techconnect-aideathon-site": "2026-11-05T03:28:40Z",
+  "ctftime-ph": "2026-11-05T03:28:40Z",
+  "inquirer-tech": "2026-11-05T03:28:40Z",
+  "bitpinas": "2026-11-05T03:28:40Z",
+  "bitpinas-hackathon-tag": "2026-11-05T03:28:40Z",
+  "newsbytes": "2026-11-05T03:28:40Z",
+  "tribune": "2026-11-05T03:28:40Z",
+  "mindanao-gold-star": "2026-11-05T03:28:40Z",
+  "sunstar-hackathon-tag": "2026-11-05T03:28:40Z",
+  "cebu-daily-news": "2026-11-05T03:28:40Z",
+  "the-post": "2026-11-05T03:28:40Z",
+  "insiderph": "2026-11-05T03:28:40Z",
+  "pna-home": "2026-11-05T03:28:40Z",
+  "dost-asti": "2026-11-05T03:28:40Z",
+  "devcon": "2026-11-05T03:28:40Z",
+  "circuitrocks-events": "2026-11-05T03:28:40Z",
+  "rtu": "2026-11-05T03:28:40Z",
+  "upm": "2026-11-05T03:28:40Z",
+  "national-u": "2026-11-05T03:28:40Z",
+  "feutech": "2026-11-05T03:28:40Z",
+  "slu": "2026-11-05T03:28:40Z",
+  "hau": "2026-11-05T03:28:40Z",
+  "bicol-u": "2026-11-05T03:28:40Z",
+  "cit-u": "2026-11-05T03:28:40Z",
+  "su": "2026-11-05T03:28:40Z",
+  "chmsu": "2026-11-05T03:28:40Z",
+  "antique-spride": "2026-11-05T03:28:40Z",
+  "gsu-cst": "2026-11-05T03:28:40Z",
+  "uptacloban": "2026-11-05T03:28:40Z",
+  "vsu": "2026-11-05T03:28:40Z",
+  "adzu": "2026-11-05T03:28:40Z",
+  "imcc": "2026-11-05T03:28:40Z",
+  "upmin": "2026-11-05T03:28:40Z",
+  "usep-ic": "2026-11-05T03:28:40Z",
+  "usm": "2026-11-05T03:28:40Z",
+  "ndmc": "2026-11-05T03:28:40Z",
+  "carsu": "2026-11-05T03:28:40Z"
  },
  "_sites": {
   "ctftime-ph": {
    "fetched_at": "2026-11-04T22:38:15Z"
   },
   "newsbytes": {
-   "home_at": "2026-11-04T01:19:57Z",
+   "home_at": "2026-11-05T03:28:40Z",
    "wordpress": true,
    "feeds": [
     "https://newsbytes.ph/feed/"
    ],
-   "search_at": "2026-11-04T01:19:57Z"
+   "search_at": "2026-11-05T03:28:40Z"
   },
   "tribune": {
-   "home_at": "2026-11-04T01:19:57Z",
+   "home_at": "2026-11-05T03:28:40Z",
    "wordpress": false,
    "feeds": []
   },
   "mindanao-gold-star": {
-   "home_at": "2026-11-04T01:19:57Z",
+   "home_at": "2026-11-05T03:28:40Z",
    "wordpress": false,
    "feeds": []
   },
   "cebu-daily-news": {
-   "home_at": "2026-11-04T01:19:57Z",
+   "home_at": "2026-11-05T03:28:40Z",
    "wordpress": true,
    "feeds": [
     "https://cebudailynews.inquirer.net/feed/"
    ],
-   "search_at": "2026-11-04T01:19:57Z"
+   "search_at": "2026-11-05T03:28:40Z"
   },
   "the-post": {
-   "home_at": "2026-11-04T01:19:57Z",
+   "home_at": "2026-11-05T03:28:40Z",
    "wordpress": true,
    "feeds": [
     "https://thepost.net.ph/feed/"
    ],
-   "search_at": "2026-11-04T01:19:57Z"
+   "search_at": "2026-11-05T03:28:40Z"
   },
   "insiderph": {
-   "home_at": "2026-11-04T01:19:57Z",
+   "home_at": "2026-11-05T03:28:40Z",
    "wordpress": false,
    "feeds": []
   },
   "dost-asti": {
-   "home_at": "2026-11-04T01:19:57Z",
+   "home_at": "2026-11-05T03:28:40Z",
    "wordpress": true,
    "feeds": [
     "https://asti.dost.gov.ph/feed/"
    ],
-   "search_at": "2026-11-04T01:19:57Z"
+   "search_at": "2026-11-05T03:28:40Z"
   },
   "devcon": {
-   "home_at": "2026-11-04T01:19:57Z",
+   "home_at": "2026-11-05T03:28:40Z",
    "wordpress": false,
    "feeds": []
   },
@@ -101,7 +101,7 @@
    "feeds": [
     "https://event.circuit.rocks/feed/"
    ],
-   "search_at": "2026-11-04T01:19:57Z"
+   "search_at": "2026-11-05T03:28:40Z"
   },
   "rtu": {
    "home_at": "2026-11-04T09:08:49Z",
@@ -109,7 +109,7 @@
    "feeds": [
     "https://www.rtu.edu.ph/feed/"
    ],
-   "search_at": "2026-11-04T01:19:57Z"
+   "search_at": "2026-11-05T03:28:40Z"
   },
   "upm": {
    "home_at": "2026-11-04T09:08:49Z",
@@ -147,7 +147,7 @@
    "feeds": [
     "https://bicol-u.edu.ph/feed/"
    ],
-   "search_at": "2026-11-04T01:19:57Z"
+   "search_at": "2026-11-05T03:28:40Z"
   },
   "cit-u": {
    "home_at": "2026-11-04T17:13:21Z",
@@ -155,7 +155,7 @@
    "feeds": [
     "https://cit.edu/feed/"
    ],
-   "search_at": "2026-11-04T01:19:57Z"
+   "search_at": "2026-11-05T03:28:40Z"
   },
   "su": {
    "home_at": "2026-11-04T17:13:21Z",
@@ -251,7 +251,24 @@
    "search_at": "2026-11-04T17:13:21Z"
   }
  },
- "_queue": {},
+ "_queue": {
+  "https://www.sunstar.com.ph/bacolod/business/phs-biggest-5g-hackathon-kicks-off-with-enablement-workshops": {
+   "source": "sunstar-hackathon-tag",
+   "score": 30,
+   "title": "",
+   "needs_ai": true,
+   "ai_attempts": 1,
+   "added": "2026-11-05T03:28:40Z"
+  },
+  "https://www.sunstar.com.ph/manila/business/aboitiz-group-holds-biggest-hackathon": {
+   "source": "sunstar-hackathon-tag",
+   "score": 30,
+   "title": "",
+   "needs_ai": true,
+   "ai_attempts": 1,
+   "added": "2026-11-05T03:28:40Z"
+  }
+ },
  "_ai": {
   "https://tcon.hackthenorth.ph/": {
    "hash": "ae0fee82b1f1f63d",
@@ -398,8 +415,8 @@
    ]
   },
   "https://newsbytes.ph/2026/10/28/ph-cybersecurity-team-tops-2026-cyber-sea-game/?utm_source=rss&utm_medium=rss&utm_campaign=ph-cybersecurity-team-tops-2026-cyber-sea-game": {
-   "hash": "8846d59d8a16dc64",
-   "at": "2026-11-04T01:19:57Z",
+   "hash": "788ed8d3efa2ab46",
+   "at": "2026-11-05T03:28:40Z",
    "events": []
   },
   "https://www.sunstar.com.ph/bacolod/business/phs-biggest-5g-hackathon-kicks-off-with-enablement-workshops": {
@@ -667,11 +684,11 @@
   }
  },
  "https://cit.edu/2026/08/21/asean-ai-hackathon-champion-cit-u/": {
-  "checked": "2026-11-04T01:19:57Z",
+  "checked": "2026-11-05T03:28:40Z",
   "found": 1
  },
  "https://www.uptacloban.edu.ph/up-tacloban-conquers-the-2026-rscene-48-hour-hackathon/": {
-  "checked": "2026-11-04T01:19:57Z",
+  "checked": "2026-11-05T03:28:40Z",
   "found": 1
  },
  "https://su.edu.ph/news/su-places-third-in-hackforgov-5-nir-regional-competition/": {
@@ -679,7 +696,7 @@
   "found": 1
  },
  "https://newsbytes.ph/2026/10/28/ph-cybersecurity-team-tops-2026-cyber-sea-game/?utm_source=rss&utm_medium=rss&utm_campaign=ph-cybersecurity-team-tops-2026-cyber-sea-game": {
-  "checked": "2026-11-04T01:19:57Z",
+  "checked": "2026-11-05T03:28:40Z",
   "found": 0
  },
  "https://cebudailynews.inquirer.net/781697/p15-m-mega-lotto-jackpot-of-nov-2-draw-won-by-lone-bettor": {
@@ -735,15 +752,15 @@
   "found": 1
  },
  "https://cit.edu/2026/08/20/can-you-hackit-2026-cebu/": {
-  "checked": "2026-11-04T01:19:57Z",
+  "checked": "2026-11-05T03:28:40Z",
   "found": 1
  },
  "https://bicol-u.edu.ph/daraga-lgu-seals-2-moas-with-bu-to-drive-ict-startup-ecosystem-in-albay/": {
-  "checked": "2026-11-04T01:19:57Z",
+  "checked": "2026-11-05T03:28:40Z",
   "found": 0
  },
  "https://newsbytes.ph/2026/08/11/interoprability-to-take-center-stage-at-digicon-2026/?utm_source=rss&utm_medium=rss&utm_campaign=interoprability-to-take-center-stage-at-digicon-2026": {
-  "checked": "2026-11-04T01:19:57Z",
+  "checked": "2026-11-05T03:28:40Z",
   "found": 0
  },
  "https://imcc.edu.ph/college-of-computer-studies-brings-home-overall-championship-in-cyber-skills-challenge-2026/": {
@@ -813,5 +830,55 @@
  "https://www.slu.edu.ph/2026/09/30/slu-it-and-cs-students-make-their-mark-at-pcc-the-next-gen-2026/": {
   "checked": "2026-11-04T09:08:49Z",
   "found": 0
+ },
+ "https://cebudailynews.inquirer.net/782283/robert-toledano-jr-cebus-lone-oct-2026-cpa-topnotcher-credits-3-cores": {
+  "checked": "2026-11-05T03:28:40Z",
+  "found": 0
+ },
+ "https://cebudailynews.inquirer.net/782292/high-heat-index-easterlies-visayas": {
+  "checked": "2026-11-05T03:28:40Z",
+  "found": 0
+ },
+ "https://cebudailynews.inquirer.net/782295/very-strong-el-nino": {
+  "checked": "2026-11-05T03:28:40Z",
+  "found": 0
+ },
+ "https://cebudailynews.inquirer.net/782269/p11b-needed-for-tino-recovery-capitol-says": {
+  "checked": "2026-11-05T03:28:40Z",
+  "found": 0
+ },
+ "https://cebudailynews.inquirer.net/782282/lapu-lapu-fire-razes-9-houses-traps-kills-pwd-in-gun-ob": {
+  "checked": "2026-11-05T03:28:40Z",
+  "found": 0
+ },
+ "https://cebudailynews.inquirer.net/782265/sinulog-2027-tribu-malipayon-to-unveil-fresh-concept-in-comeback-performance": {
+  "checked": "2026-11-05T03:28:40Z",
+  "found": 0
+ },
+ "https://cebudailynews.inquirer.net/782273/who-warns-of-lack-of-physical-activity-among-teens": {
+  "checked": "2026-11-05T03:28:40Z",
+  "found": 0
+ },
+ "https://cebudailynews.inquirer.net/782263/rip-maga-stunned-us-right-contemplates-life-after-trump": {
+  "checked": "2026-11-05T03:28:40Z",
+  "found": 0
+ },
+ "https://cebudailynews.inquirer.net/782260/pope-receives-black-clad-bob-dylan": {
+  "checked": "2026-11-05T03:28:40Z",
+  "found": 0
+ },
+ "https://cebudailynews.inquirer.net/782247/daily-gospel-november-5-2026": {
+  "checked": "2026-11-05T03:28:40Z",
+  "found": 0
+ },
+ "_ai_fail": {
+  "https://www.sunstar.com.ph/bacolod/business/phs-biggest-5g-hackathon-kicks-off-with-enablement-workshops": {
+   "n": 1,
+   "at": "2026-11-05T03:28:40Z"
+  },
+  "https://www.sunstar.com.ph/manila/business/aboitiz-group-holds-biggest-hackathon": {
+   "n": 1,
+   "at": "2026-11-05T03:28:40Z"
+  }
  }
 }

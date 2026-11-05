@@ -1,11 +1,23 @@
 {
- "generated_at": "2026-11-04T22:38:15Z",
+ "generated_at": "2026-11-05T03:28:40Z",
  "items": [
   {
    "name": "HackForGov 2026 Region 13 CTF Regional Qualifying Round",
    "id": "hackforgov-2026-region13-ctf",
    "url": null,
    "reason": "finished more than 62 days ago"
+  },
+  {
+   "name": "ASEAN AI Hackathon",
+   "id": "asean-ai-hackathon-23e39c",
+   "url": "https://cit.edu/2026/08/21/asean-ai-hackathon-champion-cit-u/",
+   "reason": "no deadline or event date"
+  },
+  {
+   "name": "Can You HackIT 2026 Cebu",
+   "id": "can-you-hackit-2026-cebu-95f618",
+   "url": "https://cit.edu/2026/08/20/can-you-hackit-2026-cebu/",
+   "reason": "no deadline or event date"
   },
   {
    "name": "HackForGov 5 – Cordillera Regional Competition",
@@ -18,12 +30,6 @@
    "id": "2026-egovph-hackathon-2026-07-6b51a7",
    "url": "https://www.upm.edu.ph/cpt_news/students-aiming-to-fix-bottlenecks-in-public-hospitals-among-top-10-finalists-in-2026-egovph-hackathon/",
    "reason": "finished more than 62 days ago"
-  },
-  {
-   "name": "ASEAN AI Hackathon",
-   "id": "asean-ai-hackathon-23e39c",
-   "url": "https://cit.edu/2026/08/21/asean-ai-hackathon-champion-cit-u/",
-   "reason": "no deadline or event date"
   },
   {
    "name": "Globe 5G Hackathon",
@@ -42,14 +48,25 @@
    "id": "egovph-hackathon-2026-4fb323",
    "url": "https://www.rtu.edu.ph/rtu-ics-students-among-top-10-finalists-in-egovph-hackathon-2026/",
    "reason": "no deadline or event date"
-  },
-  {
-   "name": "Can You HackIT 2026 Cebu",
-   "id": "can-you-hackit-2026-cebu-95f618",
-   "url": "https://cit.edu/2026/08/20/can-you-hackit-2026-cebu/",
-   "reason": "no deadline or event date"
   }
  ],
  "pages_needing_llm": [],
- "pending_links": {}
+ "pending_links": {
+  "https://www.sunstar.com.ph/bacolod/business/phs-biggest-5g-hackathon-kicks-off-with-enablement-workshops": {
+   "source": "sunstar-hackathon-tag",
+   "score": 30,
+   "title": "",
+   "needs_ai": true,
+   "ai_attempts": 1,
+   "added": "2026-11-05T03:28:40Z"
+  },
+  "https://www.sunstar.com.ph/manila/business/aboitiz-group-holds-biggest-hackathon": {
+   "source": "sunstar-hackathon-tag",
+   "score": 30,
+   "title": "",
+   "needs_ai": true,
+   "ai_attempts": 1,
+   "added": "2026-11-05T03:28:40Z"
+  }
+ }
 }

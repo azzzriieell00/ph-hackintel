@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-05T20:39:26Z",
+ "generated_at": "2026-11-06T01:31:25Z",
  "generator": "PH HackIntel pipeline 2.0",
  "offline_run": false,
  "llm_enabled": true,
@@ -52,7 +52,7 @@
   "pages_opened": 0,
   "queued_from_earlier": 0,
   "links_considered": 5,
-  "duration_s": 192.7,
+  "duration_s": 260.4,
   "pending_links": 0,
   "feeds_known": 20,
   "ai_pages_read": 0,
@@ -99,7 +99,7 @@
    "url": "https://ctftime.org/api/v1/events/",
    "errors": [],
    "notes": [
-    "not due yet; events from the last read are carried over"
+    "90 CTFs listed in the window, 0 onsite in the Philippines"
    ],
    "found": 0,
    "pages": 0,
@@ -370,7 +370,9 @@
    "name": "Rizal Technological University",
    "type": "site",
    "url": "https://www.rtu.edu.ph/",
-   "errors": [],
+   "errors": [
+    "https://www.rtu.edu.ph/feed/: robots.txt could not be read"
+   ],
    "notes": [],
    "found": 0,
    "pages": 0,
@@ -380,7 +382,7 @@
    "feeds": [
     "https://www.rtu.edu.ph/feed/"
    ],
-   "ok": true,
+   "ok": false,
    "needs_llm": 0,
    "leads": 0
   },
@@ -539,9 +541,7 @@
    "name": "Carlos Hilado Memorial State University",
    "type": "site",
    "url": "https://chmsu.edu.ph/",
-   "errors": [
-    "https://chmsu.edu.ph/: robots.txt could not be read"
-   ],
+   "errors": [],
    "notes": [],
    "found": 0,
    "pages": 0,
@@ -549,7 +549,7 @@
    "ai_cache_hits": 0,
    "deferred": 0,
    "feeds": [],
-   "ok": false,
+   "ok": true,
    "needs_llm": 0,
    "leads": 0
   },
@@ -672,9 +672,7 @@
    "name": "UP Mindanao",
    "type": "site",
    "url": "https://upmin.edu.ph/",
-   "errors": [
-    "https://upmin.edu.ph/feed/: HTTP 403"
-   ],
+   "errors": [],
    "notes": [],
    "found": 0,
    "pages": 0,
@@ -684,7 +682,7 @@
    "feeds": [
     "https://upmin.edu.ph/feed/"
    ],
-   "ok": false,
+   "ok": true,
    "needs_llm": 0,
    "leads": 0
   },
@@ -713,9 +711,7 @@
    "type": "site",
    "url": "https://www.usm.edu.ph/",
    "errors": [],
-   "notes": [
-    "site search seems to ignore the query; only matching headlines kept"
-   ],
+   "notes": [],
    "found": 0,
    "pages": 0,
    "ai_read": 0,
@@ -752,12 +748,8 @@
    "name": "Caraga State University",
    "type": "site",
    "url": "https://www.carsu.edu.ph/",
-   "errors": [
-    "https://www.carsu.edu.ph/feed/: HTTP 521"
-   ],
-   "notes": [
-    "site search skipped: HTTP 521"
-   ],
+   "errors": [],
+   "notes": [],
    "found": 0,
    "pages": 0,
    "ai_read": 0,
@@ -766,7 +758,7 @@
    "feeds": [
     "https://www.carsu.edu.ph/feed/"
    ],
-   "ok": false,
+   "ok": true,
    "needs_llm": 0,
    "leads": 0
   }
@@ -806,10 +798,10 @@
    "extraction": "manual",
    "source_id": "manual",
    "first_seen": "2026-11-03T00:48:31Z",
-   "last_verified": "2026-11-05T20:39:26Z",
+   "last_verified": "2026-11-06T01:31:25Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
-   "last_seen": "2026-11-05T20:39:26Z",
+   "last_seen": "2026-11-06T01:31:25Z",
    "lat": 13.7565,
    "lon": 121.0583,
    "precision": "CITY",
@@ -874,10 +866,10 @@
    "extraction": "manual",
    "source_id": "manual",
    "first_seen": "2026-11-05T06:20:00Z",
-   "last_verified": "2026-11-05T20:39:26Z",
+   "last_verified": "2026-11-06T01:31:25Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
-   "last_seen": "2026-11-05T20:39:26Z",
+   "last_seen": "2026-11-06T01:31:25Z",
    "lat": 14.676,
    "lon": 121.0437,
    "precision": "CITY",
@@ -948,10 +940,10 @@
    "extraction": "manual",
    "source_id": "manual",
    "first_seen": "2026-11-03T00:48:31Z",
-   "last_verified": "2026-11-05T20:39:26Z",
+   "last_verified": "2026-11-06T01:31:25Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
-   "last_seen": "2026-11-05T20:39:26Z",
+   "last_seen": "2026-11-06T01:31:25Z",
    "lat": 16.42929,
    "lon": 120.59504,
    "precision": "EXACT",
@@ -1022,7 +1014,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-05T20:39:26Z",
+   "last_seen": "2026-11-06T01:31:25Z",
    "lat": 13.4467,
    "lon": 121.8399,
    "precision": "CITY",
@@ -1089,7 +1081,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-05T20:39:26Z",
+   "last_seen": "2026-11-06T01:31:25Z",
    "lat": 8.228,
    "lon": 124.2452,
    "precision": "CITY",
@@ -1157,7 +1149,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-05T20:39:26Z",
+   "last_seen": "2026-11-06T01:31:25Z",
    "lat": 13.9373,
    "lon": 121.617,
    "precision": "CITY",
@@ -1228,7 +1220,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-05T20:39:26Z",
+   "last_seen": "2026-11-06T01:31:25Z",
    "lat": 10.61216,
    "lon": 122.92613,
    "precision": "EXACT",
@@ -1315,7 +1307,7 @@
    "precision": "CITY",
    "location_source": "nominatim",
    "location_check": "PROVINCE_FROM_MAP",
-   "is_new": true,
+   "is_new": false,
    "phase": "finished",
    "corroboration": 1,
    "confidence": {
@@ -1370,7 +1362,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-05T20:39:26Z",
+   "last_seen": "2026-11-06T01:31:25Z",
    "lat": 6.9214,
    "lon": 122.079,
    "precision": "CITY",
@@ -1449,7 +1441,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-05T20:39:26Z",
+   "last_seen": "2026-11-06T01:31:25Z",
    "lat": 8.94627,
    "lon": 125.52941,
    "precision": "EXACT",
@@ -1664,13 +1656,13 @@
    ],
    "id": "asean-ai-hackathon-23e39c",
    "first_seen": "2026-11-03T00:48:31Z",
-   "last_verified": "2026-11-05T20:39:26Z",
+   "last_verified": "2026-11-06T01:31:25Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
    "last_seen": "2026-11-05T03:28:40Z",
    "precision": "NONE",
    "location_check": "NO_LOCATION",
-   "is_new": true,
+   "is_new": false,
    "phase": "upcoming",
    "corroboration": 1,
    "confidence": {
@@ -1732,14 +1724,14 @@
    ],
    "id": "can-you-hackit-2026-cebu-95f618",
    "first_seen": "2026-11-03T00:48:31Z",
-   "last_verified": "2026-11-05T20:39:26Z",
+   "last_verified": "2026-11-06T01:31:25Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
    "last_seen": "2026-11-05T03:28:40Z",
    "precision": "CITY",
    "location_source": "gazetteer",
    "location_check": "PROVINCE_FROM_MAP",
-   "is_new": true,
+   "is_new": false,
    "phase": "upcoming",
    "corroboration": 1,
    "confidence": {
@@ -1803,12 +1795,12 @@
    "id": "ph-s-biggest-5g-hackathon-41197d",
    "first_seen": "2026-11-03T00:48:31Z",
    "last_verified": null,
-   "link_failures": 12,
+   "link_failures": 13,
    "link_status": "HTTP 404",
    "last_seen": "2026-11-04T01:19:57Z",
    "precision": "NONE",
    "location_check": "N/A",
-   "is_new": true,
+   "is_new": false,
    "phase": "upcoming",
    "corroboration": 1,
    "confidence": {
@@ -1825,7 +1817,7 @@
      ],
      [
       -10,
-      "official link failed 12 check(s)"
+      "official link failed 13 check(s)"
      ],
      [
       -10,
@@ -1879,14 +1871,14 @@
    ],
    "id": "decode-tomorrow-the-aboitiz-future-challenge-hackathon-b02b49",
    "first_seen": "2026-11-03T00:48:31Z",
-   "last_verified": "2026-11-05T20:39:26Z",
+   "last_verified": "2026-11-06T01:31:25Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
    "last_seen": "2026-11-04T01:19:57Z",
    "precision": "CITY",
    "location_source": "gazetteer",
    "location_check": "MATCH",
-   "is_new": true,
+   "is_new": false,
    "phase": "upcoming",
    "corroboration": 1,
    "confidence": {
@@ -1955,13 +1947,13 @@
    ],
    "id": "egovph-hackathon-2026-4fb323",
    "first_seen": "2026-11-03T00:48:31Z",
-   "last_verified": "2026-11-05T20:39:26Z",
+   "last_verified": "2026-11-06T01:31:25Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
    "last_seen": "2026-11-04T01:19:57Z",
    "precision": "NONE",
    "location_check": "NO_LOCATION",
-   "is_new": true,
+   "is_new": false,
    "phase": "upcoming",
    "corroboration": 1,
    "confidence": {

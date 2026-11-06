@@ -74,5 +74,22 @@
    "display_name": "Baguio, Cordillera Administrative Region, 2600, Philippines"
   }
  ],
- "up school of economics auditorium up diliman quezon philippines": []
+ "up school of economics auditorium up diliman quezon philippines": [],
+ "crowne plaza bangkok lumpini park bangkok philippines": [],
+ "bangkok philippines": [
+  {
+   "lat": 15.1677448,
+   "lon": 120.5888445,
+   "category": "tourism",
+   "type": "hotel",
+   "display_name": "Bangkok, Walking Street, Don Pepe Village, Balibago, Angeles, Central Luzon, 2024, Philippines"
+  },
+  {
+   "lat": 6.7520683,
+   "lon": 126.0913606,
+   "category": "place",
+   "type": "neighbourhood",
+   "display_name": "Bangkok 2, Cambaleon, San Isidro, Davao Oriental, Davao Region, 8209, Philippines"
+  }
+ ]
 }

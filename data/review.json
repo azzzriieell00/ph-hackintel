@@ -1,10 +1,16 @@
 {
- "generated_at": "2026-11-08T19:40:06Z",
+ "generated_at": "2026-11-08T23:42:21Z",
  "items": [
   {
    "name": "HackForGov 2026 Region 13 CTF Regional Qualifying Round",
    "id": "hackforgov-2026-region13-ctf",
    "url": null,
+   "reason": "finished more than 62 days ago"
+  },
+  {
+   "name": "HackForGov 5 – Cordillera Regional Competition",
+   "id": "hackforgov-5-cordillera-regional-competition-2026-08-a90ed2",
+   "url": "https://www.slu.edu.ph/2026/08/27/slu-reclaims-crown-at-the-hackforgov-5-cordillera-regional-competition/",
    "reason": "finished more than 62 days ago"
   },
   {
@@ -18,12 +24,6 @@
    "id": "can-you-hackit-2026-cebu-95f618",
    "url": "https://cit.edu/2026/08/20/can-you-hackit-2026-cebu/",
    "reason": "no deadline or event date"
-  },
-  {
-   "name": "HackForGov 5 – Cordillera Regional Competition",
-   "id": "hackforgov-5-cordillera-regional-competition-2026-08-a90ed2",
-   "url": "https://www.slu.edu.ph/2026/08/27/slu-reclaims-crown-at-the-hackforgov-5-cordillera-regional-competition/",
-   "reason": "finished more than 62 days ago"
   },
   {
    "name": "2026 eGovPH Hackathon",

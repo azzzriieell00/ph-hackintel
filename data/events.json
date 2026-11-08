@@ -1,17 +1,17 @@
 {
- "generated_at": "2026-11-08T15:10:15Z",
+ "generated_at": "2026-11-08T19:40:06Z",
  "generator": "PH HackIntel pipeline 2.0",
  "offline_run": false,
  "llm_enabled": true,
  "llm": {
   "provider": "gemini",
-  "model": "models/gemini-3.5-flash-lite",
+  "model": null,
   "chain": [
    {
     "provider": "gemini",
-    "model": "models/gemini-3.5-flash-lite",
-    "requests_this_run": 1,
-    "requests_today": 1,
+    "model": null,
+    "requests_this_run": 0,
+    "requests_today": 0,
     "paused_until": null,
     "skipped": null
    },
@@ -40,8 +40,8 @@
     "skipped": null
    }
   ],
-  "requests_this_run": 1,
-  "requests_today": 1,
+  "requests_this_run": 0,
+  "requests_today": 0,
   "daily_cap": 120,
   "stopped": null
  },
@@ -49,15 +49,15 @@
   "sources_total": 38,
   "sources_scanned": 38,
   "sources_skipped": 0,
-  "pages_opened": 7,
+  "pages_opened": 0,
   "queued_from_earlier": 0,
-  "links_considered": 9,
-  "duration_s": 251.7,
+  "links_considered": 5,
+  "duration_s": 124.4,
   "pending_links": 0,
   "feeds_known": 20,
-  "ai_pages_read": 1,
-  "ai_cache_hits": 6,
-  "candidates": 14
+  "ai_pages_read": 0,
+  "ai_cache_hits": 2,
+  "candidates": 10
  },
  "sources": [
   {
@@ -99,7 +99,7 @@
    "url": "https://ctftime.org/api/v1/events/",
    "errors": [],
    "notes": [
-    "89 CTFs listed in the window, 0 onsite in the Philippines"
+    "not due yet; events from the last read are carried over"
    ],
    "found": 0,
    "pages": 0,
@@ -164,12 +164,10 @@
    "type": "site",
    "url": "https://newsbytes.ph/",
    "errors": [],
-   "notes": [
-    "site search seems to ignore the query; only matching headlines kept"
-   ],
-   "found": 1,
-   "pages": 1,
-   "ai_read": 1,
+   "notes": [],
+   "found": 0,
+   "pages": 0,
+   "ai_read": 0,
    "ai_cache_hits": 0,
    "deferred": 0,
    "feeds": [
@@ -177,7 +175,7 @@
    ],
    "ok": true,
    "needs_llm": 0,
-   "leads": 2
+   "leads": 0
   },
   {
    "id": "tribune",
@@ -203,9 +201,7 @@
    "name": "Mindanao Gold Star Daily",
    "type": "site",
    "url": "https://mindanaogoldstardaily.com/",
-   "errors": [
-    "https://mindanaogoldstardaily.com/: robots.txt could not be read"
-   ],
+   "errors": [],
    "notes": [],
    "found": 0,
    "pages": 0,
@@ -213,7 +209,7 @@
    "ai_cache_hits": 0,
    "deferred": 0,
    "feeds": [],
-   "ok": false,
+   "ok": true,
    "needs_llm": 0,
    "leads": 0
   },
@@ -225,11 +221,10 @@
    "errors": [],
    "notes": [],
    "found": 0,
-   "pages": 2,
+   "pages": 0,
    "ai_read": 0,
    "ai_cache_hits": 0,
    "deferred": 0,
-   "old_pages_skipped": 2,
    "ok": true,
    "needs_llm": 0,
    "leads": 0
@@ -242,9 +237,7 @@
    "errors": [
     "https://cebudailynews.inquirer.net/feed/: HTTP 403"
    ],
-   "notes": [
-    "site search seems to ignore the query; only matching headlines kept"
-   ],
+   "notes": [],
    "found": 0,
    "pages": 0,
    "ai_read": 0,
@@ -319,12 +312,9 @@
    "type": "site",
    "url": "https://asti.dost.gov.ph/",
    "errors": [
-    "https://asti.dost.gov.ph/: robots.txt could not be read",
     "https://asti.dost.gov.ph/feed/: robots.txt could not be read"
    ],
-   "notes": [
-    "site search skipped: robots.txt could not be read"
-   ],
+   "notes": [],
    "found": 0,
    "pages": 0,
    "ai_read": 0,
@@ -493,13 +483,11 @@
    "type": "site",
    "url": "https://bicol-u.edu.ph/",
    "errors": [],
-   "notes": [
-    "site search seems to ignore the query; only matching headlines kept"
-   ],
+   "notes": [],
    "found": 0,
-   "pages": 1,
+   "pages": 0,
    "ai_read": 0,
-   "ai_cache_hits": 1,
+   "ai_cache_hits": 0,
    "deferred": 0,
    "feeds": [
     "https://bicol-u.edu.ph/feed/"
@@ -515,17 +503,17 @@
    "url": "https://cit.edu/",
    "errors": [],
    "notes": [],
-   "found": 2,
-   "pages": 2,
+   "found": 0,
+   "pages": 0,
    "ai_read": 0,
-   "ai_cache_hits": 2,
+   "ai_cache_hits": 0,
    "deferred": 0,
    "feeds": [
     "https://cit.edu/feed/"
    ],
    "ok": true,
    "needs_llm": 0,
-   "leads": 1
+   "leads": 0
   },
   {
    "id": "su",
@@ -608,10 +596,10 @@
    "url": "https://www.uptacloban.edu.ph/",
    "errors": [],
    "notes": [],
-   "found": 1,
-   "pages": 1,
+   "found": 0,
+   "pages": 0,
    "ai_read": 0,
-   "ai_cache_hits": 1,
+   "ai_cache_hits": 0,
    "deferred": 0,
    "feeds": [
     "https://www.uptacloban.edu.ph/feed/"
@@ -810,10 +798,10 @@
    "extraction": "manual",
    "source_id": "manual",
    "first_seen": "2026-11-03T00:48:31Z",
-   "last_verified": "2026-11-08T15:10:15Z",
+   "last_verified": "2026-11-08T19:40:06Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
-   "last_seen": "2026-11-08T15:10:15Z",
+   "last_seen": "2026-11-08T19:40:06Z",
    "lat": 13.7565,
    "lon": 121.0583,
    "precision": "CITY",
@@ -878,10 +866,10 @@
    "extraction": "manual",
    "source_id": "manual",
    "first_seen": "2026-11-05T06:20:00Z",
-   "last_verified": "2026-11-08T15:10:15Z",
+   "last_verified": "2026-11-08T19:40:06Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
-   "last_seen": "2026-11-08T15:10:15Z",
+   "last_seen": "2026-11-08T19:40:06Z",
    "lat": 14.676,
    "lon": 121.0437,
    "precision": "CITY",
@@ -952,10 +940,10 @@
    "extraction": "manual",
    "source_id": "manual",
    "first_seen": "2026-11-03T00:48:31Z",
-   "last_verified": "2026-11-08T15:10:15Z",
+   "last_verified": "2026-11-08T19:40:06Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
-   "last_seen": "2026-11-08T15:10:15Z",
+   "last_seen": "2026-11-08T19:40:06Z",
    "lat": 16.42929,
    "lon": 120.59504,
    "precision": "EXACT",
@@ -1026,7 +1014,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-08T15:10:15Z",
+   "last_seen": "2026-11-08T19:40:06Z",
    "lat": 13.4467,
    "lon": 121.8399,
    "precision": "CITY",
@@ -1129,7 +1117,8 @@
       "results reported"
      ]
     ]
-   }
+   },
+   "carried_over": true
   },
   {
    "id": "cyber-skills-challenge-iligan-2026",
@@ -1162,7 +1151,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-08T15:10:15Z",
+   "last_seen": "2026-11-08T19:40:06Z",
    "lat": 8.228,
    "lon": 124.2452,
    "precision": "CITY",
@@ -1230,7 +1219,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-08T15:10:15Z",
+   "last_seen": "2026-11-08T19:40:06Z",
    "lat": 13.9373,
    "lon": 121.617,
    "precision": "CITY",
@@ -1301,7 +1290,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-08T15:10:15Z",
+   "last_seen": "2026-11-08T19:40:06Z",
    "lat": 10.61216,
    "lon": 122.92613,
    "precision": "EXACT",
@@ -1408,7 +1397,8 @@
       "results reported"
      ]
     ]
-   }
+   },
+   "carried_over": true
   },
   {
    "id": "cyber-hunt-ctf-league-zamboanga-2026",
@@ -1442,7 +1432,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-08T15:10:15Z",
+   "last_seen": "2026-11-08T19:40:06Z",
    "lat": 6.9214,
    "lon": 122.079,
    "precision": "CITY",
@@ -1521,7 +1511,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-08T15:10:15Z",
+   "last_seen": "2026-11-08T19:40:06Z",
    "lat": 8.94627,
    "lon": 125.52941,
    "precision": "EXACT",
@@ -1598,7 +1588,7 @@
    ],
    "id": "asean-ai-hackathon-23e39c",
    "first_seen": "2026-11-03T00:48:31Z",
-   "last_verified": "2026-11-08T15:10:15Z",
+   "last_verified": "2026-11-08T19:40:06Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
    "last_seen": "2026-11-08T15:10:15Z",
@@ -1625,7 +1615,8 @@
      ]
     ]
    },
-   "hold_reason": "no deadline or event date"
+   "hold_reason": "no deadline or event date",
+   "carried_over": true
   },
   {
    "name": "Can You HackIT 2026 Cebu",
@@ -1665,7 +1656,7 @@
    ],
    "id": "can-you-hackit-2026-cebu-95f618",
    "first_seen": "2026-11-03T00:48:31Z",
-   "last_verified": "2026-11-08T15:10:15Z",
+   "last_verified": "2026-11-08T19:40:06Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
    "last_seen": "2026-11-08T15:10:15Z",
@@ -1693,7 +1684,8 @@
      ]
     ]
    },
-   "hold_reason": "no deadline or event date"
+   "hold_reason": "no deadline or event date",
+   "carried_over": true
   },
   {
    "name": "HackForGov 5 – Cordillera Regional Competition",
@@ -1876,7 +1868,7 @@
    "id": "ph-s-biggest-5g-hackathon-41197d",
    "first_seen": "2026-11-03T00:48:31Z",
    "last_verified": null,
-   "link_failures": 23,
+   "link_failures": 24,
    "link_status": "HTTP 404",
    "last_seen": "2026-11-04T01:19:57Z",
    "precision": "NONE",
@@ -1898,7 +1890,7 @@
      ],
      [
       -10,
-      "official link failed 23 check(s)"
+      "official link failed 24 check(s)"
      ],
      [
       -10,
@@ -1952,7 +1944,7 @@
    ],
    "id": "decode-tomorrow-the-aboitiz-future-challenge-hackathon-b02b49",
    "first_seen": "2026-11-03T00:48:31Z",
-   "last_verified": "2026-11-08T15:10:15Z",
+   "last_verified": "2026-11-08T19:40:06Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
    "last_seen": "2026-11-04T01:19:57Z",
@@ -2028,7 +2020,7 @@
    ],
    "id": "egovph-hackathon-2026-4fb323",
    "first_seen": "2026-11-03T00:48:31Z",
-   "last_verified": "2026-11-08T15:10:15Z",
+   "last_verified": "2026-11-08T19:40:06Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
    "last_seen": "2026-11-04T01:19:57Z",

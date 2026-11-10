@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-09T17:27:27Z",
+ "generated_at": "2026-11-10T01:29:54Z",
  "generator": "PH HackIntel pipeline 2.0",
  "offline_run": false,
  "llm_enabled": true,
@@ -49,15 +49,15 @@
   "sources_total": 38,
   "sources_scanned": 38,
   "sources_skipped": 0,
-  "pages_opened": 7,
+  "pages_opened": 4,
   "queued_from_earlier": 0,
-  "links_considered": 9,
-  "duration_s": 193.1,
+  "links_considered": 10,
+  "duration_s": 292.9,
   "pending_links": 0,
   "feeds_known": 20,
   "ai_pages_read": 1,
-  "ai_cache_hits": 6,
-  "candidates": 13
+  "ai_cache_hits": 3,
+  "candidates": 12
  },
  "sources": [
   {
@@ -99,7 +99,7 @@
    "url": "https://ctftime.org/api/v1/events/",
    "errors": [],
    "notes": [
-    "not due yet; events from the last read are carried over"
+    "86 CTFs listed in the window, 0 onsite in the Philippines"
    ],
    "found": 0,
    "pages": 0,
@@ -164,12 +164,10 @@
    "type": "site",
    "url": "https://newsbytes.ph/",
    "errors": [],
-   "notes": [
-    "site search seems to ignore the query; only matching headlines kept"
-   ],
+   "notes": [],
    "found": 0,
-   "pages": 1,
-   "ai_read": 1,
+   "pages": 0,
+   "ai_read": 0,
    "ai_cache_hits": 0,
    "deferred": 0,
    "feeds": [
@@ -177,7 +175,7 @@
    ],
    "ok": true,
    "needs_llm": 0,
-   "leads": 2
+   "leads": 0
   },
   {
    "id": "tribune",
@@ -225,11 +223,10 @@
    "errors": [],
    "notes": [],
    "found": 0,
-   "pages": 2,
+   "pages": 0,
    "ai_read": 0,
    "ai_cache_hits": 0,
    "deferred": 0,
-   "old_pages_skipped": 2,
    "ok": true,
    "needs_llm": 0,
    "leads": 0
@@ -242,9 +239,7 @@
    "errors": [
     "https://cebudailynews.inquirer.net/feed/: HTTP 403"
    ],
-   "notes": [
-    "site search seems to ignore the query; only matching headlines kept"
-   ],
+   "notes": [],
    "found": 0,
    "pages": 0,
    "ai_read": 0,
@@ -319,12 +314,9 @@
    "type": "site",
    "url": "https://asti.dost.gov.ph/",
    "errors": [
-    "https://asti.dost.gov.ph/: robots.txt could not be read",
     "https://asti.dost.gov.ph/feed/: robots.txt could not be read"
    ],
-   "notes": [
-    "site search skipped: robots.txt could not be read"
-   ],
+   "notes": [],
    "found": 0,
    "pages": 0,
    "ai_read": 0,
@@ -418,7 +410,9 @@
    "name": "National University",
    "type": "site",
    "url": "https://www.national-u.edu.ph/",
-   "errors": [],
+   "errors": [
+    "https://www.national-u.edu.ph/: HTTP 403"
+   ],
    "notes": [],
    "found": 0,
    "pages": 0,
@@ -426,7 +420,7 @@
    "ai_cache_hits": 0,
    "deferred": 0,
    "feeds": [],
-   "ok": true,
+   "ok": false,
    "needs_llm": 0,
    "leads": 0
   },
@@ -455,10 +449,12 @@
    "type": "site",
    "url": "https://www.slu.edu.ph/",
    "errors": [],
-   "notes": [],
-   "found": 0,
-   "pages": 0,
-   "ai_read": 0,
+   "notes": [
+    "site search seems to ignore the query; only matching headlines kept"
+   ],
+   "found": 1,
+   "pages": 1,
+   "ai_read": 1,
    "ai_cache_hits": 0,
    "deferred": 0,
    "feeds": [
@@ -466,7 +462,7 @@
    ],
    "ok": true,
    "needs_llm": 0,
-   "leads": 0
+   "leads": 1
   },
   {
    "id": "hau",
@@ -493,13 +489,11 @@
    "type": "site",
    "url": "https://bicol-u.edu.ph/",
    "errors": [],
-   "notes": [
-    "site search seems to ignore the query; only matching headlines kept"
-   ],
+   "notes": [],
    "found": 0,
-   "pages": 1,
+   "pages": 0,
    "ai_read": 0,
-   "ai_cache_hits": 1,
+   "ai_cache_hits": 0,
    "deferred": 0,
    "feeds": [
     "https://bicol-u.edu.ph/feed/"
@@ -515,17 +509,17 @@
    "url": "https://cit.edu/",
    "errors": [],
    "notes": [],
-   "found": 2,
-   "pages": 2,
+   "found": 0,
+   "pages": 0,
    "ai_read": 0,
-   "ai_cache_hits": 2,
+   "ai_cache_hits": 0,
    "deferred": 0,
    "feeds": [
     "https://cit.edu/feed/"
    ],
    "ok": true,
    "needs_llm": 0,
-   "leads": 2
+   "leads": 1
   },
   {
    "id": "su",
@@ -569,7 +563,9 @@
    "type": "site",
    "url": "https://www.antiquespride.edu.ph/",
    "errors": [],
-   "notes": [],
+   "notes": [
+    "site search seems to ignore the query; only matching headlines kept"
+   ],
    "found": 0,
    "pages": 0,
    "ai_read": 0,
@@ -607,18 +603,20 @@
    "type": "site",
    "url": "https://www.uptacloban.edu.ph/",
    "errors": [],
-   "notes": [],
-   "found": 1,
-   "pages": 1,
+   "notes": [
+    "site search seems to ignore the query; only matching headlines kept"
+   ],
+   "found": 0,
+   "pages": 2,
    "ai_read": 0,
-   "ai_cache_hits": 1,
+   "ai_cache_hits": 0,
    "deferred": 0,
    "feeds": [
     "https://www.uptacloban.edu.ph/feed/"
    ],
    "ok": true,
    "needs_llm": 0,
-   "leads": 1
+   "leads": 2
   },
   {
    "id": "vsu",
@@ -665,10 +663,10 @@
    "url": "https://imcc.edu.ph/",
    "errors": [],
    "notes": [],
-   "found": 0,
-   "pages": 0,
+   "found": 1,
+   "pages": 1,
    "ai_read": 0,
-   "ai_cache_hits": 0,
+   "ai_cache_hits": 1,
    "deferred": 0,
    "feeds": [
     "https://imcc.edu.ph/feed/"
@@ -685,7 +683,9 @@
    "errors": [
     "https://upmin.edu.ph/feed/: HTTP 403"
    ],
-   "notes": [],
+   "notes": [
+    "site search skipped: HTTP 403"
+   ],
    "found": 0,
    "pages": 0,
    "ai_read": 0,
@@ -810,10 +810,10 @@
    "extraction": "manual",
    "source_id": "manual",
    "first_seen": "2026-11-03T00:48:31Z",
-   "last_verified": "2026-11-09T17:27:27Z",
+   "last_verified": "2026-11-10T01:29:54Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
-   "last_seen": "2026-11-09T17:27:27Z",
+   "last_seen": "2026-11-10T01:29:54Z",
    "lat": 13.7565,
    "lon": 121.0583,
    "precision": "CITY",
@@ -823,8 +823,8 @@
    "phase": "upcoming",
    "corroboration": 1,
    "confidence": {
-    "score": 85,
-    "level": "HIGH",
+    "score": 65,
+    "level": "MEDIUM",
     "reasons": [
      [
       30,
@@ -833,10 +833,6 @@
      [
       20,
       "official link answered in the last 72 hours"
-     ],
-     [
-      20,
-      "checked by a person in the last 7 days"
      ],
      [
       15,
@@ -878,10 +874,10 @@
    "extraction": "manual",
    "source_id": "manual",
    "first_seen": "2026-11-05T06:20:00Z",
-   "last_verified": "2026-11-09T17:27:27Z",
+   "last_verified": "2026-11-10T01:29:54Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
-   "last_seen": "2026-11-09T17:27:27Z",
+   "last_seen": "2026-11-10T01:29:54Z",
    "lat": 14.676,
    "lon": 121.0437,
    "precision": "CITY",
@@ -952,10 +948,10 @@
    "extraction": "manual",
    "source_id": "manual",
    "first_seen": "2026-11-03T00:48:31Z",
-   "last_verified": "2026-11-09T17:27:27Z",
+   "last_verified": "2026-11-10T01:29:54Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
-   "last_seen": "2026-11-09T17:27:27Z",
+   "last_seen": "2026-11-10T01:29:54Z",
    "lat": 16.42929,
    "lon": 120.59504,
    "precision": "EXACT",
@@ -965,8 +961,8 @@
    "phase": "upcoming",
    "corroboration": 1,
    "confidence": {
-    "score": 80,
-    "level": "HIGH",
+    "score": 60,
+    "level": "MEDIUM",
     "reasons": [
      [
       30,
@@ -975,10 +971,6 @@
      [
       20,
       "official link answered in the last 72 hours"
-     ],
-     [
-      20,
-      "checked by a person in the last 7 days"
      ],
      [
       -10,
@@ -1026,7 +1018,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-09T17:27:27Z",
+   "last_seen": "2026-11-10T01:29:54Z",
    "lat": 13.4467,
    "lon": 121.8399,
    "precision": "CITY",
@@ -1163,7 +1155,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-09T17:27:27Z",
+   "last_seen": "2026-11-10T01:29:54Z",
    "lat": 8.228,
    "lon": 124.2452,
    "precision": "CITY",
@@ -1231,7 +1223,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-09T17:27:27Z",
+   "last_seen": "2026-11-10T01:29:54Z",
    "lat": 13.9373,
    "lon": 121.617,
    "precision": "CITY",
@@ -1302,7 +1294,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-09T17:27:27Z",
+   "last_seen": "2026-11-10T01:29:54Z",
    "lat": 10.61216,
    "lon": 122.92613,
    "precision": "EXACT",
@@ -1409,7 +1401,8 @@
       "results reported"
      ]
     ]
-   }
+   },
+   "carried_over": true
   },
   {
    "id": "cyber-hunt-ctf-league-zamboanga-2026",
@@ -1443,7 +1436,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-09T17:27:27Z",
+   "last_seen": "2026-11-10T01:29:54Z",
    "lat": 6.9214,
    "lon": 122.079,
    "precision": "CITY",
@@ -1522,7 +1515,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-09T17:27:27Z",
+   "last_seen": "2026-11-10T01:29:54Z",
    "lat": 8.94627,
    "lon": 125.52941,
    "precision": "EXACT",
@@ -1564,6 +1557,74 @@
    "hold_reason": "finished more than 62 days ago"
   },
   {
+   "name": "HackForGov 5 – Cordillera Regional Competition",
+   "organizer": "Department of Information and Communications Technology (DICT) Cordillera Administrative Region (CAR)",
+   "mode": "onsite",
+   "venue": "Paragon Hotel",
+   "city": "Baguio City",
+   "province": "Cordillera Administrative Region",
+   "country": "Philippines",
+   "lat": null,
+   "lon": null,
+   "start": "2026-08-13T00:00:00+08:00",
+   "end": "2026-08-13T00:00:00+08:00",
+   "deadline": "2026-08-13T00:00:00+08:00",
+   "deadline_is_estimate": true,
+   "eligibility": null,
+   "themes": [
+    "network security",
+    "web security",
+    "cryptography",
+    "incident response",
+    "Decoding Youth Innovation, Anchoring One Nation’s Digital De"
+   ],
+   "prize": null,
+   "registration_url": "https://www.slu.edu.ph/2026/08/27/slu-reclaims-crown-at-the-hackforgov-5-cordillera-regional-competition/",
+   "official_url": "https://www.slu.edu.ph/2026/08/27/slu-reclaims-crown-at-the-hackforgov-5-cordillera-regional-competition/",
+   "registration_closed": true,
+   "category": "ctf",
+   "results": "Team Fable4 from Saint Louis University (SLU) won the championship title.",
+   "ai_checks": null,
+   "extraction": "llm",
+   "source_id": "slu",
+   "sources": [
+    {
+     "label": "Saint Louis University (Baguio)",
+     "url": "https://www.slu.edu.ph/2026/08/27/slu-reclaims-crown-at-the-hackforgov-5-cordillera-regional-competition/"
+    }
+   ],
+   "id": "hackforgov-5-cordillera-regional-competition-2026-08-a90ed2",
+   "first_seen": "2026-11-04T09:08:49Z",
+   "last_verified": null,
+   "link_failures": null,
+   "link_status": null,
+   "last_seen": "2026-11-10T01:29:54Z",
+   "precision": "NONE",
+   "location_check": "UNRESOLVED",
+   "is_new": false,
+   "phase": "finished",
+   "corroboration": 1,
+   "confidence": {
+    "score": 40,
+    "level": "LOW",
+    "reasons": [
+     [
+      15,
+      "read by AI from the page text, then checked"
+     ],
+     [
+      20,
+      "documented by a published source"
+     ],
+     [
+      5,
+      "results reported"
+     ]
+    ]
+   },
+   "hold_reason": "finished more than 62 days ago"
+  },
+  {
    "name": "ASEAN AI Hackathon",
    "organizer": null,
    "mode": "unspecified",
@@ -1599,7 +1660,7 @@
    ],
    "id": "asean-ai-hackathon-23e39c",
    "first_seen": "2026-11-03T00:48:31Z",
-   "last_verified": "2026-11-09T17:27:27Z",
+   "last_verified": "2026-11-10T01:29:54Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
    "last_seen": "2026-11-09T17:27:27Z",
@@ -1626,7 +1687,8 @@
      ]
     ]
    },
-   "hold_reason": "no deadline or event date"
+   "hold_reason": "no deadline or event date",
+   "carried_over": true
   },
   {
    "name": "Can You HackIT 2026 Cebu",
@@ -1666,7 +1728,7 @@
    ],
    "id": "can-you-hackit-2026-cebu-95f618",
    "first_seen": "2026-11-03T00:48:31Z",
-   "last_verified": "2026-11-09T17:27:27Z",
+   "last_verified": "2026-11-10T01:29:54Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
    "last_seen": "2026-11-09T17:27:27Z",
@@ -1694,80 +1756,7 @@
      ]
     ]
    },
-   "hold_reason": "no deadline or event date"
-  },
-  {
-   "name": "HackForGov 5 – Cordillera Regional Competition",
-   "organizer": "Department of Information and Communications Technology (DICT) Cordillera Administrative Region (CAR)",
-   "mode": "onsite",
-   "venue": "Paragon Hotel",
-   "city": "Baguio City",
-   "province": "Benguet",
-   "country": "Philippines",
-   "lat": 16.41237,
-   "lon": 120.59207,
-   "start": "2026-08-13T00:00:00+08:00",
-   "end": "2026-08-13T00:00:00+08:00",
-   "deadline": "2026-08-13T00:00:00+08:00",
-   "deadline_is_estimate": true,
-   "eligibility": null,
-   "themes": [
-    "network security",
-    "web security",
-    "cryptography",
-    "incident response",
-    "Decoding Youth Innovation, Anchoring One Nation’s Digital De"
-   ],
-   "prize": null,
-   "registration_url": "https://www.slu.edu.ph/2026/08/27/slu-reclaims-crown-at-the-hackforgov-5-cordillera-regional-competition/",
-   "official_url": "https://www.slu.edu.ph/2026/08/27/slu-reclaims-crown-at-the-hackforgov-5-cordillera-regional-competition/",
-   "registration_closed": null,
-   "category": "ctf",
-   "results": "Saint Louis University team Fable4 won the championship title.",
-   "ai_checks": null,
-   "extraction": "llm",
-   "source_id": "slu",
-   "sources": [
-    {
-     "label": "Saint Louis University (Baguio)",
-     "url": "https://www.slu.edu.ph/2026/08/27/slu-reclaims-crown-at-the-hackforgov-5-cordillera-regional-competition/"
-    }
-   ],
-   "id": "hackforgov-5-cordillera-regional-competition-2026-08-a90ed2",
-   "first_seen": "2026-11-04T09:08:49Z",
-   "last_verified": null,
-   "link_failures": null,
-   "link_status": null,
-   "last_seen": "2026-11-08T23:42:21Z",
-   "precision": "EXACT",
-   "location_source": "nominatim",
-   "location_check": "PROVINCE_FROM_MAP",
-   "is_new": false,
-   "phase": "finished",
-   "corroboration": 1,
-   "confidence": {
-    "score": 45,
-    "level": "LOW",
-    "reasons": [
-     [
-      15,
-      "read by AI from the page text, then checked"
-     ],
-     [
-      20,
-      "documented by a published source"
-     ],
-     [
-      5,
-      "results reported"
-     ],
-     [
-      5,
-      "venue located exactly"
-     ]
-    ]
-   },
-   "hold_reason": "finished more than 62 days ago",
+   "hold_reason": "no deadline or event date",
    "carried_over": true
   },
   {
@@ -1881,7 +1870,7 @@
    "id": "ph-s-biggest-5g-hackathon-41197d",
    "first_seen": "2026-11-03T00:48:31Z",
    "last_verified": null,
-   "link_failures": 27,
+   "link_failures": 28,
    "link_status": "HTTP 404",
    "last_seen": "2026-11-04T01:19:57Z",
    "precision": "NONE",
@@ -1903,7 +1892,7 @@
      ],
      [
       -10,
-      "official link failed 27 check(s)"
+      "official link failed 28 check(s)"
      ],
      [
       -10,
@@ -1957,7 +1946,7 @@
    ],
    "id": "decode-tomorrow-the-aboitiz-future-challenge-hackathon-b02b49",
    "first_seen": "2026-11-03T00:48:31Z",
-   "last_verified": "2026-11-09T17:27:27Z",
+   "last_verified": "2026-11-10T01:29:54Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
    "last_seen": "2026-11-04T01:19:57Z",
@@ -2033,7 +2022,7 @@
    ],
    "id": "egovph-hackathon-2026-4fb323",
    "first_seen": "2026-11-03T00:48:31Z",
-   "last_verified": "2026-11-09T17:27:27Z",
+   "last_verified": "2026-11-10T01:29:54Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
    "last_seen": "2026-11-04T01:19:57Z",

@@ -1,43 +1,43 @@
 {
  "_source_runs": {
-  "tcon9-site": "2026-11-11T06:11:20Z",
-  "techconnect-aideathon-site": "2026-11-11T06:11:20Z",
-  "ctftime-ph": "2026-11-11T06:11:20Z",
-  "inquirer-tech": "2026-11-11T06:11:20Z",
-  "bitpinas": "2026-11-11T06:11:20Z",
-  "bitpinas-hackathon-tag": "2026-11-11T06:11:20Z",
-  "newsbytes": "2026-11-11T06:11:20Z",
-  "tribune": "2026-11-11T06:11:20Z",
-  "mindanao-gold-star": "2026-11-11T06:11:20Z",
-  "sunstar-hackathon-tag": "2026-11-11T06:11:20Z",
-  "cebu-daily-news": "2026-11-11T06:11:20Z",
-  "the-post": "2026-11-11T06:11:20Z",
-  "insiderph": "2026-11-11T06:11:20Z",
-  "pna-home": "2026-11-11T06:11:20Z",
-  "dost-asti": "2026-11-11T06:11:20Z",
-  "devcon": "2026-11-11T06:11:20Z",
-  "circuitrocks-events": "2026-11-11T06:11:20Z",
-  "rtu": "2026-11-11T06:11:20Z",
-  "upm": "2026-11-11T06:11:20Z",
-  "national-u": "2026-11-11T06:11:20Z",
-  "feutech": "2026-11-11T06:11:20Z",
-  "slu": "2026-11-11T06:11:20Z",
-  "hau": "2026-11-11T06:11:20Z",
-  "bicol-u": "2026-11-11T06:11:20Z",
-  "cit-u": "2026-11-11T06:11:20Z",
-  "su": "2026-11-11T06:11:20Z",
-  "chmsu": "2026-11-11T06:11:20Z",
-  "antique-spride": "2026-11-11T06:11:20Z",
-  "gsu-cst": "2026-11-11T06:11:20Z",
-  "uptacloban": "2026-11-11T06:11:20Z",
-  "vsu": "2026-11-11T06:11:20Z",
-  "adzu": "2026-11-11T06:11:20Z",
-  "imcc": "2026-11-11T06:11:20Z",
-  "upmin": "2026-11-11T06:11:20Z",
-  "usep-ic": "2026-11-11T06:11:20Z",
-  "usm": "2026-11-11T06:11:20Z",
-  "ndmc": "2026-11-11T06:11:20Z",
-  "carsu": "2026-11-11T06:11:20Z"
+  "tcon9-site": "2026-11-11T14:17:15Z",
+  "techconnect-aideathon-site": "2026-11-11T14:17:15Z",
+  "ctftime-ph": "2026-11-11T14:17:15Z",
+  "inquirer-tech": "2026-11-11T14:17:15Z",
+  "bitpinas": "2026-11-11T14:17:15Z",
+  "bitpinas-hackathon-tag": "2026-11-11T14:17:15Z",
+  "newsbytes": "2026-11-11T14:17:15Z",
+  "tribune": "2026-11-11T14:17:15Z",
+  "mindanao-gold-star": "2026-11-11T14:17:15Z",
+  "sunstar-hackathon-tag": "2026-11-11T14:17:15Z",
+  "cebu-daily-news": "2026-11-11T14:17:15Z",
+  "the-post": "2026-11-11T14:17:15Z",
+  "insiderph": "2026-11-11T14:17:15Z",
+  "pna-home": "2026-11-11T14:17:15Z",
+  "dost-asti": "2026-11-11T14:17:15Z",
+  "devcon": "2026-11-11T14:17:15Z",
+  "circuitrocks-events": "2026-11-11T14:17:15Z",
+  "rtu": "2026-11-11T14:17:15Z",
+  "upm": "2026-11-11T14:17:15Z",
+  "national-u": "2026-11-11T14:17:15Z",
+  "feutech": "2026-11-11T14:17:15Z",
+  "slu": "2026-11-11T14:17:15Z",
+  "hau": "2026-11-11T14:17:15Z",
+  "bicol-u": "2026-11-11T14:17:15Z",
+  "cit-u": "2026-11-11T14:17:15Z",
+  "su": "2026-11-11T14:17:15Z",
+  "chmsu": "2026-11-11T14:17:15Z",
+  "antique-spride": "2026-11-11T14:17:15Z",
+  "gsu-cst": "2026-11-11T14:17:15Z",
+  "uptacloban": "2026-11-11T14:17:15Z",
+  "vsu": "2026-11-11T14:17:15Z",
+  "adzu": "2026-11-11T14:17:15Z",
+  "imcc": "2026-11-11T14:17:15Z",
+  "upmin": "2026-11-11T14:17:15Z",
+  "usep-ic": "2026-11-11T14:17:15Z",
+  "usm": "2026-11-11T14:17:15Z",
+  "ndmc": "2026-11-11T14:17:15Z",
+  "carsu": "2026-11-11T14:17:15Z"
  },
  "_sites": {
   "ctftime-ph": {
@@ -151,7 +151,7 @@
    "search_at": "2026-11-10T17:48:27Z"
   },
   "cit-u": {
-   "home_at": "2026-11-10T09:46:28Z",
+   "home_at": "2026-11-11T14:17:15Z",
    "wordpress": true,
    "feeds": [
     "https://cit.edu/feed/"
@@ -159,16 +159,16 @@
    "search_at": "2026-11-10T17:48:27Z"
   },
   "su": {
-   "home_at": "2026-11-10T09:46:28Z",
+   "home_at": "2026-11-11T14:17:15Z",
    "wordpress": false,
    "feeds": []
   },
   "chmsu": {
-   "home_at": "2026-11-10T09:46:28Z",
+   "home_at": "2026-11-11T14:17:15Z",
    "home_error": "https://chmsu.edu.ph/: robots.txt could not be read"
   },
   "antique-spride": {
-   "home_at": "2026-11-10T09:46:28Z",
+   "home_at": "2026-11-11T14:17:15Z",
    "wordpress": true,
    "feeds": [
     "https://www.antiquespride.edu.ph/feed/"
@@ -176,7 +176,7 @@
    "search_at": "2026-11-11T06:11:20Z"
   },
   "gsu-cst": {
-   "home_at": "2026-11-10T09:46:28Z",
+   "home_at": "2026-11-11T14:17:15Z",
    "wordpress": true,
    "feeds": [
     "https://cst.gsu.edu.ph/feed/"
@@ -184,7 +184,7 @@
    "search_at": "2026-11-11T06:11:20Z"
   },
   "uptacloban": {
-   "home_at": "2026-11-10T09:46:28Z",
+   "home_at": "2026-11-11T14:17:15Z",
    "wordpress": true,
    "feeds": [
     "https://www.uptacloban.edu.ph/feed/"
@@ -192,12 +192,12 @@
    "search_at": "2026-11-11T06:11:20Z"
   },
   "vsu": {
-   "home_at": "2026-11-10T09:46:28Z",
+   "home_at": "2026-11-11T14:17:15Z",
    "wordpress": false,
    "feeds": []
   },
   "adzu": {
-   "home_at": "2026-11-10T09:46:28Z",
+   "home_at": "2026-11-11T14:17:15Z",
    "wordpress": true,
    "feeds": [
     "https://adzu.edu.ph/feed/"
@@ -226,7 +226,7 @@
    "feeds": [
     "https://usep.edu.ph/ic/feed/"
    ],
-   "search_at": "2026-11-10T09:46:28Z"
+   "search_at": "2026-11-11T14:17:15Z"
   },
   "usm": {
    "home_at": "2026-11-10T23:17:40Z",
@@ -234,7 +234,7 @@
    "feeds": [
     "https://www.usm.edu.ph/feed/"
    ],
-   "search_at": "2026-11-10T09:46:28Z"
+   "search_at": "2026-11-11T14:17:15Z"
   },
   "ndmc": {
    "home_at": "2026-11-10T23:17:40Z",
@@ -249,43 +249,15 @@
    "feeds": [
     "https://www.carsu.edu.ph/feed/"
    ],
-   "search_at": "2026-11-10T09:46:28Z"
+   "search_at": "2026-11-11T14:17:15Z"
   }
  },
  "_queue": {},
  "_ai": {
   "https://tcon.hackthenorth.ph/": {
-   "hash": "ae0fee82b1f1f63d",
-   "at": "2026-11-03T00:48:31Z",
-   "events": [
-    {
-     "name": "TCON9",
-     "organizer": null,
-     "mode": "onsite",
-     "venue": "Hotel Supreme Convention Plaza",
-     "city": "Baguio City",
-     "province": null,
-     "country": "Philippines",
-     "lat": null,
-     "lon": null,
-     "start": "2026-11-27T00:00:00+08:00",
-     "end": "2026-11-28T00:00:00+08:00",
-     "deadline": "2026-11-27T00:00:00+08:00",
-     "deadline_is_estimate": true,
-     "eligibility": null,
-     "themes": [],
-     "prize": null,
-     "registration_url": "https://tcon.hackthenorth.ph/",
-     "official_url": "https://tcon.hackthenorth.ph/",
-     "registration_closed": null,
-     "category": "hackathon",
-     "results": null,
-     "ai_checks": [
-      "province 'Benguet' dropped: not in the page text"
-     ],
-     "extraction": "llm"
-    }
-   ]
+   "hash": "c31a4e4b0ead9792",
+   "at": "2026-11-11T14:17:15Z",
+   "events": []
   },
   "https://techconnect-zeta.vercel.app/": {
    "hash": "438899967b33f493",

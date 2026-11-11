@@ -1,10 +1,40 @@
 {
- "generated_at": "2026-11-10T23:17:40Z",
+ "generated_at": "2026-11-11T06:11:20Z",
  "items": [
   {
    "name": "HackForGov 2026 Region 13 CTF Regional Qualifying Round",
    "id": "hackforgov-2026-region13-ctf",
    "url": null,
+   "reason": "finished more than 62 days ago"
+  },
+  {
+   "name": "Cybersecurity Capture the Flag (CTF) University Tournament",
+   "id": "cybersecurity-capture-the-flag-ctf-university-tournament-2025-10-7e166d",
+   "url": "https://www.feutech.edu.ph/content/features/feu-tech-crowned-champion-at-national-cybersecurity-ctf-tournament",
+   "reason": "finished more than 62 days ago"
+  },
+  {
+   "name": "AI Hackathon",
+   "id": "ai-hackathon-2025-10-7e166d",
+   "url": "https://www.feutech.edu.ph/content/features/feu-tech-crowned-champion-at-national-cybersecurity-ctf-tournament",
+   "reason": "finished more than 62 days ago"
+  },
+  {
+   "name": "BPI D.A.T.A. Wave Hackathon & Summit 2025",
+   "id": "bpi-d-a-t-a-wave-hackathon-summit-2025-41f2e4",
+   "url": "https://www.feutech.edu.ph/content/features/feu-tech-students-are-champions-of-digitalization-at-bpi-data-wave-2025",
+   "reason": "no deadline or event date"
+  },
+  {
+   "name": "Usher Technologies' 1st Hackathon Competition",
+   "id": "usher-technologies-1st-hackathon-competition-88c1ff",
+   "url": "https://www.feutech.edu.ph/content/features/engineering-students-emerge-as-champions-in-1st-hackathon-competition-of-usher-technologies",
+   "reason": "no deadline or event date"
+  },
+  {
+   "name": "HackForGov 5 – Cordillera Regional Competition",
+   "id": "hackforgov-5-cordillera-regional-competition-2026-08-a90ed2",
+   "url": "https://www.slu.edu.ph/2026/08/27/slu-reclaims-crown-at-the-hackforgov-5-cordillera-regional-competition/",
    "reason": "finished more than 62 days ago"
   },
   {
@@ -18,12 +48,6 @@
    "id": "can-you-hackit-2026-cebu-95f618",
    "url": "https://cit.edu/2026/08/20/can-you-hackit-2026-cebu/",
    "reason": "no deadline or event date"
-  },
-  {
-   "name": "HackForGov 5 – Cordillera Regional Competition",
-   "id": "hackforgov-5-cordillera-regional-competition-2026-08-a90ed2",
-   "url": "https://www.slu.edu.ph/2026/08/27/slu-reclaims-crown-at-the-hackforgov-5-cordillera-regional-competition/",
-   "reason": "finished more than 62 days ago"
   },
   {
    "name": "2026 eGovPH Hackathon",

@@ -1,23 +1,11 @@
 {
- "generated_at": "2026-11-13T07:54:35Z",
+ "generated_at": "2026-11-13T16:18:54Z",
  "items": [
   {
    "name": "HackForGov 2026 Region 13 CTF Regional Qualifying Round",
    "id": "hackforgov-2026-region13-ctf",
    "url": null,
    "reason": "finished more than 62 days ago"
-  },
-  {
-   "name": "ASEAN AI Hackathon",
-   "id": "asean-ai-hackathon-23e39c",
-   "url": "https://cit.edu/2026/08/21/asean-ai-hackathon-champion-cit-u/",
-   "reason": "no deadline or event date"
-  },
-  {
-   "name": "Can You HackIT 2026 Cebu",
-   "id": "can-you-hackit-2026-cebu-95f618",
-   "url": "https://cit.edu/2026/08/20/can-you-hackit-2026-cebu/",
-   "reason": "no deadline or event date"
   },
   {
    "name": "Cybersecurity Capture the Flag (CTF) University Tournament",
@@ -48,6 +36,18 @@
    "id": "hackforgov-5-cordillera-regional-competition-2026-08-a90ed2",
    "url": "https://www.slu.edu.ph/2026/08/27/slu-reclaims-crown-at-the-hackforgov-5-cordillera-regional-competition/",
    "reason": "finished more than 62 days ago"
+  },
+  {
+   "name": "ASEAN AI Hackathon",
+   "id": "asean-ai-hackathon-23e39c",
+   "url": "https://cit.edu/2026/08/21/asean-ai-hackathon-champion-cit-u/",
+   "reason": "no deadline or event date"
+  },
+  {
+   "name": "Can You HackIT 2026 Cebu",
+   "id": "can-you-hackit-2026-cebu-95f618",
+   "url": "https://cit.edu/2026/08/20/can-you-hackit-2026-cebu/",
+   "reason": "no deadline or event date"
   },
   {
    "name": "2026 eGovPH Hackathon",

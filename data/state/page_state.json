@@ -1,98 +1,98 @@
 {
  "_source_runs": {
-  "tcon9-site": "2026-11-12T18:53:35Z",
-  "techconnect-aideathon-site": "2026-11-12T18:53:35Z",
-  "ctftime-ph": "2026-11-12T18:53:35Z",
-  "inquirer-tech": "2026-11-12T18:53:35Z",
-  "bitpinas": "2026-11-12T18:53:35Z",
-  "bitpinas-hackathon-tag": "2026-11-12T18:53:35Z",
-  "newsbytes": "2026-11-12T18:53:35Z",
-  "tribune": "2026-11-12T18:53:35Z",
-  "mindanao-gold-star": "2026-11-12T18:53:35Z",
-  "sunstar-hackathon-tag": "2026-11-12T18:53:35Z",
-  "cebu-daily-news": "2026-11-12T18:53:35Z",
-  "the-post": "2026-11-12T18:53:35Z",
-  "insiderph": "2026-11-12T18:53:35Z",
-  "pna-home": "2026-11-12T18:53:35Z",
-  "dost-asti": "2026-11-12T18:53:35Z",
-  "devcon": "2026-11-12T18:53:35Z",
-  "circuitrocks-events": "2026-11-12T18:53:35Z",
-  "rtu": "2026-11-12T18:53:35Z",
-  "upm": "2026-11-12T18:53:35Z",
-  "national-u": "2026-11-12T18:53:35Z",
-  "feutech": "2026-11-12T18:53:35Z",
-  "slu": "2026-11-12T18:53:35Z",
-  "hau": "2026-11-12T18:53:35Z",
-  "bicol-u": "2026-11-12T18:53:35Z",
-  "cit-u": "2026-11-12T18:53:35Z",
-  "su": "2026-11-12T18:53:35Z",
-  "chmsu": "2026-11-12T18:53:35Z",
-  "antique-spride": "2026-11-12T18:53:35Z",
-  "gsu-cst": "2026-11-12T18:53:35Z",
-  "uptacloban": "2026-11-12T18:53:35Z",
-  "vsu": "2026-11-12T18:53:35Z",
-  "adzu": "2026-11-12T18:53:35Z",
-  "imcc": "2026-11-12T18:53:35Z",
-  "upmin": "2026-11-12T18:53:35Z",
-  "usep-ic": "2026-11-12T18:53:35Z",
-  "usm": "2026-11-12T18:53:35Z",
-  "ndmc": "2026-11-12T18:53:35Z",
-  "carsu": "2026-11-12T18:53:35Z"
+  "tcon9-site": "2026-11-13T00:19:37Z",
+  "techconnect-aideathon-site": "2026-11-13T00:19:37Z",
+  "ctftime-ph": "2026-11-13T00:19:37Z",
+  "inquirer-tech": "2026-11-13T00:19:37Z",
+  "bitpinas": "2026-11-13T00:19:37Z",
+  "bitpinas-hackathon-tag": "2026-11-13T00:19:37Z",
+  "newsbytes": "2026-11-13T00:19:37Z",
+  "tribune": "2026-11-13T00:19:37Z",
+  "mindanao-gold-star": "2026-11-13T00:19:37Z",
+  "sunstar-hackathon-tag": "2026-11-13T00:19:37Z",
+  "cebu-daily-news": "2026-11-13T00:19:37Z",
+  "the-post": "2026-11-13T00:19:37Z",
+  "insiderph": "2026-11-13T00:19:37Z",
+  "pna-home": "2026-11-13T00:19:37Z",
+  "dost-asti": "2026-11-13T00:19:37Z",
+  "devcon": "2026-11-13T00:19:37Z",
+  "circuitrocks-events": "2026-11-13T00:19:37Z",
+  "rtu": "2026-11-13T00:19:37Z",
+  "upm": "2026-11-13T00:19:37Z",
+  "national-u": "2026-11-13T00:19:37Z",
+  "feutech": "2026-11-13T00:19:37Z",
+  "slu": "2026-11-13T00:19:37Z",
+  "hau": "2026-11-13T00:19:37Z",
+  "bicol-u": "2026-11-13T00:19:37Z",
+  "cit-u": "2026-11-13T00:19:37Z",
+  "su": "2026-11-13T00:19:37Z",
+  "chmsu": "2026-11-13T00:19:37Z",
+  "antique-spride": "2026-11-13T00:19:37Z",
+  "gsu-cst": "2026-11-13T00:19:37Z",
+  "uptacloban": "2026-11-13T00:19:37Z",
+  "vsu": "2026-11-13T00:19:37Z",
+  "adzu": "2026-11-13T00:19:37Z",
+  "imcc": "2026-11-13T00:19:37Z",
+  "upmin": "2026-11-13T00:19:37Z",
+  "usep-ic": "2026-11-13T00:19:37Z",
+  "usm": "2026-11-13T00:19:37Z",
+  "ndmc": "2026-11-13T00:19:37Z",
+  "carsu": "2026-11-13T00:19:37Z"
  },
  "_sites": {
   "ctftime-ph": {
-   "fetched_at": "2026-11-12T11:02:04Z"
+   "fetched_at": "2026-11-13T00:19:37Z"
   },
   "newsbytes": {
-   "home_at": "2026-11-11T21:27:17Z",
+   "home_at": "2026-11-13T00:19:37Z",
    "wordpress": true,
    "feeds": [
     "https://newsbytes.ph/feed/"
    ],
-   "search_at": "2026-11-11T21:27:17Z"
+   "search_at": "2026-11-13T00:19:37Z"
   },
   "tribune": {
-   "home_at": "2026-11-11T21:27:17Z",
+   "home_at": "2026-11-13T00:19:37Z",
    "wordpress": false,
    "feeds": []
   },
   "mindanao-gold-star": {
-   "home_at": "2026-11-11T21:27:17Z",
+   "home_at": "2026-11-13T00:19:37Z",
    "wordpress": false,
    "feeds": []
   },
   "cebu-daily-news": {
-   "home_at": "2026-11-11T21:27:17Z",
+   "home_at": "2026-11-13T00:19:37Z",
    "wordpress": true,
    "feeds": [
     "https://cebudailynews.inquirer.net/feed/"
    ],
-   "search_at": "2026-11-11T21:27:17Z"
+   "search_at": "2026-11-13T00:19:37Z"
   },
   "the-post": {
-   "home_at": "2026-11-11T21:27:17Z",
+   "home_at": "2026-11-13T00:19:37Z",
    "wordpress": true,
    "feeds": [
     "https://thepost.net.ph/feed/"
    ],
-   "search_at": "2026-11-11T21:27:17Z"
+   "search_at": "2026-11-13T00:19:37Z"
   },
   "insiderph": {
-   "home_at": "2026-11-11T21:27:17Z",
+   "home_at": "2026-11-13T00:19:37Z",
    "wordpress": false,
    "feeds": []
   },
   "dost-asti": {
-   "home_at": "2026-11-11T21:27:17Z",
+   "home_at": "2026-11-13T00:19:37Z",
    "wordpress": true,
    "feeds": [
     "https://asti.dost.gov.ph/feed/"
    ],
-   "search_at": "2026-11-11T21:27:17Z",
+   "search_at": "2026-11-13T00:19:37Z",
    "home_error": "https://asti.dost.gov.ph/: robots.txt could not be read"
   },
   "devcon": {
-   "home_at": "2026-11-11T21:27:17Z",
+   "home_at": "2026-11-13T00:19:37Z",
    "wordpress": false,
    "feeds": []
   },
@@ -102,7 +102,7 @@
    "feeds": [
     "https://event.circuit.rocks/feed/"
    ],
-   "search_at": "2026-11-11T21:27:17Z"
+   "search_at": "2026-11-13T00:19:37Z"
   },
   "rtu": {
    "home_at": "2026-11-12T11:02:04Z",
@@ -110,7 +110,7 @@
    "feeds": [
     "https://www.rtu.edu.ph/feed/"
    ],
-   "search_at": "2026-11-11T21:27:17Z"
+   "search_at": "2026-11-13T00:19:37Z"
   },
   "upm": {
    "home_at": "2026-11-12T11:02:04Z",
@@ -148,7 +148,7 @@
    "feeds": [
     "https://bicol-u.edu.ph/feed/"
    ],
-   "search_at": "2026-11-11T21:27:17Z"
+   "search_at": "2026-11-13T00:19:37Z"
   },
   "cit-u": {
    "home_at": "2026-11-12T18:53:35Z",
@@ -156,7 +156,7 @@
    "feeds": [
     "https://cit.edu/feed/"
    ],
-   "search_at": "2026-11-11T21:27:17Z"
+   "search_at": "2026-11-13T00:19:37Z"
   },
   "su": {
    "home_at": "2026-11-12T18:53:35Z",
@@ -371,8 +371,8 @@
    ]
   },
   "https://newsbytes.ph/2026/10/28/ph-cybersecurity-team-tops-2026-cyber-sea-game/?utm_source=rss&utm_medium=rss&utm_campaign=ph-cybersecurity-team-tops-2026-cyber-sea-game": {
-   "hash": "cca46a7bf7aab1d6",
-   "at": "2026-11-11T21:27:17Z",
+   "hash": "857f37629a6483ef",
+   "at": "2026-11-13T00:19:37Z",
    "events": [
     {
      "name": "2026 Cyber SEA Game",
@@ -402,7 +402,7 @@
      "official_url": "https://newsbytes.ph/2026/10/28/ph-cybersecurity-team-tops-2026-cyber-sea-game/?utm_source=rss&utm_medium=rss&utm_campaign=ph-cybersecurity-team-tops-2026-cyber-sea-game",
      "registration_closed": null,
      "category": "ctf",
-     "results": "A four-member Philippine team won first place, Singapore finished as first runner-up, and Malaysia placed second runner-up.",
+     "results": "The Philippines won 1st place (champions), Singapore finished as first runner-up, and Malaysia placed second runner-up.",
      "ai_checks": null,
      "extraction": "llm"
     }
@@ -808,14 +808,53 @@
    "hash": "9d9d372719a7ab36",
    "at": "2026-11-11T06:11:20Z",
    "events": []
+  },
+  "https://mindanaogoldstardaily.com/msu-gensans-pwngenius-wins-region-xii-hackforgov-2026-grand-championship": {
+   "hash": "d759079ea734c3b6",
+   "at": "2026-11-13T00:19:37Z",
+   "events": [
+    {
+     "name": "Region XII HackForGov 2026",
+     "organizer": "DICT Region XII",
+     "mode": "onsite",
+     "venue": "Dreamweavers Hotel",
+     "city": "General Santos",
+     "province": null,
+     "country": "Philippines",
+     "lat": null,
+     "lon": null,
+     "start": "2026-11-09T00:00:00+08:00",
+     "end": "2026-11-11T00:00:00+08:00",
+     "deadline": "2026-11-09T00:00:00+08:00",
+     "deadline_is_estimate": true,
+     "eligibility": "Students",
+     "themes": [
+      "networking",
+      "open-source intelligence",
+      "web exploitation",
+      "steganography",
+      "digital forensics"
+     ],
+     "prize": null,
+     "registration_url": "https://mindanaogoldstardaily.com/msu-gensans-pwngenius-wins-region-xii-hackforgov-2026-grand-championship",
+     "official_url": "https://mindanaogoldstardaily.com/msu-gensans-pwngenius-wins-region-xii-hackforgov-2026-grand-championship",
+     "registration_closed": true,
+     "category": "ctf",
+     "results": "Grand Champion: Team Pwngenius (Mindanao State University – General Santos); First Runner-Up: neopwngenius; Second Runner-Up: Team Phaethon",
+     "ai_checks": [
+      "province 'South Cotabato' dropped: not in the page text"
+     ],
+     "extraction": "llm"
+    }
+   ]
   }
  },
  "https://cit.edu/2026/08/21/asean-ai-hackathon-champion-cit-u/": {
-  "checked": "2026-11-11T21:27:17Z",
+  "checked": "2026-11-13T00:19:37Z",
   "found": 1
  },
  "https://www.uptacloban.edu.ph/up-tacloban-conquers-the-2026-rscene-48-hour-hackathon/": {
-  "checked": "2026-11-11T21:27:17Z",
+  "checked": "2026-11-13T00:19:37Z",
   "found": 1
  },
  "https://su.edu.ph/news/su-places-third-in-hackforgov-5-nir-regional-competition/": {
@@ -823,7 +862,7 @@
   "found": 1
  },
  "https://newsbytes.ph/2026/10/28/ph-cybersecurity-team-tops-2026-cyber-sea-game/?utm_source=rss&utm_medium=rss&utm_campaign=ph-cybersecurity-team-tops-2026-cyber-sea-game": {
-  "checked": "2026-11-11T21:27:17Z",
+  "checked": "2026-11-13T00:19:37Z",
   "found": 1
  },
  "https://cebudailynews.inquirer.net/781697/p15-m-mega-lotto-jackpot-of-nov-2-draw-won-by-lone-bettor": {
@@ -867,11 +906,11 @@
   "found": 0
  },
  "https://www.sunstar.com.ph/bacolod/business/phs-biggest-5g-hackathon-kicks-off-with-enablement-workshops": {
-  "checked": "2026-11-11T21:27:17Z",
+  "checked": "2026-11-13T00:19:37Z",
   "found": 0
  },
  "https://www.sunstar.com.ph/manila/business/aboitiz-group-holds-biggest-hackathon": {
-  "checked": "2026-11-11T21:27:17Z",
+  "checked": "2026-11-13T00:19:37Z",
   "found": 0
  },
  "https://www.rtu.edu.ph/rtu-ics-students-among-top-10-finalists-in-egovph-hackathon-2026/": {
@@ -879,11 +918,11 @@
   "found": 1
  },
  "https://cit.edu/2026/08/20/can-you-hackit-2026-cebu/": {
-  "checked": "2026-11-11T21:27:17Z",
+  "checked": "2026-11-13T00:19:37Z",
   "found": 1
  },
  "https://bicol-u.edu.ph/daraga-lgu-seals-2-moas-with-bu-to-drive-ict-startup-ecosystem-in-albay/": {
-  "checked": "2026-11-11T21:27:17Z",
+  "checked": "2026-11-13T00:19:37Z",
   "found": 0
  },
  "https://newsbytes.ph/2026/08/11/interoprability-to-take-center-stage-at-digicon-2026/?utm_source=rss&utm_medium=rss&utm_campaign=interoprability-to-take-center-stage-at-digicon-2026": {
@@ -1023,5 +1062,9 @@
  "https://www.feutech.edu.ph/content/features/5-study-hacks-perfect-for-college-students": {
   "checked": "2026-11-12T11:02:04Z",
   "found": 0
+ },
+ "https://mindanaogoldstardaily.com/msu-gensans-pwngenius-wins-region-xii-hackforgov-2026-grand-championship": {
+  "checked": "2026-11-13T00:19:37Z",
+  "found": 1
  }
 }

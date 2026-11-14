@@ -1,17 +1,17 @@
 {
- "generated_at": "2026-11-14T03:12:10Z",
+ "generated_at": "2026-11-14T10:21:21Z",
  "generator": "PH HackIntel pipeline 2.0",
  "offline_run": false,
  "llm_enabled": true,
  "llm": {
   "provider": "gemini",
-  "model": "models/gemini-3.5-flash-lite",
+  "model": null,
   "chain": [
    {
     "provider": "gemini",
-    "model": "models/gemini-3.5-flash-lite",
-    "requests_this_run": 2,
-    "requests_today": 2,
+    "model": null,
+    "requests_this_run": 0,
+    "requests_today": 0,
     "paused_until": null,
     "skipped": null
    },
@@ -40,8 +40,8 @@
     "skipped": null
    }
   ],
-  "requests_this_run": 2,
-  "requests_today": 2,
+  "requests_this_run": 0,
+  "requests_today": 0,
   "daily_cap": 120,
   "stopped": null
  },
@@ -49,15 +49,15 @@
   "sources_total": 38,
   "sources_scanned": 38,
   "sources_skipped": 0,
-  "pages_opened": 8,
+  "pages_opened": 0,
   "queued_from_earlier": 0,
-  "links_considered": 10,
-  "duration_s": 216.7,
+  "links_considered": 6,
+  "duration_s": 194.5,
   "pending_links": 0,
   "feeds_known": 20,
-  "ai_pages_read": 2,
-  "ai_cache_hits": 6,
-  "candidates": 14
+  "ai_pages_read": 0,
+  "ai_cache_hits": 2,
+  "candidates": 9
  },
  "sources": [
   {
@@ -99,7 +99,7 @@
    "url": "https://ctftime.org/api/v1/events/",
    "errors": [],
    "notes": [
-    "not due yet; events from the last read are carried over"
+    "82 CTFs listed in the window, 0 onsite in the Philippines"
    ],
    "found": 0,
    "pages": 0,
@@ -164,12 +164,10 @@
    "type": "site",
    "url": "https://newsbytes.ph/",
    "errors": [],
-   "notes": [
-    "site search seems to ignore the query; only matching headlines kept"
-   ],
-   "found": 1,
-   "pages": 1,
-   "ai_read": 1,
+   "notes": [],
+   "found": 0,
+   "pages": 0,
+   "ai_read": 0,
    "ai_cache_hits": 0,
    "deferred": 0,
    "feeds": [
@@ -177,7 +175,7 @@
    ],
    "ok": true,
    "needs_llm": 0,
-   "leads": 2
+   "leads": 0
   },
   {
    "id": "tribune",
@@ -207,9 +205,9 @@
    "notes": [
     "no feed found; reading homepage links once a day"
    ],
-   "found": 1,
-   "pages": 1,
-   "ai_read": 1,
+   "found": 0,
+   "pages": 0,
+   "ai_read": 0,
    "ai_cache_hits": 0,
    "deferred": 0,
    "feeds": [],
@@ -225,11 +223,10 @@
    "errors": [],
    "notes": [],
    "found": 0,
-   "pages": 2,
+   "pages": 0,
    "ai_read": 0,
    "ai_cache_hits": 0,
    "deferred": 0,
-   "old_pages_skipped": 2,
    "ok": true,
    "needs_llm": 0,
    "leads": 0
@@ -242,9 +239,7 @@
    "errors": [
     "https://cebudailynews.inquirer.net/feed/: HTTP 403"
    ],
-   "notes": [
-    "site search seems to ignore the query; only matching headlines kept"
-   ],
+   "notes": [],
    "found": 0,
    "pages": 0,
    "ai_read": 0,
@@ -319,12 +314,9 @@
    "type": "site",
    "url": "https://asti.dost.gov.ph/",
    "errors": [
-    "https://asti.dost.gov.ph/: robots.txt could not be read",
     "https://asti.dost.gov.ph/feed/: robots.txt could not be read"
    ],
-   "notes": [
-    "site search skipped: robots.txt could not be read"
-   ],
+   "notes": [],
    "found": 0,
    "pages": 0,
    "ai_read": 0,
@@ -493,13 +485,11 @@
    "type": "site",
    "url": "https://bicol-u.edu.ph/",
    "errors": [],
-   "notes": [
-    "site search seems to ignore the query; only matching headlines kept"
-   ],
+   "notes": [],
    "found": 0,
-   "pages": 1,
+   "pages": 0,
    "ai_read": 0,
-   "ai_cache_hits": 1,
+   "ai_cache_hits": 0,
    "deferred": 0,
    "feeds": [
     "https://bicol-u.edu.ph/feed/"
@@ -515,17 +505,17 @@
    "url": "https://cit.edu/",
    "errors": [],
    "notes": [],
-   "found": 2,
-   "pages": 2,
+   "found": 0,
+   "pages": 0,
    "ai_read": 0,
-   "ai_cache_hits": 2,
+   "ai_cache_hits": 0,
    "deferred": 0,
    "feeds": [
     "https://cit.edu/feed/"
    ],
    "ok": true,
    "needs_llm": 0,
-   "leads": 2
+   "leads": 1
   },
   {
    "id": "su",
@@ -608,10 +598,10 @@
    "url": "https://www.uptacloban.edu.ph/",
    "errors": [],
    "notes": [],
-   "found": 1,
-   "pages": 1,
+   "found": 0,
+   "pages": 0,
    "ai_read": 0,
-   "ai_cache_hits": 1,
+   "ai_cache_hits": 0,
    "deferred": 0,
    "feeds": [
     "https://www.uptacloban.edu.ph/feed/"
@@ -682,9 +672,7 @@
    "name": "UP Mindanao",
    "type": "site",
    "url": "https://upmin.edu.ph/",
-   "errors": [
-    "https://upmin.edu.ph/feed/: HTTP 403"
-   ],
+   "errors": [],
    "notes": [],
    "found": 0,
    "pages": 0,
@@ -694,7 +682,7 @@
    "feeds": [
     "https://upmin.edu.ph/feed/"
    ],
-   "ok": false,
+   "ok": true,
    "needs_llm": 0,
    "leads": 0
   },
@@ -810,10 +798,10 @@
    "extraction": "manual",
    "source_id": "manual",
    "first_seen": "2026-11-03T00:48:31Z",
-   "last_verified": "2026-11-14T03:12:10Z",
+   "last_verified": "2026-11-14T10:21:21Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
-   "last_seen": "2026-11-14T03:12:10Z",
+   "last_seen": "2026-11-14T10:21:21Z",
    "lat": 13.7565,
    "lon": 121.0583,
    "precision": "CITY",
@@ -874,10 +862,10 @@
    "extraction": "manual",
    "source_id": "manual",
    "first_seen": "2026-11-05T06:20:00Z",
-   "last_verified": "2026-11-14T03:12:10Z",
+   "last_verified": "2026-11-14T10:21:21Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
-   "last_seen": "2026-11-14T03:12:10Z",
+   "last_seen": "2026-11-14T10:21:21Z",
    "lat": 14.676,
    "lon": 121.0437,
    "precision": "CITY",
@@ -940,10 +928,10 @@
    "extraction": "manual",
    "source_id": "manual",
    "first_seen": "2026-11-03T00:48:31Z",
-   "last_verified": "2026-11-14T03:12:10Z",
+   "last_verified": "2026-11-14T10:21:21Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
-   "last_seen": "2026-11-14T03:12:10Z",
+   "last_seen": "2026-11-14T10:21:21Z",
    "lat": 16.42929,
    "lon": 120.59504,
    "precision": "EXACT",
@@ -1046,7 +1034,8 @@
       "results reported"
      ]
     ]
-   }
+   },
+   "carried_over": true
   },
   {
    "id": "marinduque-innovation-fest-hackathon-2026",
@@ -1079,7 +1068,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-14T03:12:10Z",
+   "last_seen": "2026-11-14T10:21:21Z",
    "lat": 13.4467,
    "lon": 121.8399,
    "precision": "CITY",
@@ -1182,7 +1171,8 @@
       "results reported"
      ]
     ]
-   }
+   },
+   "carried_over": true
   },
   {
    "id": "cyber-skills-challenge-iligan-2026",
@@ -1215,7 +1205,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-14T03:12:10Z",
+   "last_seen": "2026-11-14T10:21:21Z",
    "lat": 8.228,
    "lon": 124.2452,
    "precision": "CITY",
@@ -1283,7 +1273,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-14T03:12:10Z",
+   "last_seen": "2026-11-14T10:21:21Z",
    "lat": 13.9373,
    "lon": 121.617,
    "precision": "CITY",
@@ -1354,7 +1344,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-14T03:12:10Z",
+   "last_seen": "2026-11-14T10:21:21Z",
    "lat": 10.61216,
    "lon": 122.92613,
    "precision": "EXACT",
@@ -1461,7 +1451,8 @@
       "results reported"
      ]
     ]
-   }
+   },
+   "carried_over": true
   },
   {
    "id": "cyber-hunt-ctf-league-zamboanga-2026",
@@ -1495,7 +1486,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-14T03:12:10Z",
+   "last_seen": "2026-11-14T10:21:21Z",
    "lat": 6.9214,
    "lon": 122.079,
    "precision": "CITY",
@@ -1574,7 +1565,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-14T03:12:10Z",
+   "last_seen": "2026-11-14T10:21:21Z",
    "lat": 8.94627,
    "lon": 125.52941,
    "precision": "EXACT",
@@ -1651,7 +1642,7 @@
    ],
    "id": "asean-ai-hackathon-23e39c",
    "first_seen": "2026-11-03T00:48:31Z",
-   "last_verified": "2026-11-14T03:12:10Z",
+   "last_verified": "2026-11-14T10:21:21Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
    "last_seen": "2026-11-14T03:12:10Z",
@@ -1678,7 +1669,8 @@
      ]
     ]
    },
-   "hold_reason": "no deadline or event date"
+   "hold_reason": "no deadline or event date",
+   "carried_over": true
   },
   {
    "name": "Can You HackIT 2026 Cebu",
@@ -1718,7 +1710,7 @@
    ],
    "id": "can-you-hackit-2026-cebu-95f618",
    "first_seen": "2026-11-03T00:48:31Z",
-   "last_verified": "2026-11-14T03:12:10Z",
+   "last_verified": "2026-11-14T10:21:21Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
    "last_seen": "2026-11-14T03:12:10Z",
@@ -1746,7 +1738,8 @@
      ]
     ]
    },
-   "hold_reason": "no deadline or event date"
+   "hold_reason": "no deadline or event date",
+   "carried_over": true
   },
   {
    "name": "Cybersecurity Capture the Flag (CTF) University Tournament",
@@ -1792,7 +1785,7 @@
    "last_seen": "2026-11-13T16:18:54Z",
    "precision": "NONE",
    "location_check": "UNRESOLVED",
-   "is_new": true,
+   "is_new": false,
    "phase": "finished",
    "corroboration": 1,
    "confidence": {
@@ -1861,7 +1854,7 @@
    "last_seen": "2026-11-13T16:18:54Z",
    "precision": "NONE",
    "location_check": "NO_LOCATION",
-   "is_new": true,
+   "is_new": false,
    "phase": "finished",
    "corroboration": 1,
    "confidence": {
@@ -1920,13 +1913,13 @@
    ],
    "id": "bpi-d-a-t-a-wave-hackathon-summit-2025-41f2e4",
    "first_seen": "2026-11-11T06:11:20Z",
-   "last_verified": "2026-11-14T03:12:10Z",
+   "last_verified": "2026-11-14T10:21:21Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
    "last_seen": "2026-11-13T16:18:54Z",
    "precision": "NONE",
    "location_check": "NO_LOCATION",
-   "is_new": true,
+   "is_new": false,
    "phase": "upcoming",
    "corroboration": 1,
    "confidence": {
@@ -1990,13 +1983,13 @@
    ],
    "id": "usher-technologies-1st-hackathon-competition-88c1ff",
    "first_seen": "2026-11-11T06:11:20Z",
-   "last_verified": "2026-11-14T03:12:10Z",
+   "last_verified": "2026-11-14T10:21:21Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
    "last_seen": "2026-11-13T16:18:54Z",
    "precision": "NONE",
    "location_check": "N/A",
-   "is_new": true,
+   "is_new": false,
    "phase": "upcoming",
    "corroboration": 1,
    "confidence": {
@@ -2209,7 +2202,7 @@
    "id": "ph-s-biggest-5g-hackathon-41197d",
    "first_seen": "2026-11-03T00:48:31Z",
    "last_verified": null,
-   "link_failures": 42,
+   "link_failures": 43,
    "link_status": "HTTP 404",
    "last_seen": "2026-11-04T01:19:57Z",
    "precision": "NONE",
@@ -2231,7 +2224,7 @@
      ],
      [
       -10,
-      "official link failed 42 check(s)"
+      "official link failed 43 check(s)"
      ],
      [
       -10,
@@ -2285,7 +2278,7 @@
    ],
    "id": "decode-tomorrow-the-aboitiz-future-challenge-hackathon-b02b49",
    "first_seen": "2026-11-03T00:48:31Z",
-   "last_verified": "2026-11-14T03:12:10Z",
+   "last_verified": "2026-11-14T10:21:21Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
    "last_seen": "2026-11-04T01:19:57Z",
@@ -2361,7 +2354,7 @@
    ],
    "id": "egovph-hackathon-2026-4fb323",
    "first_seen": "2026-11-03T00:48:31Z",
-   "last_verified": "2026-11-14T03:12:10Z",
+   "last_verified": "2026-11-14T10:21:21Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
    "last_seen": "2026-11-04T01:19:57Z",

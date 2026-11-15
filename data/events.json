@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-15T17:07:03Z",
+ "generated_at": "2026-11-15T21:46:28Z",
  "generator": "PH HackIntel pipeline 2.0",
  "offline_run": false,
  "llm_enabled": true,
@@ -49,15 +49,15 @@
   "sources_total": 38,
   "sources_scanned": 38,
   "sources_skipped": 0,
-  "pages_opened": 9,
+  "pages_opened": 0,
   "queued_from_earlier": 0,
-  "links_considered": 14,
-  "duration_s": 296.4,
+  "links_considered": 6,
+  "duration_s": 175.8,
   "pending_links": 0,
   "feeds_known": 20,
   "ai_pages_read": 0,
-  "ai_cache_hits": 9,
-  "candidates": 16
+  "ai_cache_hits": 2,
+  "candidates": 9
  },
  "sources": [
   {
@@ -99,7 +99,7 @@
    "url": "https://ctftime.org/api/v1/events/",
    "errors": [],
    "notes": [
-    "94 CTFs listed in the window, 0 onsite in the Philippines"
+    "not due yet; events from the last read are carried over"
    ],
    "found": 0,
    "pages": 0,
@@ -410,9 +410,7 @@
    "name": "National University",
    "type": "site",
    "url": "https://www.national-u.edu.ph/",
-   "errors": [
-    "https://www.national-u.edu.ph/: HTTP 403"
-   ],
+   "errors": [],
    "notes": [],
    "found": 0,
    "pages": 0,
@@ -420,7 +418,7 @@
    "ai_cache_hits": 0,
    "deferred": 0,
    "feeds": [],
-   "ok": false,
+   "ok": true,
    "needs_llm": 0,
    "leads": 0
   },
@@ -433,10 +431,10 @@
    "notes": [
     "no feed found; reading homepage links once a day"
    ],
-   "found": 4,
-   "pages": 4,
+   "found": 0,
+   "pages": 0,
    "ai_read": 0,
-   "ai_cache_hits": 4,
+   "ai_cache_hits": 0,
    "deferred": 0,
    "feeds": [],
    "ok": true,
@@ -449,20 +447,18 @@
    "type": "site",
    "url": "https://www.slu.edu.ph/",
    "errors": [],
-   "notes": [
-    "site search seems to ignore the query; only matching headlines kept"
-   ],
-   "found": 1,
-   "pages": 1,
+   "notes": [],
+   "found": 0,
+   "pages": 0,
    "ai_read": 0,
-   "ai_cache_hits": 1,
+   "ai_cache_hits": 0,
    "deferred": 0,
    "feeds": [
     "https://www.slu.edu.ph/feed/"
    ],
    "ok": true,
    "needs_llm": 0,
-   "leads": 1
+   "leads": 0
   },
   {
    "id": "hau",
@@ -563,9 +559,7 @@
    "type": "site",
    "url": "https://www.antiquespride.edu.ph/",
    "errors": [],
-   "notes": [
-    "site search seems to ignore the query; only matching headlines kept"
-   ],
+   "notes": [],
    "found": 0,
    "pages": 0,
    "ai_read": 0,
@@ -603,20 +597,18 @@
    "type": "site",
    "url": "https://www.uptacloban.edu.ph/",
    "errors": [],
-   "notes": [
-    "site search seems to ignore the query; only matching headlines kept"
-   ],
-   "found": 1,
-   "pages": 3,
+   "notes": [],
+   "found": 0,
+   "pages": 0,
    "ai_read": 0,
-   "ai_cache_hits": 1,
+   "ai_cache_hits": 0,
    "deferred": 0,
    "feeds": [
     "https://www.uptacloban.edu.ph/feed/"
    ],
    "ok": true,
    "needs_llm": 0,
-   "leads": 2
+   "leads": 1
   },
   {
    "id": "vsu",
@@ -663,10 +655,10 @@
    "url": "https://imcc.edu.ph/",
    "errors": [],
    "notes": [],
-   "found": 1,
-   "pages": 1,
+   "found": 0,
+   "pages": 0,
    "ai_read": 0,
-   "ai_cache_hits": 1,
+   "ai_cache_hits": 0,
    "deferred": 0,
    "feeds": [
     "https://imcc.edu.ph/feed/"
@@ -683,9 +675,7 @@
    "errors": [
     "https://upmin.edu.ph/feed/: HTTP 522"
    ],
-   "notes": [
-    "site search skipped: HTTP 522"
-   ],
+   "notes": [],
    "found": 0,
    "pages": 0,
    "ai_read": 0,
@@ -810,10 +800,10 @@
    "extraction": "manual",
    "source_id": "manual",
    "first_seen": "2026-11-03T00:48:31Z",
-   "last_verified": "2026-11-15T17:07:03Z",
+   "last_verified": "2026-11-15T21:46:28Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
-   "last_seen": "2026-11-15T17:07:03Z",
+   "last_seen": "2026-11-15T21:46:28Z",
    "lat": 13.7565,
    "lon": 121.0583,
    "precision": "CITY",
@@ -874,10 +864,10 @@
    "extraction": "manual",
    "source_id": "manual",
    "first_seen": "2026-11-05T06:20:00Z",
-   "last_verified": "2026-11-15T17:07:03Z",
+   "last_verified": "2026-11-15T21:46:28Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
-   "last_seen": "2026-11-15T17:07:03Z",
+   "last_seen": "2026-11-15T21:46:28Z",
    "lat": 14.676,
    "lon": 121.0437,
    "precision": "CITY",
@@ -940,10 +930,10 @@
    "extraction": "manual",
    "source_id": "manual",
    "first_seen": "2026-11-03T00:48:31Z",
-   "last_verified": "2026-11-15T17:07:03Z",
+   "last_verified": "2026-11-15T21:46:28Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
-   "last_seen": "2026-11-15T17:07:03Z",
+   "last_seen": "2026-11-15T21:46:28Z",
    "lat": 16.42929,
    "lon": 120.59504,
    "precision": "EXACT",
@@ -1085,7 +1075,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-15T17:07:03Z",
+   "last_seen": "2026-11-15T21:46:28Z",
    "lat": 13.4467,
    "lon": 121.8399,
    "precision": "CITY",
@@ -1222,7 +1212,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-15T17:07:03Z",
+   "last_seen": "2026-11-15T21:46:28Z",
    "lat": 8.228,
    "lon": 124.2452,
    "precision": "CITY",
@@ -1290,7 +1280,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-15T17:07:03Z",
+   "last_seen": "2026-11-15T21:46:28Z",
    "lat": 13.9373,
    "lon": 121.617,
    "precision": "CITY",
@@ -1361,7 +1351,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-15T17:07:03Z",
+   "last_seen": "2026-11-15T21:46:28Z",
    "lat": 10.61216,
    "lon": 122.92613,
    "precision": "EXACT",
@@ -1468,7 +1458,8 @@
       "results reported"
      ]
     ]
-   }
+   },
+   "carried_over": true
   },
   {
    "id": "cyber-hunt-ctf-league-zamboanga-2026",
@@ -1502,7 +1493,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-15T17:07:03Z",
+   "last_seen": "2026-11-15T21:46:28Z",
    "lat": 6.9214,
    "lon": 122.079,
    "precision": "CITY",
@@ -1581,7 +1572,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-15T17:07:03Z",
+   "last_seen": "2026-11-15T21:46:28Z",
    "lat": 8.94627,
    "lon": 125.52941,
    "precision": "EXACT",
@@ -1691,7 +1682,8 @@
      ]
     ]
    },
-   "hold_reason": "finished more than 62 days ago"
+   "hold_reason": "finished more than 62 days ago",
+   "carried_over": true
   },
   {
    "name": "AI Hackathon",
@@ -1751,7 +1743,8 @@
      ]
     ]
    },
-   "hold_reason": "finished more than 62 days ago"
+   "hold_reason": "finished more than 62 days ago",
+   "carried_over": true
   },
   {
    "name": "BPI D.A.T.A. Wave Hackathon & Summit 2025",
@@ -1792,7 +1785,7 @@
    ],
    "id": "bpi-d-a-t-a-wave-hackathon-summit-2025-41f2e4",
    "first_seen": "2026-11-11T06:11:20Z",
-   "last_verified": "2026-11-15T17:07:03Z",
+   "last_verified": "2026-11-15T21:46:28Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
    "last_seen": "2026-11-15T17:07:03Z",
@@ -1819,7 +1812,8 @@
      ]
     ]
    },
-   "hold_reason": "no deadline or event date"
+   "hold_reason": "no deadline or event date",
+   "carried_over": true
   },
   {
    "name": "Usher Technologies' 1st Hackathon Competition",
@@ -1861,7 +1855,7 @@
    ],
    "id": "usher-technologies-1st-hackathon-competition-88c1ff",
    "first_seen": "2026-11-11T06:11:20Z",
-   "last_verified": "2026-11-15T17:07:03Z",
+   "last_verified": "2026-11-15T21:46:28Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
    "last_seen": "2026-11-15T17:07:03Z",
@@ -1892,7 +1886,8 @@
      ]
     ]
    },
-   "hold_reason": "no deadline or event date"
+   "hold_reason": "no deadline or event date",
+   "carried_over": true
   },
   {
    "name": "HackForGov 5 – Cordillera Regional Competition",
@@ -1965,7 +1960,8 @@
      ]
     ]
    },
-   "hold_reason": "finished more than 62 days ago"
+   "hold_reason": "finished more than 62 days ago",
+   "carried_over": true
   },
   {
    "name": "ASEAN AI Hackathon",
@@ -2003,7 +1999,7 @@
    ],
    "id": "asean-ai-hackathon-23e39c",
    "first_seen": "2026-11-03T00:48:31Z",
-   "last_verified": "2026-11-15T17:07:03Z",
+   "last_verified": "2026-11-15T21:46:28Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
    "last_seen": "2026-11-15T09:21:23Z",
@@ -2071,7 +2067,7 @@
    ],
    "id": "can-you-hackit-2026-cebu-95f618",
    "first_seen": "2026-11-03T00:48:31Z",
-   "last_verified": "2026-11-15T17:07:03Z",
+   "last_verified": "2026-11-15T21:46:28Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
    "last_seen": "2026-11-15T09:21:23Z",
@@ -2213,7 +2209,7 @@
    "id": "ph-s-biggest-5g-hackathon-41197d",
    "first_seen": "2026-11-03T00:48:31Z",
    "last_verified": null,
-   "link_failures": 48,
+   "link_failures": 49,
    "link_status": "HTTP 404",
    "last_seen": "2026-11-04T01:19:57Z",
    "precision": "NONE",
@@ -2235,7 +2231,7 @@
      ],
      [
       -10,
-      "official link failed 48 check(s)"
+      "official link failed 49 check(s)"
      ],
      [
       -10,
@@ -2289,7 +2285,7 @@
    ],
    "id": "decode-tomorrow-the-aboitiz-future-challenge-hackathon-b02b49",
    "first_seen": "2026-11-03T00:48:31Z",
-   "last_verified": "2026-11-15T17:07:03Z",
+   "last_verified": "2026-11-15T21:46:28Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
    "last_seen": "2026-11-04T01:19:57Z",
@@ -2365,7 +2361,7 @@
    ],
    "id": "egovph-hackathon-2026-4fb323",
    "first_seen": "2026-11-03T00:48:31Z",
-   "last_verified": "2026-11-15T17:07:03Z",
+   "last_verified": "2026-11-15T21:46:28Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
    "last_seen": "2026-11-04T01:19:57Z",

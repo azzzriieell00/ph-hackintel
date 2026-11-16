@@ -92,5 +92,14 @@
    "display_name": "Bangkok 2, Cambaleon, San Isidro, Davao Oriental, Davao Region, 8209, Philippines"
   }
  ],
- "dreamweavers hotel general santos philippines": []
+ "dreamweavers hotel general santos philippines": [],
+ "catbalogan philippines": [
+  {
+   "lat": 11.7753356,
+   "lon": 124.8831147,
+   "category": "boundary",
+   "type": "administrative",
+   "display_name": "Catbalogan, Samar, Eastern Visayas, 6700, Philippines"
+  }
+ ]
 }

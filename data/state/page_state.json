@@ -1,47 +1,47 @@
 {
  "_source_runs": {
-  "tcon9-site": "2026-11-17T13:20:49Z",
-  "techconnect-aideathon-site": "2026-11-17T13:20:49Z",
-  "ctftime-ph": "2026-11-17T13:20:49Z",
-  "inquirer-tech": "2026-11-17T13:20:49Z",
-  "bitpinas": "2026-11-17T13:20:49Z",
-  "bitpinas-hackathon-tag": "2026-11-17T13:20:49Z",
-  "newsbytes": "2026-11-17T13:20:49Z",
-  "tribune": "2026-11-17T13:20:49Z",
-  "mindanao-gold-star": "2026-11-17T13:20:49Z",
-  "sunstar-hackathon-tag": "2026-11-17T13:20:49Z",
-  "cebu-daily-news": "2026-11-17T13:20:49Z",
-  "the-post": "2026-11-17T13:20:49Z",
-  "insiderph": "2026-11-17T13:20:49Z",
-  "pna-home": "2026-11-17T13:20:49Z",
-  "dost-asti": "2026-11-17T13:20:49Z",
-  "devcon": "2026-11-17T13:20:49Z",
-  "circuitrocks-events": "2026-11-17T13:20:49Z",
-  "rtu": "2026-11-17T13:20:49Z",
-  "upm": "2026-11-17T13:20:49Z",
-  "national-u": "2026-11-17T13:20:49Z",
-  "feutech": "2026-11-17T13:20:49Z",
-  "slu": "2026-11-17T13:20:49Z",
-  "hau": "2026-11-17T13:20:49Z",
-  "bicol-u": "2026-11-17T13:20:49Z",
-  "cit-u": "2026-11-17T13:20:49Z",
-  "su": "2026-11-17T13:20:49Z",
-  "chmsu": "2026-11-17T13:20:49Z",
-  "antique-spride": "2026-11-17T13:20:49Z",
-  "gsu-cst": "2026-11-17T13:20:49Z",
-  "uptacloban": "2026-11-17T13:20:49Z",
-  "vsu": "2026-11-17T13:20:49Z",
-  "adzu": "2026-11-17T13:20:49Z",
-  "imcc": "2026-11-17T13:20:49Z",
-  "upmin": "2026-11-17T13:20:49Z",
-  "usep-ic": "2026-11-17T13:20:49Z",
-  "usm": "2026-11-17T13:20:49Z",
-  "ndmc": "2026-11-17T13:20:49Z",
-  "carsu": "2026-11-17T13:20:49Z"
+  "tcon9-site": "2026-11-17T22:20:03Z",
+  "techconnect-aideathon-site": "2026-11-17T22:20:03Z",
+  "ctftime-ph": "2026-11-17T22:20:03Z",
+  "inquirer-tech": "2026-11-17T22:20:03Z",
+  "bitpinas": "2026-11-17T22:20:03Z",
+  "bitpinas-hackathon-tag": "2026-11-17T22:20:03Z",
+  "newsbytes": "2026-11-17T22:20:03Z",
+  "tribune": "2026-11-17T22:20:03Z",
+  "mindanao-gold-star": "2026-11-17T22:20:03Z",
+  "sunstar-hackathon-tag": "2026-11-17T22:20:03Z",
+  "cebu-daily-news": "2026-11-17T22:20:03Z",
+  "the-post": "2026-11-17T22:20:03Z",
+  "insiderph": "2026-11-17T22:20:03Z",
+  "pna-home": "2026-11-17T22:20:03Z",
+  "dost-asti": "2026-11-17T22:20:03Z",
+  "devcon": "2026-11-17T22:20:03Z",
+  "circuitrocks-events": "2026-11-17T22:20:03Z",
+  "rtu": "2026-11-17T22:20:03Z",
+  "upm": "2026-11-17T22:20:03Z",
+  "national-u": "2026-11-17T22:20:03Z",
+  "feutech": "2026-11-17T22:20:03Z",
+  "slu": "2026-11-17T22:20:03Z",
+  "hau": "2026-11-17T22:20:03Z",
+  "bicol-u": "2026-11-17T22:20:03Z",
+  "cit-u": "2026-11-17T22:20:03Z",
+  "su": "2026-11-17T22:20:03Z",
+  "chmsu": "2026-11-17T22:20:03Z",
+  "antique-spride": "2026-11-17T22:20:03Z",
+  "gsu-cst": "2026-11-17T22:20:03Z",
+  "uptacloban": "2026-11-17T22:20:03Z",
+  "vsu": "2026-11-17T22:20:03Z",
+  "adzu": "2026-11-17T22:20:03Z",
+  "imcc": "2026-11-17T22:20:03Z",
+  "upmin": "2026-11-17T22:20:03Z",
+  "usep-ic": "2026-11-17T22:20:03Z",
+  "usm": "2026-11-17T22:20:03Z",
+  "ndmc": "2026-11-17T22:20:03Z",
+  "carsu": "2026-11-17T22:20:03Z"
  },
  "_sites": {
   "ctftime-ph": {
-   "fetched_at": "2026-11-17T03:49:52Z"
+   "fetched_at": "2026-11-17T22:20:03Z"
   },
   "newsbytes": {
    "home_at": "2026-11-17T13:20:49Z",
@@ -97,7 +97,7 @@
    "feeds": []
   },
   "circuitrocks-events": {
-   "home_at": "2026-11-16T20:26:53Z",
+   "home_at": "2026-11-17T22:20:03Z",
    "wordpress": true,
    "feeds": [
     "https://event.circuit.rocks/feed/"
@@ -105,44 +105,45 @@
    "search_at": "2026-11-17T13:20:49Z"
   },
   "rtu": {
-   "home_at": "2026-11-16T20:26:53Z",
-   "wordpress": false,
-   "feeds": [],
-   "search_at": "2026-11-16T09:37:27Z"
+   "home_at": "2026-11-17T22:20:03Z",
+   "wordpress": true,
+   "feeds": [
+    "https://www.rtu.edu.ph/feed/"
+   ],
+   "search_at": "2026-11-17T22:20:03Z"
   },
   "upm": {
-   "home_at": "2026-11-16T20:26:53Z",
+   "home_at": "2026-11-17T22:20:03Z",
    "wordpress": true,
    "feeds": [
     "https://www.upm.edu.ph/feed/"
    ],
-   "search_at": "2026-11-16T20:26:53Z",
-   "home_error": "https://www.upm.edu.ph/: robots.txt could not be read"
+   "search_at": "2026-11-17T22:20:03Z"
   },
   "national-u": {
-   "home_at": "2026-11-16T20:26:53Z",
+   "home_at": "2026-11-17T22:20:03Z",
    "home_error": "https://www.national-u.edu.ph/: HTTP 403"
   },
   "feutech": {
-   "home_at": "2026-11-16T20:26:53Z",
+   "home_at": "2026-11-17T22:20:03Z",
    "wordpress": false,
    "feeds": []
   },
   "slu": {
-   "home_at": "2026-11-16T20:26:53Z",
+   "home_at": "2026-11-17T22:20:03Z",
    "wordpress": true,
    "feeds": [
     "https://www.slu.edu.ph/feed/"
    ],
-   "search_at": "2026-11-16T20:26:53Z"
+   "search_at": "2026-11-17T22:20:03Z"
   },
   "hau": {
-   "home_at": "2026-11-16T20:26:53Z",
+   "home_at": "2026-11-17T22:20:03Z",
    "wordpress": false,
    "feeds": []
   },
   "bicol-u": {
-   "home_at": "2026-11-16T20:26:53Z",
+   "home_at": "2026-11-17T22:20:03Z",
    "wordpress": true,
    "feeds": [
     "https://bicol-u.edu.ph/feed/"
@@ -172,7 +173,7 @@
    "feeds": [
     "https://www.antiquespride.edu.ph/feed/"
    ],
-   "search_at": "2026-11-16T20:26:53Z"
+   "search_at": "2026-11-17T22:20:03Z"
   },
   "gsu-cst": {
    "home_at": "2026-11-17T03:49:52Z",
@@ -180,7 +181,7 @@
    "feeds": [
     "https://cst.gsu.edu.ph/feed/"
    ],
-   "search_at": "2026-11-16T20:26:53Z"
+   "search_at": "2026-11-17T22:20:03Z"
   },
   "uptacloban": {
    "home_at": "2026-11-17T03:49:52Z",
@@ -188,7 +189,7 @@
    "feeds": [
     "https://www.uptacloban.edu.ph/feed/"
    ],
-   "search_at": "2026-11-16T20:26:53Z"
+   "search_at": "2026-11-17T22:20:03Z"
   },
   "vsu": {
    "home_at": "2026-11-17T03:49:52Z",
@@ -201,7 +202,7 @@
    "feeds": [
     "https://adzu.edu.ph/feed/"
    ],
-   "search_at": "2026-11-16T20:26:53Z"
+   "search_at": "2026-11-17T22:20:03Z"
   },
   "imcc": {
    "home_at": "2026-11-15T21:46:28Z",
@@ -209,7 +210,7 @@
    "feeds": [
     "https://imcc.edu.ph/feed/"
    ],
-   "search_at": "2026-11-16T20:26:53Z"
+   "search_at": "2026-11-17T22:20:03Z"
   },
   "upmin": {
    "home_at": "2026-11-15T21:46:28Z",
@@ -298,8 +299,8 @@
    ]
   },
   "https://www.uptacloban.edu.ph/up-tacloban-conquers-the-2026-rscene-48-hour-hackathon/": {
-   "hash": "40acd59c2abd2c39",
-   "at": "2026-11-16T20:26:53Z",
+   "hash": "9dec15bf40a3a4ef",
+   "at": "2026-11-17T22:20:03Z",
    "events": [
     {
      "name": "2026 rSCENE 48-hour Hackathon",
@@ -316,16 +317,17 @@
      "deadline": "2026-10-06T00:00:00+08:00",
      "deadline_is_estimate": true,
      "eligibility": null,
-     "themes": [],
-     "prize": null,
+     "themes": [
+      "water security",
+      "smart communities"
+     ],
+     "prize": "Champions",
      "registration_url": "https://www.uptacloban.edu.ph/up-tacloban-conquers-the-2026-rscene-48-hour-hackathon/",
      "official_url": "https://www.uptacloban.edu.ph/up-tacloban-conquers-the-2026-rscene-48-hour-hackathon/",
-     "registration_closed": null,
+     "registration_closed": true,
      "category": "hackathon",
-     "results": "UP Tacloban team (Honey Joy B. Mora, Desirre Bless I. Barbosa, and Rolf Genree L. Garces) won the 48‐Hour Hackathon.",
-     "ai_checks": [
-      "province 'Samar' dropped: not in the page text"
-     ],
+     "results": "UP Tacloban students Honey Joy B. Mora, Desirre Bless I. Barbosa, and Rolf Genree L. Garces emerged as champions with their project PIA WaterBack.",
+     "ai_checks": null,
      "extraction": "llm"
     }
    ]
@@ -859,7 +861,7 @@
   "found": 1
  },
  "https://www.uptacloban.edu.ph/up-tacloban-conquers-the-2026-rscene-48-hour-hackathon/": {
-  "checked": "2026-11-16T20:26:53Z",
+  "checked": "2026-11-17T22:20:03Z",
   "found": 1
  },
  "https://su.edu.ph/news/su-places-third-in-hackforgov-5-nir-regional-competition/": {
@@ -935,7 +937,7 @@
   "found": 0
  },
  "https://imcc.edu.ph/college-of-computer-studies-brings-home-overall-championship-in-cyber-skills-challenge-2026/": {
-  "checked": "2026-11-16T20:26:53Z",
+  "checked": "2026-11-17T22:20:03Z",
   "found": 1
  },
  "https://www.uptacloban.edu.ph/up-tacloban-holds-chancellorship-turnover-ceremony/": {
@@ -987,7 +989,7 @@
   "found": 0
  },
  "https://www.slu.edu.ph/2026/08/27/slu-reclaims-crown-at-the-hackforgov-5-cordillera-regional-competition/": {
-  "checked": "2026-11-16T20:26:53Z",
+  "checked": "2026-11-17T22:20:03Z",
   "found": 1
  },
  "https://www.slu.edu.ph/2026/10/16/slu-students-win-all-categories-of-dost-cordi-inspire-regional-innovation-challenge/": {
@@ -1053,19 +1055,19 @@
   }
  },
  "https://www.feutech.edu.ph/content/features/feu-tech-crowned-champion-at-national-cybersecurity-ctf-tournament": {
-  "checked": "2026-11-16T20:26:53Z",
+  "checked": "2026-11-17T22:20:03Z",
   "found": 2
  },
  "https://www.feutech.edu.ph/content/features/feu-tech-students-are-champions-of-digitalization-at-bpi-data-wave-2025": {
-  "checked": "2026-11-16T20:26:53Z",
+  "checked": "2026-11-17T22:20:03Z",
   "found": 1
  },
  "https://www.feutech.edu.ph/content/features/engineering-students-emerge-as-champions-in-1st-hackathon-competition-of-usher-technologies": {
-  "checked": "2026-11-16T20:26:53Z",
+  "checked": "2026-11-17T22:20:03Z",
   "found": 1
  },
  "https://www.feutech.edu.ph/content/features/5-study-hacks-perfect-for-college-students": {
-  "checked": "2026-11-16T20:26:53Z",
+  "checked": "2026-11-17T22:20:03Z",
   "found": 0
  },
  "https://mindanaogoldstardaily.com/msu-gensans-pwngenius-wins-region-xii-hackforgov-2026-grand-championship": {

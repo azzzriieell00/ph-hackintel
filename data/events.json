@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-17T13:20:49Z",
+ "generated_at": "2026-11-17T22:20:03Z",
  "generator": "PH HackIntel pipeline 2.0",
  "offline_run": false,
  "llm_enabled": true,
@@ -10,8 +10,8 @@
    {
     "provider": "gemini",
     "model": "models/gemini-3.5-flash-lite",
-    "requests_this_run": 2,
-    "requests_today": 2,
+    "requests_this_run": 1,
+    "requests_today": 3,
     "paused_until": null,
     "skipped": null
    },
@@ -40,8 +40,8 @@
     "skipped": null
    }
   ],
-  "requests_this_run": 2,
-  "requests_today": 2,
+  "requests_this_run": 1,
+  "requests_today": 3,
   "daily_cap": 120,
   "stopped": null
  },
@@ -51,13 +51,13 @@
   "sources_skipped": 0,
   "pages_opened": 7,
   "queued_from_earlier": 0,
-  "links_considered": 10,
-  "duration_s": 212.3,
+  "links_considered": 12,
+  "duration_s": 278.5,
   "pending_links": 0,
-  "feeds_known": 19,
-  "ai_pages_read": 2,
-  "ai_cache_hits": 5,
-  "candidates": 13
+  "feeds_known": 20,
+  "ai_pages_read": 1,
+  "ai_cache_hits": 8,
+  "candidates": 16
  },
  "sources": [
   {
@@ -99,7 +99,7 @@
    "url": "https://ctftime.org/api/v1/events/",
    "errors": [],
    "notes": [
-    "not due yet; events from the last read are carried over"
+    "92 CTFs listed in the window, 0 onsite in the Philippines"
    ],
    "found": 0,
    "pages": 0,
@@ -164,12 +164,10 @@
    "type": "site",
    "url": "https://newsbytes.ph/",
    "errors": [],
-   "notes": [
-    "site search seems to ignore the query; only matching headlines kept"
-   ],
-   "found": 1,
-   "pages": 1,
-   "ai_read": 1,
+   "notes": [],
+   "found": 0,
+   "pages": 0,
+   "ai_read": 0,
    "ai_cache_hits": 0,
    "deferred": 0,
    "feeds": [
@@ -177,7 +175,7 @@
    ],
    "ok": true,
    "needs_llm": 0,
-   "leads": 2
+   "leads": 0
   },
   {
    "id": "tribune",
@@ -207,9 +205,9 @@
    "notes": [
     "no feed found; reading homepage links once a day"
    ],
-   "found": 1,
-   "pages": 1,
-   "ai_read": 1,
+   "found": 0,
+   "pages": 0,
+   "ai_read": 0,
    "ai_cache_hits": 0,
    "deferred": 0,
    "feeds": [],
@@ -225,11 +223,10 @@
    "errors": [],
    "notes": [],
    "found": 0,
-   "pages": 2,
+   "pages": 0,
    "ai_read": 0,
    "ai_cache_hits": 0,
    "deferred": 0,
-   "old_pages_skipped": 2,
    "ok": true,
    "needs_llm": 0,
    "leads": 0
@@ -242,9 +239,7 @@
    "errors": [
     "https://cebudailynews.inquirer.net/feed/: HTTP 403"
    ],
-   "notes": [
-    "site search seems to ignore the query; only matching headlines kept"
-   ],
+   "notes": [],
    "found": 0,
    "pages": 0,
    "ai_read": 0,
@@ -319,12 +314,9 @@
    "type": "site",
    "url": "https://asti.dost.gov.ph/",
    "errors": [
-    "https://asti.dost.gov.ph/: robots.txt could not be read",
     "https://asti.dost.gov.ph/feed/: robots.txt could not be read"
    ],
-   "notes": [
-    "site search skipped: robots.txt could not be read"
-   ],
+   "notes": [],
    "found": 0,
    "pages": 0,
    "ai_read": 0,
@@ -381,15 +373,15 @@
    "type": "site",
    "url": "https://www.rtu.edu.ph/",
    "errors": [],
-   "notes": [
-    "no feed found; reading homepage links once a day"
-   ],
+   "notes": [],
    "found": 0,
    "pages": 0,
    "ai_read": 0,
    "ai_cache_hits": 0,
    "deferred": 0,
-   "feeds": [],
+   "feeds": [
+    "https://www.rtu.edu.ph/feed/"
+   ],
    "ok": true,
    "needs_llm": 0,
    "leads": 0
@@ -418,7 +410,9 @@
    "name": "National University",
    "type": "site",
    "url": "https://www.national-u.edu.ph/",
-   "errors": [],
+   "errors": [
+    "https://www.national-u.edu.ph/: HTTP 403"
+   ],
    "notes": [],
    "found": 0,
    "pages": 0,
@@ -426,7 +420,7 @@
    "ai_cache_hits": 0,
    "deferred": 0,
    "feeds": [],
-   "ok": true,
+   "ok": false,
    "needs_llm": 0,
    "leads": 0
   },
@@ -439,10 +433,10 @@
    "notes": [
     "no feed found; reading homepage links once a day"
    ],
-   "found": 0,
-   "pages": 0,
+   "found": 4,
+   "pages": 4,
    "ai_read": 0,
-   "ai_cache_hits": 0,
+   "ai_cache_hits": 4,
    "deferred": 0,
    "feeds": [],
    "ok": true,
@@ -455,18 +449,20 @@
    "type": "site",
    "url": "https://www.slu.edu.ph/",
    "errors": [],
-   "notes": [],
-   "found": 0,
-   "pages": 0,
+   "notes": [
+    "site search seems to ignore the query; only matching headlines kept"
+   ],
+   "found": 1,
+   "pages": 1,
    "ai_read": 0,
-   "ai_cache_hits": 0,
+   "ai_cache_hits": 1,
    "deferred": 0,
    "feeds": [
     "https://www.slu.edu.ph/feed/"
    ],
    "ok": true,
    "needs_llm": 0,
-   "leads": 0
+   "leads": 1
   },
   {
    "id": "hau",
@@ -493,13 +489,11 @@
    "type": "site",
    "url": "https://bicol-u.edu.ph/",
    "errors": [],
-   "notes": [
-    "site search seems to ignore the query; only matching headlines kept"
-   ],
+   "notes": [],
    "found": 0,
-   "pages": 1,
+   "pages": 0,
    "ai_read": 0,
-   "ai_cache_hits": 1,
+   "ai_cache_hits": 0,
    "deferred": 0,
    "feeds": [
     "https://bicol-u.edu.ph/feed/"
@@ -515,17 +509,17 @@
    "url": "https://cit.edu/",
    "errors": [],
    "notes": [],
-   "found": 2,
-   "pages": 2,
+   "found": 0,
+   "pages": 0,
    "ai_read": 0,
-   "ai_cache_hits": 2,
+   "ai_cache_hits": 0,
    "deferred": 0,
    "feeds": [
     "https://cit.edu/feed/"
    ],
    "ok": true,
    "needs_llm": 0,
-   "leads": 2
+   "leads": 1
   },
   {
    "id": "su",
@@ -569,7 +563,9 @@
    "type": "site",
    "url": "https://www.antiquespride.edu.ph/",
    "errors": [],
-   "notes": [],
+   "notes": [
+    "site search seems to ignore the query; only matching headlines kept"
+   ],
    "found": 0,
    "pages": 0,
    "ai_read": 0,
@@ -607,10 +603,12 @@
    "type": "site",
    "url": "https://www.uptacloban.edu.ph/",
    "errors": [],
-   "notes": [],
-   "found": 0,
-   "pages": 0,
-   "ai_read": 0,
+   "notes": [
+    "site search seems to ignore the query; only matching headlines kept"
+   ],
+   "found": 1,
+   "pages": 1,
+   "ai_read": 1,
    "ai_cache_hits": 0,
    "deferred": 0,
    "feeds": [
@@ -618,7 +616,7 @@
    ],
    "ok": true,
    "needs_llm": 0,
-   "leads": 1
+   "leads": 2
   },
   {
    "id": "vsu",
@@ -665,10 +663,10 @@
    "url": "https://imcc.edu.ph/",
    "errors": [],
    "notes": [],
-   "found": 0,
-   "pages": 0,
+   "found": 1,
+   "pages": 1,
    "ai_read": 0,
-   "ai_cache_hits": 0,
+   "ai_cache_hits": 1,
    "deferred": 0,
    "feeds": [
     "https://imcc.edu.ph/feed/"
@@ -810,10 +808,10 @@
    "extraction": "manual",
    "source_id": "manual",
    "first_seen": "2026-11-03T00:48:31Z",
-   "last_verified": "2026-11-17T13:20:49Z",
+   "last_verified": "2026-11-17T22:20:03Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
-   "last_seen": "2026-11-17T13:20:49Z",
+   "last_seen": "2026-11-17T22:20:03Z",
    "lat": 13.7565,
    "lon": 121.0583,
    "precision": "CITY",
@@ -874,10 +872,10 @@
    "extraction": "manual",
    "source_id": "manual",
    "first_seen": "2026-11-05T06:20:00Z",
-   "last_verified": "2026-11-17T13:20:49Z",
+   "last_verified": "2026-11-17T22:20:03Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
-   "last_seen": "2026-11-17T13:20:49Z",
+   "last_seen": "2026-11-17T22:20:03Z",
    "lat": 14.676,
    "lon": 121.0437,
    "precision": "CITY",
@@ -940,10 +938,10 @@
    "extraction": "manual",
    "source_id": "manual",
    "first_seen": "2026-11-03T00:48:31Z",
-   "last_verified": "2026-11-17T13:20:49Z",
+   "last_verified": "2026-11-17T22:20:03Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
-   "last_seen": "2026-11-17T13:20:49Z",
+   "last_seen": "2026-11-17T22:20:03Z",
    "lat": 16.42929,
    "lon": 120.59504,
    "precision": "EXACT",
@@ -1044,7 +1042,8 @@
       "pin is inside the province the source names"
      ]
     ]
-   }
+   },
+   "carried_over": true
   },
   {
    "name": "Region XII HackForGov 2026",
@@ -1152,7 +1151,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-17T13:20:49Z",
+   "last_seen": "2026-11-17T22:20:03Z",
    "lat": 13.4467,
    "lon": 121.8399,
    "precision": "CITY",
@@ -1255,7 +1254,8 @@
       "results reported"
      ]
     ]
-   }
+   },
+   "carried_over": true
   },
   {
    "id": "cyber-skills-challenge-iligan-2026",
@@ -1288,7 +1288,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-17T13:20:49Z",
+   "last_seen": "2026-11-17T22:20:03Z",
    "lat": 8.228,
    "lon": 124.2452,
    "precision": "CITY",
@@ -1356,7 +1356,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-17T13:20:49Z",
+   "last_seen": "2026-11-17T22:20:03Z",
    "lat": 13.9373,
    "lon": 121.617,
    "precision": "CITY",
@@ -1427,7 +1427,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-17T13:20:49Z",
+   "last_seen": "2026-11-17T22:20:03Z",
    "lat": 10.61216,
    "lon": 122.92613,
    "precision": "EXACT",
@@ -1486,16 +1486,17 @@
    "deadline": "2026-10-06T00:00:00+08:00",
    "deadline_is_estimate": true,
    "eligibility": null,
-   "themes": [],
-   "prize": null,
+   "themes": [
+    "water security",
+    "smart communities"
+   ],
+   "prize": "Champions",
    "registration_url": "https://www.uptacloban.edu.ph/up-tacloban-conquers-the-2026-rscene-48-hour-hackathon/",
    "official_url": "https://www.uptacloban.edu.ph/up-tacloban-conquers-the-2026-rscene-48-hour-hackathon/",
-   "registration_closed": null,
+   "registration_closed": true,
    "category": "hackathon",
-   "results": "UP Tacloban team (Honey Joy B. Mora, Desirre Bless I. Barbosa, and Rolf Genree L. Garces) won the 48‐Hour Hackathon.",
-   "ai_checks": [
-    "province 'Samar' dropped: not in the page text"
-   ],
+   "results": "UP Tacloban students Honey Joy B. Mora, Desirre Bless I. Barbosa, and Rolf Genree L. Garces emerged as champions with their project PIA WaterBack.",
+   "ai_checks": null,
    "extraction": "llm",
    "source_id": "uptacloban",
    "sources": [
@@ -1509,7 +1510,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-16T20:26:53Z",
+   "last_seen": "2026-11-17T22:20:03Z",
    "precision": "CITY",
    "location_source": "nominatim",
    "location_check": "PROVINCE_FROM_MAP",
@@ -1517,16 +1518,12 @@
    "phase": "finished",
    "corroboration": 1,
    "confidence": {
-    "score": 35,
+    "score": 40,
     "level": "LOW",
     "reasons": [
      [
       15,
       "read by AI from the page text, then checked"
-     ],
-     [
-      -5,
-      "some AI-read details failed the checks and were dropped"
      ],
      [
       20,
@@ -1537,8 +1534,7 @@
       "results reported"
      ]
     ]
-   },
-   "carried_over": true
+   }
   },
   {
    "id": "cyber-hunt-ctf-league-zamboanga-2026",
@@ -1572,7 +1568,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-17T13:20:49Z",
+   "last_seen": "2026-11-17T22:20:03Z",
    "lat": 6.9214,
    "lon": 122.079,
    "precision": "CITY",
@@ -1651,7 +1647,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-17T13:20:49Z",
+   "last_seen": "2026-11-17T22:20:03Z",
    "lat": 8.94627,
    "lon": 125.52941,
    "precision": "EXACT",
@@ -1691,139 +1687,6 @@
     ]
    },
    "hold_reason": "finished more than 62 days ago"
-  },
-  {
-   "name": "ASEAN AI Hackathon",
-   "organizer": null,
-   "mode": "unspecified",
-   "venue": null,
-   "city": null,
-   "province": null,
-   "country": "Philippines",
-   "lat": null,
-   "lon": null,
-   "start": null,
-   "end": null,
-   "deadline": null,
-   "deadline_is_estimate": true,
-   "eligibility": null,
-   "themes": [
-    "Artificial Intelligence",
-    "Student Innovation"
-   ],
-   "prize": null,
-   "registration_url": "https://cit.edu/2026/08/21/asean-ai-hackathon-champion-cit-u/",
-   "official_url": "https://cit.edu/2026/08/21/asean-ai-hackathon-champion-cit-u/",
-   "registration_closed": null,
-   "category": "hackathon",
-   "results": "Team CIT-U Shane-nanigans emerged as the champion.",
-   "ai_checks": null,
-   "extraction": "llm",
-   "source_id": "cit-u",
-   "sources": [
-    {
-     "label": "Cebu Institute of Technology - University",
-     "url": "https://cit.edu/2026/08/21/asean-ai-hackathon-champion-cit-u/"
-    }
-   ],
-   "id": "asean-ai-hackathon-23e39c",
-   "first_seen": "2026-11-03T00:48:31Z",
-   "last_verified": "2026-11-17T13:20:49Z",
-   "link_failures": 0,
-   "link_status": "HTTP 200",
-   "last_seen": "2026-11-17T13:20:49Z",
-   "precision": "NONE",
-   "location_check": "NO_LOCATION",
-   "is_new": false,
-   "phase": "upcoming",
-   "corroboration": 1,
-   "confidence": {
-    "score": 25,
-    "level": "LOW",
-    "reasons": [
-     [
-      15,
-      "read by AI from the page text, then checked"
-     ],
-     [
-      20,
-      "official link answered in the last 72 hours"
-     ],
-     [
-      -10,
-      "no registration deadline stated"
-     ]
-    ]
-   },
-   "hold_reason": "no deadline or event date"
-  },
-  {
-   "name": "Can You HackIT 2026 Cebu",
-   "organizer": null,
-   "mode": "unspecified",
-   "venue": null,
-   "city": "Cebu",
-   "province": "Cebu",
-   "country": "Philippines",
-   "lat": 10.3157,
-   "lon": 123.8854,
-   "start": null,
-   "end": null,
-   "deadline": null,
-   "deadline_is_estimate": true,
-   "eligibility": "Students",
-   "themes": [
-    "Resilient Systems",
-    "Intelligent Rural Transportation Access",
-    "Civic Access and Opportunity Platforms",
-    "Transparent and Accountable Systems"
-   ],
-   "prize": null,
-   "registration_url": "https://cit.edu/2026/08/20/can-you-hackit-2026-cebu/",
-   "official_url": "https://cit.edu/2026/08/20/can-you-hackit-2026-cebu/",
-   "registration_closed": true,
-   "category": "hackathon",
-   "results": "Exelia (Cebu Technological University – Main Campus) won first place, L1ghtbyte (CIT-U) won second place, and Undefined (University of Cebu – South Campus) took third place.",
-   "ai_checks": null,
-   "extraction": "llm",
-   "source_id": "cit-u",
-   "sources": [
-    {
-     "label": "Cebu Institute of Technology - University",
-     "url": "https://cit.edu/2026/08/20/can-you-hackit-2026-cebu/"
-    }
-   ],
-   "id": "can-you-hackit-2026-cebu-95f618",
-   "first_seen": "2026-11-03T00:48:31Z",
-   "last_verified": "2026-11-17T13:20:49Z",
-   "link_failures": 0,
-   "link_status": "HTTP 200",
-   "last_seen": "2026-11-17T13:20:49Z",
-   "precision": "CITY",
-   "location_source": "gazetteer",
-   "location_check": "PROVINCE_FROM_MAP",
-   "is_new": false,
-   "phase": "upcoming",
-   "corroboration": 1,
-   "confidence": {
-    "score": 25,
-    "level": "LOW",
-    "reasons": [
-     [
-      15,
-      "read by AI from the page text, then checked"
-     ],
-     [
-      20,
-      "official link answered in the last 72 hours"
-     ],
-     [
-      -10,
-      "no registration deadline stated"
-     ]
-    ]
-   },
-   "hold_reason": "no deadline or event date"
   },
   {
    "name": "Cybersecurity Capture the Flag (CTF) University Tournament",
@@ -1866,7 +1729,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-16T20:26:53Z",
+   "last_seen": "2026-11-17T22:20:03Z",
    "precision": "NONE",
    "location_check": "UNRESOLVED",
    "is_new": false,
@@ -1894,8 +1757,7 @@
      ]
     ]
    },
-   "hold_reason": "finished more than 62 days ago",
-   "carried_over": true
+   "hold_reason": "finished more than 62 days ago"
   },
   {
    "name": "AI Hackathon",
@@ -1935,7 +1797,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-16T20:26:53Z",
+   "last_seen": "2026-11-17T22:20:03Z",
    "precision": "NONE",
    "location_check": "NO_LOCATION",
    "is_new": false,
@@ -1955,8 +1817,7 @@
      ]
     ]
    },
-   "hold_reason": "finished more than 62 days ago",
-   "carried_over": true
+   "hold_reason": "finished more than 62 days ago"
   },
   {
    "name": "BPI D.A.T.A. Wave Hackathon & Summit 2025",
@@ -1997,10 +1858,10 @@
    ],
    "id": "bpi-d-a-t-a-wave-hackathon-summit-2025-41f2e4",
    "first_seen": "2026-11-11T06:11:20Z",
-   "last_verified": "2026-11-17T13:20:49Z",
+   "last_verified": "2026-11-17T22:20:03Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
-   "last_seen": "2026-11-16T20:26:53Z",
+   "last_seen": "2026-11-17T22:20:03Z",
    "precision": "NONE",
    "location_check": "NO_LOCATION",
    "is_new": false,
@@ -2024,8 +1885,7 @@
      ]
     ]
    },
-   "hold_reason": "no deadline or event date",
-   "carried_over": true
+   "hold_reason": "no deadline or event date"
   },
   {
    "name": "Usher Technologies' 1st Hackathon Competition",
@@ -2067,10 +1927,10 @@
    ],
    "id": "usher-technologies-1st-hackathon-competition-88c1ff",
    "first_seen": "2026-11-11T06:11:20Z",
-   "last_verified": "2026-11-17T13:20:49Z",
+   "last_verified": "2026-11-17T22:20:03Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
-   "last_seen": "2026-11-16T20:26:53Z",
+   "last_seen": "2026-11-17T22:20:03Z",
    "precision": "NONE",
    "location_check": "N/A",
    "is_new": false,
@@ -2098,8 +1958,7 @@
      ]
     ]
    },
-   "hold_reason": "no deadline or event date",
-   "carried_over": true
+   "hold_reason": "no deadline or event date"
   },
   {
    "name": "HackForGov 5 – Cordillera Regional Competition",
@@ -2145,7 +2004,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-16T20:26:53Z",
+   "last_seen": "2026-11-17T22:20:03Z",
    "precision": "EXACT",
    "location_source": "nominatim",
    "location_check": "PROVINCE_FROM_MAP",
@@ -2178,7 +2037,141 @@
      ]
     ]
    },
-   "hold_reason": "finished more than 62 days ago",
+   "hold_reason": "finished more than 62 days ago"
+  },
+  {
+   "name": "ASEAN AI Hackathon",
+   "organizer": null,
+   "mode": "unspecified",
+   "venue": null,
+   "city": null,
+   "province": null,
+   "country": "Philippines",
+   "lat": null,
+   "lon": null,
+   "start": null,
+   "end": null,
+   "deadline": null,
+   "deadline_is_estimate": true,
+   "eligibility": null,
+   "themes": [
+    "Artificial Intelligence",
+    "Student Innovation"
+   ],
+   "prize": null,
+   "registration_url": "https://cit.edu/2026/08/21/asean-ai-hackathon-champion-cit-u/",
+   "official_url": "https://cit.edu/2026/08/21/asean-ai-hackathon-champion-cit-u/",
+   "registration_closed": null,
+   "category": "hackathon",
+   "results": "Team CIT-U Shane-nanigans emerged as the champion.",
+   "ai_checks": null,
+   "extraction": "llm",
+   "source_id": "cit-u",
+   "sources": [
+    {
+     "label": "Cebu Institute of Technology - University",
+     "url": "https://cit.edu/2026/08/21/asean-ai-hackathon-champion-cit-u/"
+    }
+   ],
+   "id": "asean-ai-hackathon-23e39c",
+   "first_seen": "2026-11-03T00:48:31Z",
+   "last_verified": "2026-11-17T22:20:03Z",
+   "link_failures": 0,
+   "link_status": "HTTP 200",
+   "last_seen": "2026-11-17T13:20:49Z",
+   "precision": "NONE",
+   "location_check": "NO_LOCATION",
+   "is_new": false,
+   "phase": "upcoming",
+   "corroboration": 1,
+   "confidence": {
+    "score": 25,
+    "level": "LOW",
+    "reasons": [
+     [
+      15,
+      "read by AI from the page text, then checked"
+     ],
+     [
+      20,
+      "official link answered in the last 72 hours"
+     ],
+     [
+      -10,
+      "no registration deadline stated"
+     ]
+    ]
+   },
+   "hold_reason": "no deadline or event date",
+   "carried_over": true
+  },
+  {
+   "name": "Can You HackIT 2026 Cebu",
+   "organizer": null,
+   "mode": "unspecified",
+   "venue": null,
+   "city": "Cebu",
+   "province": "Cebu",
+   "country": "Philippines",
+   "lat": 10.3157,
+   "lon": 123.8854,
+   "start": null,
+   "end": null,
+   "deadline": null,
+   "deadline_is_estimate": true,
+   "eligibility": "Students",
+   "themes": [
+    "Resilient Systems",
+    "Intelligent Rural Transportation Access",
+    "Civic Access and Opportunity Platforms",
+    "Transparent and Accountable Systems"
+   ],
+   "prize": null,
+   "registration_url": "https://cit.edu/2026/08/20/can-you-hackit-2026-cebu/",
+   "official_url": "https://cit.edu/2026/08/20/can-you-hackit-2026-cebu/",
+   "registration_closed": true,
+   "category": "hackathon",
+   "results": "Exelia (Cebu Technological University – Main Campus) won first place, L1ghtbyte (CIT-U) won second place, and Undefined (University of Cebu – South Campus) took third place.",
+   "ai_checks": null,
+   "extraction": "llm",
+   "source_id": "cit-u",
+   "sources": [
+    {
+     "label": "Cebu Institute of Technology - University",
+     "url": "https://cit.edu/2026/08/20/can-you-hackit-2026-cebu/"
+    }
+   ],
+   "id": "can-you-hackit-2026-cebu-95f618",
+   "first_seen": "2026-11-03T00:48:31Z",
+   "last_verified": "2026-11-17T22:20:03Z",
+   "link_failures": 0,
+   "link_status": "HTTP 200",
+   "last_seen": "2026-11-17T13:20:49Z",
+   "precision": "CITY",
+   "location_source": "gazetteer",
+   "location_check": "PROVINCE_FROM_MAP",
+   "is_new": false,
+   "phase": "upcoming",
+   "corroboration": 1,
+   "confidence": {
+    "score": 25,
+    "level": "LOW",
+    "reasons": [
+     [
+      15,
+      "read by AI from the page text, then checked"
+     ],
+     [
+      20,
+      "official link answered in the last 72 hours"
+     ],
+     [
+      -10,
+      "no registration deadline stated"
+     ]
+    ]
+   },
+   "hold_reason": "no deadline or event date",
    "carried_over": true
   },
   {
@@ -2292,7 +2285,7 @@
    "id": "ph-s-biggest-5g-hackathon-41197d",
    "first_seen": "2026-11-03T00:48:31Z",
    "last_verified": null,
-   "link_failures": 54,
+   "link_failures": 55,
    "link_status": "HTTP 404",
    "last_seen": "2026-11-04T01:19:57Z",
    "precision": "NONE",
@@ -2314,7 +2307,7 @@
      ],
      [
       -10,
-      "official link failed 54 check(s)"
+      "official link failed 55 check(s)"
      ],
      [
       -10,
@@ -2368,7 +2361,7 @@
    ],
    "id": "decode-tomorrow-the-aboitiz-future-challenge-hackathon-b02b49",
    "first_seen": "2026-11-03T00:48:31Z",
-   "last_verified": "2026-11-17T13:20:49Z",
+   "last_verified": "2026-11-17T22:20:03Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
    "last_seen": "2026-11-04T01:19:57Z",
@@ -2444,7 +2437,7 @@
    ],
    "id": "egovph-hackathon-2026-4fb323",
    "first_seen": "2026-11-03T00:48:31Z",
-   "last_verified": "2026-11-17T13:20:49Z",
+   "last_verified": "2026-11-17T22:20:03Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
    "last_seen": "2026-11-04T01:19:57Z",

@@ -101,5 +101,14 @@
    "type": "administrative",
    "display_name": "Catbalogan, Samar, Eastern Visayas, 6700, Philippines"
   }
+ ],
+ "valencia bukidnon philippines": [
+  {
+   "lat": 7.9028844,
+   "lon": 125.0898033,
+   "category": "boundary",
+   "type": "administrative",
+   "display_name": "Valencia, Bukidnon, Northern Mindanao, 8709, Philippines"
+  }
  ]
 }

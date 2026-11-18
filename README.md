@@ -162,7 +162,7 @@ you saw there, run the helper and answer the questions with what the post states
 python tools/add_event.py
 ```
 
-It checks the city against the Philippine province boundaries (or asks for coordinates from
+It checks the city against the Philippine province boundarie (or asks for coordinates from
 Google Maps), builds the entry and appends it to `config/manual_events.yaml`. Then:
 
 ```bash

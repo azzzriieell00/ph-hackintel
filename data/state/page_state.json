@@ -1,98 +1,98 @@
 {
  "_source_runs": {
-  "tcon9-site": "2026-11-18T04:45:12Z",
-  "techconnect-aideathon-site": "2026-11-18T04:45:12Z",
-  "ctftime-ph": "2026-11-18T04:45:12Z",
-  "inquirer-tech": "2026-11-18T04:45:12Z",
-  "bitpinas": "2026-11-18T04:45:12Z",
-  "bitpinas-hackathon-tag": "2026-11-18T04:45:12Z",
-  "newsbytes": "2026-11-18T04:45:12Z",
-  "tribune": "2026-11-18T04:45:12Z",
-  "mindanao-gold-star": "2026-11-18T04:45:12Z",
-  "sunstar-hackathon-tag": "2026-11-18T04:45:12Z",
-  "cebu-daily-news": "2026-11-18T04:45:12Z",
-  "the-post": "2026-11-18T04:45:12Z",
-  "insiderph": "2026-11-18T04:45:12Z",
-  "pna-home": "2026-11-18T04:45:12Z",
-  "dost-asti": "2026-11-18T04:45:12Z",
-  "devcon": "2026-11-18T04:45:12Z",
-  "circuitrocks-events": "2026-11-18T04:45:12Z",
-  "rtu": "2026-11-18T04:45:12Z",
-  "upm": "2026-11-18T04:45:12Z",
-  "national-u": "2026-11-18T04:45:12Z",
-  "feutech": "2026-11-18T04:45:12Z",
-  "slu": "2026-11-18T04:45:12Z",
-  "hau": "2026-11-18T04:45:12Z",
-  "bicol-u": "2026-11-18T04:45:12Z",
-  "cit-u": "2026-11-18T04:45:12Z",
-  "su": "2026-11-18T04:45:12Z",
-  "chmsu": "2026-11-18T04:45:12Z",
-  "antique-spride": "2026-11-18T04:45:12Z",
-  "gsu-cst": "2026-11-18T04:45:12Z",
-  "uptacloban": "2026-11-18T04:45:12Z",
-  "vsu": "2026-11-18T04:45:12Z",
-  "adzu": "2026-11-18T04:45:12Z",
-  "imcc": "2026-11-18T04:45:12Z",
-  "upmin": "2026-11-18T04:45:12Z",
-  "usep-ic": "2026-11-18T04:45:12Z",
-  "usm": "2026-11-18T04:45:12Z",
-  "ndmc": "2026-11-18T04:45:12Z",
-  "carsu": "2026-11-18T04:45:12Z"
+  "tcon9-site": "2026-11-18T13:55:34Z",
+  "techconnect-aideathon-site": "2026-11-18T13:55:34Z",
+  "ctftime-ph": "2026-11-18T13:55:34Z",
+  "inquirer-tech": "2026-11-18T13:55:34Z",
+  "bitpinas": "2026-11-18T13:55:34Z",
+  "bitpinas-hackathon-tag": "2026-11-18T13:55:34Z",
+  "newsbytes": "2026-11-18T13:55:34Z",
+  "tribune": "2026-11-18T13:55:34Z",
+  "mindanao-gold-star": "2026-11-18T13:55:34Z",
+  "sunstar-hackathon-tag": "2026-11-18T13:55:34Z",
+  "cebu-daily-news": "2026-11-18T13:55:34Z",
+  "the-post": "2026-11-18T13:55:34Z",
+  "insiderph": "2026-11-18T13:55:34Z",
+  "pna-home": "2026-11-18T13:55:34Z",
+  "dost-asti": "2026-11-18T13:55:34Z",
+  "devcon": "2026-11-18T13:55:34Z",
+  "circuitrocks-events": "2026-11-18T13:55:34Z",
+  "rtu": "2026-11-18T13:55:34Z",
+  "upm": "2026-11-18T13:55:34Z",
+  "national-u": "2026-11-18T13:55:34Z",
+  "feutech": "2026-11-18T13:55:34Z",
+  "slu": "2026-11-18T13:55:34Z",
+  "hau": "2026-11-18T13:55:34Z",
+  "bicol-u": "2026-11-18T13:55:34Z",
+  "cit-u": "2026-11-18T13:55:34Z",
+  "su": "2026-11-18T13:55:34Z",
+  "chmsu": "2026-11-18T13:55:34Z",
+  "antique-spride": "2026-11-18T13:55:34Z",
+  "gsu-cst": "2026-11-18T13:55:34Z",
+  "uptacloban": "2026-11-18T13:55:34Z",
+  "vsu": "2026-11-18T13:55:34Z",
+  "adzu": "2026-11-18T13:55:34Z",
+  "imcc": "2026-11-18T13:55:34Z",
+  "upmin": "2026-11-18T13:55:34Z",
+  "usep-ic": "2026-11-18T13:55:34Z",
+  "usm": "2026-11-18T13:55:34Z",
+  "ndmc": "2026-11-18T13:55:34Z",
+  "carsu": "2026-11-18T13:55:34Z"
  },
  "_sites": {
   "ctftime-ph": {
-   "fetched_at": "2026-11-17T22:20:03Z"
+   "fetched_at": "2026-11-18T13:55:34Z"
   },
   "newsbytes": {
-   "home_at": "2026-11-17T13:20:49Z",
+   "home_at": "2026-11-18T13:55:34Z",
    "wordpress": true,
    "feeds": [
     "https://newsbytes.ph/feed/"
    ],
-   "search_at": "2026-11-17T13:20:49Z"
+   "search_at": "2026-11-18T13:55:34Z"
   },
   "tribune": {
-   "home_at": "2026-11-17T13:20:49Z",
+   "home_at": "2026-11-18T13:55:34Z",
    "wordpress": false,
    "feeds": []
   },
   "mindanao-gold-star": {
-   "home_at": "2026-11-17T13:20:49Z",
+   "home_at": "2026-11-18T13:55:34Z",
    "wordpress": false,
    "feeds": []
   },
   "cebu-daily-news": {
-   "home_at": "2026-11-17T13:20:49Z",
+   "home_at": "2026-11-18T13:55:34Z",
    "wordpress": true,
    "feeds": [
     "https://cebudailynews.inquirer.net/feed/"
    ],
-   "search_at": "2026-11-17T13:20:49Z"
+   "search_at": "2026-11-18T13:55:34Z"
   },
   "the-post": {
-   "home_at": "2026-11-17T13:20:49Z",
+   "home_at": "2026-11-18T13:55:34Z",
    "wordpress": true,
    "feeds": [
     "https://thepost.net.ph/feed/"
    ],
-   "search_at": "2026-11-17T13:20:49Z"
+   "search_at": "2026-11-18T13:55:34Z"
   },
   "insiderph": {
-   "home_at": "2026-11-17T13:20:49Z",
+   "home_at": "2026-11-18T13:55:34Z",
    "wordpress": false,
    "feeds": []
   },
   "dost-asti": {
-   "home_at": "2026-11-17T13:20:49Z",
+   "home_at": "2026-11-18T13:55:34Z",
    "wordpress": true,
    "feeds": [
     "https://asti.dost.gov.ph/feed/"
    ],
-   "search_at": "2026-11-17T13:20:49Z",
+   "search_at": "2026-11-18T13:55:34Z",
    "home_error": "https://asti.dost.gov.ph/: robots.txt could not be read"
   },
   "devcon": {
-   "home_at": "2026-11-17T13:20:49Z",
+   "home_at": "2026-11-18T13:55:34Z",
    "wordpress": false,
    "feeds": []
   },
@@ -102,7 +102,7 @@
    "feeds": [
     "https://event.circuit.rocks/feed/"
    ],
-   "search_at": "2026-11-17T13:20:49Z"
+   "search_at": "2026-11-18T13:55:34Z"
   },
   "rtu": {
    "home_at": "2026-11-17T22:20:03Z",
@@ -148,7 +148,7 @@
    "feeds": [
     "https://bicol-u.edu.ph/feed/"
    ],
-   "search_at": "2026-11-17T13:20:49Z"
+   "search_at": "2026-11-18T13:55:34Z"
   },
   "cit-u": {
    "home_at": "2026-11-18T04:17:31Z",
@@ -156,7 +156,7 @@
    "feeds": [
     "https://cit.edu/feed/"
    ],
-   "search_at": "2026-11-17T13:20:49Z"
+   "search_at": "2026-11-18T13:55:34Z"
   },
   "su": {
    "home_at": "2026-11-18T04:17:31Z",
@@ -375,8 +375,8 @@
    ]
   },
   "https://newsbytes.ph/2026/10/28/ph-cybersecurity-team-tops-2026-cyber-sea-game/?utm_source=rss&utm_medium=rss&utm_campaign=ph-cybersecurity-team-tops-2026-cyber-sea-game": {
-   "hash": "249e9c46dd883751",
-   "at": "2026-11-17T13:20:49Z",
+   "hash": "4c8e9471b998a411",
+   "at": "2026-11-18T13:55:34Z",
    "events": [
     {
      "name": "2026 Cyber SEA Game",
@@ -404,9 +404,9 @@
      "prize": null,
      "registration_url": "https://newsbytes.ph/2026/10/28/ph-cybersecurity-team-tops-2026-cyber-sea-game/?utm_source=rss&utm_medium=rss&utm_campaign=ph-cybersecurity-team-tops-2026-cyber-sea-game",
      "official_url": "https://newsbytes.ph/2026/10/28/ph-cybersecurity-team-tops-2026-cyber-sea-game/?utm_source=rss&utm_medium=rss&utm_campaign=ph-cybersecurity-team-tops-2026-cyber-sea-game",
-     "registration_closed": null,
+     "registration_closed": true,
      "category": "ctf",
-     "results": "The Philippine team won first place (champions), with Singapore as first runner-up and Malaysia as second runner-up.",
+     "results": "The Philippines won 1st place (champion), Singapore finished as first runner-up, and Malaysia placed second runner-up.",
      "ai_checks": null,
      "extraction": "llm"
     }
@@ -820,21 +820,21 @@
    "events": []
   },
   "https://mindanaogoldstardaily.com/msu-gensans-pwngenius-wins-region-xii-hackforgov-2026-grand-championship": {
-   "hash": "ce197bf4393908cc",
-   "at": "2026-11-16T09:37:27Z",
+   "hash": "01cf180904c928e3",
+   "at": "2026-11-18T13:55:34Z",
    "events": []
   },
   "https://mindanaogoldstardaily.com/valencia-nhs-students-sweep-top-spots-in-nasa-hackathon": {
-   "hash": "6928869bc59f6e9d",
-   "at": "2026-11-17T13:20:49Z",
+   "hash": "99bdbc5b2012732e",
+   "at": "2026-11-18T13:55:34Z",
    "events": [
     {
      "name": "2026 NASA Space Apps Challenge",
-     "organizer": null,
+     "organizer": "NASA",
      "mode": "unspecified",
      "venue": null,
-     "city": "Valencia",
-     "province": "Bukidnon",
+     "city": null,
+     "province": null,
      "country": "Philippines",
      "lat": null,
      "lon": null,
@@ -842,7 +842,7 @@
      "end": "2026-11-15T00:00:00+08:00",
      "deadline": "2026-11-14T00:00:00+08:00",
      "deadline_is_estimate": true,
-     "eligibility": "Open to high school students, college students, and working professionals",
+     "eligibility": null,
      "themes": [
       "coding",
       "problem-solving",
@@ -853,7 +853,7 @@
      "official_url": "https://mindanaogoldstardaily.com/valencia-nhs-students-sweep-top-spots-in-nasa-hackathon",
      "registration_closed": true,
      "category": "hackathon",
-     "results": "Team C-Moon placed first, VNHS STE Team Venturers placed first runner-up, and Ace of Cards placed second runner-up.",
+     "results": "Team C-Moon placed 1st, VNHS STE Team Venturers placed 1st runner-up, and Ace of Cards placed 2nd runner-up.",
      "ai_checks": null,
      "extraction": "llm"
     }
@@ -898,10 +898,43 @@
      "extraction": "llm"
     }
    ]
+  },
+  "https://www.usm.edu.ph/usm-students-win-championship-first-runner-up-in-hackforgov-5-2026-batch-2/": {
+   "hash": "5e22483f5d18d28a",
+   "at": "2026-11-18T13:55:34Z",
+   "events": [
+    {
+     "name": "HackForGov 5 2026 Batch 2",
+     "organizer": null,
+     "mode": "onsite",
+     "venue": "Dream Weaver’s Hotel",
+     "city": "Koronadal City",
+     "province": "South Cotabato",
+     "country": "Philippines",
+     "lat": null,
+     "lon": null,
+     "start": "2026-11-10T00:00:00+08:00",
+     "end": "2026-11-10T00:00:00+08:00",
+     "deadline": "2026-11-10T00:00:00+08:00",
+     "deadline_is_estimate": true,
+     "eligibility": null,
+     "themes": [
+      "Cybersecurity"
+     ],
+     "prize": null,
+     "registration_url": "https://www.usm.edu.ph/usm-students-win-championship-first-runner-up-in-hackforgov-5-2026-batch-2/",
+     "official_url": "https://www.usm.edu.ph/usm-students-win-championship-first-runner-up-in-hackforgov-5-2026-batch-2/",
+     "registration_closed": true,
+     "category": "ctf",
+     "results": "USM P@wndes@l team (champions), P@wnd3Coc0 team (first runner-up)",
+     "ai_checks": null,
+     "extraction": "llm"
+    }
+   ]
   }
  },
  "https://cit.edu/2026/08/21/asean-ai-hackathon-champion-cit-u/": {
-  "checked": "2026-11-17T13:20:49Z",
+  "checked": "2026-11-18T13:55:34Z",
   "found": 1
  },
  "https://www.uptacloban.edu.ph/up-tacloban-conquers-the-2026-rscene-48-hour-hackathon/": {
@@ -913,7 +946,7 @@
   "found": 1
  },
  "https://newsbytes.ph/2026/10/28/ph-cybersecurity-team-tops-2026-cyber-sea-game/?utm_source=rss&utm_medium=rss&utm_campaign=ph-cybersecurity-team-tops-2026-cyber-sea-game": {
-  "checked": "2026-11-17T13:20:49Z",
+  "checked": "2026-11-18T13:55:34Z",
   "found": 1
  },
  "https://cebudailynews.inquirer.net/781697/p15-m-mega-lotto-jackpot-of-nov-2-draw-won-by-lone-bettor": {
@@ -957,11 +990,11 @@
   "found": 0
  },
  "https://www.sunstar.com.ph/bacolod/business/phs-biggest-5g-hackathon-kicks-off-with-enablement-workshops": {
-  "checked": "2026-11-17T13:20:49Z",
+  "checked": "2026-11-18T13:55:34Z",
   "found": 0
  },
  "https://www.sunstar.com.ph/manila/business/aboitiz-group-holds-biggest-hackathon": {
-  "checked": "2026-11-17T13:20:49Z",
+  "checked": "2026-11-18T13:55:34Z",
   "found": 0
  },
  "https://www.rtu.edu.ph/rtu-ics-students-among-top-10-finalists-in-egovph-hackathon-2026/": {
@@ -969,11 +1002,11 @@
   "found": 1
  },
  "https://cit.edu/2026/08/20/can-you-hackit-2026-cebu/": {
-  "checked": "2026-11-17T13:20:49Z",
+  "checked": "2026-11-18T13:55:34Z",
   "found": 1
  },
  "https://bicol-u.edu.ph/daraga-lgu-seals-2-moas-with-bu-to-drive-ict-startup-ecosystem-in-albay/": {
-  "checked": "2026-11-17T13:20:49Z",
+  "checked": "2026-11-18T13:55:34Z",
   "found": 0
  },
  "https://newsbytes.ph/2026/08/11/interoprability-to-take-center-stage-at-digicon-2026/?utm_source=rss&utm_medium=rss&utm_campaign=interoprability-to-take-center-stage-at-digicon-2026": {
@@ -1115,15 +1148,19 @@
   "found": 0
  },
  "https://mindanaogoldstardaily.com/msu-gensans-pwngenius-wins-region-xii-hackforgov-2026-grand-championship": {
-  "checked": "2026-11-16T09:37:27Z",
+  "checked": "2026-11-18T13:55:34Z",
   "found": 0
  },
  "https://mindanaogoldstardaily.com/valencia-nhs-students-sweep-top-spots-in-nasa-hackathon": {
-  "checked": "2026-11-17T13:20:49Z",
+  "checked": "2026-11-18T13:55:34Z",
   "found": 1
  },
  "https://chmsu.edu.ph/chmsu-team-bags-3rd-runner-up-in-dict-hackforgov5-regionals-student-qualifies-for-nationals/": {
   "checked": "2026-11-18T04:17:31Z",
+  "found": 1
+ },
+ "https://www.usm.edu.ph/usm-students-win-championship-first-runner-up-in-hackforgov-5-2026-batch-2/": {
+  "checked": "2026-11-18T13:55:34Z",
   "found": 1
  }
 }

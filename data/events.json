@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-19T12:59:57Z",
+ "generated_at": "2026-11-19T13:25:25Z",
  "generator": "PH HackIntel pipeline 2.0",
  "offline_run": false,
  "llm_enabled": true,
@@ -49,15 +49,15 @@
   "sources_total": 38,
   "sources_scanned": 38,
   "sources_skipped": 0,
-  "pages_opened": 1,
+  "pages_opened": 0,
   "queued_from_earlier": 0,
-  "links_considered": 7,
-  "duration_s": 174.6,
+  "links_considered": 6,
+  "duration_s": 136.2,
   "pending_links": 0,
   "feeds_known": 21,
   "ai_pages_read": 0,
-  "ai_cache_hits": 3,
-  "candidates": 10
+  "ai_cache_hits": 2,
+  "candidates": 9
  },
  "sources": [
   {
@@ -541,17 +541,19 @@
    "name": "Carlos Hilado Memorial State University",
    "type": "site",
    "url": "https://chmsu.edu.ph/",
-   "errors": [],
+   "errors": [
+    "https://chmsu.edu.ph/feed/: robots.txt could not be read"
+   ],
    "notes": [],
-   "found": 1,
-   "pages": 1,
+   "found": 0,
+   "pages": 0,
    "ai_read": 0,
-   "ai_cache_hits": 1,
+   "ai_cache_hits": 0,
    "deferred": 0,
    "feeds": [
     "https://chmsu.edu.ph/feed/"
    ],
-   "ok": true,
+   "ok": false,
    "needs_llm": 0,
    "leads": 0
   },
@@ -561,7 +563,6 @@
    "type": "site",
    "url": "https://www.antiquespride.edu.ph/",
    "errors": [
-    "https://www.antiquespride.edu.ph/: robots.txt could not be read",
     "https://www.antiquespride.edu.ph/feed/: robots.txt could not be read"
    ],
    "notes": [],
@@ -677,12 +678,8 @@
    "name": "UP Mindanao",
    "type": "site",
    "url": "https://upmin.edu.ph/",
-   "errors": [
-    "https://upmin.edu.ph/feed/: HTTP 403"
-   ],
-   "notes": [
-    "site search skipped: HTTP 403"
-   ],
+   "errors": [],
+   "notes": [],
    "found": 0,
    "pages": 0,
    "ai_read": 0,
@@ -691,7 +688,7 @@
    "feeds": [
     "https://upmin.edu.ph/feed/"
    ],
-   "ok": false,
+   "ok": true,
    "needs_llm": 0,
    "leads": 0
   },
@@ -701,11 +698,10 @@
    "type": "site",
    "url": "https://usep.edu.ph/ic/",
    "errors": [
+    "https://usep.edu.ph/ic/: HTTP 403",
     "https://usep.edu.ph/ic/feed/: HTTP 403"
    ],
-   "notes": [
-    "site search skipped: HTTP 403"
-   ],
+   "notes": [],
    "found": 0,
    "pages": 0,
    "ai_read": 0,
@@ -724,9 +720,7 @@
    "type": "site",
    "url": "https://www.usm.edu.ph/",
    "errors": [],
-   "notes": [
-    "site search seems to ignore the query; only matching headlines kept"
-   ],
+   "notes": [],
    "found": 0,
    "pages": 0,
    "ai_read": 0,
@@ -737,7 +731,7 @@
    ],
    "ok": true,
    "needs_llm": 0,
-   "leads": 2
+   "leads": 1
   },
   {
    "id": "ndmc",
@@ -764,9 +758,7 @@
    "type": "site",
    "url": "https://www.carsu.edu.ph/",
    "errors": [],
-   "notes": [
-    "site search seems to ignore the query; only matching headlines kept"
-   ],
+   "notes": [],
    "found": 0,
    "pages": 0,
    "ai_read": 0,
@@ -815,10 +807,10 @@
    "extraction": "manual",
    "source_id": "manual",
    "first_seen": "2026-11-03T00:48:31Z",
-   "last_verified": "2026-11-19T12:59:57Z",
+   "last_verified": "2026-11-19T13:25:25Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
-   "last_seen": "2026-11-19T12:59:57Z",
+   "last_seen": "2026-11-19T13:25:25Z",
    "lat": 13.7565,
    "lon": 121.0583,
    "precision": "CITY",
@@ -879,10 +871,10 @@
    "extraction": "manual",
    "source_id": "manual",
    "first_seen": "2026-11-05T06:20:00Z",
-   "last_verified": "2026-11-19T12:59:57Z",
+   "last_verified": "2026-11-19T13:25:25Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
-   "last_seen": "2026-11-19T12:59:57Z",
+   "last_seen": "2026-11-19T13:25:25Z",
    "lat": 14.676,
    "lon": 121.0437,
    "precision": "CITY",
@@ -945,10 +937,10 @@
    "extraction": "manual",
    "source_id": "manual",
    "first_seen": "2026-11-03T00:48:31Z",
-   "last_verified": "2026-11-19T12:59:57Z",
+   "last_verified": "2026-11-19T13:25:25Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
-   "last_seen": "2026-11-19T12:59:57Z",
+   "last_seen": "2026-11-19T13:25:25Z",
    "lat": 16.42929,
    "lon": 120.59504,
    "precision": "EXACT",
@@ -1156,7 +1148,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-19T12:59:57Z",
+   "last_seen": "2026-11-19T13:25:25Z",
    "lat": 13.4467,
    "lon": 121.8399,
    "precision": "CITY",
@@ -1293,7 +1285,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-19T12:59:57Z",
+   "last_seen": "2026-11-19T13:25:25Z",
    "lat": 8.228,
    "lon": 124.2452,
    "precision": "CITY",
@@ -1361,7 +1353,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-19T12:59:57Z",
+   "last_seen": "2026-11-19T13:25:25Z",
    "lat": 13.9373,
    "lon": 121.617,
    "precision": "CITY",
@@ -1432,7 +1424,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-19T12:59:57Z",
+   "last_seen": "2026-11-19T13:25:25Z",
    "lat": 10.61216,
    "lon": 122.92613,
    "precision": "EXACT",
@@ -1549,7 +1541,8 @@
       "results reported"
      ]
     ]
-   }
+   },
+   "carried_over": true
   },
   {
    "name": "2026 rSCENE 48-hour Hackathon",
@@ -1655,7 +1648,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-19T12:59:57Z",
+   "last_seen": "2026-11-19T13:25:25Z",
    "lat": 6.9214,
    "lon": 122.079,
    "precision": "CITY",
@@ -1734,7 +1727,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-19T12:59:57Z",
+   "last_seen": "2026-11-19T13:25:25Z",
    "lat": 8.94627,
    "lon": 125.52941,
    "precision": "EXACT",
@@ -1947,7 +1940,7 @@
    ],
    "id": "bpi-d-a-t-a-wave-hackathon-summit-2025-41f2e4",
    "first_seen": "2026-11-11T06:11:20Z",
-   "last_verified": "2026-11-19T12:59:57Z",
+   "last_verified": "2026-11-19T13:25:25Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
    "last_seen": "2026-11-19T03:23:46Z",
@@ -2017,7 +2010,7 @@
    ],
    "id": "usher-technologies-1st-hackathon-competition-88c1ff",
    "first_seen": "2026-11-11T06:11:20Z",
-   "last_verified": "2026-11-19T12:59:57Z",
+   "last_verified": "2026-11-19T13:25:25Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
    "last_seen": "2026-11-19T03:23:46Z",
@@ -2233,7 +2226,7 @@
    ],
    "id": "asean-ai-hackathon-23e39c",
    "first_seen": "2026-11-03T00:48:31Z",
-   "last_verified": "2026-11-19T12:59:57Z",
+   "last_verified": "2026-11-19T13:25:25Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
    "last_seen": "2026-11-18T13:55:34Z",
@@ -2301,7 +2294,7 @@
    ],
    "id": "can-you-hackit-2026-cebu-95f618",
    "first_seen": "2026-11-03T00:48:31Z",
-   "last_verified": "2026-11-19T12:59:57Z",
+   "last_verified": "2026-11-19T13:25:25Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
    "last_seen": "2026-11-18T13:55:34Z",
@@ -2443,7 +2436,7 @@
    "id": "ph-s-biggest-5g-hackathon-41197d",
    "first_seen": "2026-11-03T00:48:31Z",
    "last_verified": null,
-   "link_failures": 61,
+   "link_failures": 62,
    "link_status": "HTTP 404",
    "last_seen": "2026-11-04T01:19:57Z",
    "precision": "NONE",
@@ -2465,7 +2458,7 @@
      ],
      [
       -10,
-      "official link failed 61 check(s)"
+      "official link failed 62 check(s)"
      ],
      [
       -10,
@@ -2519,7 +2512,7 @@
    ],
    "id": "decode-tomorrow-the-aboitiz-future-challenge-hackathon-b02b49",
    "first_seen": "2026-11-03T00:48:31Z",
-   "last_verified": "2026-11-19T12:59:57Z",
+   "last_verified": "2026-11-19T13:25:25Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
    "last_seen": "2026-11-04T01:19:57Z",
@@ -2595,7 +2588,7 @@
    ],
    "id": "egovph-hackathon-2026-4fb323",
    "first_seen": "2026-11-03T00:48:31Z",
-   "last_verified": "2026-11-19T12:59:57Z",
+   "last_verified": "2026-11-19T13:25:25Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
    "last_seen": "2026-11-04T01:19:57Z",

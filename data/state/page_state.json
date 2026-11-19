@@ -1,43 +1,43 @@
 {
  "_source_runs": {
-  "tcon9-site": "2026-11-19T12:59:57Z",
-  "techconnect-aideathon-site": "2026-11-19T12:59:57Z",
-  "ctftime-ph": "2026-11-19T12:59:57Z",
-  "inquirer-tech": "2026-11-19T12:59:57Z",
-  "bitpinas": "2026-11-19T12:59:57Z",
-  "bitpinas-hackathon-tag": "2026-11-19T12:59:57Z",
-  "newsbytes": "2026-11-19T12:59:57Z",
-  "tribune": "2026-11-19T12:59:57Z",
-  "mindanao-gold-star": "2026-11-19T12:59:57Z",
-  "sunstar-hackathon-tag": "2026-11-19T12:59:57Z",
-  "cebu-daily-news": "2026-11-19T12:59:57Z",
-  "the-post": "2026-11-19T12:59:57Z",
-  "insiderph": "2026-11-19T12:59:57Z",
-  "pna-home": "2026-11-19T12:59:57Z",
-  "dost-asti": "2026-11-19T12:59:57Z",
-  "devcon": "2026-11-19T12:59:57Z",
-  "circuitrocks-events": "2026-11-19T12:59:57Z",
-  "rtu": "2026-11-19T12:59:57Z",
-  "upm": "2026-11-19T12:59:57Z",
-  "national-u": "2026-11-19T12:59:57Z",
-  "feutech": "2026-11-19T12:59:57Z",
-  "slu": "2026-11-19T12:59:57Z",
-  "hau": "2026-11-19T12:59:57Z",
-  "bicol-u": "2026-11-19T12:59:57Z",
-  "cit-u": "2026-11-19T12:59:57Z",
-  "su": "2026-11-19T12:59:57Z",
-  "chmsu": "2026-11-19T12:59:57Z",
-  "antique-spride": "2026-11-19T12:59:57Z",
-  "gsu-cst": "2026-11-19T12:59:57Z",
-  "uptacloban": "2026-11-19T12:59:57Z",
-  "vsu": "2026-11-19T12:59:57Z",
-  "adzu": "2026-11-19T12:59:57Z",
-  "imcc": "2026-11-19T12:59:57Z",
-  "upmin": "2026-11-19T12:59:57Z",
-  "usep-ic": "2026-11-19T12:59:57Z",
-  "usm": "2026-11-19T12:59:57Z",
-  "ndmc": "2026-11-19T12:59:57Z",
-  "carsu": "2026-11-19T12:59:57Z"
+  "tcon9-site": "2026-11-19T13:25:25Z",
+  "techconnect-aideathon-site": "2026-11-19T13:25:25Z",
+  "ctftime-ph": "2026-11-19T13:25:25Z",
+  "inquirer-tech": "2026-11-19T13:25:25Z",
+  "bitpinas": "2026-11-19T13:25:25Z",
+  "bitpinas-hackathon-tag": "2026-11-19T13:25:25Z",
+  "newsbytes": "2026-11-19T13:25:25Z",
+  "tribune": "2026-11-19T13:25:25Z",
+  "mindanao-gold-star": "2026-11-19T13:25:25Z",
+  "sunstar-hackathon-tag": "2026-11-19T13:25:25Z",
+  "cebu-daily-news": "2026-11-19T13:25:25Z",
+  "the-post": "2026-11-19T13:25:25Z",
+  "insiderph": "2026-11-19T13:25:25Z",
+  "pna-home": "2026-11-19T13:25:25Z",
+  "dost-asti": "2026-11-19T13:25:25Z",
+  "devcon": "2026-11-19T13:25:25Z",
+  "circuitrocks-events": "2026-11-19T13:25:25Z",
+  "rtu": "2026-11-19T13:25:25Z",
+  "upm": "2026-11-19T13:25:25Z",
+  "national-u": "2026-11-19T13:25:25Z",
+  "feutech": "2026-11-19T13:25:25Z",
+  "slu": "2026-11-19T13:25:25Z",
+  "hau": "2026-11-19T13:25:25Z",
+  "bicol-u": "2026-11-19T13:25:25Z",
+  "cit-u": "2026-11-19T13:25:25Z",
+  "su": "2026-11-19T13:25:25Z",
+  "chmsu": "2026-11-19T13:25:25Z",
+  "antique-spride": "2026-11-19T13:25:25Z",
+  "gsu-cst": "2026-11-19T13:25:25Z",
+  "uptacloban": "2026-11-19T13:25:25Z",
+  "vsu": "2026-11-19T13:25:25Z",
+  "adzu": "2026-11-19T13:25:25Z",
+  "imcc": "2026-11-19T13:25:25Z",
+  "upmin": "2026-11-19T13:25:25Z",
+  "usep-ic": "2026-11-19T13:25:25Z",
+  "usm": "2026-11-19T13:25:25Z",
+  "ndmc": "2026-11-19T13:25:25Z",
+  "carsu": "2026-11-19T13:25:25Z"
  },
  "_sites": {
   "ctftime-ph": {
@@ -210,7 +210,7 @@
    "search_at": "2026-11-19T03:23:46Z"
   },
   "imcc": {
-   "home_at": "2026-11-18T04:45:12Z",
+   "home_at": "2026-11-19T13:25:25Z",
    "wordpress": true,
    "feeds": [
     "https://imcc.edu.ph/feed/"
@@ -218,7 +218,7 @@
    "search_at": "2026-11-19T03:23:46Z"
   },
   "upmin": {
-   "home_at": "2026-11-18T04:45:12Z",
+   "home_at": "2026-11-19T13:25:25Z",
    "wordpress": true,
    "feeds": [
     "https://upmin.edu.ph/feed/"
@@ -226,15 +226,16 @@
    "search_at": "2026-11-19T12:59:57Z"
   },
   "usep-ic": {
-   "home_at": "2026-11-18T04:45:12Z",
+   "home_at": "2026-11-19T13:25:25Z",
    "wordpress": true,
    "feeds": [
     "https://usep.edu.ph/ic/feed/"
    ],
-   "search_at": "2026-11-19T12:59:57Z"
+   "search_at": "2026-11-19T12:59:57Z",
+   "home_error": "https://usep.edu.ph/ic/: HTTP 403"
   },
   "usm": {
-   "home_at": "2026-11-18T04:45:12Z",
+   "home_at": "2026-11-19T13:25:25Z",
    "wordpress": true,
    "feeds": [
     "https://www.usm.edu.ph/feed/"
@@ -242,14 +243,14 @@
    "search_at": "2026-11-19T12:59:57Z"
   },
   "ndmc": {
-   "home_at": "2026-11-18T04:45:12Z",
+   "home_at": "2026-11-19T13:25:25Z",
    "wordpress": false,
    "feeds": [
     "https://www.ndmc.edu.ph/rss.xml"
    ]
   },
   "carsu": {
-   "home_at": "2026-11-18T04:45:12Z",
+   "home_at": "2026-11-19T13:25:25Z",
    "wordpress": true,
    "feeds": [
     "https://www.carsu.edu.ph/feed/"

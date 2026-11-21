@@ -1,10 +1,22 @@
 {
- "generated_at": "2026-11-21T09:46:47Z",
+ "generated_at": "2026-11-21T17:29:13Z",
  "items": [
   {
    "name": "HackForGov 2026 Region 13 CTF Regional Qualifying Round",
    "id": "hackforgov-2026-region13-ctf",
    "url": null,
+   "reason": "finished more than 62 days ago"
+  },
+  {
+   "name": "2026 Data, AI & Policy APAC Hackathon: Financial Health Frontiers",
+   "id": "2026-data-ai-policy-apac-hackathon-financial-health-frontier-2026-11-4bab58",
+   "url": "https://www.uptacloban.edu.ph/up-tacloban-team-advances-to-apac-hackathon-finals-on-financial-health/",
+   "reason": "finished event without a confirmed Philippine venue (UNRESOLVED)"
+  },
+  {
+   "name": "HackForGov 5 – Cordillera Regional Competition",
+   "id": "hackforgov-5-cordillera-regional-competition-2026-08-a90ed2",
+   "url": "https://www.slu.edu.ph/2026/08/27/slu-reclaims-crown-at-the-hackforgov-5-cordillera-regional-competition/",
    "reason": "finished more than 62 days ago"
   },
   {
@@ -32,12 +44,6 @@
    "reason": "no deadline or event date"
   },
   {
-   "name": "2026 Data, AI & Policy APAC Hackathon: Financial Health Frontiers",
-   "id": "2026-data-ai-policy-apac-hackathon-financial-health-frontier-2026-11-4bab58",
-   "url": "https://www.uptacloban.edu.ph/up-tacloban-team-advances-to-apac-hackathon-finals-on-financial-health/",
-   "reason": "finished event without a confirmed Philippine venue (UNRESOLVED)"
-  },
-  {
    "name": "Cybersecurity Capture the Flag (CTF) University Tournament",
    "id": "cybersecurity-capture-the-flag-ctf-university-tournament-2025-10-7e166d",
    "url": "https://www.feutech.edu.ph/content/features/feu-tech-crowned-champion-at-national-cybersecurity-ctf-tournament",
@@ -60,12 +66,6 @@
    "id": "usher-technologies-1st-hackathon-competition-88c1ff",
    "url": "https://www.feutech.edu.ph/content/features/engineering-students-emerge-as-champions-in-1st-hackathon-competition-of-usher-technologies",
    "reason": "no deadline or event date"
-  },
-  {
-   "name": "HackForGov 5 – Cordillera Regional Competition",
-   "id": "hackforgov-5-cordillera-regional-competition-2026-08-a90ed2",
-   "url": "https://www.slu.edu.ph/2026/08/27/slu-reclaims-crown-at-the-hackforgov-5-cordillera-regional-competition/",
-   "reason": "finished more than 62 days ago"
   },
   {
    "name": "2026 eGovPH Hackathon",

@@ -1,43 +1,43 @@
 {
  "_source_runs": {
-  "tcon9-site": "2026-11-21T17:29:13Z",
-  "techconnect-aideathon-site": "2026-11-21T17:29:13Z",
-  "ctftime-ph": "2026-11-21T17:29:13Z",
-  "inquirer-tech": "2026-11-21T17:29:13Z",
-  "bitpinas": "2026-11-21T17:29:13Z",
-  "bitpinas-hackathon-tag": "2026-11-21T17:29:13Z",
-  "newsbytes": "2026-11-21T17:29:13Z",
-  "tribune": "2026-11-21T17:29:13Z",
-  "mindanao-gold-star": "2026-11-21T17:29:13Z",
-  "sunstar-hackathon-tag": "2026-11-21T17:29:13Z",
-  "cebu-daily-news": "2026-11-21T17:29:13Z",
-  "the-post": "2026-11-21T17:29:13Z",
-  "insiderph": "2026-11-21T17:29:13Z",
-  "pna-home": "2026-11-21T17:29:13Z",
-  "dost-asti": "2026-11-21T17:29:13Z",
-  "devcon": "2026-11-21T17:29:13Z",
-  "circuitrocks-events": "2026-11-21T17:29:13Z",
-  "rtu": "2026-11-21T17:29:13Z",
-  "upm": "2026-11-21T17:29:13Z",
-  "national-u": "2026-11-21T17:29:13Z",
-  "feutech": "2026-11-21T17:29:13Z",
-  "slu": "2026-11-21T17:29:13Z",
-  "hau": "2026-11-21T17:29:13Z",
-  "bicol-u": "2026-11-21T17:29:13Z",
-  "cit-u": "2026-11-21T17:29:13Z",
-  "su": "2026-11-21T17:29:13Z",
-  "chmsu": "2026-11-21T17:29:13Z",
-  "antique-spride": "2026-11-21T17:29:13Z",
-  "gsu-cst": "2026-11-21T17:29:13Z",
-  "uptacloban": "2026-11-21T17:29:13Z",
-  "vsu": "2026-11-21T17:29:13Z",
-  "adzu": "2026-11-21T17:29:13Z",
-  "imcc": "2026-11-21T17:29:13Z",
-  "upmin": "2026-11-21T17:29:13Z",
-  "usep-ic": "2026-11-21T17:29:13Z",
-  "usm": "2026-11-21T17:29:13Z",
-  "ndmc": "2026-11-21T17:29:13Z",
-  "carsu": "2026-11-21T17:29:13Z"
+  "tcon9-site": "2026-11-21T23:13:14Z",
+  "techconnect-aideathon-site": "2026-11-21T23:13:14Z",
+  "ctftime-ph": "2026-11-21T23:13:14Z",
+  "inquirer-tech": "2026-11-21T23:13:14Z",
+  "bitpinas": "2026-11-21T23:13:14Z",
+  "bitpinas-hackathon-tag": "2026-11-21T23:13:14Z",
+  "newsbytes": "2026-11-21T23:13:14Z",
+  "tribune": "2026-11-21T23:13:14Z",
+  "mindanao-gold-star": "2026-11-21T23:13:14Z",
+  "sunstar-hackathon-tag": "2026-11-21T23:13:14Z",
+  "cebu-daily-news": "2026-11-21T23:13:14Z",
+  "the-post": "2026-11-21T23:13:14Z",
+  "insiderph": "2026-11-21T23:13:14Z",
+  "pna-home": "2026-11-21T23:13:14Z",
+  "dost-asti": "2026-11-21T23:13:14Z",
+  "devcon": "2026-11-21T23:13:14Z",
+  "circuitrocks-events": "2026-11-21T23:13:14Z",
+  "rtu": "2026-11-21T23:13:14Z",
+  "upm": "2026-11-21T23:13:14Z",
+  "national-u": "2026-11-21T23:13:14Z",
+  "feutech": "2026-11-21T23:13:14Z",
+  "slu": "2026-11-21T23:13:14Z",
+  "hau": "2026-11-21T23:13:14Z",
+  "bicol-u": "2026-11-21T23:13:14Z",
+  "cit-u": "2026-11-21T23:13:14Z",
+  "su": "2026-11-21T23:13:14Z",
+  "chmsu": "2026-11-21T23:13:14Z",
+  "antique-spride": "2026-11-21T23:13:14Z",
+  "gsu-cst": "2026-11-21T23:13:14Z",
+  "uptacloban": "2026-11-21T23:13:14Z",
+  "vsu": "2026-11-21T23:13:14Z",
+  "adzu": "2026-11-21T23:13:14Z",
+  "imcc": "2026-11-21T23:13:14Z",
+  "upmin": "2026-11-21T23:13:14Z",
+  "usep-ic": "2026-11-21T23:13:14Z",
+  "usm": "2026-11-21T23:13:14Z",
+  "ndmc": "2026-11-21T23:13:14Z",
+  "carsu": "2026-11-21T23:13:14Z"
  },
  "_sites": {
   "ctftime-ph": {
@@ -152,7 +152,7 @@
    "search_at": "2026-11-21T01:30:09Z"
   },
   "cit-u": {
-   "home_at": "2026-11-20T20:12:26Z",
+   "home_at": "2026-11-21T23:13:14Z",
    "wordpress": true,
    "feeds": [
     "https://cit.edu/feed/"
@@ -160,21 +160,20 @@
    "search_at": "2026-11-21T01:30:09Z"
   },
   "su": {
-   "home_at": "2026-11-20T20:12:26Z",
+   "home_at": "2026-11-21T23:13:14Z",
    "wordpress": false,
    "feeds": []
   },
   "chmsu": {
-   "home_at": "2026-11-20T20:12:26Z",
+   "home_at": "2026-11-21T23:13:14Z",
    "wordpress": true,
    "feeds": [
     "https://chmsu.edu.ph/feed/"
    ],
-   "search_at": "2026-11-20T20:12:26Z",
-   "home_error": "https://chmsu.edu.ph/: robots.txt could not be read"
+   "search_at": "2026-11-21T23:13:14Z"
   },
   "antique-spride": {
-   "home_at": "2026-11-20T20:12:26Z",
+   "home_at": "2026-11-21T23:13:14Z",
    "wordpress": true,
    "feeds": [
     "https://www.antiquespride.edu.ph/feed/"
@@ -183,7 +182,7 @@
    "home_error": "https://www.antiquespride.edu.ph/: robots.txt could not be read"
   },
   "gsu-cst": {
-   "home_at": "2026-11-20T20:12:26Z",
+   "home_at": "2026-11-21T23:13:14Z",
    "wordpress": true,
    "feeds": [
     "https://cst.gsu.edu.ph/feed/"
@@ -191,7 +190,7 @@
    "search_at": "2026-11-21T17:29:13Z"
   },
   "uptacloban": {
-   "home_at": "2026-11-20T20:12:26Z",
+   "home_at": "2026-11-21T23:13:14Z",
    "wordpress": true,
    "feeds": [
     "https://www.uptacloban.edu.ph/feed/"
@@ -199,12 +198,12 @@
    "search_at": "2026-11-21T17:29:13Z"
   },
   "vsu": {
-   "home_at": "2026-11-20T20:12:26Z",
+   "home_at": "2026-11-21T23:13:14Z",
    "wordpress": false,
    "feeds": []
   },
   "adzu": {
-   "home_at": "2026-11-20T20:12:26Z",
+   "home_at": "2026-11-21T23:13:14Z",
    "wordpress": true,
    "feeds": [
     "https://adzu.edu.ph/feed/"
@@ -225,7 +224,7 @@
    "feeds": [
     "https://upmin.edu.ph/feed/"
    ],
-   "search_at": "2026-11-20T20:12:26Z"
+   "search_at": "2026-11-21T23:13:14Z"
   },
   "usep-ic": {
    "home_at": "2026-11-21T09:46:47Z",
@@ -233,7 +232,7 @@
    "feeds": [
     "https://usep.edu.ph/ic/feed/"
    ],
-   "search_at": "2026-11-20T20:12:26Z"
+   "search_at": "2026-11-21T23:13:14Z"
   },
   "usm": {
    "home_at": "2026-11-21T09:46:47Z",
@@ -241,7 +240,7 @@
    "feeds": [
     "https://www.usm.edu.ph/feed/"
    ],
-   "search_at": "2026-11-20T20:12:26Z"
+   "search_at": "2026-11-21T23:13:14Z"
   },
   "ndmc": {
    "home_at": "2026-11-21T09:46:47Z",
@@ -256,7 +255,7 @@
    "feeds": [
     "https://www.carsu.edu.ph/feed/"
    ],
-   "search_at": "2026-11-20T20:12:26Z"
+   "search_at": "2026-11-21T23:13:14Z"
   }
  },
  "_queue": {},
@@ -1199,7 +1198,7 @@
   "found": 1
  },
  "https://chmsu.edu.ph/chmsu-team-bags-3rd-runner-up-in-dict-hackforgov5-regionals-student-qualifies-for-nationals/": {
-  "checked": "2026-11-19T12:59:57Z",
+  "checked": "2026-11-21T23:13:14Z",
   "found": 1
  },
  "https://www.usm.edu.ph/usm-students-win-championship-first-runner-up-in-hackforgov-5-2026-batch-2/": {
@@ -1207,7 +1206,7 @@
   "found": 1
  },
  "https://chmsu.edu.ph/it-students-qualify-as-finalists-in-talisik-hackathon-challenge-2026/": {
-  "checked": "2026-11-20T11:33:04Z",
+  "checked": "2026-11-21T23:13:14Z",
   "found": 1
  },
  "https://www.uptacloban.edu.ph/up-tacloban-team-advances-to-apac-hackathon-finals-on-financial-health/": {

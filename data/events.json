@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-22T19:34:55Z",
+ "generated_at": "2026-11-23T00:50:02Z",
  "generator": "PH HackIntel pipeline 2.0",
  "offline_run": false,
  "llm_enabled": true,
@@ -49,15 +49,15 @@
   "sources_total": 38,
   "sources_scanned": 38,
   "sources_skipped": 0,
-  "pages_opened": 8,
+  "pages_opened": 2,
   "queued_from_earlier": 0,
-  "links_considered": 14,
-  "duration_s": 210.7,
+  "links_considered": 8,
+  "duration_s": 245.1,
   "pending_links": 0,
   "feeds_known": 21,
   "ai_pages_read": 0,
-  "ai_cache_hits": 10,
-  "candidates": 17
+  "ai_cache_hits": 4,
+  "candidates": 11
  },
  "sources": [
   {
@@ -99,7 +99,7 @@
    "url": "https://ctftime.org/api/v1/events/",
    "errors": [],
    "notes": [
-    "not due yet; events from the last read are carried over"
+    "89 CTFs listed in the window, 0 onsite in the Philippines"
    ],
    "found": 0,
    "pages": 0,
@@ -410,9 +410,7 @@
    "name": "National University",
    "type": "site",
    "url": "https://www.national-u.edu.ph/",
-   "errors": [
-    "https://www.national-u.edu.ph/: HTTP 403"
-   ],
+   "errors": [],
    "notes": [],
    "found": 0,
    "pages": 0,
@@ -420,7 +418,7 @@
    "ai_cache_hits": 0,
    "deferred": 0,
    "feeds": [],
-   "ok": false,
+   "ok": true,
    "needs_llm": 0,
    "leads": 0
   },
@@ -433,10 +431,10 @@
    "notes": [
     "no feed found; reading homepage links once a day"
    ],
-   "found": 4,
-   "pages": 4,
+   "found": 0,
+   "pages": 0,
    "ai_read": 0,
-   "ai_cache_hits": 4,
+   "ai_cache_hits": 0,
    "deferred": 0,
    "feeds": [],
    "ok": true,
@@ -449,20 +447,18 @@
    "type": "site",
    "url": "https://www.slu.edu.ph/",
    "errors": [],
-   "notes": [
-    "site search seems to ignore the query; only matching headlines kept"
-   ],
-   "found": 1,
-   "pages": 1,
+   "notes": [],
+   "found": 0,
+   "pages": 0,
    "ai_read": 0,
-   "ai_cache_hits": 1,
+   "ai_cache_hits": 0,
    "deferred": 0,
    "feeds": [
     "https://www.slu.edu.ph/feed/"
    ],
    "ok": true,
    "needs_llm": 0,
-   "leads": 1
+   "leads": 0
   },
   {
    "id": "hau",
@@ -545,21 +541,19 @@
    "name": "Carlos Hilado Memorial State University",
    "type": "site",
    "url": "https://chmsu.edu.ph/",
-   "errors": [
-    "https://chmsu.edu.ph/feed/: robots.txt could not be read"
-   ],
+   "errors": [],
    "notes": [],
-   "found": 0,
-   "pages": 0,
+   "found": 2,
+   "pages": 2,
    "ai_read": 0,
-   "ai_cache_hits": 0,
+   "ai_cache_hits": 2,
    "deferred": 0,
    "feeds": [
     "https://chmsu.edu.ph/feed/"
    ],
-   "ok": false,
+   "ok": true,
    "needs_llm": 0,
-   "leads": 0
+   "leads": 2
   },
   {
    "id": "antique-spride",
@@ -567,11 +561,10 @@
    "type": "site",
    "url": "https://www.antiquespride.edu.ph/",
    "errors": [
+    "https://www.antiquespride.edu.ph/: robots.txt could not be read",
     "https://www.antiquespride.edu.ph/feed/: robots.txt could not be read"
    ],
-   "notes": [
-    "site search skipped: robots.txt could not be read"
-   ],
+   "notes": [],
    "found": 0,
    "pages": 0,
    "ai_read": 0,
@@ -609,20 +602,18 @@
    "type": "site",
    "url": "https://www.uptacloban.edu.ph/",
    "errors": [],
-   "notes": [
-    "site search seems to ignore the query; only matching headlines kept"
-   ],
-   "found": 2,
-   "pages": 2,
+   "notes": [],
+   "found": 0,
+   "pages": 0,
    "ai_read": 0,
-   "ai_cache_hits": 2,
+   "ai_cache_hits": 0,
    "deferred": 0,
    "feeds": [
     "https://www.uptacloban.edu.ph/feed/"
    ],
    "ok": true,
    "needs_llm": 0,
-   "leads": 2
+   "leads": 0
   },
   {
    "id": "vsu",
@@ -669,10 +660,10 @@
    "url": "https://imcc.edu.ph/",
    "errors": [],
    "notes": [],
-   "found": 1,
-   "pages": 1,
+   "found": 0,
+   "pages": 0,
    "ai_read": 0,
-   "ai_cache_hits": 1,
+   "ai_cache_hits": 0,
    "deferred": 0,
    "feeds": [
     "https://imcc.edu.ph/feed/"
@@ -686,9 +677,7 @@
    "name": "UP Mindanao",
    "type": "site",
    "url": "https://upmin.edu.ph/",
-   "errors": [
-    "https://upmin.edu.ph/feed/: HTTP 403"
-   ],
+   "errors": [],
    "notes": [],
    "found": 0,
    "pages": 0,
@@ -698,7 +687,7 @@
    "feeds": [
     "https://upmin.edu.ph/feed/"
    ],
-   "ok": false,
+   "ok": true,
    "needs_llm": 0,
    "leads": 0
   },
@@ -727,7 +716,9 @@
    "type": "site",
    "url": "https://www.usm.edu.ph/",
    "errors": [],
-   "notes": [],
+   "notes": [
+    "site search seems to ignore the query; only matching headlines kept"
+   ],
    "found": 0,
    "pages": 0,
    "ai_read": 0,
@@ -738,7 +729,7 @@
    ],
    "ok": true,
    "needs_llm": 0,
-   "leads": 1
+   "leads": 2
   },
   {
    "id": "ndmc",
@@ -765,7 +756,9 @@
    "type": "site",
    "url": "https://www.carsu.edu.ph/",
    "errors": [],
-   "notes": [],
+   "notes": [
+    "site search seems to ignore the query; only matching headlines kept"
+   ],
    "found": 0,
    "pages": 0,
    "ai_read": 0,
@@ -814,10 +807,10 @@
    "extraction": "manual",
    "source_id": "manual",
    "first_seen": "2026-11-03T00:48:31Z",
-   "last_verified": "2026-11-22T19:34:55Z",
+   "last_verified": "2026-11-23T00:50:02Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
-   "last_seen": "2026-11-22T19:34:55Z",
+   "last_seen": "2026-11-23T00:50:02Z",
    "lat": 13.7565,
    "lon": 121.0583,
    "precision": "CITY",
@@ -880,10 +873,10 @@
    "extraction": "manual",
    "source_id": "manual",
    "first_seen": "2026-11-03T00:48:31Z",
-   "last_verified": "2026-11-22T19:34:55Z",
+   "last_verified": "2026-11-23T00:50:02Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
-   "last_seen": "2026-11-22T19:34:55Z",
+   "last_seen": "2026-11-23T00:50:02Z",
    "lat": 16.42929,
    "lon": 120.59504,
    "precision": "EXACT",
@@ -955,7 +948,7 @@
    "last_verified": "2026-11-20T11:33:04Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
-   "last_seen": "2026-11-22T19:34:55Z",
+   "last_seen": "2026-11-23T00:50:02Z",
    "lat": 14.676,
    "lon": 121.0437,
    "precision": "CITY",
@@ -1162,7 +1155,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-22T19:34:55Z",
+   "last_seen": "2026-11-23T00:50:02Z",
    "lat": 13.4467,
    "lon": 121.8399,
    "precision": "CITY",
@@ -1299,7 +1292,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-22T19:34:55Z",
+   "last_seen": "2026-11-23T00:50:02Z",
    "lat": 8.228,
    "lon": 124.2452,
    "precision": "CITY",
@@ -1367,7 +1360,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-22T19:34:55Z",
+   "last_seen": "2026-11-23T00:50:02Z",
    "lat": 13.9373,
    "lon": 121.617,
    "precision": "CITY",
@@ -1438,7 +1431,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-22T19:34:55Z",
+   "last_seen": "2026-11-23T00:50:02Z",
    "lat": 10.61216,
    "lon": 122.92613,
    "precision": "EXACT",
@@ -1527,7 +1520,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-21T23:13:14Z",
+   "last_seen": "2026-11-23T00:50:02Z",
    "precision": "CITY",
    "location_source": "gazetteer",
    "location_check": "PROVINCE_FROM_MAP",
@@ -1555,8 +1548,7 @@
       "results reported"
      ]
     ]
-   },
-   "carried_over": true
+   }
   },
   {
    "name": "2026 rSCENE 48-hour Hackathon",
@@ -1627,7 +1619,8 @@
       "results reported"
      ]
     ]
-   }
+   },
+   "carried_over": true
   },
   {
    "id": "cyber-hunt-ctf-league-zamboanga-2026",
@@ -1661,7 +1654,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-22T19:34:55Z",
+   "last_seen": "2026-11-23T00:50:02Z",
    "lat": 6.9214,
    "lon": 122.079,
    "precision": "CITY",
@@ -1748,7 +1741,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-22T19:34:55Z",
+   "last_seen": "2026-11-23T00:50:02Z",
    "lat": 8.94627,
    "lon": 125.52941,
    "precision": "EXACT",
@@ -1788,6 +1781,70 @@
     ]
    },
    "hold_reason": "finished more than 62 days ago"
+  },
+  {
+   "name": "TALISIK Hackathon Challenge 2026",
+   "organizer": "Department of Science and Technology (DOST)",
+   "mode": "unspecified",
+   "venue": null,
+   "city": null,
+   "province": "Negros Island Region",
+   "country": "Philippines",
+   "lat": null,
+   "lon": null,
+   "start": null,
+   "end": null,
+   "deadline": null,
+   "deadline_is_estimate": true,
+   "eligibility": "Students",
+   "themes": [
+    "Disaster Risk Reduction and Management"
+   ],
+   "prize": null,
+   "registration_url": "https://chmsu.edu.ph/it-students-qualify-as-finalists-in-talisik-hackathon-challenge-2026/",
+   "official_url": "https://chmsu.edu.ph/it-students-qualify-as-finalists-in-talisik-hackathon-challenge-2026/",
+   "registration_closed": null,
+   "category": "hackathon",
+   "results": "CHMSU BSIT students qualified as finalists in the College Disaster Risk Reduction and Management (DRRM) Category.",
+   "ai_checks": null,
+   "extraction": "llm",
+   "source_id": "chmsu",
+   "sources": [
+    {
+     "label": "Carlos Hilado Memorial State University",
+     "url": "https://chmsu.edu.ph/it-students-qualify-as-finalists-in-talisik-hackathon-challenge-2026/"
+    }
+   ],
+   "id": "talisik-hackathon-challenge-2026-da879c",
+   "first_seen": "2026-11-20T11:33:04Z",
+   "last_verified": "2026-11-23T00:50:02Z",
+   "link_failures": 0,
+   "link_status": "HTTP 200",
+   "last_seen": "2026-11-23T00:50:02Z",
+   "precision": "NONE",
+   "location_check": "NO_LOCATION",
+   "is_new": true,
+   "phase": "upcoming",
+   "corroboration": 1,
+   "confidence": {
+    "score": 25,
+    "level": "LOW",
+    "reasons": [
+     [
+      15,
+      "read by AI from the page text, then checked"
+     ],
+     [
+      20,
+      "official link answered in the last 72 hours"
+     ],
+     [
+      -10,
+      "no registration deadline stated"
+     ]
+    ]
+   },
+   "hold_reason": "no deadline or event date"
   },
   {
    "name": "2026 Data, AI & Policy APAC Hackathon: Financial Health Frontiers",
@@ -1857,7 +1914,8 @@
      ]
     ]
    },
-   "hold_reason": "finished event without a confirmed Philippine venue (UNRESOLVED)"
+   "hold_reason": "finished event without a confirmed Philippine venue (UNRESOLVED)",
+   "carried_over": true
   },
   {
    "name": "Cybersecurity Capture the Flag (CTF) University Tournament",
@@ -1928,7 +1986,8 @@
      ]
     ]
    },
-   "hold_reason": "finished more than 62 days ago"
+   "hold_reason": "finished more than 62 days ago",
+   "carried_over": true
   },
   {
    "name": "AI Hackathon",
@@ -1988,7 +2047,8 @@
      ]
     ]
    },
-   "hold_reason": "finished more than 62 days ago"
+   "hold_reason": "finished more than 62 days ago",
+   "carried_over": true
   },
   {
    "name": "BPI D.A.T.A. Wave Hackathon & Summit 2025",
@@ -2029,7 +2089,7 @@
    ],
    "id": "bpi-d-a-t-a-wave-hackathon-summit-2025-41f2e4",
    "first_seen": "2026-11-11T06:11:20Z",
-   "last_verified": "2026-11-22T19:34:55Z",
+   "last_verified": "2026-11-23T00:50:02Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
    "last_seen": "2026-11-22T19:34:55Z",
@@ -2056,7 +2116,8 @@
      ]
     ]
    },
-   "hold_reason": "no deadline or event date"
+   "hold_reason": "no deadline or event date",
+   "carried_over": true
   },
   {
    "name": "Usher Technologies' 1st Hackathon Competition",
@@ -2098,7 +2159,7 @@
    ],
    "id": "usher-technologies-1st-hackathon-competition-88c1ff",
    "first_seen": "2026-11-11T06:11:20Z",
-   "last_verified": "2026-11-22T19:34:55Z",
+   "last_verified": "2026-11-23T00:50:02Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
    "last_seen": "2026-11-22T19:34:55Z",
@@ -2129,7 +2190,8 @@
      ]
     ]
    },
-   "hold_reason": "no deadline or event date"
+   "hold_reason": "no deadline or event date",
+   "carried_over": true
   },
   {
    "name": "HackForGov 5 – Cordillera Regional Competition",
@@ -2208,7 +2270,8 @@
      ]
     ]
    },
-   "hold_reason": "finished more than 62 days ago"
+   "hold_reason": "finished more than 62 days ago",
+   "carried_over": true
   },
   {
    "name": "2026 NASA Space Apps Challenge",
@@ -2313,7 +2376,7 @@
    ],
    "id": "asean-ai-hackathon-23e39c",
    "first_seen": "2026-11-03T00:48:31Z",
-   "last_verified": "2026-11-22T19:34:55Z",
+   "last_verified": "2026-11-23T00:50:02Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
    "last_seen": "2026-11-22T03:09:51Z",
@@ -2381,7 +2444,7 @@
    ],
    "id": "can-you-hackit-2026-cebu-95f618",
    "first_seen": "2026-11-03T00:48:31Z",
-   "last_verified": "2026-11-22T19:34:55Z",
+   "last_verified": "2026-11-23T00:50:02Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
    "last_seen": "2026-11-22T03:09:51Z",
@@ -2389,71 +2452,6 @@
    "location_source": "gazetteer",
    "location_check": "PROVINCE_FROM_MAP",
    "is_new": false,
-   "phase": "upcoming",
-   "corroboration": 1,
-   "confidence": {
-    "score": 25,
-    "level": "LOW",
-    "reasons": [
-     [
-      15,
-      "read by AI from the page text, then checked"
-     ],
-     [
-      20,
-      "official link answered in the last 72 hours"
-     ],
-     [
-      -10,
-      "no registration deadline stated"
-     ]
-    ]
-   },
-   "hold_reason": "no deadline or event date",
-   "carried_over": true
-  },
-  {
-   "name": "TALISIK Hackathon Challenge 2026",
-   "organizer": "Department of Science and Technology (DOST)",
-   "mode": "unspecified",
-   "venue": null,
-   "city": null,
-   "province": "Negros Island Region",
-   "country": "Philippines",
-   "lat": null,
-   "lon": null,
-   "start": null,
-   "end": null,
-   "deadline": null,
-   "deadline_is_estimate": true,
-   "eligibility": "Students",
-   "themes": [
-    "Disaster Risk Reduction and Management"
-   ],
-   "prize": null,
-   "registration_url": "https://chmsu.edu.ph/it-students-qualify-as-finalists-in-talisik-hackathon-challenge-2026/",
-   "official_url": "https://chmsu.edu.ph/it-students-qualify-as-finalists-in-talisik-hackathon-challenge-2026/",
-   "registration_closed": null,
-   "category": "hackathon",
-   "results": "CHMSU BSIT students qualified as finalists in the College Disaster Risk Reduction and Management (DRRM) Category.",
-   "ai_checks": null,
-   "extraction": "llm",
-   "source_id": "chmsu",
-   "sources": [
-    {
-     "label": "Carlos Hilado Memorial State University",
-     "url": "https://chmsu.edu.ph/it-students-qualify-as-finalists-in-talisik-hackathon-challenge-2026/"
-    }
-   ],
-   "id": "talisik-hackathon-challenge-2026-da879c",
-   "first_seen": "2026-11-20T11:33:04Z",
-   "last_verified": "2026-11-22T11:17:31Z",
-   "link_failures": 0,
-   "link_status": "inconclusive: site's TLS certificate chain could not be verified by the scanner",
-   "last_seen": "2026-11-21T23:13:14Z",
-   "precision": "NONE",
-   "location_check": "NO_LOCATION",
-   "is_new": true,
    "phase": "upcoming",
    "corroboration": 1,
    "confidence": {
@@ -2588,7 +2586,7 @@
    "id": "ph-s-biggest-5g-hackathon-41197d",
    "first_seen": "2026-11-03T00:48:31Z",
    "last_verified": null,
-   "link_failures": 73,
+   "link_failures": 74,
    "link_status": "HTTP 404",
    "last_seen": "2026-11-04T01:19:57Z",
    "precision": "NONE",
@@ -2610,7 +2608,7 @@
      ],
      [
       -10,
-      "official link failed 73 check(s)"
+      "official link failed 74 check(s)"
      ],
      [
       -10,
@@ -2664,7 +2662,7 @@
    ],
    "id": "decode-tomorrow-the-aboitiz-future-challenge-hackathon-b02b49",
    "first_seen": "2026-11-03T00:48:31Z",
-   "last_verified": "2026-11-22T19:34:55Z",
+   "last_verified": "2026-11-23T00:50:02Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
    "last_seen": "2026-11-04T01:19:57Z",
@@ -2740,7 +2738,7 @@
    ],
    "id": "egovph-hackathon-2026-4fb323",
    "first_seen": "2026-11-03T00:48:31Z",
-   "last_verified": "2026-11-22T19:34:55Z",
+   "last_verified": "2026-11-23T00:50:02Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
    "last_seen": "2026-11-04T01:19:57Z",

@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-26T04:59:59Z",
+ "generated_at": "2026-11-26T15:10:42Z",
  "items": [
   {
    "name": "HackForGov 2026 Region 13 CTF Regional Qualifying Round",
@@ -12,6 +12,12 @@
    "id": "cyber-hunt-ctf-league-zamboanga-2026",
    "url": null,
    "reason": "finished more than 62 days ago"
+  },
+  {
+   "name": "TALISIK Hackathon Challenge 2026",
+   "id": "talisik-hackathon-challenge-2026-da879c",
+   "url": "https://chmsu.edu.ph/it-students-qualify-as-finalists-in-talisik-hackathon-challenge-2026/",
+   "reason": "no deadline or event date"
   },
   {
    "name": "2026 Data, AI & Policy APAC Hackathon: Financial Health Frontiers",
@@ -65,12 +71,6 @@
    "name": "Can You HackIT 2026 Cebu",
    "id": "can-you-hackit-2026-cebu-95f618",
    "url": "https://cit.edu/2026/08/20/can-you-hackit-2026-cebu/",
-   "reason": "no deadline or event date"
-  },
-  {
-   "name": "TALISIK Hackathon Challenge 2026",
-   "id": "talisik-hackathon-challenge-2026-da879c",
-   "url": "https://chmsu.edu.ph/it-students-qualify-as-finalists-in-talisik-hackathon-challenge-2026/",
    "reason": "no deadline or event date"
   },
   {

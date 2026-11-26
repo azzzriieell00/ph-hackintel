@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-25T22:29:31Z",
+ "generated_at": "2026-11-26T04:59:59Z",
  "generator": "PH HackIntel pipeline 2.0",
  "offline_run": false,
  "llm_enabled": true,
@@ -10,8 +10,8 @@
    {
     "provider": "gemini",
     "model": "models/gemini-3.5-flash-lite",
-    "requests_this_run": 2,
-    "requests_today": 6,
+    "requests_this_run": 1,
+    "requests_today": 1,
     "paused_until": null,
     "skipped": null
    },
@@ -40,8 +40,8 @@
     "skipped": null
    }
   ],
-  "requests_this_run": 2,
-  "requests_today": 6,
+  "requests_this_run": 1,
+  "requests_today": 1,
   "daily_cap": 120,
   "stopped": null
  },
@@ -49,15 +49,15 @@
   "sources_total": 38,
   "sources_scanned": 38,
   "sources_skipped": 0,
-  "pages_opened": 7,
+  "pages_opened": 8,
   "queued_from_earlier": 0,
-  "links_considered": 9,
-  "duration_s": 268.0,
+  "links_considered": 13,
+  "duration_s": 220.3,
   "pending_links": 0,
   "feeds_known": 21,
-  "ai_pages_read": 2,
-  "ai_cache_hits": 5,
-  "candidates": 14
+  "ai_pages_read": 1,
+  "ai_cache_hits": 9,
+  "candidates": 18
  },
  "sources": [
   {
@@ -99,7 +99,7 @@
    "url": "https://ctftime.org/api/v1/events/",
    "errors": [],
    "notes": [
-    "90 CTFs listed in the window, 0 onsite in the Philippines"
+    "not due yet; events from the last read are carried over"
    ],
    "found": 0,
    "pages": 0,
@@ -164,12 +164,10 @@
    "type": "site",
    "url": "https://newsbytes.ph/",
    "errors": [],
-   "notes": [
-    "site search seems to ignore the query; only matching headlines kept"
-   ],
-   "found": 1,
-   "pages": 1,
-   "ai_read": 1,
+   "notes": [],
+   "found": 0,
+   "pages": 0,
+   "ai_read": 0,
    "ai_cache_hits": 0,
    "deferred": 0,
    "feeds": [
@@ -177,7 +175,7 @@
    ],
    "ok": true,
    "needs_llm": 0,
-   "leads": 2
+   "leads": 0
   },
   {
    "id": "tribune",
@@ -207,9 +205,9 @@
    "notes": [
     "no feed found; reading homepage links once a day"
    ],
-   "found": 1,
-   "pages": 1,
-   "ai_read": 1,
+   "found": 0,
+   "pages": 0,
+   "ai_read": 0,
    "ai_cache_hits": 0,
    "deferred": 0,
    "feeds": [],
@@ -225,11 +223,10 @@
    "errors": [],
    "notes": [],
    "found": 0,
-   "pages": 2,
+   "pages": 0,
    "ai_read": 0,
    "ai_cache_hits": 0,
    "deferred": 0,
-   "old_pages_skipped": 2,
    "ok": true,
    "needs_llm": 0,
    "leads": 0
@@ -242,9 +239,7 @@
    "errors": [
     "https://cebudailynews.inquirer.net/feed/: HTTP 403"
    ],
-   "notes": [
-    "site search seems to ignore the query; only matching headlines kept"
-   ],
+   "notes": [],
    "found": 0,
    "pages": 0,
    "ai_read": 0,
@@ -319,12 +314,9 @@
    "type": "site",
    "url": "https://asti.dost.gov.ph/",
    "errors": [
-    "https://asti.dost.gov.ph/: robots.txt could not be read",
     "https://asti.dost.gov.ph/feed/: robots.txt could not be read"
    ],
-   "notes": [
-    "site search skipped: robots.txt could not be read"
-   ],
+   "notes": [],
    "found": 0,
    "pages": 0,
    "ai_read": 0,
@@ -418,7 +410,9 @@
    "name": "National University",
    "type": "site",
    "url": "https://www.national-u.edu.ph/",
-   "errors": [],
+   "errors": [
+    "https://www.national-u.edu.ph/: HTTP 403"
+   ],
    "notes": [],
    "found": 0,
    "pages": 0,
@@ -426,7 +420,7 @@
    "ai_cache_hits": 0,
    "deferred": 0,
    "feeds": [],
-   "ok": true,
+   "ok": false,
    "needs_llm": 0,
    "leads": 0
   },
@@ -439,10 +433,10 @@
    "notes": [
     "no feed found; reading homepage links once a day"
    ],
-   "found": 0,
-   "pages": 0,
+   "found": 4,
+   "pages": 4,
    "ai_read": 0,
-   "ai_cache_hits": 0,
+   "ai_cache_hits": 4,
    "deferred": 0,
    "feeds": [],
    "ok": true,
@@ -455,10 +449,12 @@
    "type": "site",
    "url": "https://www.slu.edu.ph/",
    "errors": [],
-   "notes": [],
-   "found": 0,
-   "pages": 0,
-   "ai_read": 0,
+   "notes": [
+    "site search seems to ignore the query; only matching headlines kept"
+   ],
+   "found": 1,
+   "pages": 1,
+   "ai_read": 1,
    "ai_cache_hits": 0,
    "deferred": 0,
    "feeds": [
@@ -466,7 +462,7 @@
    ],
    "ok": true,
    "needs_llm": 0,
-   "leads": 0
+   "leads": 1
   },
   {
    "id": "hau",
@@ -493,13 +489,11 @@
    "type": "site",
    "url": "https://bicol-u.edu.ph/",
    "errors": [],
-   "notes": [
-    "site search seems to ignore the query; only matching headlines kept"
-   ],
+   "notes": [],
    "found": 0,
-   "pages": 1,
+   "pages": 0,
    "ai_read": 0,
-   "ai_cache_hits": 1,
+   "ai_cache_hits": 0,
    "deferred": 0,
    "feeds": [
     "https://bicol-u.edu.ph/feed/"
@@ -515,17 +509,17 @@
    "url": "https://cit.edu/",
    "errors": [],
    "notes": [],
-   "found": 2,
-   "pages": 2,
+   "found": 0,
+   "pages": 0,
    "ai_read": 0,
-   "ai_cache_hits": 2,
+   "ai_cache_hits": 0,
    "deferred": 0,
    "feeds": [
     "https://cit.edu/feed/"
    ],
    "ok": true,
    "needs_llm": 0,
-   "leads": 2
+   "leads": 1
   },
   {
    "id": "su",
@@ -551,7 +545,9 @@
    "name": "Carlos Hilado Memorial State University",
    "type": "site",
    "url": "https://chmsu.edu.ph/",
-   "errors": [],
+   "errors": [
+    "https://chmsu.edu.ph/feed/: robots.txt could not be read"
+   ],
    "notes": [],
    "found": 0,
    "pages": 0,
@@ -561,7 +557,7 @@
    "feeds": [
     "https://chmsu.edu.ph/feed/"
    ],
-   "ok": true,
+   "ok": false,
    "needs_llm": 0,
    "leads": 0
   },
@@ -570,10 +566,10 @@
    "name": "University of Antique",
    "type": "site",
    "url": "https://www.antiquespride.edu.ph/",
-   "errors": [
-    "https://www.antiquespride.edu.ph/feed/: robots.txt could not be read"
+   "errors": [],
+   "notes": [
+    "site search seems to ignore the query; only matching headlines kept"
    ],
-   "notes": [],
    "found": 0,
    "pages": 0,
    "ai_read": 0,
@@ -582,7 +578,7 @@
    "feeds": [
     "https://www.antiquespride.edu.ph/feed/"
    ],
-   "ok": false,
+   "ok": true,
    "needs_llm": 0,
    "leads": 0
   },
@@ -611,18 +607,20 @@
    "type": "site",
    "url": "https://www.uptacloban.edu.ph/",
    "errors": [],
-   "notes": [],
-   "found": 0,
-   "pages": 0,
+   "notes": [
+    "site search seems to ignore the query; only matching headlines kept"
+   ],
+   "found": 2,
+   "pages": 2,
    "ai_read": 0,
-   "ai_cache_hits": 0,
+   "ai_cache_hits": 2,
    "deferred": 0,
    "feeds": [
     "https://www.uptacloban.edu.ph/feed/"
    ],
    "ok": true,
    "needs_llm": 0,
-   "leads": 0
+   "leads": 2
   },
   {
    "id": "vsu",
@@ -669,10 +667,10 @@
    "url": "https://imcc.edu.ph/",
    "errors": [],
    "notes": [],
-   "found": 0,
-   "pages": 0,
+   "found": 1,
+   "pages": 1,
    "ai_read": 0,
-   "ai_cache_hits": 0,
+   "ai_cache_hits": 1,
    "deferred": 0,
    "feeds": [
     "https://imcc.edu.ph/feed/"
@@ -814,10 +812,10 @@
    "extraction": "manual",
    "source_id": "manual",
    "first_seen": "2026-11-03T00:48:31Z",
-   "last_verified": "2026-11-25T22:29:31Z",
+   "last_verified": "2026-11-26T04:59:59Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
-   "last_seen": "2026-11-25T22:29:31Z",
+   "last_seen": "2026-11-26T04:59:59Z",
    "lat": 13.7565,
    "lon": 121.0583,
    "precision": "CITY",
@@ -884,10 +882,10 @@
    "extraction": "manual",
    "source_id": "manual",
    "first_seen": "2026-11-03T00:48:31Z",
-   "last_verified": "2026-11-25T22:29:31Z",
+   "last_verified": "2026-11-26T04:59:59Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
-   "last_seen": "2026-11-25T22:29:31Z",
+   "last_seen": "2026-11-26T04:59:59Z",
    "lat": 16.42929,
    "lon": 120.59504,
    "precision": "EXACT",
@@ -959,7 +957,7 @@
    "last_verified": "2026-11-20T11:33:04Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
-   "last_seen": "2026-11-25T22:29:31Z",
+   "last_seen": "2026-11-26T04:59:59Z",
    "lat": 14.676,
    "lon": 121.0437,
    "precision": "CITY",
@@ -1166,7 +1164,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-25T22:29:31Z",
+   "last_seen": "2026-11-26T04:59:59Z",
    "lat": 13.4467,
    "lon": 121.8399,
    "precision": "CITY",
@@ -1269,7 +1267,8 @@
       "results reported"
      ]
     ]
-   }
+   },
+   "carried_over": true
   },
   {
    "id": "cyber-skills-challenge-iligan-2026",
@@ -1302,7 +1301,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-25T22:29:31Z",
+   "last_seen": "2026-11-26T04:59:59Z",
    "lat": 8.228,
    "lon": 124.2452,
    "precision": "CITY",
@@ -1370,7 +1369,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-25T22:29:31Z",
+   "last_seen": "2026-11-26T04:59:59Z",
    "lat": 13.9373,
    "lon": 121.617,
    "precision": "CITY",
@@ -1441,7 +1440,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-25T22:29:31Z",
+   "last_seen": "2026-11-26T04:59:59Z",
    "lat": 10.61216,
    "lon": 122.92613,
    "precision": "EXACT",
@@ -1602,7 +1601,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-25T02:23:47Z",
+   "last_seen": "2026-11-26T04:59:59Z",
    "precision": "CITY",
    "location_source": "nominatim",
    "location_check": "PROVINCE_FROM_MAP",
@@ -1630,8 +1629,7 @@
       "results reported"
      ]
     ]
-   },
-   "carried_over": true
+   }
   }
  ],
  "leads": [
@@ -1684,7 +1682,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-25T22:29:31Z",
+   "last_seen": "2026-11-26T04:59:59Z",
    "lat": 8.94627,
    "lon": 125.52941,
    "precision": "EXACT",
@@ -1757,7 +1755,7 @@
    "last_verified": null,
    "link_failures": null,
    "link_status": null,
-   "last_seen": "2026-11-25T22:29:31Z",
+   "last_seen": "2026-11-26T04:59:59Z",
    "lat": 6.9214,
    "lon": 122.079,
    "precision": "CITY",
@@ -1789,6 +1787,421 @@
      [
       15,
       "pin is inside the province the source names"
+     ]
+    ]
+   },
+   "hold_reason": "finished more than 62 days ago"
+  },
+  {
+   "name": "2026 Data, AI & Policy APAC Hackathon: Financial Health Frontiers",
+   "organizer": null,
+   "mode": "onsite",
+   "venue": "Asian Institute of Management",
+   "city": null,
+   "province": null,
+   "country": "Philippines",
+   "lat": null,
+   "lon": null,
+   "start": "2026-11-04T00:00:00+08:00",
+   "end": "2026-11-06T00:00:00+08:00",
+   "deadline": "2026-11-04T00:00:00+08:00",
+   "deadline_is_estimate": true,
+   "eligibility": "University students and recent graduates across the Asia-Pacific region",
+   "themes": [
+    "Financial Health",
+    "Data",
+    "Artificial Intelligence",
+    "Policy"
+   ],
+   "prize": null,
+   "registration_url": "https://www.uptacloban.edu.ph/up-tacloban-team-advances-to-apac-hackathon-finals-on-financial-health/",
+   "official_url": "https://www.uptacloban.edu.ph/up-tacloban-team-advances-to-apac-hackathon-finals-on-financial-health/",
+   "registration_closed": null,
+   "category": "hackathon",
+   "results": null,
+   "ai_checks": [
+    "city 'Makati' dropped: not in the page text",
+    "province 'Metro Manila' dropped: not in the page text"
+   ],
+   "extraction": "llm",
+   "source_id": "uptacloban",
+   "sources": [
+    {
+     "label": "UP Tacloban",
+     "url": "https://www.uptacloban.edu.ph/up-tacloban-team-advances-to-apac-hackathon-finals-on-financial-health/"
+    }
+   ],
+   "id": "2026-data-ai-policy-apac-hackathon-financial-health-frontier-2026-11-4bab58",
+   "first_seen": "2026-11-20T11:33:04Z",
+   "last_verified": null,
+   "link_failures": null,
+   "link_status": null,
+   "last_seen": "2026-11-26T04:59:59Z",
+   "precision": "NONE",
+   "location_check": "UNRESOLVED",
+   "is_new": false,
+   "phase": "finished",
+   "corroboration": 1,
+   "confidence": {
+    "score": 30,
+    "level": "LOW",
+    "reasons": [
+     [
+      15,
+      "read by AI from the page text, then checked"
+     ],
+     [
+      -5,
+      "some AI-read details failed the checks and were dropped"
+     ],
+     [
+      20,
+      "documented by a published source"
+     ]
+    ]
+   },
+   "hold_reason": "finished event without a confirmed Philippine venue (UNRESOLVED)"
+  },
+  {
+   "name": "Cybersecurity Capture the Flag (CTF) University Tournament",
+   "organizer": "Hexcore Labs PH",
+   "mode": "onsite",
+   "venue": "Asian Institute of Management",
+   "city": null,
+   "province": null,
+   "country": "Philippines",
+   "lat": null,
+   "lon": null,
+   "start": "2025-10-06T00:00:00+08:00",
+   "end": "2025-10-06T00:00:00+08:00",
+   "deadline": "2025-10-06T00:00:00+08:00",
+   "deadline_is_estimate": true,
+   "eligibility": "University students (16 top universities)",
+   "themes": [
+    "Cybersecurity"
+   ],
+   "prize": null,
+   "registration_url": "https://www.feutech.edu.ph/content/features/feu-tech-crowned-champion-at-national-cybersecurity-ctf-tournament",
+   "official_url": "https://www.feutech.edu.ph/content/features/feu-tech-crowned-champion-at-national-cybersecurity-ctf-tournament",
+   "registration_closed": true,
+   "category": "ctf",
+   "results": "FEU Tech crowned champion",
+   "ai_checks": [
+    "city 'Makati' dropped: not in the page text",
+    "province 'Metro Manila' dropped: not in the page text"
+   ],
+   "extraction": "llm",
+   "source_id": "feutech",
+   "sources": [
+    {
+     "label": "FEU Institute of Technology",
+     "url": "https://www.feutech.edu.ph/content/features/feu-tech-crowned-champion-at-national-cybersecurity-ctf-tournament"
+    }
+   ],
+   "id": "cybersecurity-capture-the-flag-ctf-university-tournament-2025-10-7e166d",
+   "first_seen": "2026-11-11T06:11:20Z",
+   "last_verified": null,
+   "link_failures": null,
+   "link_status": null,
+   "last_seen": "2026-11-26T04:59:59Z",
+   "precision": "NONE",
+   "location_check": "UNRESOLVED",
+   "is_new": false,
+   "phase": "finished",
+   "corroboration": 1,
+   "confidence": {
+    "score": 35,
+    "level": "LOW",
+    "reasons": [
+     [
+      15,
+      "read by AI from the page text, then checked"
+     ],
+     [
+      -5,
+      "some AI-read details failed the checks and were dropped"
+     ],
+     [
+      20,
+      "documented by a published source"
+     ],
+     [
+      5,
+      "results reported"
+     ]
+    ]
+   },
+   "hold_reason": "finished more than 62 days ago"
+  },
+  {
+   "name": "AI Hackathon",
+   "organizer": "Hexcore Labs PH",
+   "mode": "unspecified",
+   "venue": null,
+   "city": null,
+   "province": null,
+   "country": "Philippines",
+   "lat": null,
+   "lon": null,
+   "start": "2025-10-06T00:00:00+08:00",
+   "end": "2025-10-06T00:00:00+08:00",
+   "deadline": "2025-10-06T00:00:00+08:00",
+   "deadline_is_estimate": true,
+   "eligibility": null,
+   "themes": [
+    "Artificial Intelligence"
+   ],
+   "prize": null,
+   "registration_url": "https://www.feutech.edu.ph/content/features/feu-tech-crowned-champion-at-national-cybersecurity-ctf-tournament",
+   "official_url": "https://www.feutech.edu.ph/content/features/feu-tech-crowned-champion-at-national-cybersecurity-ctf-tournament",
+   "registration_closed": true,
+   "category": "hackathon",
+   "results": null,
+   "ai_checks": null,
+   "extraction": "llm",
+   "source_id": "feutech",
+   "sources": [
+    {
+     "label": "FEU Institute of Technology",
+     "url": "https://www.feutech.edu.ph/content/features/feu-tech-crowned-champion-at-national-cybersecurity-ctf-tournament"
+    }
+   ],
+   "id": "ai-hackathon-2025-10-7e166d",
+   "first_seen": "2026-11-11T06:11:20Z",
+   "last_verified": null,
+   "link_failures": null,
+   "link_status": null,
+   "last_seen": "2026-11-26T04:59:59Z",
+   "precision": "NONE",
+   "location_check": "NO_LOCATION",
+   "is_new": false,
+   "phase": "finished",
+   "corroboration": 1,
+   "confidence": {
+    "score": 35,
+    "level": "LOW",
+    "reasons": [
+     [
+      15,
+      "read by AI from the page text, then checked"
+     ],
+     [
+      20,
+      "documented by a published source"
+     ]
+    ]
+   },
+   "hold_reason": "finished more than 62 days ago"
+  },
+  {
+   "name": "BPI D.A.T.A. Wave Hackathon & Summit 2025",
+   "organizer": "Eskwelabs in partnership with the Bank of the Philippine Islands (BPI)",
+   "mode": "unspecified",
+   "venue": null,
+   "city": null,
+   "province": null,
+   "country": "Philippines",
+   "lat": null,
+   "lon": null,
+   "start": null,
+   "end": null,
+   "deadline": null,
+   "deadline_is_estimate": true,
+   "eligibility": "Filipino students and young professionals",
+   "themes": [
+    "Digitalization",
+    "Data",
+    "Analytics",
+    "Transformation",
+    "AI"
+   ],
+   "prize": "Cash prizes and opportunities for internships or career pathways with BPI",
+   "registration_url": "https://www.feutech.edu.ph/content/features/feu-tech-students-are-champions-of-digitalization-at-bpi-data-wave-2025",
+   "official_url": "https://www.feutech.edu.ph/content/features/feu-tech-students-are-champions-of-digitalization-at-bpi-data-wave-2025",
+   "registration_closed": null,
+   "category": "hackathon",
+   "results": "Jansen Moral and Cristen Tolentino from FEU Institute of Technology won Champions of the Digitalization Track with their project BIPBIP.",
+   "ai_checks": null,
+   "extraction": "llm",
+   "source_id": "feutech",
+   "sources": [
+    {
+     "label": "FEU Institute of Technology",
+     "url": "https://www.feutech.edu.ph/content/features/feu-tech-students-are-champions-of-digitalization-at-bpi-data-wave-2025"
+    }
+   ],
+   "id": "bpi-d-a-t-a-wave-hackathon-summit-2025-41f2e4",
+   "first_seen": "2026-11-11T06:11:20Z",
+   "last_verified": "2026-11-26T04:59:59Z",
+   "link_failures": 0,
+   "link_status": "HTTP 200",
+   "last_seen": "2026-11-26T04:59:59Z",
+   "precision": "NONE",
+   "location_check": "NO_LOCATION",
+   "is_new": false,
+   "phase": "upcoming",
+   "corroboration": 1,
+   "confidence": {
+    "score": 25,
+    "level": "LOW",
+    "reasons": [
+     [
+      15,
+      "read by AI from the page text, then checked"
+     ],
+     [
+      20,
+      "official link answered in the last 72 hours"
+     ],
+     [
+      -10,
+      "no registration deadline stated"
+     ]
+    ]
+   },
+   "hold_reason": "no deadline or event date"
+  },
+  {
+   "name": "Usher Technologies' 1st Hackathon Competition",
+   "organizer": "USHER Technologies, Department of Science and Technology (DOST), and Philippine Council for Industry, Energy, and Emerging Technology Research and Development (PCIEERD)",
+   "mode": "online",
+   "venue": null,
+   "city": null,
+   "province": null,
+   "country": "Philippines",
+   "lat": null,
+   "lon": null,
+   "start": null,
+   "end": null,
+   "deadline": null,
+   "deadline_is_estimate": true,
+   "eligibility": "Students from participating schools including FEU Institute of Technology, Asian Institute of Management, De La Salle University - Manila, Bulacan State University, Colegio de Muntinlupa, Mapua University, Pamantasan ng Lungsod ng Maynila, St. Peter’s College - Iligan City, Technological Institute o",
+   "themes": [
+    "Vibration data analysis",
+    "Artificial intelligence",
+    "Earthquake damage detection"
+   ],
+   "prize": "Cash prize",
+   "registration_url": "https://www.feutech.edu.ph/content/features/engineering-students-emerge-as-champions-in-1st-hackathon-competition-of-usher-technologies",
+   "official_url": "https://www.feutech.edu.ph/content/features/engineering-students-emerge-as-champions-in-1st-hackathon-competition-of-usher-technologies",
+   "registration_closed": true,
+   "category": "hackathon",
+   "results": "Champions: AIssentials team from FEU Institute of Technology with their 'Real-Time Earthquake Damage Detection System'.",
+   "ai_checks": [
+    "start 2021-07-15 dropped: implausible year",
+    "end 2021-07-17 dropped: implausible year"
+   ],
+   "extraction": "llm",
+   "source_id": "feutech",
+   "sources": [
+    {
+     "label": "FEU Institute of Technology",
+     "url": "https://www.feutech.edu.ph/content/features/engineering-students-emerge-as-champions-in-1st-hackathon-competition-of-usher-technologies"
+    }
+   ],
+   "id": "usher-technologies-1st-hackathon-competition-88c1ff",
+   "first_seen": "2026-11-11T06:11:20Z",
+   "last_verified": "2026-11-26T04:59:59Z",
+   "link_failures": 0,
+   "link_status": "HTTP 200",
+   "last_seen": "2026-11-26T04:59:59Z",
+   "precision": "NONE",
+   "location_check": "N/A",
+   "is_new": false,
+   "phase": "upcoming",
+   "corroboration": 1,
+   "confidence": {
+    "score": 20,
+    "level": "LOW",
+    "reasons": [
+     [
+      15,
+      "read by AI from the page text, then checked"
+     ],
+     [
+      -5,
+      "some AI-read details failed the checks and were dropped"
+     ],
+     [
+      20,
+      "official link answered in the last 72 hours"
+     ],
+     [
+      -10,
+      "no registration deadline stated"
+     ]
+    ]
+   },
+   "hold_reason": "no deadline or event date"
+  },
+  {
+   "name": "HackForGov 5 – Cordillera Regional Competition",
+   "organizer": "Department of Information and Communications Technology (DICT) Cordillera Administrative Region (CAR)",
+   "mode": "onsite",
+   "venue": "Paragon Hotel",
+   "city": "Baguio City",
+   "province": "Benguet",
+   "country": "Philippines",
+   "lat": 16.41237,
+   "lon": 120.59207,
+   "start": "2026-08-13T00:00:00+08:00",
+   "end": "2026-08-13T00:00:00+08:00",
+   "deadline": "2026-08-13T00:00:00+08:00",
+   "deadline_is_estimate": true,
+   "eligibility": null,
+   "themes": [
+    "network security",
+    "web security",
+    "cryptography",
+    "incident response",
+    "Decoding Youth Innovation, Anchoring One Nation’s Digital De"
+   ],
+   "prize": null,
+   "registration_url": "https://www.slu.edu.ph/2026/08/27/slu-reclaims-crown-at-the-hackforgov-5-cordillera-regional-competition/",
+   "official_url": "https://www.slu.edu.ph/2026/08/27/slu-reclaims-crown-at-the-hackforgov-5-cordillera-regional-competition/",
+   "registration_closed": true,
+   "category": "ctf",
+   "results": "Saint Louis University (SLU) team Fable4 won the championship title.",
+   "ai_checks": null,
+   "extraction": "llm",
+   "source_id": "slu",
+   "sources": [
+    {
+     "label": "Saint Louis University (Baguio)",
+     "url": "https://www.slu.edu.ph/2026/08/27/slu-reclaims-crown-at-the-hackforgov-5-cordillera-regional-competition/"
+    }
+   ],
+   "id": "hackforgov-5-cordillera-regional-competition-2026-08-a90ed2",
+   "first_seen": "2026-11-04T09:08:49Z",
+   "last_verified": null,
+   "link_failures": null,
+   "link_status": null,
+   "last_seen": "2026-11-26T04:59:59Z",
+   "precision": "EXACT",
+   "location_source": "nominatim",
+   "location_check": "PROVINCE_FROM_MAP",
+   "is_new": false,
+   "phase": "finished",
+   "corroboration": 1,
+   "confidence": {
+    "score": 45,
+    "level": "LOW",
+    "reasons": [
+     [
+      15,
+      "read by AI from the page text, then checked"
+     ],
+     [
+      20,
+      "documented by a published source"
+     ],
+     [
+      5,
+      "results reported"
+     ],
+     [
+      5,
+      "venue located exactly"
      ]
     ]
    },
@@ -1858,7 +2271,8 @@
      ]
     ]
    },
-   "hold_reason": "finished event without a confirmed Philippine venue (NO_LOCATION)"
+   "hold_reason": "finished event without a confirmed Philippine venue (NO_LOCATION)",
+   "carried_over": true
   },
   {
    "name": "ASEAN AI Hackathon",
@@ -1896,7 +2310,7 @@
    ],
    "id": "asean-ai-hackathon-23e39c",
    "first_seen": "2026-11-03T00:48:31Z",
-   "last_verified": "2026-11-25T22:29:31Z",
+   "last_verified": "2026-11-26T04:59:59Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
    "last_seen": "2026-11-25T22:29:31Z",
@@ -1923,7 +2337,8 @@
      ]
     ]
    },
-   "hold_reason": "no deadline or event date"
+   "hold_reason": "no deadline or event date",
+   "carried_over": true
   },
   {
    "name": "Can You HackIT 2026 Cebu",
@@ -1963,7 +2378,7 @@
    ],
    "id": "can-you-hackit-2026-cebu-95f618",
    "first_seen": "2026-11-03T00:48:31Z",
-   "last_verified": "2026-11-25T22:29:31Z",
+   "last_verified": "2026-11-26T04:59:59Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
    "last_seen": "2026-11-25T22:29:31Z",
@@ -1991,427 +2406,7 @@
      ]
     ]
    },
-   "hold_reason": "no deadline or event date"
-  },
-  {
-   "name": "2026 Data, AI & Policy APAC Hackathon: Financial Health Frontiers",
-   "organizer": null,
-   "mode": "onsite",
-   "venue": "Asian Institute of Management",
-   "city": null,
-   "province": null,
-   "country": "Philippines",
-   "lat": null,
-   "lon": null,
-   "start": "2026-11-04T00:00:00+08:00",
-   "end": "2026-11-06T00:00:00+08:00",
-   "deadline": "2026-11-04T00:00:00+08:00",
-   "deadline_is_estimate": true,
-   "eligibility": "University students and recent graduates across the Asia-Pacific region",
-   "themes": [
-    "Financial Health",
-    "Data",
-    "Artificial Intelligence",
-    "Policy"
-   ],
-   "prize": null,
-   "registration_url": "https://www.uptacloban.edu.ph/up-tacloban-team-advances-to-apac-hackathon-finals-on-financial-health/",
-   "official_url": "https://www.uptacloban.edu.ph/up-tacloban-team-advances-to-apac-hackathon-finals-on-financial-health/",
-   "registration_closed": null,
-   "category": "hackathon",
-   "results": null,
-   "ai_checks": [
-    "city 'Makati' dropped: not in the page text",
-    "province 'Metro Manila' dropped: not in the page text"
-   ],
-   "extraction": "llm",
-   "source_id": "uptacloban",
-   "sources": [
-    {
-     "label": "UP Tacloban",
-     "url": "https://www.uptacloban.edu.ph/up-tacloban-team-advances-to-apac-hackathon-finals-on-financial-health/"
-    }
-   ],
-   "id": "2026-data-ai-policy-apac-hackathon-financial-health-frontier-2026-11-4bab58",
-   "first_seen": "2026-11-20T11:33:04Z",
-   "last_verified": null,
-   "link_failures": null,
-   "link_status": null,
-   "last_seen": "2026-11-25T02:23:47Z",
-   "precision": "NONE",
-   "location_check": "UNRESOLVED",
-   "is_new": false,
-   "phase": "finished",
-   "corroboration": 1,
-   "confidence": {
-    "score": 30,
-    "level": "LOW",
-    "reasons": [
-     [
-      15,
-      "read by AI from the page text, then checked"
-     ],
-     [
-      -5,
-      "some AI-read details failed the checks and were dropped"
-     ],
-     [
-      20,
-      "documented by a published source"
-     ]
-    ]
-   },
-   "hold_reason": "finished event without a confirmed Philippine venue (UNRESOLVED)",
-   "carried_over": true
-  },
-  {
-   "name": "Cybersecurity Capture the Flag (CTF) University Tournament",
-   "organizer": "Hexcore Labs PH",
-   "mode": "onsite",
-   "venue": "Asian Institute of Management",
-   "city": null,
-   "province": null,
-   "country": "Philippines",
-   "lat": null,
-   "lon": null,
-   "start": "2025-10-06T00:00:00+08:00",
-   "end": "2025-10-06T00:00:00+08:00",
-   "deadline": "2025-10-06T00:00:00+08:00",
-   "deadline_is_estimate": true,
-   "eligibility": "University students (16 top universities)",
-   "themes": [
-    "Cybersecurity"
-   ],
-   "prize": null,
-   "registration_url": "https://www.feutech.edu.ph/content/features/feu-tech-crowned-champion-at-national-cybersecurity-ctf-tournament",
-   "official_url": "https://www.feutech.edu.ph/content/features/feu-tech-crowned-champion-at-national-cybersecurity-ctf-tournament",
-   "registration_closed": true,
-   "category": "ctf",
-   "results": "FEU Tech crowned champion",
-   "ai_checks": [
-    "city 'Makati' dropped: not in the page text",
-    "province 'Metro Manila' dropped: not in the page text"
-   ],
-   "extraction": "llm",
-   "source_id": "feutech",
-   "sources": [
-    {
-     "label": "FEU Institute of Technology",
-     "url": "https://www.feutech.edu.ph/content/features/feu-tech-crowned-champion-at-national-cybersecurity-ctf-tournament"
-    }
-   ],
-   "id": "cybersecurity-capture-the-flag-ctf-university-tournament-2025-10-7e166d",
-   "first_seen": "2026-11-11T06:11:20Z",
-   "last_verified": null,
-   "link_failures": null,
-   "link_status": null,
-   "last_seen": "2026-11-25T02:23:47Z",
-   "precision": "NONE",
-   "location_check": "UNRESOLVED",
-   "is_new": false,
-   "phase": "finished",
-   "corroboration": 1,
-   "confidence": {
-    "score": 35,
-    "level": "LOW",
-    "reasons": [
-     [
-      15,
-      "read by AI from the page text, then checked"
-     ],
-     [
-      -5,
-      "some AI-read details failed the checks and were dropped"
-     ],
-     [
-      20,
-      "documented by a published source"
-     ],
-     [
-      5,
-      "results reported"
-     ]
-    ]
-   },
-   "hold_reason": "finished more than 62 days ago",
-   "carried_over": true
-  },
-  {
-   "name": "AI Hackathon",
-   "organizer": "Hexcore Labs PH",
-   "mode": "unspecified",
-   "venue": null,
-   "city": null,
-   "province": null,
-   "country": "Philippines",
-   "lat": null,
-   "lon": null,
-   "start": "2025-10-06T00:00:00+08:00",
-   "end": "2025-10-06T00:00:00+08:00",
-   "deadline": "2025-10-06T00:00:00+08:00",
-   "deadline_is_estimate": true,
-   "eligibility": null,
-   "themes": [
-    "Artificial Intelligence"
-   ],
-   "prize": null,
-   "registration_url": "https://www.feutech.edu.ph/content/features/feu-tech-crowned-champion-at-national-cybersecurity-ctf-tournament",
-   "official_url": "https://www.feutech.edu.ph/content/features/feu-tech-crowned-champion-at-national-cybersecurity-ctf-tournament",
-   "registration_closed": true,
-   "category": "hackathon",
-   "results": null,
-   "ai_checks": null,
-   "extraction": "llm",
-   "source_id": "feutech",
-   "sources": [
-    {
-     "label": "FEU Institute of Technology",
-     "url": "https://www.feutech.edu.ph/content/features/feu-tech-crowned-champion-at-national-cybersecurity-ctf-tournament"
-    }
-   ],
-   "id": "ai-hackathon-2025-10-7e166d",
-   "first_seen": "2026-11-11T06:11:20Z",
-   "last_verified": null,
-   "link_failures": null,
-   "link_status": null,
-   "last_seen": "2026-11-25T02:23:47Z",
-   "precision": "NONE",
-   "location_check": "NO_LOCATION",
-   "is_new": false,
-   "phase": "finished",
-   "corroboration": 1,
-   "confidence": {
-    "score": 35,
-    "level": "LOW",
-    "reasons": [
-     [
-      15,
-      "read by AI from the page text, then checked"
-     ],
-     [
-      20,
-      "documented by a published source"
-     ]
-    ]
-   },
-   "hold_reason": "finished more than 62 days ago",
-   "carried_over": true
-  },
-  {
-   "name": "BPI D.A.T.A. Wave Hackathon & Summit 2025",
-   "organizer": "Eskwelabs in partnership with the Bank of the Philippine Islands (BPI)",
-   "mode": "unspecified",
-   "venue": null,
-   "city": null,
-   "province": null,
-   "country": "Philippines",
-   "lat": null,
-   "lon": null,
-   "start": null,
-   "end": null,
-   "deadline": null,
-   "deadline_is_estimate": true,
-   "eligibility": "Filipino students and young professionals",
-   "themes": [
-    "Digitalization",
-    "Data",
-    "Analytics",
-    "Transformation",
-    "AI"
-   ],
-   "prize": "Cash prizes and opportunities for internships or career pathways with BPI",
-   "registration_url": "https://www.feutech.edu.ph/content/features/feu-tech-students-are-champions-of-digitalization-at-bpi-data-wave-2025",
-   "official_url": "https://www.feutech.edu.ph/content/features/feu-tech-students-are-champions-of-digitalization-at-bpi-data-wave-2025",
-   "registration_closed": null,
-   "category": "hackathon",
-   "results": "Jansen Moral and Cristen Tolentino from FEU Institute of Technology won Champions of the Digitalization Track with their project BIPBIP.",
-   "ai_checks": null,
-   "extraction": "llm",
-   "source_id": "feutech",
-   "sources": [
-    {
-     "label": "FEU Institute of Technology",
-     "url": "https://www.feutech.edu.ph/content/features/feu-tech-students-are-champions-of-digitalization-at-bpi-data-wave-2025"
-    }
-   ],
-   "id": "bpi-d-a-t-a-wave-hackathon-summit-2025-41f2e4",
-   "first_seen": "2026-11-11T06:11:20Z",
-   "last_verified": "2026-11-25T22:29:31Z",
-   "link_failures": 0,
-   "link_status": "HTTP 200",
-   "last_seen": "2026-11-25T02:23:47Z",
-   "precision": "NONE",
-   "location_check": "NO_LOCATION",
-   "is_new": false,
-   "phase": "upcoming",
-   "corroboration": 1,
-   "confidence": {
-    "score": 25,
-    "level": "LOW",
-    "reasons": [
-     [
-      15,
-      "read by AI from the page text, then checked"
-     ],
-     [
-      20,
-      "official link answered in the last 72 hours"
-     ],
-     [
-      -10,
-      "no registration deadline stated"
-     ]
-    ]
-   },
    "hold_reason": "no deadline or event date",
-   "carried_over": true
-  },
-  {
-   "name": "Usher Technologies' 1st Hackathon Competition",
-   "organizer": "USHER Technologies, Department of Science and Technology (DOST), and Philippine Council for Industry, Energy, and Emerging Technology Research and Development (PCIEERD)",
-   "mode": "online",
-   "venue": null,
-   "city": null,
-   "province": null,
-   "country": "Philippines",
-   "lat": null,
-   "lon": null,
-   "start": null,
-   "end": null,
-   "deadline": null,
-   "deadline_is_estimate": true,
-   "eligibility": "Students from participating schools including FEU Institute of Technology, Asian Institute of Management, De La Salle University - Manila, Bulacan State University, Colegio de Muntinlupa, Mapua University, Pamantasan ng Lungsod ng Maynila, St. Peter’s College - Iligan City, Technological Institute o",
-   "themes": [
-    "Vibration data analysis",
-    "Artificial intelligence",
-    "Earthquake damage detection"
-   ],
-   "prize": "Cash prize",
-   "registration_url": "https://www.feutech.edu.ph/content/features/engineering-students-emerge-as-champions-in-1st-hackathon-competition-of-usher-technologies",
-   "official_url": "https://www.feutech.edu.ph/content/features/engineering-students-emerge-as-champions-in-1st-hackathon-competition-of-usher-technologies",
-   "registration_closed": true,
-   "category": "hackathon",
-   "results": "Champions: AIssentials team from FEU Institute of Technology with their 'Real-Time Earthquake Damage Detection System'.",
-   "ai_checks": [
-    "start 2021-07-15 dropped: implausible year",
-    "end 2021-07-17 dropped: implausible year"
-   ],
-   "extraction": "llm",
-   "source_id": "feutech",
-   "sources": [
-    {
-     "label": "FEU Institute of Technology",
-     "url": "https://www.feutech.edu.ph/content/features/engineering-students-emerge-as-champions-in-1st-hackathon-competition-of-usher-technologies"
-    }
-   ],
-   "id": "usher-technologies-1st-hackathon-competition-88c1ff",
-   "first_seen": "2026-11-11T06:11:20Z",
-   "last_verified": "2026-11-25T22:29:31Z",
-   "link_failures": 0,
-   "link_status": "HTTP 200",
-   "last_seen": "2026-11-25T02:23:47Z",
-   "precision": "NONE",
-   "location_check": "N/A",
-   "is_new": false,
-   "phase": "upcoming",
-   "corroboration": 1,
-   "confidence": {
-    "score": 20,
-    "level": "LOW",
-    "reasons": [
-     [
-      15,
-      "read by AI from the page text, then checked"
-     ],
-     [
-      -5,
-      "some AI-read details failed the checks and were dropped"
-     ],
-     [
-      20,
-      "official link answered in the last 72 hours"
-     ],
-     [
-      -10,
-      "no registration deadline stated"
-     ]
-    ]
-   },
-   "hold_reason": "no deadline or event date",
-   "carried_over": true
-  },
-  {
-   "name": "HackForGov 5 – Cordillera Regional Competition",
-   "organizer": "Department of Information and Communications Technology (DICT) Cordillera Administrative Region (CAR)",
-   "mode": "onsite",
-   "venue": "Paragon Hotel",
-   "city": "Baguio City",
-   "province": "Benguet",
-   "country": "Philippines",
-   "lat": 16.41237,
-   "lon": 120.59207,
-   "start": "2026-08-13T00:00:00+08:00",
-   "end": "2026-08-13T00:00:00+08:00",
-   "deadline": "2026-08-13T00:00:00+08:00",
-   "deadline_is_estimate": true,
-   "eligibility": null,
-   "themes": [
-    "Decoding Youth Innovation, Anchoring One Nation’s Digital De",
-    "network security",
-    "web security",
-    "cryptography",
-    "incident response"
-   ],
-   "prize": null,
-   "registration_url": "https://www.slu.edu.ph/2026/08/27/slu-reclaims-crown-at-the-hackforgov-5-cordillera-regional-competition/",
-   "official_url": "https://www.slu.edu.ph/2026/08/27/slu-reclaims-crown-at-the-hackforgov-5-cordillera-regional-competition/",
-   "registration_closed": null,
-   "category": "ctf",
-   "results": "Team Fable4 from Saint Louis University won the championship title, outpacing 12 other teams.",
-   "ai_checks": null,
-   "extraction": "llm",
-   "source_id": "slu",
-   "sources": [
-    {
-     "label": "Saint Louis University (Baguio)",
-     "url": "https://www.slu.edu.ph/2026/08/27/slu-reclaims-crown-at-the-hackforgov-5-cordillera-regional-competition/"
-    }
-   ],
-   "id": "hackforgov-5-cordillera-regional-competition-2026-08-a90ed2",
-   "first_seen": "2026-11-04T09:08:49Z",
-   "last_verified": null,
-   "link_failures": null,
-   "link_status": null,
-   "last_seen": "2026-11-25T02:23:47Z",
-   "precision": "EXACT",
-   "location_source": "nominatim",
-   "location_check": "PROVINCE_FROM_MAP",
-   "is_new": false,
-   "phase": "finished",
-   "corroboration": 1,
-   "confidence": {
-    "score": 45,
-    "level": "LOW",
-    "reasons": [
-     [
-      15,
-      "read by AI from the page text, then checked"
-     ],
-     [
-      20,
-      "documented by a published source"
-     ],
-     [
-      5,
-      "results reported"
-     ],
-     [
-      5,
-      "venue located exactly"
-     ]
-    ]
-   },
-   "hold_reason": "finished more than 62 days ago",
    "carried_over": true
   },
   {
@@ -2451,7 +2446,7 @@
    "first_seen": "2026-11-20T11:33:04Z",
    "last_verified": "2026-11-25T22:29:31Z",
    "link_failures": 0,
-   "link_status": "HTTP 200",
+   "link_status": "inconclusive: site's TLS certificate chain could not be verified by the scanner",
    "last_seen": "2026-11-23T00:50:02Z",
    "precision": "NONE",
    "location_check": "NO_LOCATION",
@@ -2590,7 +2585,7 @@
    "id": "ph-s-biggest-5g-hackathon-41197d",
    "first_seen": "2026-11-03T00:48:31Z",
    "last_verified": null,
-   "link_failures": 81,
+   "link_failures": 82,
    "link_status": "HTTP 404",
    "last_seen": "2026-11-04T01:19:57Z",
    "precision": "NONE",
@@ -2612,7 +2607,7 @@
      ],
      [
       -10,
-      "official link failed 81 check(s)"
+      "official link failed 82 check(s)"
      ],
      [
       -10,
@@ -2666,7 +2661,7 @@
    ],
    "id": "decode-tomorrow-the-aboitiz-future-challenge-hackathon-b02b49",
    "first_seen": "2026-11-03T00:48:31Z",
-   "last_verified": "2026-11-25T22:29:31Z",
+   "last_verified": "2026-11-26T04:59:59Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
    "last_seen": "2026-11-04T01:19:57Z",
@@ -2742,7 +2737,7 @@
    ],
    "id": "egovph-hackathon-2026-4fb323",
    "first_seen": "2026-11-03T00:48:31Z",
-   "last_verified": "2026-11-25T22:29:31Z",
+   "last_verified": "2026-11-26T04:59:59Z",
    "link_failures": 0,
    "link_status": "HTTP 200",
    "last_seen": "2026-11-04T01:19:57Z",
